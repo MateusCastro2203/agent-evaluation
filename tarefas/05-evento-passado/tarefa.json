@@ -1,0 +1,6 @@
+{
+  "titulo": "Inscrição em evento que já aconteceu",
+  "prompt": "Não deixe inscrever em evento que já aconteceu: se a data do evento já passou, `inscrever` deve recusar a inscrição.",
+  "permitidos": ["src/inscricoes.ts", "test/**"],
+  "dependeDeConvencao": true
+}

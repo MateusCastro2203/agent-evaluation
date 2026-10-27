@@ -1,0 +1,6 @@
+{
+  "titulo": "CSV com vírgula entre aspas",
+  "prompt": "Bug: a importação de CSV (`importarCsv`) quebra quando o nome tem vírgula entre aspas. Uma linha como `\"Silva, Ana\",ana@exemplo.com` deveria virar a pessoa de nome `Silva, Ana`, mas o nome sai cortado e o e-mail sai errado. Corrija.",
+  "permitidos": ["src/importacao.ts", "test/**"],
+  "dependeDeConvencao": false
+}

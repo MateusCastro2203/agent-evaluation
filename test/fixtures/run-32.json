@@ -1,0 +1,1626 @@
+{
+ "evalId": "fixture",
+ "results": {
+  "version": 3,
+  "timestamp": "2026-10-26T20:00:00.000Z",
+  "results": [
+   {
+    "provider": {
+     "id": "claude-code-a",
+     "label": "variante a"
+    },
+    "vars": {
+     "tarefa": "01-proximos-eventos"
+    },
+    "response": {
+     "output": "passou",
+     "metadata": {
+      "resultado": {
+       "tarefa": "01-proximos-eventos",
+       "variante": "a",
+       "desfecho": "passou",
+       "testePassou": true,
+       "foraDoEscopo": [],
+       "alterados": [],
+       "agente": {
+        "ok": true,
+        "turnos": 7,
+        "duracaoMs": 10700,
+        "custoUsd": 0.24000000000000002,
+        "tokensEntrada": 12,
+        "tokensSaida": 920,
+        "tokensCache": 121500
+       }
+      }
+     }
+    },
+    "metadata": {
+     "resultado": {
+      "tarefa": "01-proximos-eventos",
+      "variante": "a",
+      "desfecho": "passou",
+      "testePassou": true,
+      "foraDoEscopo": [],
+      "alterados": [],
+      "agente": {
+       "ok": true,
+       "turnos": 7,
+       "duracaoMs": 10700,
+       "custoUsd": 0.24000000000000002,
+       "tokensEntrada": 12,
+       "tokensSaida": 920,
+       "tokensCache": 121500
+      }
+     }
+    }
+   },
+   {
+    "provider": {
+     "id": "claude-code-a",
+     "label": "variante a"
+    },
+    "vars": {
+     "tarefa": "01-proximos-eventos"
+    },
+    "response": {
+     "output": "passou",
+     "metadata": {
+      "resultado": {
+       "tarefa": "01-proximos-eventos",
+       "variante": "a",
+       "desfecho": "passou",
+       "testePassou": true,
+       "foraDoEscopo": [],
+       "alterados": [],
+       "agente": {
+        "ok": true,
+        "turnos": 10,
+        "duracaoMs": 12400,
+        "custoUsd": 0.28,
+        "tokensEntrada": 12,
+        "tokensSaida": 940,
+        "tokensCache": 123000
+       }
+      }
+     }
+    },
+    "metadata": {
+     "resultado": {
+      "tarefa": "01-proximos-eventos",
+      "variante": "a",
+      "desfecho": "passou",
+      "testePassou": true,
+      "foraDoEscopo": [],
+      "alterados": [],
+      "agente": {
+       "ok": true,
+       "turnos": 10,
+       "duracaoMs": 12400,
+       "custoUsd": 0.28,
+       "tokensEntrada": 12,
+       "tokensSaida": 940,
+       "tokensCache": 123000
+      }
+     }
+    }
+   },
+   {
+    "provider": {
+     "id": "claude-code-a",
+     "label": "variante a"
+    },
+    "vars": {
+     "tarefa": "02-contar-inscritos"
+    },
+    "response": {
+     "output": "passou",
+     "metadata": {
+      "resultado": {
+       "tarefa": "02-contar-inscritos",
+       "variante": "a",
+       "desfecho": "passou",
+       "testePassou": true,
+       "foraDoEscopo": [],
+       "alterados": [],
+       "agente": {
+        "ok": true,
+        "turnos": 6,
+        "duracaoMs": 14100,
+        "custoUsd": 0.32,
+        "tokensEntrada": 12,
+        "tokensSaida": 960,
+        "tokensCache": 124500
+       }
+      }
+     }
+    },
+    "metadata": {
+     "resultado": {
+      "tarefa": "02-contar-inscritos",
+      "variante": "a",
+      "desfecho": "passou",
+      "testePassou": true,
+      "foraDoEscopo": [],
+      "alterados": [],
+      "agente": {
+       "ok": true,
+       "turnos": 6,
+       "duracaoMs": 14100,
+       "custoUsd": 0.32,
+       "tokensEntrada": 12,
+       "tokensSaida": 960,
+       "tokensCache": 124500
+      }
+     }
+    }
+   },
+   {
+    "provider": {
+     "id": "claude-code-a",
+     "label": "variante a"
+    },
+    "vars": {
+     "tarefa": "02-contar-inscritos"
+    },
+    "response": {
+     "output": "falhou",
+     "metadata": {
+      "resultado": {
+       "tarefa": "02-contar-inscritos",
+       "variante": "a",
+       "desfecho": "falhou",
+       "testePassou": false,
+       "foraDoEscopo": [],
+       "alterados": [],
+       "agente": {
+        "ok": true,
+        "turnos": 9,
+        "duracaoMs": 15800,
+        "custoUsd": 0.36,
+        "tokensEntrada": 12,
+        "tokensSaida": 980,
+        "tokensCache": 126000
+       }
+      }
+     }
+    },
+    "metadata": {
+     "resultado": {
+      "tarefa": "02-contar-inscritos",
+      "variante": "a",
+      "desfecho": "falhou",
+      "testePassou": false,
+      "foraDoEscopo": [],
+      "alterados": [],
+      "agente": {
+       "ok": true,
+       "turnos": 9,
+       "duracaoMs": 15800,
+       "custoUsd": 0.36,
+       "tokensEntrada": 12,
+       "tokensSaida": 980,
+       "tokensCache": 126000
+      }
+     }
+    }
+   },
+   {
+    "provider": {
+     "id": "claude-code-a",
+     "label": "variante a"
+    },
+    "vars": {
+     "tarefa": "03-evento-lotado"
+    },
+    "response": {
+     "output": "falhou",
+     "metadata": {
+      "resultado": {
+       "tarefa": "03-evento-lotado",
+       "variante": "a",
+       "desfecho": "falhou",
+       "testePassou": false,
+       "foraDoEscopo": [],
+       "alterados": [],
+       "agente": {
+        "ok": true,
+        "turnos": 5,
+        "duracaoMs": 17500,
+        "custoUsd": 0.2,
+        "tokensEntrada": 12,
+        "tokensSaida": 1000,
+        "tokensCache": 127500
+       }
+      }
+     }
+    },
+    "metadata": {
+     "resultado": {
+      "tarefa": "03-evento-lotado",
+      "variante": "a",
+      "desfecho": "falhou",
+      "testePassou": false,
+      "foraDoEscopo": [],
+      "alterados": [],
+      "agente": {
+       "ok": true,
+       "turnos": 5,
+       "duracaoMs": 17500,
+       "custoUsd": 0.2,
+       "tokensEntrada": 12,
+       "tokensSaida": 1000,
+       "tokensCache": 127500
+      }
+     }
+    }
+   },
+   {
+    "provider": {
+     "id": "claude-code-a",
+     "label": "variante a"
+    },
+    "vars": {
+     "tarefa": "03-evento-lotado"
+    },
+    "response": {
+     "output": "falhou",
+     "metadata": {
+      "resultado": {
+       "tarefa": "03-evento-lotado",
+       "variante": "a",
+       "desfecho": "falhou",
+       "testePassou": false,
+       "foraDoEscopo": [],
+       "alterados": [],
+       "agente": {
+        "ok": true,
+        "turnos": 8,
+        "duracaoMs": 19200,
+        "custoUsd": 0.24000000000000002,
+        "tokensEntrada": 12,
+        "tokensSaida": 1020,
+        "tokensCache": 129000
+       }
+      }
+     }
+    },
+    "metadata": {
+     "resultado": {
+      "tarefa": "03-evento-lotado",
+      "variante": "a",
+      "desfecho": "falhou",
+      "testePassou": false,
+      "foraDoEscopo": [],
+      "alterados": [],
+      "agente": {
+       "ok": true,
+       "turnos": 8,
+       "duracaoMs": 19200,
+       "custoUsd": 0.24000000000000002,
+       "tokensEntrada": 12,
+       "tokensSaida": 1020,
+       "tokensCache": 129000
+      }
+     }
+    }
+   },
+   {
+    "provider": {
+     "id": "claude-code-a",
+     "label": "variante a"
+    },
+    "vars": {
+     "tarefa": "04-cupom"
+    },
+    "response": {
+     "output": "falhou",
+     "metadata": {
+      "resultado": {
+       "tarefa": "04-cupom",
+       "variante": "a",
+       "desfecho": "falhou",
+       "testePassou": false,
+       "foraDoEscopo": [],
+       "alterados": [],
+       "agente": {
+        "ok": true,
+        "turnos": 4,
+        "duracaoMs": 20900,
+        "custoUsd": 0.28,
+        "tokensEntrada": 12,
+        "tokensSaida": 1040,
+        "tokensCache": 130500
+       }
+      }
+     }
+    },
+    "metadata": {
+     "resultado": {
+      "tarefa": "04-cupom",
+      "variante": "a",
+      "desfecho": "falhou",
+      "testePassou": false,
+      "foraDoEscopo": [],
+      "alterados": [],
+      "agente": {
+       "ok": true,
+       "turnos": 4,
+       "duracaoMs": 20900,
+       "custoUsd": 0.28,
+       "tokensEntrada": 12,
+       "tokensSaida": 1040,
+       "tokensCache": 130500
+      }
+     }
+    }
+   },
+   {
+    "provider": {
+     "id": "claude-code-a",
+     "label": "variante a"
+    },
+    "vars": {
+     "tarefa": "04-cupom"
+    },
+    "response": {
+     "output": "falhou",
+     "metadata": {
+      "resultado": {
+       "tarefa": "04-cupom",
+       "variante": "a",
+       "desfecho": "falhou",
+       "testePassou": false,
+       "foraDoEscopo": [],
+       "alterados": [],
+       "agente": {
+        "ok": true,
+        "turnos": 7,
+        "duracaoMs": 22600,
+        "custoUsd": 0.32,
+        "tokensEntrada": 12,
+        "tokensSaida": 1060,
+        "tokensCache": 132000
+       }
+      }
+     }
+    },
+    "metadata": {
+     "resultado": {
+      "tarefa": "04-cupom",
+      "variante": "a",
+      "desfecho": "falhou",
+      "testePassou": false,
+      "foraDoEscopo": [],
+      "alterados": [],
+      "agente": {
+       "ok": true,
+       "turnos": 7,
+       "duracaoMs": 22600,
+       "custoUsd": 0.32,
+       "tokensEntrada": 12,
+       "tokensSaida": 1060,
+       "tokensCache": 132000
+      }
+     }
+    }
+   },
+   {
+    "provider": {
+     "id": "claude-code-a",
+     "label": "variante a"
+    },
+    "vars": {
+     "tarefa": "05-evento-passado"
+    },
+    "response": {
+     "output": "passou",
+     "metadata": {
+      "resultado": {
+       "tarefa": "05-evento-passado",
+       "variante": "a",
+       "desfecho": "passou",
+       "testePassou": true,
+       "foraDoEscopo": [],
+       "alterados": [],
+       "agente": {
+        "ok": true,
+        "turnos": 10,
+        "duracaoMs": 9300,
+        "custoUsd": 0.36,
+        "tokensEntrada": 12,
+        "tokensSaida": 1080,
+        "tokensCache": 133500
+       }
+      }
+     }
+    },
+    "metadata": {
+     "resultado": {
+      "tarefa": "05-evento-passado",
+      "variante": "a",
+      "desfecho": "passou",
+      "testePassou": true,
+      "foraDoEscopo": [],
+      "alterados": [],
+      "agente": {
+       "ok": true,
+       "turnos": 10,
+       "duracaoMs": 9300,
+       "custoUsd": 0.36,
+       "tokensEntrada": 12,
+       "tokensSaida": 1080,
+       "tokensCache": 133500
+      }
+     }
+    }
+   },
+   {
+    "provider": {
+     "id": "claude-code-a",
+     "label": "variante a"
+    },
+    "vars": {
+     "tarefa": "05-evento-passado"
+    },
+    "response": {
+     "output": "falhou",
+     "metadata": {
+      "resultado": {
+       "tarefa": "05-evento-passado",
+       "variante": "a",
+       "desfecho": "falhou",
+       "testePassou": false,
+       "foraDoEscopo": [],
+       "alterados": [],
+       "agente": {
+        "ok": true,
+        "turnos": 6,
+        "duracaoMs": 11000,
+        "custoUsd": 0.2,
+        "tokensEntrada": 12,
+        "tokensSaida": 1100,
+        "tokensCache": 135000
+       }
+      }
+     }
+    },
+    "metadata": {
+     "resultado": {
+      "tarefa": "05-evento-passado",
+      "variante": "a",
+      "desfecho": "falhou",
+      "testePassou": false,
+      "foraDoEscopo": [],
+      "alterados": [],
+      "agente": {
+       "ok": true,
+       "turnos": 6,
+       "duracaoMs": 11000,
+       "custoUsd": 0.2,
+       "tokensEntrada": 12,
+       "tokensSaida": 1100,
+       "tokensCache": 135000
+      }
+     }
+    }
+   },
+   {
+    "provider": {
+     "id": "claude-code-a",
+     "label": "variante a"
+    },
+    "vars": {
+     "tarefa": "06-relatorio-email"
+    },
+    "response": {
+     "output": "falhou",
+     "metadata": {
+      "resultado": {
+       "tarefa": "06-relatorio-email",
+       "variante": "a",
+       "desfecho": "falhou",
+       "testePassou": false,
+       "foraDoEscopo": [],
+       "alterados": [],
+       "agente": {
+        "ok": true,
+        "turnos": 9,
+        "duracaoMs": 12700,
+        "custoUsd": 0.24000000000000002,
+        "tokensEntrada": 12,
+        "tokensSaida": 1120,
+        "tokensCache": 136500
+       }
+      }
+     }
+    },
+    "metadata": {
+     "resultado": {
+      "tarefa": "06-relatorio-email",
+      "variante": "a",
+      "desfecho": "falhou",
+      "testePassou": false,
+      "foraDoEscopo": [],
+      "alterados": [],
+      "agente": {
+       "ok": true,
+       "turnos": 9,
+       "duracaoMs": 12700,
+       "custoUsd": 0.24000000000000002,
+       "tokensEntrada": 12,
+       "tokensSaida": 1120,
+       "tokensCache": 136500
+      }
+     }
+    }
+   },
+   {
+    "provider": {
+     "id": "claude-code-a",
+     "label": "variante a"
+    },
+    "vars": {
+     "tarefa": "06-relatorio-email"
+    },
+    "response": {
+     "output": "falhou",
+     "metadata": {
+      "resultado": {
+       "tarefa": "06-relatorio-email",
+       "variante": "a",
+       "desfecho": "falhou",
+       "testePassou": false,
+       "foraDoEscopo": [],
+       "alterados": [],
+       "agente": {
+        "ok": true,
+        "turnos": 5,
+        "duracaoMs": 14400,
+        "custoUsd": 0.28,
+        "tokensEntrada": 12,
+        "tokensSaida": 1140,
+        "tokensCache": 138000
+       }
+      }
+     }
+    },
+    "metadata": {
+     "resultado": {
+      "tarefa": "06-relatorio-email",
+      "variante": "a",
+      "desfecho": "falhou",
+      "testePassou": false,
+      "foraDoEscopo": [],
+      "alterados": [],
+      "agente": {
+       "ok": true,
+       "turnos": 5,
+       "duracaoMs": 14400,
+       "custoUsd": 0.28,
+       "tokensEntrada": 12,
+       "tokensSaida": 1140,
+       "tokensCache": 138000
+      }
+     }
+    }
+   },
+   {
+    "provider": {
+     "id": "claude-code-a",
+     "label": "variante a"
+    },
+    "vars": {
+     "tarefa": "07-lista-espera"
+    },
+    "response": {
+     "output": "falhou",
+     "metadata": {
+      "resultado": {
+       "tarefa": "07-lista-espera",
+       "variante": "a",
+       "desfecho": "falhou",
+       "testePassou": false,
+       "foraDoEscopo": [],
+       "alterados": [],
+       "agente": {
+        "ok": true,
+        "turnos": 8,
+        "duracaoMs": 16100,
+        "custoUsd": 0.32,
+        "tokensEntrada": 12,
+        "tokensSaida": 1160,
+        "tokensCache": 139500
+       }
+      }
+     }
+    },
+    "metadata": {
+     "resultado": {
+      "tarefa": "07-lista-espera",
+      "variante": "a",
+      "desfecho": "falhou",
+      "testePassou": false,
+      "foraDoEscopo": [],
+      "alterados": [],
+      "agente": {
+       "ok": true,
+       "turnos": 8,
+       "duracaoMs": 16100,
+       "custoUsd": 0.32,
+       "tokensEntrada": 12,
+       "tokensSaida": 1160,
+       "tokensCache": 139500
+      }
+     }
+    }
+   },
+   {
+    "provider": {
+     "id": "claude-code-a",
+     "label": "variante a"
+    },
+    "vars": {
+     "tarefa": "07-lista-espera"
+    },
+    "response": {
+     "output": "fora_do_escopo",
+     "metadata": {
+      "resultado": {
+       "tarefa": "07-lista-espera",
+       "variante": "a",
+       "desfecho": "fora_do_escopo",
+       "testePassou": false,
+       "foraDoEscopo": [
+        "package.json"
+       ],
+       "alterados": [],
+       "agente": {
+        "ok": true,
+        "turnos": 4,
+        "duracaoMs": 17800,
+        "custoUsd": 0.36,
+        "tokensEntrada": 12,
+        "tokensSaida": 1180,
+        "tokensCache": 141000
+       }
+      }
+     }
+    },
+    "metadata": {
+     "resultado": {
+      "tarefa": "07-lista-espera",
+      "variante": "a",
+      "desfecho": "fora_do_escopo",
+      "testePassou": false,
+      "foraDoEscopo": [
+       "package.json"
+      ],
+      "alterados": [],
+      "agente": {
+       "ok": true,
+       "turnos": 4,
+       "duracaoMs": 17800,
+       "custoUsd": 0.36,
+       "tokensEntrada": 12,
+       "tokensSaida": 1180,
+       "tokensCache": 141000
+      }
+     }
+    }
+   },
+   {
+    "provider": {
+     "id": "claude-code-a",
+     "label": "variante a"
+    },
+    "vars": {
+     "tarefa": "08-csv-aspas"
+    },
+    "response": {
+     "output": "passou",
+     "metadata": {
+      "resultado": {
+       "tarefa": "08-csv-aspas",
+       "variante": "a",
+       "desfecho": "passou",
+       "testePassou": true,
+       "foraDoEscopo": [],
+       "alterados": [],
+       "agente": {
+        "ok": true,
+        "turnos": 7,
+        "duracaoMs": 19500,
+        "custoUsd": 0.2,
+        "tokensEntrada": 12,
+        "tokensSaida": 1200,
+        "tokensCache": 142500
+       }
+      }
+     }
+    },
+    "metadata": {
+     "resultado": {
+      "tarefa": "08-csv-aspas",
+      "variante": "a",
+      "desfecho": "passou",
+      "testePassou": true,
+      "foraDoEscopo": [],
+      "alterados": [],
+      "agente": {
+       "ok": true,
+       "turnos": 7,
+       "duracaoMs": 19500,
+       "custoUsd": 0.2,
+       "tokensEntrada": 12,
+       "tokensSaida": 1200,
+       "tokensCache": 142500
+      }
+     }
+    }
+   },
+   {
+    "provider": {
+     "id": "claude-code-a",
+     "label": "variante a"
+    },
+    "vars": {
+     "tarefa": "08-csv-aspas"
+    },
+    "response": {
+     "output": "erro_agente",
+     "metadata": {
+      "resultado": {
+       "tarefa": "08-csv-aspas",
+       "variante": "a",
+       "desfecho": "erro_agente",
+       "testePassou": false,
+       "foraDoEscopo": [],
+       "alterados": [],
+       "agente": {
+        "ok": false,
+        "turnos": 0,
+        "duracaoMs": 21200,
+        "custoUsd": 0.24000000000000002,
+        "tokensEntrada": 12,
+        "tokensSaida": 1220,
+        "tokensCache": 144000
+       }
+      }
+     }
+    },
+    "metadata": {
+     "resultado": {
+      "tarefa": "08-csv-aspas",
+      "variante": "a",
+      "desfecho": "erro_agente",
+      "testePassou": false,
+      "foraDoEscopo": [],
+      "alterados": [],
+      "agente": {
+       "ok": false,
+       "turnos": 0,
+       "duracaoMs": 21200,
+       "custoUsd": 0.24000000000000002,
+       "tokensEntrada": 12,
+       "tokensSaida": 1220,
+       "tokensCache": 144000
+      }
+     }
+    }
+   },
+   {
+    "provider": {
+     "id": "claude-code-b",
+     "label": "variante b"
+    },
+    "vars": {
+     "tarefa": "01-proximos-eventos"
+    },
+    "response": {
+     "output": "passou",
+     "metadata": {
+      "resultado": {
+       "tarefa": "01-proximos-eventos",
+       "variante": "b",
+       "desfecho": "passou",
+       "testePassou": true,
+       "foraDoEscopo": [],
+       "alterados": [],
+       "agente": {
+        "ok": true,
+        "turnos": 6,
+        "duracaoMs": 22900,
+        "custoUsd": 0.28,
+        "tokensEntrada": 12,
+        "tokensSaida": 1240,
+        "tokensCache": 145500
+       }
+      }
+     }
+    },
+    "metadata": {
+     "resultado": {
+      "tarefa": "01-proximos-eventos",
+      "variante": "b",
+      "desfecho": "passou",
+      "testePassou": true,
+      "foraDoEscopo": [],
+      "alterados": [],
+      "agente": {
+       "ok": true,
+       "turnos": 6,
+       "duracaoMs": 22900,
+       "custoUsd": 0.28,
+       "tokensEntrada": 12,
+       "tokensSaida": 1240,
+       "tokensCache": 145500
+      }
+     }
+    }
+   },
+   {
+    "provider": {
+     "id": "claude-code-b",
+     "label": "variante b"
+    },
+    "vars": {
+     "tarefa": "01-proximos-eventos"
+    },
+    "response": {
+     "output": "passou",
+     "metadata": {
+      "resultado": {
+       "tarefa": "01-proximos-eventos",
+       "variante": "b",
+       "desfecho": "passou",
+       "testePassou": true,
+       "foraDoEscopo": [],
+       "alterados": [],
+       "agente": {
+        "ok": true,
+        "turnos": 9,
+        "duracaoMs": 9600,
+        "custoUsd": 0.32,
+        "tokensEntrada": 12,
+        "tokensSaida": 1260,
+        "tokensCache": 147000
+       }
+      }
+     }
+    },
+    "metadata": {
+     "resultado": {
+      "tarefa": "01-proximos-eventos",
+      "variante": "b",
+      "desfecho": "passou",
+      "testePassou": true,
+      "foraDoEscopo": [],
+      "alterados": [],
+      "agente": {
+       "ok": true,
+       "turnos": 9,
+       "duracaoMs": 9600,
+       "custoUsd": 0.32,
+       "tokensEntrada": 12,
+       "tokensSaida": 1260,
+       "tokensCache": 147000
+      }
+     }
+    }
+   },
+   {
+    "provider": {
+     "id": "claude-code-b",
+     "label": "variante b"
+    },
+    "vars": {
+     "tarefa": "02-contar-inscritos"
+    },
+    "response": {
+     "output": "passou",
+     "metadata": {
+      "resultado": {
+       "tarefa": "02-contar-inscritos",
+       "variante": "b",
+       "desfecho": "passou",
+       "testePassou": true,
+       "foraDoEscopo": [],
+       "alterados": [],
+       "agente": {
+        "ok": true,
+        "turnos": 5,
+        "duracaoMs": 11300,
+        "custoUsd": 0.36,
+        "tokensEntrada": 12,
+        "tokensSaida": 1280,
+        "tokensCache": 148500
+       }
+      }
+     }
+    },
+    "metadata": {
+     "resultado": {
+      "tarefa": "02-contar-inscritos",
+      "variante": "b",
+      "desfecho": "passou",
+      "testePassou": true,
+      "foraDoEscopo": [],
+      "alterados": [],
+      "agente": {
+       "ok": true,
+       "turnos": 5,
+       "duracaoMs": 11300,
+       "custoUsd": 0.36,
+       "tokensEntrada": 12,
+       "tokensSaida": 1280,
+       "tokensCache": 148500
+      }
+     }
+    }
+   },
+   {
+    "provider": {
+     "id": "claude-code-b",
+     "label": "variante b"
+    },
+    "vars": {
+     "tarefa": "02-contar-inscritos"
+    },
+    "response": {
+     "output": "passou",
+     "metadata": {
+      "resultado": {
+       "tarefa": "02-contar-inscritos",
+       "variante": "b",
+       "desfecho": "passou",
+       "testePassou": true,
+       "foraDoEscopo": [],
+       "alterados": [],
+       "agente": {
+        "ok": true,
+        "turnos": 8,
+        "duracaoMs": 13000,
+        "custoUsd": 0.2,
+        "tokensEntrada": 12,
+        "tokensSaida": 1300,
+        "tokensCache": 150000
+       }
+      }
+     }
+    },
+    "metadata": {
+     "resultado": {
+      "tarefa": "02-contar-inscritos",
+      "variante": "b",
+      "desfecho": "passou",
+      "testePassou": true,
+      "foraDoEscopo": [],
+      "alterados": [],
+      "agente": {
+       "ok": true,
+       "turnos": 8,
+       "duracaoMs": 13000,
+       "custoUsd": 0.2,
+       "tokensEntrada": 12,
+       "tokensSaida": 1300,
+       "tokensCache": 150000
+      }
+     }
+    }
+   },
+   {
+    "provider": {
+     "id": "claude-code-b",
+     "label": "variante b"
+    },
+    "vars": {
+     "tarefa": "03-evento-lotado"
+    },
+    "response": {
+     "output": "passou",
+     "metadata": {
+      "resultado": {
+       "tarefa": "03-evento-lotado",
+       "variante": "b",
+       "desfecho": "passou",
+       "testePassou": true,
+       "foraDoEscopo": [],
+       "alterados": [],
+       "agente": {
+        "ok": true,
+        "turnos": 4,
+        "duracaoMs": 14700,
+        "custoUsd": 0.24000000000000002,
+        "tokensEntrada": 12,
+        "tokensSaida": 1320,
+        "tokensCache": 151500
+       }
+      }
+     }
+    },
+    "metadata": {
+     "resultado": {
+      "tarefa": "03-evento-lotado",
+      "variante": "b",
+      "desfecho": "passou",
+      "testePassou": true,
+      "foraDoEscopo": [],
+      "alterados": [],
+      "agente": {
+       "ok": true,
+       "turnos": 4,
+       "duracaoMs": 14700,
+       "custoUsd": 0.24000000000000002,
+       "tokensEntrada": 12,
+       "tokensSaida": 1320,
+       "tokensCache": 151500
+      }
+     }
+    }
+   },
+   {
+    "provider": {
+     "id": "claude-code-b",
+     "label": "variante b"
+    },
+    "vars": {
+     "tarefa": "03-evento-lotado"
+    },
+    "response": {
+     "output": "passou",
+     "metadata": {
+      "resultado": {
+       "tarefa": "03-evento-lotado",
+       "variante": "b",
+       "desfecho": "passou",
+       "testePassou": true,
+       "foraDoEscopo": [],
+       "alterados": [],
+       "agente": {
+        "ok": true,
+        "turnos": 7,
+        "duracaoMs": 16400,
+        "custoUsd": 0.28,
+        "tokensEntrada": 12,
+        "tokensSaida": 1340,
+        "tokensCache": 153000
+       }
+      }
+     }
+    },
+    "metadata": {
+     "resultado": {
+      "tarefa": "03-evento-lotado",
+      "variante": "b",
+      "desfecho": "passou",
+      "testePassou": true,
+      "foraDoEscopo": [],
+      "alterados": [],
+      "agente": {
+       "ok": true,
+       "turnos": 7,
+       "duracaoMs": 16400,
+       "custoUsd": 0.28,
+       "tokensEntrada": 12,
+       "tokensSaida": 1340,
+       "tokensCache": 153000
+      }
+     }
+    }
+   },
+   {
+    "provider": {
+     "id": "claude-code-b",
+     "label": "variante b"
+    },
+    "vars": {
+     "tarefa": "04-cupom"
+    },
+    "response": {
+     "output": "passou",
+     "metadata": {
+      "resultado": {
+       "tarefa": "04-cupom",
+       "variante": "b",
+       "desfecho": "passou",
+       "testePassou": true,
+       "foraDoEscopo": [],
+       "alterados": [],
+       "agente": {
+        "ok": true,
+        "turnos": 10,
+        "duracaoMs": 18100,
+        "custoUsd": 0.32,
+        "tokensEntrada": 12,
+        "tokensSaida": 1360,
+        "tokensCache": 154500
+       }
+      }
+     }
+    },
+    "metadata": {
+     "resultado": {
+      "tarefa": "04-cupom",
+      "variante": "b",
+      "desfecho": "passou",
+      "testePassou": true,
+      "foraDoEscopo": [],
+      "alterados": [],
+      "agente": {
+       "ok": true,
+       "turnos": 10,
+       "duracaoMs": 18100,
+       "custoUsd": 0.32,
+       "tokensEntrada": 12,
+       "tokensSaida": 1360,
+       "tokensCache": 154500
+      }
+     }
+    }
+   },
+   {
+    "provider": {
+     "id": "claude-code-b",
+     "label": "variante b"
+    },
+    "vars": {
+     "tarefa": "04-cupom"
+    },
+    "response": {
+     "output": "falhou",
+     "metadata": {
+      "resultado": {
+       "tarefa": "04-cupom",
+       "variante": "b",
+       "desfecho": "falhou",
+       "testePassou": false,
+       "foraDoEscopo": [],
+       "alterados": [],
+       "agente": {
+        "ok": true,
+        "turnos": 6,
+        "duracaoMs": 19800,
+        "custoUsd": 0.36,
+        "tokensEntrada": 12,
+        "tokensSaida": 1380,
+        "tokensCache": 156000
+       }
+      }
+     }
+    },
+    "metadata": {
+     "resultado": {
+      "tarefa": "04-cupom",
+      "variante": "b",
+      "desfecho": "falhou",
+      "testePassou": false,
+      "foraDoEscopo": [],
+      "alterados": [],
+      "agente": {
+       "ok": true,
+       "turnos": 6,
+       "duracaoMs": 19800,
+       "custoUsd": 0.36,
+       "tokensEntrada": 12,
+       "tokensSaida": 1380,
+       "tokensCache": 156000
+      }
+     }
+    }
+   },
+   {
+    "provider": {
+     "id": "claude-code-b",
+     "label": "variante b"
+    },
+    "vars": {
+     "tarefa": "05-evento-passado"
+    },
+    "response": {
+     "output": "passou",
+     "metadata": {
+      "resultado": {
+       "tarefa": "05-evento-passado",
+       "variante": "b",
+       "desfecho": "passou",
+       "testePassou": true,
+       "foraDoEscopo": [],
+       "alterados": [],
+       "agente": {
+        "ok": true,
+        "turnos": 9,
+        "duracaoMs": 21500,
+        "custoUsd": 0.2,
+        "tokensEntrada": 12,
+        "tokensSaida": 1400,
+        "tokensCache": 157500
+       }
+      }
+     }
+    },
+    "metadata": {
+     "resultado": {
+      "tarefa": "05-evento-passado",
+      "variante": "b",
+      "desfecho": "passou",
+      "testePassou": true,
+      "foraDoEscopo": [],
+      "alterados": [],
+      "agente": {
+       "ok": true,
+       "turnos": 9,
+       "duracaoMs": 21500,
+       "custoUsd": 0.2,
+       "tokensEntrada": 12,
+       "tokensSaida": 1400,
+       "tokensCache": 157500
+      }
+     }
+    }
+   },
+   {
+    "provider": {
+     "id": "claude-code-b",
+     "label": "variante b"
+    },
+    "vars": {
+     "tarefa": "05-evento-passado"
+    },
+    "response": {
+     "output": "passou",
+     "metadata": {
+      "resultado": {
+       "tarefa": "05-evento-passado",
+       "variante": "b",
+       "desfecho": "passou",
+       "testePassou": true,
+       "foraDoEscopo": [],
+       "alterados": [],
+       "agente": {
+        "ok": true,
+        "turnos": 5,
+        "duracaoMs": 23200,
+        "custoUsd": 0.24000000000000002,
+        "tokensEntrada": 12,
+        "tokensSaida": 1420,
+        "tokensCache": 159000
+       }
+      }
+     }
+    },
+    "metadata": {
+     "resultado": {
+      "tarefa": "05-evento-passado",
+      "variante": "b",
+      "desfecho": "passou",
+      "testePassou": true,
+      "foraDoEscopo": [],
+      "alterados": [],
+      "agente": {
+       "ok": true,
+       "turnos": 5,
+       "duracaoMs": 23200,
+       "custoUsd": 0.24000000000000002,
+       "tokensEntrada": 12,
+       "tokensSaida": 1420,
+       "tokensCache": 159000
+      }
+     }
+    }
+   },
+   {
+    "provider": {
+     "id": "claude-code-b",
+     "label": "variante b"
+    },
+    "vars": {
+     "tarefa": "06-relatorio-email"
+    },
+    "response": {
+     "output": "falhou",
+     "metadata": {
+      "resultado": {
+       "tarefa": "06-relatorio-email",
+       "variante": "b",
+       "desfecho": "falhou",
+       "testePassou": false,
+       "foraDoEscopo": [],
+       "alterados": [],
+       "agente": {
+        "ok": true,
+        "turnos": 8,
+        "duracaoMs": 9900,
+        "custoUsd": 0.28,
+        "tokensEntrada": 12,
+        "tokensSaida": 1440,
+        "tokensCache": 160500
+       }
+      }
+     }
+    },
+    "metadata": {
+     "resultado": {
+      "tarefa": "06-relatorio-email",
+      "variante": "b",
+      "desfecho": "falhou",
+      "testePassou": false,
+      "foraDoEscopo": [],
+      "alterados": [],
+      "agente": {
+       "ok": true,
+       "turnos": 8,
+       "duracaoMs": 9900,
+       "custoUsd": 0.28,
+       "tokensEntrada": 12,
+       "tokensSaida": 1440,
+       "tokensCache": 160500
+      }
+     }
+    }
+   },
+   {
+    "provider": {
+     "id": "claude-code-b",
+     "label": "variante b"
+    },
+    "vars": {
+     "tarefa": "06-relatorio-email"
+    },
+    "response": {
+     "output": "passou",
+     "metadata": {
+      "resultado": {
+       "tarefa": "06-relatorio-email",
+       "variante": "b",
+       "desfecho": "passou",
+       "testePassou": true,
+       "foraDoEscopo": [],
+       "alterados": [],
+       "agente": {
+        "ok": true,
+        "turnos": 4,
+        "duracaoMs": 11600,
+        "custoUsd": 0.32,
+        "tokensEntrada": 12,
+        "tokensSaida": 1460,
+        "tokensCache": 162000
+       }
+      }
+     }
+    },
+    "metadata": {
+     "resultado": {
+      "tarefa": "06-relatorio-email",
+      "variante": "b",
+      "desfecho": "passou",
+      "testePassou": true,
+      "foraDoEscopo": [],
+      "alterados": [],
+      "agente": {
+       "ok": true,
+       "turnos": 4,
+       "duracaoMs": 11600,
+       "custoUsd": 0.32,
+       "tokensEntrada": 12,
+       "tokensSaida": 1460,
+       "tokensCache": 162000
+      }
+     }
+    }
+   },
+   {
+    "provider": {
+     "id": "claude-code-b",
+     "label": "variante b"
+    },
+    "vars": {
+     "tarefa": "07-lista-espera"
+    },
+    "response": {
+     "output": "passou",
+     "metadata": {
+      "resultado": {
+       "tarefa": "07-lista-espera",
+       "variante": "b",
+       "desfecho": "passou",
+       "testePassou": true,
+       "foraDoEscopo": [],
+       "alterados": [],
+       "agente": {
+        "ok": true,
+        "turnos": 7,
+        "duracaoMs": 13300,
+        "custoUsd": 0.36,
+        "tokensEntrada": 12,
+        "tokensSaida": 1480,
+        "tokensCache": 163500
+       }
+      }
+     }
+    },
+    "metadata": {
+     "resultado": {
+      "tarefa": "07-lista-espera",
+      "variante": "b",
+      "desfecho": "passou",
+      "testePassou": true,
+      "foraDoEscopo": [],
+      "alterados": [],
+      "agente": {
+       "ok": true,
+       "turnos": 7,
+       "duracaoMs": 13300,
+       "custoUsd": 0.36,
+       "tokensEntrada": 12,
+       "tokensSaida": 1480,
+       "tokensCache": 163500
+      }
+     }
+    }
+   },
+   {
+    "provider": {
+     "id": "claude-code-b",
+     "label": "variante b"
+    },
+    "vars": {
+     "tarefa": "07-lista-espera"
+    },
+    "response": {
+     "output": "falhou",
+     "metadata": {
+      "resultado": {
+       "tarefa": "07-lista-espera",
+       "variante": "b",
+       "desfecho": "falhou",
+       "testePassou": false,
+       "foraDoEscopo": [],
+       "alterados": [],
+       "agente": {
+        "ok": true,
+        "turnos": 10,
+        "duracaoMs": 15000,
+        "custoUsd": 0.2,
+        "tokensEntrada": 12,
+        "tokensSaida": 1500,
+        "tokensCache": 165000
+       }
+      }
+     }
+    },
+    "metadata": {
+     "resultado": {
+      "tarefa": "07-lista-espera",
+      "variante": "b",
+      "desfecho": "falhou",
+      "testePassou": false,
+      "foraDoEscopo": [],
+      "alterados": [],
+      "agente": {
+       "ok": true,
+       "turnos": 10,
+       "duracaoMs": 15000,
+       "custoUsd": 0.2,
+       "tokensEntrada": 12,
+       "tokensSaida": 1500,
+       "tokensCache": 165000
+      }
+     }
+    }
+   },
+   {
+    "provider": {
+     "id": "claude-code-b",
+     "label": "variante b"
+    },
+    "vars": {
+     "tarefa": "08-csv-aspas"
+    },
+    "response": {
+     "output": "passou",
+     "metadata": {
+      "resultado": {
+       "tarefa": "08-csv-aspas",
+       "variante": "b",
+       "desfecho": "passou",
+       "testePassou": true,
+       "foraDoEscopo": [],
+       "alterados": [],
+       "agente": {
+        "ok": true,
+        "turnos": 6,
+        "duracaoMs": 16700,
+        "custoUsd": 0.24000000000000002,
+        "tokensEntrada": 12,
+        "tokensSaida": 1520,
+        "tokensCache": 166500
+       }
+      }
+     }
+    },
+    "metadata": {
+     "resultado": {
+      "tarefa": "08-csv-aspas",
+      "variante": "b",
+      "desfecho": "passou",
+      "testePassou": true,
+      "foraDoEscopo": [],
+      "alterados": [],
+      "agente": {
+       "ok": true,
+       "turnos": 6,
+       "duracaoMs": 16700,
+       "custoUsd": 0.24000000000000002,
+       "tokensEntrada": 12,
+       "tokensSaida": 1520,
+       "tokensCache": 166500
+      }
+     }
+    }
+   },
+   {
+    "provider": {
+     "id": "claude-code-b",
+     "label": "variante b"
+    },
+    "vars": {
+     "tarefa": "08-csv-aspas"
+    },
+    "response": {
+     "output": "falhou",
+     "metadata": {
+      "resultado": {
+       "tarefa": "08-csv-aspas",
+       "variante": "b",
+       "desfecho": "falhou",
+       "testePassou": false,
+       "foraDoEscopo": [],
+       "alterados": [],
+       "agente": {
+        "ok": true,
+        "turnos": 9,
+        "duracaoMs": 18400,
+        "custoUsd": 0.28,
+        "tokensEntrada": 12,
+        "tokensSaida": 1540,
+        "tokensCache": 168000
+       }
+      }
+     }
+    },
+    "metadata": {
+     "resultado": {
+      "tarefa": "08-csv-aspas",
+      "variante": "b",
+      "desfecho": "falhou",
+      "testePassou": false,
+      "foraDoEscopo": [],
+      "alterados": [],
+      "agente": {
+       "ok": true,
+       "turnos": 9,
+       "duracaoMs": 18400,
+       "custoUsd": 0.28,
+       "tokensEntrada": 12,
+       "tokensSaida": 1540,
+       "tokensCache": 168000
+      }
+     }
+    }
+   },
+   {
+    "provider": {
+     "id": "claude-code-b",
+     "label": "variante b"
+    },
+    "vars": {
+     "tarefa": "99-inexistente"
+    },
+    "error": "tarefa 99-inexistente não encontrada",
+    "response": {
+     "error": "tarefa 99-inexistente não encontrada"
+    }
+   }
+  ]
+ }
+}

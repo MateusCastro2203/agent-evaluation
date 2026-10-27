@@ -1,0 +1,566 @@
+{
+  "evalId": "eval-9vR-2026-10-26T18:31:54",
+  "results": {
+    "version": 3,
+    "timestamp": "2026-10-26T18:31:54.592Z",
+    "prompts": [
+      {
+        "id": "c7f06ffb22b0e88e42e06c51cac71b596887e840053bb00f89291a6076330cab",
+        "raw": "{{tarefa}}",
+        "label": "{{tarefa}}",
+        "provider": "variante a",
+        "metrics": {
+          "score": 1,
+          "testPassCount": 1,
+          "testFailCount": 0,
+          "testErrorCount": 0,
+          "assertPassCount": 1,
+          "assertFailCount": 0,
+          "totalLatencyMs": 20945,
+          "tokenUsage": {
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "total": 0,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            },
+            "assertions": {
+              "total": 0,
+              "prompt": 0,
+              "completion": 0,
+              "cached": 0,
+              "numRequests": 0,
+              "completionDetails": {
+                "reasoning": 0,
+                "acceptedPrediction": 0,
+                "rejectedPrediction": 0,
+                "cacheReadInputTokens": 0,
+                "cacheCreationInputTokens": 0
+              }
+            }
+          },
+          "namedScores": {},
+          "namedScoresCount": {},
+          "namedScoreWeights": {},
+          "cost": 0
+        }
+      },
+      {
+        "id": "c7f06ffb22b0e88e42e06c51cac71b596887e840053bb00f89291a6076330cab",
+        "raw": "{{tarefa}}",
+        "label": "{{tarefa}}",
+        "provider": "variante b",
+        "metrics": {
+          "score": 1,
+          "testPassCount": 1,
+          "testFailCount": 0,
+          "testErrorCount": 0,
+          "assertPassCount": 1,
+          "assertFailCount": 0,
+          "totalLatencyMs": 25219,
+          "tokenUsage": {
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "total": 0,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            },
+            "assertions": {
+              "total": 0,
+              "prompt": 0,
+              "completion": 0,
+              "cached": 0,
+              "numRequests": 0,
+              "completionDetails": {
+                "reasoning": 0,
+                "acceptedPrediction": 0,
+                "rejectedPrediction": 0,
+                "cacheReadInputTokens": 0,
+                "cacheCreationInputTokens": 0
+              }
+            }
+          },
+          "namedScores": {},
+          "namedScoresCount": {},
+          "namedScoreWeights": {},
+          "cost": 0
+        }
+      }
+    ],
+    "results": [
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "value": "output === \"passou\""
+              }
+            }
+          ]
+        },
+        "id": "f6cb17bd-00cf-43a7-9f96-764a362efc89",
+        "latencyMs": 20945,
+        "namedScores": {},
+        "prompt": {
+          "raw": "01-proximos-eventos",
+          "label": "{{tarefa}}",
+          "config": {}
+        },
+        "promptId": "c7f06ffb22b0e88e42e06c51cac71b596887e840053bb00f89291a6076330cab",
+        "promptIdx": 0,
+        "provider": {
+          "id": "claude-code-a",
+          "label": "variante a"
+        },
+        "response": {
+          "output": "passou",
+          "metadata": {
+            "resultado": {
+              "tarefa": "01-proximos-eventos",
+              "variante": "a",
+              "desfecho": "passou",
+              "testePassou": true,
+              "foraDoEscopo": [],
+              "alterados": [
+                "src/eventos.ts"
+              ],
+              "agente": {
+                "ok": true,
+                "turnos": 5,
+                "duracaoMs": 12200,
+                "custoUsd": 0.00855601,
+                "tokensEntrada": 8,
+                "tokensSaida": 1100,
+                "tokensCache": 164173
+              }
+            }
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "Próximos eventos devolvendo um a menos",
+          "vars": {
+            "tarefa": "01-proximos-eventos"
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "output === \"passou\""
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 0,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "tarefa": "01-proximos-eventos"
+        },
+        "metadata": {
+          "resultado": {
+            "tarefa": "01-proximos-eventos",
+            "variante": "a",
+            "desfecho": "passou",
+            "testePassou": true,
+            "foraDoEscopo": [],
+            "alterados": [
+              "src/eventos.ts"
+            ],
+            "agente": {
+              "ok": true,
+              "turnos": 5,
+              "duracaoMs": 12200,
+              "custoUsd": 0.00855601,
+              "tokensEntrada": 8,
+              "tokensSaida": 1100,
+              "tokensCache": 164173
+            }
+          },
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "value": "output === \"passou\""
+              }
+            }
+          ]
+        },
+        "id": "aab9e27e-52fd-4971-b3d2-b302a2465216",
+        "latencyMs": 25219,
+        "namedScores": {},
+        "prompt": {
+          "raw": "01-proximos-eventos",
+          "label": "{{tarefa}}",
+          "config": {}
+        },
+        "promptId": "c7f06ffb22b0e88e42e06c51cac71b596887e840053bb00f89291a6076330cab",
+        "promptIdx": 1,
+        "provider": {
+          "id": "claude-code-b",
+          "label": "variante b"
+        },
+        "response": {
+          "output": "passou",
+          "metadata": {
+            "resultado": {
+              "tarefa": "01-proximos-eventos",
+              "variante": "b",
+              "desfecho": "passou",
+              "testePassou": true,
+              "foraDoEscopo": [],
+              "alterados": [
+                "src/eventos.ts",
+                "test/eventos.test.ts"
+              ],
+              "agente": {
+                "ok": true,
+                "turnos": 8,
+                "duracaoMs": 16905,
+                "custoUsd": 0.00999392,
+                "tokensEntrada": 10,
+                "tokensSaida": 2046,
+                "tokensCache": 216507
+              }
+            }
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "Próximos eventos devolvendo um a menos",
+          "vars": {
+            "tarefa": "01-proximos-eventos"
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "output === \"passou\""
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 0,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "tarefa": "01-proximos-eventos"
+        },
+        "metadata": {
+          "resultado": {
+            "tarefa": "01-proximos-eventos",
+            "variante": "b",
+            "desfecho": "passou",
+            "testePassou": true,
+            "foraDoEscopo": [],
+            "alterados": [
+              "src/eventos.ts",
+              "test/eventos.test.ts"
+            ],
+            "agente": {
+              "ok": true,
+              "turnos": 8,
+              "duracaoMs": 16905,
+              "custoUsd": 0.00999392,
+              "tokensEntrada": 10,
+              "tokensSaida": 2046,
+              "tokensCache": 216507
+            }
+          },
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      }
+    ],
+    "stats": {
+      "successes": 2,
+      "failures": 0,
+      "errors": 0,
+      "tokenUsage": {
+        "prompt": 0,
+        "completion": 0,
+        "cached": 0,
+        "total": 0,
+        "numRequests": 2,
+        "completionDetails": {
+          "reasoning": 0,
+          "acceptedPrediction": 0,
+          "rejectedPrediction": 0,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0
+        },
+        "assertions": {
+          "total": 0,
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "numRequests": 0,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          }
+        }
+      },
+      "durationMs": 25247,
+      "evaluationDurationMs": 25247
+    }
+  },
+  "config": {
+    "tags": {},
+    "description": "Medindo agentes — A (sem convenções) contra B (com convenções)",
+    "prompts": [
+      "{{tarefa}}"
+    ],
+    "providers": [
+      {
+        "id": "file://agente.ts",
+        "label": "variante a",
+        "config": {
+          "variante": "a"
+        }
+      },
+      {
+        "id": "file://agente.ts",
+        "label": "variante b",
+        "config": {
+          "variante": "b"
+        }
+      }
+    ],
+    "tests": [
+      {
+        "description": "Próximos eventos devolvendo um a menos",
+        "vars": {
+          "tarefa": "01-proximos-eventos"
+        },
+        "assert": [
+          {
+            "type": "javascript",
+            "value": "output === \"passou\""
+          }
+        ]
+      },
+      {
+        "description": "Contar inscritos de um evento",
+        "vars": {
+          "tarefa": "02-contar-inscritos"
+        },
+        "assert": [
+          {
+            "type": "javascript",
+            "value": "output === \"passou\""
+          }
+        ]
+      },
+      {
+        "description": "Evento lotado",
+        "vars": {
+          "tarefa": "03-evento-lotado"
+        },
+        "assert": [
+          {
+            "type": "javascript",
+            "value": "output === \"passou\""
+          }
+        ]
+      },
+      {
+        "description": "Cupom de desconto percentual",
+        "vars": {
+          "tarefa": "04-cupom"
+        },
+        "assert": [
+          {
+            "type": "javascript",
+            "value": "output === \"passou\""
+          }
+        ]
+      },
+      {
+        "description": "Inscrição em evento que já aconteceu",
+        "vars": {
+          "tarefa": "05-evento-passado"
+        },
+        "assert": [
+          {
+            "type": "javascript",
+            "value": "output === \"passou\""
+          }
+        ]
+      },
+      {
+        "description": "E-mail no relatório de inscrições",
+        "vars": {
+          "tarefa": "06-relatorio-email"
+        },
+        "assert": [
+          {
+            "type": "javascript",
+            "value": "output === \"passou\""
+          }
+        ]
+      },
+      {
+        "description": "Lista de espera quando o evento lota",
+        "vars": {
+          "tarefa": "07-lista-espera"
+        },
+        "assert": [
+          {
+            "type": "javascript",
+            "value": "output === \"passou\""
+          }
+        ]
+      },
+      {
+        "description": "CSV com vírgula entre aspas",
+        "vars": {
+          "tarefa": "08-csv-aspas"
+        },
+        "assert": [
+          {
+            "type": "javascript",
+            "value": "output === \"passou\""
+          }
+        ]
+      }
+    ],
+    "env": {},
+    "outputPath": [
+      "resultados/ultimo.json"
+    ],
+    "extensions": [],
+    "metadata": {},
+    "evaluateOptions": {
+      "maxConcurrency": 4,
+      "repeat": 2,
+      "cache": false
+    },
+    "basePath": "./evals"
+  },
+  "shareableUrl": null,
+  "metadata": {
+    "promptfooVersion": "0.124.1",
+    "nodeVersion": "v25.9.0",
+    "platform": "darwin",
+    "arch": "arm64",
+    "exportedAt": "2026-10-26T18:32:19.899Z",
+    "evaluationCreatedAt": "2026-10-26T18:31:54.592Z"
+  },
+  "vars": [
+    "tarefa"
+  ],
+  "runtimeOptions": {
+    "eventSource": "cli",
+    "maxConcurrency": 4,
+    "repeat": 1,
+    "cache": true,
+    "showProgressBar": true
+  }
+}

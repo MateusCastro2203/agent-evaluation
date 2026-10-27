@@ -1,0 +1,6 @@
+{
+  "titulo": "Contar inscritos de um evento",
+  "prompt": "Preciso de uma função que conte os inscritos de um evento: `contarInscritos(eventoId)`, exportada de `src/inscricoes.ts`, devolvendo quantas pessoas estão inscritas naquele evento agora (quem cancelou não conta).",
+  "permitidos": ["src/inscricoes.ts", "test/**"],
+  "dependeDeConvencao": false
+}

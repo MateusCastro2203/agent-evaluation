@@ -1,0 +1,191 @@
+/* @theme mentoria */
+@import 'default';
+
+:root {
+  --tinta: #1b1f2a;
+  --suave: #5b6272;
+  --fundo: #fbfaf7;
+  --painel: #f0ede6;
+  --acento: #e4572e;
+  --azul: #2b59c3;
+  --verde: #2f855a;
+}
+
+section {
+  background: var(--fundo);
+  color: var(--tinta);
+  font-family: "Inter", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 30px;
+  line-height: 1.4;
+  padding: 56px 72px;
+  justify-content: flex-start;
+}
+
+section::after { /* paginação */
+  color: var(--suave);
+  font-size: 18px;
+}
+
+h1, h2 { color: var(--tinta); letter-spacing: -0.01em; }
+h1 { font-size: 52px; margin-bottom: 8px; }
+h2 { font-size: 40px; border-bottom: 4px solid var(--acento); padding-bottom: 6px; display: inline-block; margin-bottom: 24px; }
+h3 { color: var(--azul); font-size: 30px; margin: 12px 0 6px; }
+strong { color: var(--acento); }
+em { color: var(--azul); font-style: normal; }
+a { color: var(--azul); }
+ul, ol { margin: 0; padding-left: 1.1em; }
+li { margin: 6px 0; }
+li::marker { color: var(--acento); }
+
+code { background: var(--painel); color: var(--tinta); border-radius: 4px; padding: 0 6px; font-size: 0.9em; }
+pre { background: #1b1f2a; border-radius: 8px; padding: 18px 22px; font-size: 22px; line-height: 1.45; }
+pre code { background: none; color: #e9e6df; padding: 0; }
+
+table { border-collapse: collapse; font-size: 24px; margin-top: 8px; }
+th { background: var(--tinta); color: var(--fundo); padding: 8px 14px; text-align: left; }
+td { border-bottom: 1px solid #d8d3c8; padding: 8px 14px; background: transparent; }
+tr:nth-child(2n) td { background: var(--painel); }
+
+blockquote {
+  border-left: 6px solid var(--acento);
+  background: var(--painel);
+  color: var(--tinta);
+  margin: 16px 0;
+  padding: 14px 22px;
+  font-size: 0.95em;
+}
+
+/* Capa e divisórias */
+section.capa { justify-content: center; background: var(--tinta); color: var(--fundo); }
+section.capa h1 { color: var(--fundo); font-size: 64px; }
+section.capa p { color: #c9c4b8; }
+section.capa strong { color: var(--acento); }
+section.capa::after { display: none; }
+
+section.secao { justify-content: center; background: var(--acento); color: #fff; }
+section.secao h1, section.secao h2 { color: #fff; border: none; font-size: 60px; }
+section.secao p { color: #fff3ee; font-size: 32px; }
+section.secao::after { color: #fff3ee; }
+
+section.frase { justify-content: center; text-align: center; }
+section.frase p { font-size: 40px; line-height: 1.35; }
+
+/* Utilitários */
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+.cols-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; align-items: start; }
+.card { background: var(--painel); border-radius: 10px; padding: 18px 22px; font-size: 24px; }
+.card h3 { margin-top: 0; }
+.mini { font-size: 20px; color: var(--suave); }
+.fonte { position: absolute; bottom: 28px; left: 72px; right: 160px; font-size: 16px; color: var(--suave); }
+.demo { display: inline-block; background: var(--azul); color: #fff; border-radius: 999px; padding: 2px 14px; font-size: 18px; font-weight: 600; vertical-align: middle; }
+.tokens span { display: inline-block; background: #fff; border: 2px solid var(--azul); border-radius: 6px; padding: 2px 6px; margin: 3px 2px; font-family: ui-monospace, Menlo, monospace; font-size: 24px; white-space: pre; }
+.tokens span:nth-child(2n) { border-color: var(--acento); }
+.barra { display: flex; align-items: center; gap: 12px; margin: 6px 0; font-size: 22px; }
+.barra b { display: inline-block; height: 22px; background: var(--azul); border-radius: 3px; }
+.barra.top b { background: var(--acento); }
+section.capa em { color: #a9c1ff; }
+th code { background: rgba(255, 255, 255, 0.18); color: #fff; }
+
+/* Cores do realce de sintaxe nos blocos de código (fundo escuro) */
+pre .hljs-string { color: #a8e6a1; }
+pre .hljs-attr, pre .hljs-attribute, pre .hljs-property { color: #9ec5ff; }
+pre .hljs-number, pre .hljs-literal { color: #ffb86b; }
+pre .hljs-keyword, pre .hljs-built_in, pre .hljs-title { color: #ff9e80; }
+pre .hljs-comment { color: #9aa3b2; }
+pre .hljs-punctuation, pre .hljs-meta { color: #e9e6df; }
+pre .hljs-bullet, pre .hljs-symbol, pre .hljs-operator { color: #ffb86b; }
+
+/* Pergunta para a plateia: fundo escuro, texto grande, respostas aparecem no clique */
+section.pergunta { justify-content: center; text-align: center; background: var(--tinta); color: var(--fundo); }
+section.pergunta h2 { display: block; color: var(--fundo); border: none; font-size: 64px; line-height: 1.2; margin: 0 0 36px; }
+section.pergunta h2 code { background: rgba(255, 255, 255, 0.14); color: var(--fundo); }
+section.pergunta strong { color: var(--acento); }
+section.pergunta .selo { font-size: 22px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--acento); font-weight: 700; margin: 0 0 18px; }
+section.pergunta ul, section.pergunta ol { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; gap: 24px; padding: 0; margin: 0; }
+section.pergunta li { background: #2a3040; border: 3px solid var(--acento); border-radius: 14px; padding: 14px 32px; font-size: 38px; font-weight: 600; margin: 0; }
+section.pergunta .resposta { font-size: 40px; color: #ffd2c4; margin: 32px 0 0; }
+section.pergunta .resposta b { color: var(--acento); }
+section.pergunta .mini, section.pergunta .fonte { color: #9aa3b2; }
+section.pergunta::after { color: #9aa3b2; }
+
+/* Número grande */
+.grande { display: block; font-size: 160px; font-weight: 800; line-height: 1; color: var(--acento); letter-spacing: -0.03em; }
+.grande-legenda { font-size: 32px; color: var(--suave); margin-top: 8px; }
+section.pergunta .grande-legenda { color: #c9c4b8; }
+.numeros { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; text-align: center; margin-top: 40px; }
+
+/* Fluxo de caixas com setas */
+.fluxo { display: flex; align-items: stretch; gap: 14px; margin-top: 36px; }
+.fluxo > div { flex: 1; background: var(--painel); border-radius: 12px; padding: 26px 18px; text-align: center; font-size: 30px; display: flex; flex-direction: column; justify-content: center; }
+.fluxo > div b { display: block; color: var(--azul); font-size: 22px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+.fluxo > .seta { flex: 0 0 auto; background: none; padding: 0; font-size: 44px; color: var(--acento); }
+.fluxo > div.destaque { background: var(--acento); color: #fff; }
+.fluxo > div.destaque b { color: #fff3ee; }
+
+/* Rótulos (desfechos) */
+.chips { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 36px; }
+.chips span { background: var(--painel); border: 3px solid var(--azul); border-radius: 12px; padding: 12px 26px; font-size: 34px; font-family: ui-monospace, Menlo, monospace; }
+.chips span.alerta { border-color: var(--acento); }
+.chips.texto span { font-family: inherit; }
+
+/* Frase de efeito que aparece no clique */
+.punch { font-size: 38px; font-weight: 600; margin-top: 40px; border-left: 8px solid var(--acento); padding: 6px 0 6px 24px; }
+
+/* Barras do intervalo de Wilson */
+.escala { position: relative; height: 54px; background: var(--painel); border-radius: 6px; margin: 8px 0 4px; }
+.escala .iv { position: absolute; top: 12px; height: 30px; border-radius: 4px; opacity: .85; }
+.escala .pt { position: absolute; top: 4px; width: 6px; height: 46px; background: var(--tinta); border-radius: 2px; }
+.rotulo { font-size: 30px; margin: 18px 0 0; text-align: left; }
+.eixo { display: flex; justify-content: space-between; font-size: 18px; color: var(--suave); }
+section.pergunta .eixo { color: #9aa3b2; }
+.barras { text-align: left; margin-top: 8px; }
+
+/* Duas caixas lado a lado, texto grande */
+.dupla { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; margin-top: 28px; }
+.dupla > div { background: var(--painel); border-radius: 12px; padding: 28px 30px; font-size: 32px; }
+.dupla > div h3 { margin: 0 0 10px; font-size: 32px; }
+
+/* Código grande */
+section.codigo-grande pre { font-size: 26px; line-height: 1.5; }
+
+/* Ajustes de tamanho: tabelas e listas curtas com letra grande */
+section.tabela table { font-size: 36px; }
+section.tabela th, section.tabela td { padding: 12px 26px; }
+section.lista ul li, section.lista ol li { font-size: 44px; margin: 22px 0; }
+section.codigo-grande pre { font-size: 30px; }
+section.codigo-grande blockquote { font-size: 36px; }
+pre .hljs-regexp { color: #ffb86b; }
+.numeros pre { font-size: 44px; padding: 28px; }
+.fluxo > div.destaque strong { color: #fff; text-decoration: underline; }
+section.lista .cols li { font-size: 38px; }
+
+/* Tema claro: capa, divisórias e perguntas no mesmo fundo dos slides de conteúdo */
+section.capa { background: var(--fundo); color: var(--tinta); border-left: 18px solid var(--acento); }
+section.capa h1 { color: var(--tinta); }
+section.capa p { color: var(--suave); }
+section.capa em { color: var(--azul); }
+
+section.secao { background: var(--fundo); color: var(--tinta); border-left: 18px solid var(--acento); }
+section.secao h1, section.secao h2 { color: var(--acento); }
+section.secao p { color: var(--suave); }
+section.secao::after { color: var(--suave); }
+
+section.pergunta { background: var(--painel); color: var(--tinta); }
+section.pergunta h2 { color: var(--tinta); }
+section.pergunta h2 code { background: #fff; color: var(--tinta); }
+section.pergunta li { background: #fff; color: var(--tinta); }
+section.pergunta .resposta { color: var(--tinta); }
+section.pergunta .mini, section.pergunta .fonte, section.pergunta .eixo, section.pergunta::after { color: var(--suave); }
+section.pergunta .grande-legenda { color: var(--suave); }
+
+/* Slide "Quem é": foto à esquerda; à direita, cartão de destaque em cima e lista + QR embaixo */
+section.sobre { padding-bottom: 40px; }
+.sobre-grade { display: grid; grid-template-columns: 380px 1fr 250px; grid-template-rows: auto 1fr; gap: 22px; height: 500px; }
+.sobre-grade .foto { grid-row: 1 / span 2; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; border-radius: 12px; }
+.sobre-grade .destaque-card { grid-column: 2 / span 2; font-size: 28px; }
+.sobre-grade .destaque-card p { margin: 0 0 14px; }
+.sobre-grade .destaque-card strong { color: var(--tinta); }
+.sobre-grade .lista-card { font-size: 24px; display: flex; align-items: center; }
+.sobre-grade .lista-card ul { list-style: none; padding: 0; }
+.sobre-grade .lista-card li { margin: 8px 0; }
+.sobre-grade .qr { width: 250px; height: 250px; align-self: center; }

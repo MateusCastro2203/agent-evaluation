@@ -1,0 +1,6 @@
+{
+  "titulo": "Próximos eventos devolvendo um a menos",
+  "prompt": "Bug: a listagem de próximos eventos (`listarProximos(limite)`) está devolvendo um evento a menos do que o limite pedido. Com 3 eventos futuros, `listarProximos(2)` devolve só 1. Corrija.",
+  "permitidos": ["src/eventos.ts", "test/**"],
+  "dependeDeConvencao": false
+}

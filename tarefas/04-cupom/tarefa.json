@@ -1,0 +1,6 @@
+{
+  "titulo": "Cupom de desconto percentual",
+  "prompt": "Aceite cupom de desconto percentual na inscrição. `inscrever(eventoId, pessoa, cupom)` passa a receber um terceiro argumento opcional `{ percentual: number }` (por exemplo `{ percentual: 10 }` para 10% de desconto), e a inscrição devolvida passa a ter o campo `valorPago` com o preço do evento já com o desconto aplicado.",
+  "permitidos": ["src/inscricoes.ts", "src/eventos.ts", "src/dinheiro.ts", "test/**"],
+  "dependeDeConvencao": true
+}

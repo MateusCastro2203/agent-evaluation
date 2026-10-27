@@ -1,0 +1,3 @@
+# esbuild traz o binário via pacotes por plataforma; o script de build não é necessário.
+allowBuilds:
+  esbuild: false

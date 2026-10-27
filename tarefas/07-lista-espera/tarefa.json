@@ -1,0 +1,6 @@
+{
+  "titulo": "Lista de espera quando o evento lota",
+  "prompt": "Hoje o evento aceita inscrição além da capacidade. Quando lotar, coloque a pessoa numa lista de espera em vez de inscrevê-la. E me dê um jeito de consultar a lista de espera do evento: `listaDeEspera(eventoId)`, exportada de `src/inscricoes.ts`, devolvendo as pessoas (`Pessoa[]`) na ordem em que entraram.",
+  "permitidos": ["src/inscricoes.ts", "src/eventos.ts", "test/**"],
+  "dependeDeConvencao": true
+}

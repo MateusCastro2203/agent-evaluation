@@ -1,0 +1,27 @@
+{
+  "name": "agent-evaluation",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@12.10.1",
+  "scripts": {
+    "test": "vitest run",
+    "lab:test": "vitest run --root laboratorio",
+    "eval": "PROMPTFOO_DISABLE_TELEMETRY=1 promptfoo eval --no-cache -c evals/promptfooconfig.yaml -o resultados/ultimo.json",
+    "eval:rapido": "PROMPTFOO_DISABLE_TELEMETRY=1 promptfoo eval --no-cache -c evals/promptfooconfig.yaml --filter-first-n 1 --repeat 1 -o resultados/ultimo.json",
+    "relatorio": "tsx scripts/relatorio.ts",
+    "relatorio:ensaio": "tsx scripts/relatorio.ts resultados/ensaio/resultado.json",
+    "ensaio:gravar": "tsx scripts/gravar-ensaio.ts",
+    "material": "tsx scripts/material.ts",
+    "checar-termos": "tsx scripts/checar-termos.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@marp-team/marp-cli": "^4.5.1",
+    "@types/node": "^26.6.5",
+    "marked": "^18.1.1",
+    "promptfoo": "^0.124.1",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.5"
+  }
+}

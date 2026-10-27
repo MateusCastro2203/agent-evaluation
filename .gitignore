@@ -1,0 +1,10 @@
+node_modules/
+resultados/*
+!resultados/ensaio/
+.promptfoo/
+laboratorio/node_modules/
+.lab-deps/
+.lab-deps.tmp-*/
+.corretor-deps/
+.corretor-deps.tmp-*/
+.vitest/

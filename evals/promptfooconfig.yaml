@@ -1,0 +1,21 @@
+# 2 variantes × 8 tarefas × 2 repetições = 32 execuções, 4 em paralelo.
+description: Medindo agentes — A (sem convenções) contra B (com convenções)
+# o prompt real da tarefa vem do executor; aqui só precisa existir um
+prompts:
+  - "{{tarefa}}"
+providers:
+  - id: file://agente.ts
+    label: variante a
+    config:
+      variante: a
+      modelo: sonnet
+  - id: file://agente.ts
+    label: variante b
+    config:
+      variante: b
+      modelo: sonnet
+tests: file://casos.ts
+evaluateOptions:
+  maxConcurrency: 4
+  repeat: 2
+  cache: false # inerte na 0.124.1: o CLI usa --no-cache (ver package.json)

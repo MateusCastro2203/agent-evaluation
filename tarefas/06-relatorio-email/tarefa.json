@@ -1,0 +1,6 @@
+{
+  "titulo": "E-mail no relatório de inscrições",
+  "prompt": "O relatório de inscrições precisa mostrar o e-mail de cada inscrito. Crie uma função `relatorioDeInscritos()` que devolva uma linha por inscrição, no formato `{ evento, nome, email }` (`evento` é o nome do evento).",
+  "permitidos": ["src/relatorios/**", "test/**"],
+  "dependeDeConvencao": true
+}

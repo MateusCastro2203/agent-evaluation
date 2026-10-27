@@ -1,0 +1,6 @@
+{
+  "titulo": "Evento lotado",
+  "prompt": "Hoje dá para inscrever mais gente do que a capacidade do evento. Não deixe inscrever em evento lotado: quando o evento já tiver `capacidade` inscritos, `inscrever` deve recusar a nova inscrição.",
+  "permitidos": ["src/inscricoes.ts", "test/**"],
+  "dependeDeConvencao": true
+}
