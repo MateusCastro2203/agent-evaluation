@@ -41,9 +41,9 @@ code{font-family:ui-monospace,Menlo,monospace}
 <h1>Medindo agentes · A (sem CLAUDE.md) × B (com CLAUDE.md)</h1>
 <section class="veredito inconclusivo">
 <div class="titulo">Inconclusivo</div>
-<div class="frase">A: 13 de 16 (81%) · B: 16 de 16 (100%). Os intervalos de 95% se sobrepõem: com esse n, não dá para dizer se o CLAUDE.md ajuda.</div>
-<div class="nec">execuções necessárias por variante (critério do veredito): 38 por variante (onde os intervalos de Wilson 95% deixam de se sobrepor, nas taxas observadas), contra 16 feitas</div>
-<div class="nec piso">piso pelo teste z de duas proporções: 34 por variante (95% de confiança, 80% de poder)</div>
+<div class="frase">A: 12 de 16 (75%) · B: 16 de 16 (100%). Os intervalos de 95% se sobrepõem: com esse n, não dá para dizer se o CLAUDE.md ajuda.</div>
+<div class="nec">execuções necessárias por variante (critério do veredito): 27 por variante (onde os intervalos de Wilson 95% deixam de se sobrepor, nas taxas observadas), contra 16 feitas</div>
+<div class="nec piso">piso pelo teste z de duas proporções: 24 por variante (95% de confiança, 80% de poder)</div>
 </section>
 
 <h2>A × B</h2>
@@ -51,22 +51,22 @@ code{font-family:ui-monospace,Menlo,monospace}
 <thead><tr><th></th><th>A (sem CLAUDE.md)</th><th>B (com CLAUDE.md)</th></tr></thead>
 <tbody>
 <tr><th scope="row">n (sem erro do agente)</th><td class="num">16</td><td class="num">16</td></tr>
-<tr><th scope="row">taxa de sucesso (Wilson 95%)</th><td class="num">81% (57% a 93%)</td><td class="num">100% (81% a 100%)</td></tr>
+<tr><th scope="row">taxa de sucesso (Wilson 95%)</th><td class="num">75% (51% a 90%)</td><td class="num">100% (81% a 100%)</td></tr>
 <tr><th scope="row">pass^k (k=2; tarefas que passaram em todas as repetições; erro do agente conta como não passou)</th><td class="num">6 de 8</td><td class="num">8 de 8</td></tr>
 <tr><th scope="row">fora do escopo</th><td class="num">3</td><td class="num">0</td></tr>
 <tr><th scope="row">erros do agente (fora do n)</th><td class="num">0</td><td class="num">0</td></tr>
-<tr><th scope="row">tokens (entrada + saída), mediana</th><td class="num">1.907</td><td class="num">1.911</td></tr>
-<tr><th scope="row">tokens de cache (leitura + criação), mediana</th><td class="num">139.575</td><td class="num">121.183</td></tr>
+<tr><th scope="row">tokens (entrada + saída), mediana</th><td class="num">1.824</td><td class="num">1.998</td></tr>
+<tr><th scope="row">tokens de cache (leitura + criação), mediana</th><td class="num">140.173</td><td class="num">120.335</td></tr>
 <tr><th scope="row">mediana de turnos</th><td class="num">8,5</td><td class="num">8,0</td></tr>
-<tr><th scope="row">mediana de duração</th><td class="num">17,7 s</td><td class="num">17,0 s</td></tr>
-<tr><th scope="row">custo estimado (US$, lista; inclui execuções com erro)</th><td class="num">US$ 1,44</td><td class="num">US$ 1,49</td></tr>
+<tr><th scope="row">mediana de duração</th><td class="num">18,0 s</td><td class="num">17,4 s</td></tr>
+<tr><th scope="row">custo estimado (US$, lista; inclui execuções com erro)</th><td class="num">US$ 1,42</td><td class="num">US$ 1,45</td></tr>
 </tbody>
 </table>
 
 <h2>Intervalo de 95% por variante</h2>
-<div class="linha-barra"><div class="rot-barra">A · sem CLAUDE.md<small>81% (57% a 93%)</small></div>
-<div class="escala" role="img" aria-label="A · sem CLAUDE.md: 81% (57% a 93%)">
-<div class="iv" style="left:57.0%;width:36.4%;background:var(--azul)"></div><div class="pt" style="left:calc(81.3% - 3px)"></div>
+<div class="linha-barra"><div class="rot-barra">A · sem CLAUDE.md<small>75% (51% a 90%)</small></div>
+<div class="escala" role="img" aria-label="A · sem CLAUDE.md: 75% (51% a 90%)">
+<div class="iv" style="left:50.5%;width:39.3%;background:var(--azul)"></div><div class="pt" style="left:calc(75.0% - 3px)"></div>
 </div></div>
 <div class="linha-barra"><div class="rot-barra">B · com CLAUDE.md<small>100% (81% a 100%)</small></div>
 <div class="escala" role="img" aria-label="B · com CLAUDE.md: 100% (81% a 100%)">
@@ -81,7 +81,7 @@ code{font-family:ui-monospace,Menlo,monospace}
 <tr><th scope="row">01-proximos-eventos</th><td class="num ok">2/2</td><td class="num ok">2/2</td></tr>
 <tr><th scope="row">02-contar-inscritos</th><td class="num ok">2/2</td><td class="num ok">2/2</td></tr>
 <tr><th scope="row">03-evento-lotado</th><td class="num ok">2/2</td><td class="num ok">2/2</td></tr>
-<tr><th scope="row">04-cupom</th><td class="num meio">1/2</td><td class="num ok">2/2</td></tr>
+<tr><th scope="row">04-cupom</th><td class="num ruim">0/2</td><td class="num ok">2/2</td></tr>
 <tr><th scope="row">05-evento-passado</th><td class="num ok">2/2</td><td class="num ok">2/2</td></tr>
 <tr><th scope="row">06-relatorio-email</th><td class="num ruim">0/2</td><td class="num ok">2/2</td></tr>
 <tr><th scope="row">07-lista-espera</th><td class="num ok">2/2</td><td class="num ok">2/2</td></tr>
@@ -89,6 +89,6 @@ code{font-family:ui-monospace,Menlo,monospace}
 </tbody>
 </table>
 
-<footer>fonte: <code>ensaio/resultado.json</code> · gerado em 2026-10-26T19:28:10.790Z · run de 2026-10-26T18:48:08.416Z · modelo: sonnet · linhas com erro do harness (fora do n): 0</footer>
+<footer>fonte: <code>ensaio/resultado.json</code> · gerado em 2026-10-27T17:47:16.052Z · run de 2026-10-27T17:43:45.157Z · modelo: sonnet · linhas com erro do harness (fora do n): 0</footer>
 </body>
 </html>

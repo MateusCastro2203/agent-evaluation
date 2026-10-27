@@ -62,7 +62,7 @@ O 1,96 vem dos 95% de confiança, e o 0,84, dos 80% de poder. No código, o camp
 |---|---|---|---|
 | 37,5% | 75% | 27 | 24 |
 | 62,5% | 75% | 212 | 212 |
-| 81,25% | 100% | 38 | 34 |
+| 75% | 100% | 27 | 24 |
 
 O n cresce com 1 / (diferença)². Uma diferença grande se vê com poucas dezenas de execuções; uma diferença moderada pede centenas. As duas contas supõem que as taxas observadas continuem iguais com mais execuções, o que ninguém garante: são estimativas, não promessas.
 
@@ -74,12 +74,12 @@ O run gravado na véspera da palestra (`resultados/ensaio/`, modelo `sonnet`, 2 
 
 | | A (sem `CLAUDE.md`) | B (com `CLAUDE.md`) |
 |---|---|---|
-| passou | 13 de 16 (81%, Wilson 57% a 93%) | 16 de 16 (100%, Wilson 81% a 100%) |
+| passou | 12 de 16 (75%, Wilson 51% a 90%) | 16 de 16 (100%, Wilson 81% a 100%) |
 | pass^2 | 6 de 8 | 8 de 8 |
 | fora do escopo | 3 | 0 |
 | erros do agente | 0 | 0 |
 
-Veredito: **inconclusivo**. As barras se sobrepõem entre 81% e 93%, e o relatório estima 38 execuções por variante para elas se separarem (o piso pelo teste z é 34). As três falhas de A foram todas `fora_do_escopo`, nas tarefas de convenção: uma na 04 (mexeu em `src/legado/`, a pasta congelada) e duas na 06 (mexeu em `src/inscricoes.ts`, fora dos permitidos). É o efeito que as tarefas foram desenhadas para medir, mas 16 execuções por lado ainda não bastam para cravar. Rode `pnpm relatorio:ensaio` para ver o relatório completo. Se regravar o ensaio, atualize estes números.
+Veredito: **inconclusivo**. As barras se sobrepõem entre 81% e 90%, e o relatório estima 27 execuções por variante para elas se separarem (o piso pelo teste z é 24). As quatro falhas de A foram todas nas tarefas de convenção: na 04, uma `fora_do_escopo` (mexeu em `src/legado/`, a pasta congelada) e uma em que o teste escondido falhou; na 06, duas `fora_do_escopo` (mexeu em `src/relatorio.ts` numa e em `src/inscricoes.ts` na outra, fora dos permitidos). É o efeito que as tarefas foram desenhadas para medir, mas 16 execuções por lado ainda não bastam para cravar. Rode `pnpm relatorio:ensaio` para ver o relatório completo. Se regravar o ensaio, atualize estes números.
 
 ## Os três desfechos
 

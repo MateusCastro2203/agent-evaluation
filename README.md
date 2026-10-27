@@ -45,14 +45,14 @@ Para saber:
 
 ### O run gravado (ensaio)
 
-`resultados/ensaio/` tem um run completo de exemplo, com o JSON, o relatório e as notas ([`NOTAS.md`](resultados/ensaio/NOTAS.md) e [`ISOLAMENTO.md`](resultados/ensaio/ISOLAMENTO.md)). Com `sonnet`, concorrência 4 e 2 repetições, as 32 execuções levaram **3 min 17 s** de relógio.
+`resultados/ensaio/` tem um run completo de exemplo, com o JSON, o relatório e as notas ([`NOTAS.md`](resultados/ensaio/NOTAS.md) e [`ISOLAMENTO.md`](resultados/ensaio/ISOLAMENTO.md)). Com `sonnet`, concorrência 4 e 2 repetições, as 32 execuções levaram **3 min 28 s** de relógio.
 
 | Variante | Passou | Taxa (Wilson 95%) |
 |---|---|---|
-| A | 13 de 16 | 81% (57% a 93%) |
+| A | 12 de 16 | 75% (51% a 90%) |
 | B | 16 de 16 | 100% (81% a 100%) |
 
-O veredito foi **inconclusivo**, porque os intervalos se sobrepõem. O relatório estima **38 execuções por variante** para os intervalos deixarem de se sobrepor nessas taxas (o critério do veredito); o teste z de duas proporções dá um piso de 34. É um exemplo, não uma previsão: o seu run pode dar outro resultado. Se regravar o ensaio, atualize estes números.
+O veredito foi **inconclusivo**, porque os intervalos se sobrepõem. O relatório estima **27 execuções por variante** para os intervalos deixarem de se sobrepor nessas taxas (o critério do veredito); o teste z de duas proporções dá um piso de 24. É um exemplo, não uma previsão: o seu run pode dar outro resultado. Se regravar o ensaio, atualize estes números.
 
 ## Como uma execução roda
 

@@ -1,31 +1,31 @@
 # Ensaio gravado (plano B)
 
-- **Data:** 2026-10-26
+- **Data:** 2026-10-27 (regravado a partir do repositório publicado; o ensaio anterior, de 2026-10-26, deu A 13/16 × B 16/16, também inconclusivo)
 - **Modelo:** `sonnet` (fixado em `evals/promptfooconfig.yaml`, aparece no rodapé do relatório)
 - **Concorrência:** 4 · **repeat:** 2 · 2 variantes × 8 tarefas × 2 repetições = 32 execuções
-- **Tempo total (relógio):** 3 min 17 s medidos pelo promptfoo (3 min 20 s com a inicialização do `pnpm`). Meta era ≤ 35 min: sobrou folga enorme, então não foi preciso subir concorrência, trocar de modelo nem reduzir `repeat`.
-- **Duração por execução:** de 8,6 s a 41,9 s (mediana ~17 s).
-- **Custo estimado (lista):** A US$ 1,44 · B US$ 1,49.
+- **Tempo total (relógio):** 3 min 28 s medidos pelo promptfoo (3 min 33 s com a inicialização do `pnpm`). Meta era ≤ 35 min.
+- **Duração por execução:** de 11,7 s a 41,6 s (mediana ~18 s).
+- **Custo estimado (lista):** A US$ 1,42 · B US$ 1,45.
 
 ## Resultado
 
 | | A (sem CLAUDE.md) | B (com CLAUDE.md) |
 |---|---|---|
-| passou | 13/16 (81%, Wilson 57% a 93%) | 16/16 (100%, Wilson 81% a 100%) |
+| passou | 12/16 (75%, Wilson 51% a 90%) | 16/16 (100%, Wilson 81% a 100%) |
 | pass^2 | 6/8 | 8/8 |
 | fora do escopo | 3 | 0 |
 | erros do agente | 0 | 0 |
 
-**Veredito: inconclusivo.** Os intervalos de Wilson 95% se sobrepõem (81% a 93% de A contra 81% a 100% de B). O relatório diz que seriam necessárias 38 execuções por variante para os intervalos deixarem de se sobrepor nessas taxas (critério do veredito); o piso pelo teste z de duas proporções é 34.
+**Veredito: inconclusivo.** Os intervalos de Wilson 95% se sobrepõem (81% a 90%). O relatório diz que seriam necessárias 27 execuções por variante para os intervalos deixarem de se sobrepor nessas taxas (critério do veredito); o piso pelo teste z de duas proporções é 24.
 
-## Falhas (todas da variante A, todas `fora_do_escopo`)
+## Falhas (todas da variante A, todas em tarefas de convenção)
 
-- `04-cupom` (1 de 2): mexeu em `src/legado/relatorio.ts` (pasta congelada, regra só escrita no CLAUDE.md da B).
-- `06-relatorio-email` (2 de 2): mexeu em `src/inscricoes.ts`, fora do escopo permitido.
+- `04-cupom` (2 de 2): numa, `fora_do_escopo` (mexeu em `src/legado/relatorio.ts`, pasta congelada, regra só escrita no CLAUDE.md da B); na outra, o teste escondido falhou (`falhou`).
+- `06-relatorio-email` (2 de 2): `fora_do_escopo` (mexeu em `src/relatorio.ts` numa e em `src/inscricoes.ts` na outra).
 
 Nenhum `erro_agente`, nenhum erro de harness, nenhum run descartado.
 
-## Isolamento (verificado de verdade antes do run)
+## Isolamento (verificado no ensaio de 2026-10-26; o código do executor não mudou desde então)
 
 - A: respondeu NENHUMA, sem o CLAUDE.md global do usuário, sem MCP, hooks ou skills do usuário. B: citou só o `CLAUDE.md` da cópia.
 - **Vazamento achado e corrigido:** com as flags antigas, o init do Claude Code listava 47 servidores MCP (conectores da conta claude.ai, que `--setting-sources project` não controla) e até 734 tools, de forma instável entre execuções. Correção: `--strict-mcp-config` (sem `--mcp-config`) em `argumentosClaude`; depois disso, 0 servidores MCP e 25 tools (as nativas) nas duas variantes. Teste da Task 4 atualizado.

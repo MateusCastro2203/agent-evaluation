@@ -102,7 +102,7 @@ pnpm eval
 </div>
 
 <!--
-[01:15–02:15] Rodar `pnpm eval` AGORA, ao vivo. Deixar o terminal num monitor ou minimizado; não voltar nele até o minuto 40. No ensaio (sonnet, concorrência 4), as 32 execuções levaram ~3 min 17 s: o run termina muito antes da revelação, e o resultado fica esperando.
+[01:15–02:15] Rodar `pnpm eval` AGORA, ao vivo. Deixar o terminal num monitor ou minimizado; não voltar nele até o minuto 40. No ensaio (sonnet, concorrência 4), as 32 execuções levaram ~3 min 28 s: o run termina muito antes da revelação, e o resultado fica esperando.
 De onde vem o 32: 2 variantes × 8 tarefas × 2 repetições = 32 execuções do Claude Code, rodando enquanto eu falo. Vou mudar UMA coisa no repositório: um `CLAUDE.md` com as convenções do projeto.
 Fala: "Eu escrevi um CLAUDE.md para este projeto. Acho que ele ajuda. Mas 'acho' não é medida. Então o agente vai trabalhar 32 vezes enquanto eu falo, e no minuto 40 a gente vê."
 Plano B se o run falhar (rede, login, cota): no minuto 40 usar `pnpm relatorio:ensaio`, que lê o run gravado na véspera. Dizer isso em voz alta só se precisar.
@@ -670,7 +670,7 @@ Roteiro de leitura (nesta ordem; a ordem importa):
 6. Por tarefa: o ganho (se houver) está nas tarefas de convenção (03–07) ou nas de controle?
 Comparar com a aposta da plateia (slide 5) depois de ler o veredito.
 Não comemorar nem lamentar ainda: os próximos slides explicam como ler.
-Exemplo de resultado (o ensaio gravado, não o de hoje): A 13/16 (81%, 57% a 93%), B 16/16 (100%, 81% a 100%), pass^2 6/8 × 8/8, 3 fora do escopo, todos de A (mexeram em `src/legado/` ou fora dos permitidos), 0 erro_agente → inconclusivo.
+Exemplo de resultado (o ensaio gravado, não o de hoje): A 12/16 (75%, 51% a 90%), B 16/16 (100%, 81% a 100%), pass^2 6/8 × 8/8, 3 fora do escopo e 1 teste escondido falhando, todos de A (mexeram em `src/legado/` ou fora dos permitidos), 0 erro_agente → inconclusivo.
 -->
 
 ---
@@ -736,12 +736,12 @@ Avançar para o slide seguinte com a resposta.
 
 ## Para separar A de B
 
-<div style="text-align:center; margin-top:40px"><span class="grande">38</span><div class="grande-legenda">execuções por variante, no ensaio: A 13/16 × B 16/16</div></div>
+<div style="text-align:center; margin-top:40px"><span class="grande">27</span><div class="grande-legenda">execuções por variante, no ensaio: A 12/16 × B 16/16</div></div>
 
 <!--
-[45:30–46:00] Slide único, sem cliques. Resposta (do ENSAIO, não do run de hoje): com as taxas do ensaio mantidas (A 13/16 × B 16/16), 38 execuções por variante até os intervalos de Wilson pararem de se sobrepor (critério do veredito); o piso pelo teste z é 34. Dizer "do ensaio" em voz alta.
+[45:30–46:00] Slide único, sem cliques. Resposta (do ENSAIO, não do run de hoje): com as taxas do ensaio mantidas (A 12/16 × B 16/16), 27 execuções por variante até os intervalos de Wilson pararem de se sobrepor (critério do veredito); o piso pelo teste z é 24. Dizer "do ensaio" em voz alta.
 Se o relatório de hoje mostrou outro número em "execuções necessárias por variante (critério do veredito)" (campo execucoesNecessariasPorVariante), dizer: "no de hoje, deu [N]". Se as duas taxas forem iguais, o relatório diz "não calculável".
-Quem chutou 40 chegou mais perto. Quem chutou 16: "é o que a gente rodou hoje, e não bastou."
+Quem chutou 16 chegou perto: "é o que a gente rodou hoje, e não bastou." Quem chutou 40: "um pouco a mais do que precisava."
 -->
 ---
 

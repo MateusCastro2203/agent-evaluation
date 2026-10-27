@@ -29,7 +29,7 @@ Uma ordem que funciona:
 
 1. `pnpm test` primeiro. Se ele falhar, o problema está no medidor, não no agente (veja "Duas camadas", abaixo).
 2. `pnpm eval:rapido` para confirmar que o login e o Claude Code respondem. São 2 execuções reais.
-3. `pnpm eval` para o run de verdade: 2 variantes × 8 tarefas × 2 repetições = 32 execuções, modelo `sonnet`, 4 em paralelo. No notebook do palestrante, o ensaio levou **3 min 17 s** de relógio (cada execução, de 9 s a 42 s). No seu computador, o tempo depende do modelo, da concorrência e da sua cota.
+3. `pnpm eval` para o run de verdade: 2 variantes × 8 tarefas × 2 repetições = 32 execuções, modelo `sonnet`, 4 em paralelo. No notebook do palestrante, o ensaio levou **3 min 28 s** de relógio (cada execução, de 12 s a 42 s). No seu computador, o tempo depende do modelo, da concorrência e da sua cota.
 4. `pnpm relatorio` e abra `resultados/relatorio.html` no navegador. O capítulo 5 explica como ler.
 
 **O `pnpm eval` sai com código 100 quando alguma execução não passou.** É o comportamento do promptfoo, não um erro: o JSON em `resultados/ultimo.json` é gravado do mesmo jeito. Quem decide o veredito é o `pnpm relatorio`.

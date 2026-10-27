@@ -4,9 +4,9 @@ Este guia é material do palestrante (também fica no repo, para quem quiser rea
 
 > **Se só der para lembrar de uma coisa:** a palestra não depende do resultado do run. Qualquer que seja o veredito (B ganha, inconclusivo, A ganha), a lição é a mesma: uma execução é uma amostra, e 16 execuções por variante quase nunca bastam para separar duas configurações. O relatório diz quantas faltam. Isso é medir.
 
-**Valores do run** (de `evals/promptfooconfig.yaml` e `resultados/ensaio/NOTAS.md`): 2 variantes × 8 tarefas × 2 repetições = 32 execuções, modelo `sonnet`, concorrência 4. No ensaio, o run inteiro levou **~3 min 17 s** de relógio (cada execução, de 9 s a 42 s). Ou seja: o run dispara no minuto 0 e termina muito antes da revelação; o relatório só é aberto no minuto 40, porque é ali que a palestra chega na leitura. Se você mudar repetições, concorrência ou modelo, rode o ensaio de novo e atualize os números deste guia.
+**Valores do run** (de `evals/promptfooconfig.yaml` e `resultados/ensaio/NOTAS.md`): 2 variantes × 8 tarefas × 2 repetições = 32 execuções, modelo `sonnet`, concorrência 4. No ensaio, o run inteiro levou **~3 min 28 s** de relógio (cada execução, de 12 s a 42 s). Ou seja: o run dispara no minuto 0 e termina muito antes da revelação; o relatório só é aberto no minuto 40, porque é ali que a palestra chega na leitura. Se você mudar repetições, concorrência ou modelo, rode o ensaio de novo e atualize os números deste guia.
 
-**Resultado do ensaio** (use como exemplo, nunca como "o resultado de hoje"): A 13/16 (81%, Wilson 57% a 93%), B 16/16 (100%, 81% a 100%), pass^2 6/8 × 8/8, 3 fora do escopo (todos de A), 0 `erro_agente`. Veredito: **inconclusivo**; o relatório estima 38 execuções por variante para as barras pararem de se sobrepor (critério do veredito), com piso de 34 pelo teste z de duas proporções.
+**Resultado do ensaio** (use como exemplo, nunca como "o resultado de hoje"): A 12/16 (75%, Wilson 51% a 90%), B 16/16 (100%, 81% a 100%), pass^2 6/8 × 8/8, 3 fora do escopo (todos de A), 0 `erro_agente`. Veredito: **inconclusivo**; o relatório estima 27 execuções por variante para as barras pararem de se sobrepor (critério do veredito), com piso de 24 pelo teste z de duas proporções.
 
 ---
 
@@ -14,7 +14,7 @@ Este guia é material do palestrante (também fica no repo, para quem quiser rea
 
 ### Na véspera
 
-1. Rodar o run completo (`pnpm eval`, grava `resultados/ultimo.json`) e anotar o tempo de relógio real (no ensaio: ~3 min 17 s). **O `pnpm eval` sai com código 100 quando alguma execução não passou:** é o comportamento normal do promptfoo, o JSON é gravado do mesmo jeito.
+1. Rodar o run completo (`pnpm eval`, grava `resultados/ultimo.json`) e anotar o tempo de relógio real (no ensaio: ~3 min 28 s). **O `pnpm eval` sai com código 100 quando alguma execução não passou:** é o comportamento normal do promptfoo, o JSON é gravado do mesmo jeito.
 2. Logo em seguida, antes de rodar qualquer outra coisa, gravar esse run como ensaio: `pnpm ensaio:gravar`. Ele copia `resultados/ultimo.json` para `resultados/ensaio/resultado.json` tirando caminhos pessoais (a pasta do projeto vira `.`, o home vira `~`, as pastas temporárias viram `<tmp>`) e já gera `resultados/ensaio/relatorio.html`. **Atenção:** `pnpm eval:rapido` (e qualquer `pnpm eval`) sobrescreve `resultados/ultimo.json`; se rodar antes de gravar, o ensaio vira um run de 1 tarefa.
 3. Rodar `pnpm relatorio:ensaio` e conferir que ele regenera `resultados/ensaio/relatorio.html`. Ele só lê e escreve arquivo (sem rede, sem modelo), então funciona offline. Esse é o plano B.
 4. Ler o relatório do ensaio inteiro e decorar três coisas: o veredito, o `n` por variante e as "execuções necessárias por variante (critério do veredito)" (campo `execucoesNecessariasPorVariante`; no ensaio, 38). Se o run ao vivo falhar, é isso que você vai mostrar.
@@ -523,13 +523,13 @@ Diga: *"Uma mudança por vez."*
 
 ---
 
-### Slide 38 — Resposta: 38 por variante · [45:30–46:00] · sem cliques
+### Slide 38 — Resposta: 27 por variante · [45:30–46:00] · sem cliques
 
-**Diga:** *"No ensaio, com A 13 de 16 e B 16 de 16, o relatório diz 38 por variante."* Diga **"do ensaio"** em voz alta: é o run gravado, não o de hoje. Se o relatório de hoje mostrou outro número em "execuções necessárias por variante (critério do veredito)" (campo `execucoesNecessariasPorVariante`), complete: *"no de hoje, deu [N]"*. Se as duas taxas forem iguais, o relatório diz "não calculável".
+**Diga:** *"No ensaio, com A 12 de 16 e B 16 de 16, o relatório diz 27 por variante."* Diga **"do ensaio"** em voz alta: é o run gravado, não o de hoje. Se o relatório de hoje mostrou outro número em "execuções necessárias por variante (critério do veredito)" (campo `execucoesNecessariasPorVariante`), complete: *"no de hoje, deu [N]"*. Se as duas taxas forem iguais, o relatório diz "não calculável".
 
 **O que dizer em cada caso:**
-- **Muita gente no 40:** *"Chegaram perto."*
-- **Muita gente no 16:** *"É o que a gente rodou hoje, e não bastou."*
+- **Muita gente no 16:** *"Chegaram perto, mas é o que a gente rodou hoje, e não bastou."*
+- **Muita gente no 40:** *"Um pouco a mais do que precisava."*
 - **Muita gente no 200:** *"Para essa diferença, menos. Mas guardem o 200: ele volta no próximo slide."*
 
 ---
@@ -538,7 +538,7 @@ Diga: *"Uma mudança por vez."*
 
 **Diga:** *"Se as taxas continuassem as mesmas, quantas execuções por variante até as barras pararem de se sobrepor? Para 37,5% contra 75%, 27. Para 62,5% contra 75%, uma diferença mais realista, 212."* Clique: *"Diferença pequena, muitas execuções. O número cresce com o inverso do quadrado da diferença."*
 
-**Explique o parêntese, se alguém olhar:** é o piso pelo teste z de duas proporções, a fórmula clássica de tamanho de amostra. Ele costuma ser menor, porque o teste z é menos exigente que "barras sem sobreposição". Com o piso, o relatório ainda pode sair inconclusivo; quem manda é o primeiro número. No ensaio: 38, com piso de 34.
+**Explique o parêntese, se alguém olhar:** é o piso pelo teste z de duas proporções, a fórmula clássica de tamanho de amostra. Ele costuma ser menor, porque o teste z é menos exigente que "barras sem sobreposição". Com o piso, o relatório ainda pode sair inconclusivo; quem manda é o primeiro número. No ensaio: 27, com piso de 24.
 
 **Diga (fechamento, vale para qualquer desfecho):** *"Eu não sei ainda se o meu `CLAUDE.md` presta. Mas agora eu sei quanto eu preciso rodar para saber. Isso é medir."* (Na versão "B ganha", adapte: veja a seção da revelação.)
 

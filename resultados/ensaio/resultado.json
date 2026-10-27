@@ -1,8 +1,8 @@
 {
-  "evalId": "eval-mWQ-2026-10-26T18:48:08",
+  "evalId": "eval-uaU-2026-10-27T17:43:45",
   "results": {
     "version": 3,
-    "timestamp": "2026-10-26T18:48:08.416Z",
+    "timestamp": "2026-10-27T17:43:45.157Z",
     "prompts": [
       {
         "id": "c7f06ffb22b0e88e42e06c51cac71b596887e840053bb00f89291a6076330cab",
@@ -10,13 +10,13 @@
         "label": "{{tarefa}}",
         "provider": "variante a",
         "metrics": {
-          "score": 13,
-          "testPassCount": 13,
-          "testFailCount": 3,
+          "score": 12,
+          "testPassCount": 12,
+          "testFailCount": 4,
           "testErrorCount": 0,
-          "assertPassCount": 13,
-          "assertFailCount": 3,
-          "totalLatencyMs": 378837,
+          "assertPassCount": 12,
+          "assertFailCount": 4,
+          "totalLatencyMs": 406350,
           "tokenUsage": {
             "prompt": 0,
             "completion": 0,
@@ -63,7 +63,7 @@
           "testErrorCount": 0,
           "assertPassCount": 16,
           "assertFailCount": 0,
-          "totalLatencyMs": 384540,
+          "totalLatencyMs": 395453,
           "tokenUsage": {
             "prompt": 0,
             "completion": 0,
@@ -126,8 +126,8 @@
             }
           ]
         },
-        "id": "0d92fc94-ba2a-4b3f-bb3c-1bcea3b5c260",
-        "latencyMs": 16757,
+        "id": "2f0a3897-e13e-4611-8aa0-aa81a37feb51",
+        "latencyMs": 17726,
         "namedScores": {},
         "prompt": {
           "raw": "01-proximos-eventos",
@@ -155,11 +155,11 @@
               "agente": {
                 "ok": true,
                 "turnos": 5,
-                "duracaoMs": 11217,
-                "custoUsd": 0.0524832,
+                "duracaoMs": 11912,
+                "custoUsd": 0.0549339,
                 "tokensEntrada": 10,
-                "tokensSaida": 525,
-                "tokensCache": 107989
+                "tokensSaida": 576,
+                "tokensCache": 107116
               },
               "modelo": "sonnet"
             }
@@ -226,11 +226,11 @@
             "agente": {
               "ok": true,
               "turnos": 5,
-              "duracaoMs": 11217,
-              "custoUsd": 0.0524832,
+              "duracaoMs": 11912,
+              "custoUsd": 0.0549339,
               "tokensEntrada": 10,
-              "tokensSaida": 525,
-              "tokensCache": 107989
+              "tokensSaida": 576,
+              "tokensCache": 107116
             },
             "modelo": "sonnet"
           },
@@ -264,8 +264,8 @@
             }
           ]
         },
-        "id": "f4cb9c88-6f04-400b-b36b-ea91085236dd",
-        "latencyMs": 20378,
+        "id": "b6656a98-31a8-4d9a-814e-5f37253e8588",
+        "latencyMs": 23501,
         "namedScores": {},
         "prompt": {
           "raw": "01-proximos-eventos",
@@ -293,12 +293,12 @@
               ],
               "agente": {
                 "ok": true,
-                "turnos": 8,
-                "duracaoMs": 15160,
-                "custoUsd": 0.0666369,
-                "tokensEntrada": 10,
-                "tokensSaida": 1247,
-                "tokensCache": 114341
+                "turnos": 9,
+                "duracaoMs": 17268,
+                "custoUsd": 0.07444100000000001,
+                "tokensEntrada": 12,
+                "tokensSaida": 1334,
+                "tokensCache": 137622
               },
               "modelo": "sonnet"
             }
@@ -365,12 +365,12 @@
             ],
             "agente": {
               "ok": true,
-              "turnos": 8,
-              "duracaoMs": 15160,
-              "custoUsd": 0.0666369,
-              "tokensEntrada": 10,
-              "tokensSaida": 1247,
-              "tokensCache": 114341
+              "turnos": 9,
+              "duracaoMs": 17268,
+              "custoUsd": 0.07444100000000001,
+              "tokensEntrada": 12,
+              "tokensSaida": 1334,
+              "tokensCache": 137622
             },
             "modelo": "sonnet"
           },
@@ -404,8 +404,8 @@
             }
           ]
         },
-        "id": "74445b5d-2c11-4a6c-b869-725475528f0c",
-        "latencyMs": 14041,
+        "id": "f64769d5-258f-4973-b203-54fcd6754cf1",
+        "latencyMs": 17670,
         "namedScores": {},
         "prompt": {
           "raw": "01-proximos-eventos",
@@ -432,12 +432,12 @@
               ],
               "agente": {
                 "ok": true,
-                "turnos": 4,
-                "duracaoMs": 8626,
-                "custoUsd": 0.0470674,
-                "tokensEntrada": 8,
-                "tokensSaida": 471,
-                "tokensCache": 85401
+                "turnos": 5,
+                "duracaoMs": 11732,
+                "custoUsd": 0.0535181,
+                "tokensEntrada": 10,
+                "tokensSaida": 513,
+                "tokensCache": 106668
               },
               "modelo": "sonnet"
             }
@@ -503,12 +503,12 @@
             ],
             "agente": {
               "ok": true,
-              "turnos": 4,
-              "duracaoMs": 8626,
-              "custoUsd": 0.0470674,
-              "tokensEntrada": 8,
-              "tokensSaida": 471,
-              "tokensCache": 85401
+              "turnos": 5,
+              "duracaoMs": 11732,
+              "custoUsd": 0.0535181,
+              "tokensEntrada": 10,
+              "tokensSaida": 513,
+              "tokensCache": 106668
             },
             "modelo": "sonnet"
           },
@@ -542,8 +542,8 @@
             }
           ]
         },
-        "id": "7f5148cb-e7c3-4c7f-a508-9b52d544fbe2",
-        "latencyMs": 24851,
+        "id": "d5d48c66-1f32-4100-9aa2-de79cb82dae8",
+        "latencyMs": 21112,
         "namedScores": {},
         "prompt": {
           "raw": "01-proximos-eventos",
@@ -571,12 +571,12 @@
               ],
               "agente": {
                 "ok": true,
-                "turnos": 10,
-                "duracaoMs": 17673,
-                "custoUsd": 0.0820311,
-                "tokensEntrada": 14,
-                "tokensSaida": 1794,
-                "tokensCache": 163076
+                "turnos": 9,
+                "duracaoMs": 15603,
+                "custoUsd": 0.07433100000000001,
+                "tokensEntrada": 12,
+                "tokensSaida": 1271,
+                "tokensCache": 136582
               },
               "modelo": "sonnet"
             }
@@ -643,152 +643,12 @@
             ],
             "agente": {
               "ok": true,
-              "turnos": 10,
-              "duracaoMs": 17673,
-              "custoUsd": 0.0820311,
-              "tokensEntrada": 14,
-              "tokensSaida": 1794,
-              "tokensCache": 163076
-            },
-            "modelo": "sonnet"
-          },
-          "_promptfooFileMetadata": {}
-        },
-        "failureReason": 0
-      },
-      {
-        "cost": 0,
-        "gradingResult": {
-          "pass": true,
-          "score": 1,
-          "reason": "All assertions passed",
-          "namedScores": {},
-          "tokensUsed": {
-            "total": 0,
-            "prompt": 0,
-            "completion": 0,
-            "cached": 0,
-            "numRequests": 0
-          },
-          "componentResults": [
-            {
-              "pass": true,
-              "score": 1,
-              "reason": "Assertion passed",
-              "assertion": {
-                "type": "javascript",
-                "value": "output === \"passou\""
-              }
-            }
-          ]
-        },
-        "id": "20349321-21ca-4689-b451-aa1da2571373",
-        "latencyMs": 22416,
-        "namedScores": {},
-        "prompt": {
-          "raw": "02-contar-inscritos",
-          "label": "{{tarefa}}",
-          "config": {}
-        },
-        "promptId": "c7f06ffb22b0e88e42e06c51cac71b596887e840053bb00f89291a6076330cab",
-        "promptIdx": 0,
-        "provider": {
-          "id": "claude-code-a",
-          "label": "variante a"
-        },
-        "response": {
-          "output": "passou",
-          "metadata": {
-            "resultado": {
-              "tarefa": "02-contar-inscritos",
-              "variante": "a",
-              "desfecho": "passou",
-              "testePassou": true,
-              "foraDoEscopo": [],
-              "alterados": [
-                "src/inscricoes.ts",
-                "test/inscricoes.test.ts"
-              ],
-              "agente": {
-                "ok": true,
-                "turnos": 8,
-                "duracaoMs": 19017,
-                "custoUsd": 0.08995600000000002,
-                "tokensEntrada": 12,
-                "tokensSaida": 2293,
-                "tokensCache": 144417
-              },
-              "modelo": "sonnet"
-            }
-          }
-        },
-        "score": 1,
-        "success": true,
-        "testCase": {
-          "description": "Contar inscritos de um evento",
-          "vars": {
-            "tarefa": "02-contar-inscritos"
-          },
-          "assert": [
-            {
-              "type": "javascript",
-              "value": "output === \"passou\""
-            }
-          ],
-          "options": {},
-          "metadata": {}
-        },
-        "testIdx": 2,
-        "tokenUsage": {
-          "prompt": 0,
-          "completion": 0,
-          "cached": 0,
-          "total": 0,
-          "numRequests": 1,
-          "completionDetails": {
-            "reasoning": 0,
-            "acceptedPrediction": 0,
-            "rejectedPrediction": 0,
-            "cacheReadInputTokens": 0,
-            "cacheCreationInputTokens": 0
-          },
-          "assertions": {
-            "total": 0,
-            "prompt": 0,
-            "completion": 0,
-            "cached": 0,
-            "numRequests": 0,
-            "completionDetails": {
-              "reasoning": 0,
-              "acceptedPrediction": 0,
-              "rejectedPrediction": 0,
-              "cacheReadInputTokens": 0,
-              "cacheCreationInputTokens": 0
-            }
-          }
-        },
-        "vars": {
-          "tarefa": "02-contar-inscritos"
-        },
-        "metadata": {
-          "resultado": {
-            "tarefa": "02-contar-inscritos",
-            "variante": "a",
-            "desfecho": "passou",
-            "testePassou": true,
-            "foraDoEscopo": [],
-            "alterados": [
-              "src/inscricoes.ts",
-              "test/inscricoes.test.ts"
-            ],
-            "agente": {
-              "ok": true,
-              "turnos": 8,
-              "duracaoMs": 19017,
-              "custoUsd": 0.08995600000000002,
+              "turnos": 9,
+              "duracaoMs": 15603,
+              "custoUsd": 0.07433100000000001,
               "tokensEntrada": 12,
-              "tokensSaida": 2293,
-              "tokensCache": 144417
+              "tokensSaida": 1271,
+              "tokensCache": 136582
             },
             "modelo": "sonnet"
           },
@@ -822,8 +682,8 @@
             }
           ]
         },
-        "id": "cddbb132-d837-482f-a631-d86896793785",
-        "latencyMs": 19715,
+        "id": "170b2c63-bceb-417a-a7e5-98514e1312e9",
+        "latencyMs": 20596,
         "namedScores": {},
         "prompt": {
           "raw": "02-contar-inscritos",
@@ -852,11 +712,11 @@
               "agente": {
                 "ok": true,
                 "turnos": 9,
-                "duracaoMs": 16344,
-                "custoUsd": 0.07684160000000001,
+                "duracaoMs": 16950,
+                "custoUsd": 0.0797177,
                 "tokensEntrada": 10,
-                "tokensSaida": 1652,
-                "tokensCache": 119221
+                "tokensSaida": 1663,
+                "tokensCache": 121454
               },
               "modelo": "sonnet"
             }
@@ -924,11 +784,11 @@
             "agente": {
               "ok": true,
               "turnos": 9,
-              "duracaoMs": 16344,
-              "custoUsd": 0.07684160000000001,
+              "duracaoMs": 16950,
+              "custoUsd": 0.0797177,
               "tokensEntrada": 10,
-              "tokensSaida": 1652,
-              "tokensCache": 119221
+              "tokensSaida": 1663,
+              "tokensCache": 121454
             },
             "modelo": "sonnet"
           },
@@ -962,8 +822,148 @@
             }
           ]
         },
-        "id": "31c96f79-edd1-4e3b-b853-3737c322e7f1",
-        "latencyMs": 19618,
+        "id": "1e0f920b-e381-4ce2-8ff9-ebd52bc97c2d",
+        "latencyMs": 25169,
+        "namedScores": {},
+        "prompt": {
+          "raw": "02-contar-inscritos",
+          "label": "{{tarefa}}",
+          "config": {}
+        },
+        "promptId": "c7f06ffb22b0e88e42e06c51cac71b596887e840053bb00f89291a6076330cab",
+        "promptIdx": 0,
+        "provider": {
+          "id": "claude-code-a",
+          "label": "variante a"
+        },
+        "response": {
+          "output": "passou",
+          "metadata": {
+            "resultado": {
+              "tarefa": "02-contar-inscritos",
+              "variante": "a",
+              "desfecho": "passou",
+              "testePassou": true,
+              "foraDoEscopo": [],
+              "alterados": [
+                "src/inscricoes.ts",
+                "test/inscricoes.test.ts"
+              ],
+              "agente": {
+                "ok": true,
+                "turnos": 8,
+                "duracaoMs": 21014,
+                "custoUsd": 0.0826875,
+                "tokensEntrada": 12,
+                "tokensSaida": 1967,
+                "tokensCache": 140953
+              },
+              "modelo": "sonnet"
+            }
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "Contar inscritos de um evento",
+          "vars": {
+            "tarefa": "02-contar-inscritos"
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "output === \"passou\""
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 2,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "tarefa": "02-contar-inscritos"
+        },
+        "metadata": {
+          "resultado": {
+            "tarefa": "02-contar-inscritos",
+            "variante": "a",
+            "desfecho": "passou",
+            "testePassou": true,
+            "foraDoEscopo": [],
+            "alterados": [
+              "src/inscricoes.ts",
+              "test/inscricoes.test.ts"
+            ],
+            "agente": {
+              "ok": true,
+              "turnos": 8,
+              "duracaoMs": 21014,
+              "custoUsd": 0.0826875,
+              "tokensEntrada": 12,
+              "tokensSaida": 1967,
+              "tokensCache": 140953
+            },
+            "modelo": "sonnet"
+          },
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "value": "output === \"passou\""
+              }
+            }
+          ]
+        },
+        "id": "82fa0689-6496-47c9-8337-3c029a0f5f89",
+        "latencyMs": 19875,
         "namedScores": {},
         "prompt": {
           "raw": "02-contar-inscritos",
@@ -992,11 +992,11 @@
               "agente": {
                 "ok": true,
                 "turnos": 9,
-                "duracaoMs": 16090,
-                "custoUsd": 0.0745459,
+                "duracaoMs": 15801,
+                "custoUsd": 0.0776216,
                 "tokensEntrada": 8,
-                "tokensSaida": 1664,
-                "tokensCache": 94012
+                "tokensSaida": 1699,
+                "tokensCache": 95529
               },
               "modelo": "sonnet"
             }
@@ -1064,11 +1064,11 @@
             "agente": {
               "ok": true,
               "turnos": 9,
-              "duracaoMs": 16090,
-              "custoUsd": 0.0745459,
+              "duracaoMs": 15801,
+              "custoUsd": 0.0776216,
               "tokensEntrada": 8,
-              "tokensSaida": 1664,
-              "tokensCache": 94012
+              "tokensSaida": 1699,
+              "tokensCache": 95529
             },
             "modelo": "sonnet"
           },
@@ -1102,8 +1102,8 @@
             }
           ]
         },
-        "id": "4bb56859-77b0-46b7-a909-0cdac5eb34bf",
-        "latencyMs": 25991,
+        "id": "bc690c58-f708-47c6-b859-7b41d58210d8",
+        "latencyMs": 25668,
         "namedScores": {},
         "prompt": {
           "raw": "02-contar-inscritos",
@@ -1131,12 +1131,12 @@
               ],
               "agente": {
                 "ok": true,
-                "turnos": 8,
-                "duracaoMs": 22582,
-                "custoUsd": 0.09375399999999999,
-                "tokensEntrada": 14,
-                "tokensSaida": 2327,
-                "tokensCache": 170377
+                "turnos": 9,
+                "duracaoMs": 20717,
+                "custoUsd": 0.0967983,
+                "tokensEntrada": 12,
+                "tokensSaida": 2424,
+                "tokensCache": 148572
               },
               "modelo": "sonnet"
             }
@@ -1203,12 +1203,12 @@
             ],
             "agente": {
               "ok": true,
-              "turnos": 8,
-              "duracaoMs": 22582,
-              "custoUsd": 0.09375399999999999,
-              "tokensEntrada": 14,
-              "tokensSaida": 2327,
-              "tokensCache": 170377
+              "turnos": 9,
+              "duracaoMs": 20717,
+              "custoUsd": 0.0967983,
+              "tokensEntrada": 12,
+              "tokensSaida": 2424,
+              "tokensCache": 148572
             },
             "modelo": "sonnet"
           },
@@ -1242,288 +1242,8 @@
             }
           ]
         },
-        "id": "ca885ac0-7bca-4083-9a5d-128d0753d855",
-        "latencyMs": 18075,
-        "namedScores": {},
-        "prompt": {
-          "raw": "03-evento-lotado",
-          "label": "{{tarefa}}",
-          "config": {}
-        },
-        "promptId": "c7f06ffb22b0e88e42e06c51cac71b596887e840053bb00f89291a6076330cab",
-        "promptIdx": 1,
-        "provider": {
-          "id": "claude-code-b",
-          "label": "variante b"
-        },
-        "response": {
-          "output": "passou",
-          "metadata": {
-            "resultado": {
-              "tarefa": "03-evento-lotado",
-              "variante": "b",
-              "desfecho": "passou",
-              "testePassou": true,
-              "foraDoEscopo": [],
-              "alterados": [
-                "src/inscricoes.ts",
-                "test/inscricoes.test.ts"
-              ],
-              "agente": {
-                "ok": true,
-                "turnos": 7,
-                "duracaoMs": 14308,
-                "custoUsd": 0.0796975,
-                "tokensEntrada": 10,
-                "tokensSaida": 1641,
-                "tokensCache": 120761
-              },
-              "modelo": "sonnet"
-            }
-          }
-        },
-        "score": 1,
-        "success": true,
-        "testCase": {
-          "description": "Evento lotado",
-          "vars": {
-            "tarefa": "03-evento-lotado"
-          },
-          "assert": [
-            {
-              "type": "javascript",
-              "value": "output === \"passou\""
-            }
-          ],
-          "options": {},
-          "metadata": {}
-        },
-        "testIdx": 4,
-        "tokenUsage": {
-          "prompt": 0,
-          "completion": 0,
-          "cached": 0,
-          "total": 0,
-          "numRequests": 1,
-          "completionDetails": {
-            "reasoning": 0,
-            "acceptedPrediction": 0,
-            "rejectedPrediction": 0,
-            "cacheReadInputTokens": 0,
-            "cacheCreationInputTokens": 0
-          },
-          "assertions": {
-            "total": 0,
-            "prompt": 0,
-            "completion": 0,
-            "cached": 0,
-            "numRequests": 0,
-            "completionDetails": {
-              "reasoning": 0,
-              "acceptedPrediction": 0,
-              "rejectedPrediction": 0,
-              "cacheReadInputTokens": 0,
-              "cacheCreationInputTokens": 0
-            }
-          }
-        },
-        "vars": {
-          "tarefa": "03-evento-lotado"
-        },
-        "metadata": {
-          "resultado": {
-            "tarefa": "03-evento-lotado",
-            "variante": "b",
-            "desfecho": "passou",
-            "testePassou": true,
-            "foraDoEscopo": [],
-            "alterados": [
-              "src/inscricoes.ts",
-              "test/inscricoes.test.ts"
-            ],
-            "agente": {
-              "ok": true,
-              "turnos": 7,
-              "duracaoMs": 14308,
-              "custoUsd": 0.0796975,
-              "tokensEntrada": 10,
-              "tokensSaida": 1641,
-              "tokensCache": 120761
-            },
-            "modelo": "sonnet"
-          },
-          "_promptfooFileMetadata": {}
-        },
-        "failureReason": 0
-      },
-      {
-        "cost": 0,
-        "gradingResult": {
-          "pass": true,
-          "score": 1,
-          "reason": "All assertions passed",
-          "namedScores": {},
-          "tokensUsed": {
-            "total": 0,
-            "prompt": 0,
-            "completion": 0,
-            "cached": 0,
-            "numRequests": 0
-          },
-          "componentResults": [
-            {
-              "pass": true,
-              "score": 1,
-              "reason": "Assertion passed",
-              "assertion": {
-                "type": "javascript",
-                "value": "output === \"passou\""
-              }
-            }
-          ]
-        },
-        "id": "54bed32b-3951-4b74-a4f6-79b8214710d3",
-        "latencyMs": 19832,
-        "namedScores": {},
-        "prompt": {
-          "raw": "03-evento-lotado",
-          "label": "{{tarefa}}",
-          "config": {}
-        },
-        "promptId": "c7f06ffb22b0e88e42e06c51cac71b596887e840053bb00f89291a6076330cab",
-        "promptIdx": 0,
-        "provider": {
-          "id": "claude-code-a",
-          "label": "variante a"
-        },
-        "response": {
-          "output": "passou",
-          "metadata": {
-            "resultado": {
-              "tarefa": "03-evento-lotado",
-              "variante": "a",
-              "desfecho": "passou",
-              "testePassou": true,
-              "foraDoEscopo": [],
-              "alterados": [
-                "src/inscricoes.ts",
-                "test/inscricoes.test.ts"
-              ],
-              "agente": {
-                "ok": true,
-                "turnos": 7,
-                "duracaoMs": 15102,
-                "custoUsd": 0.0764831,
-                "tokensEntrada": 10,
-                "tokensSaida": 1619,
-                "tokensCache": 116908
-              },
-              "modelo": "sonnet"
-            }
-          }
-        },
-        "score": 1,
-        "success": true,
-        "testCase": {
-          "description": "Evento lotado",
-          "vars": {
-            "tarefa": "03-evento-lotado"
-          },
-          "assert": [
-            {
-              "type": "javascript",
-              "value": "output === \"passou\""
-            }
-          ],
-          "options": {},
-          "metadata": {}
-        },
-        "testIdx": 4,
-        "tokenUsage": {
-          "prompt": 0,
-          "completion": 0,
-          "cached": 0,
-          "total": 0,
-          "numRequests": 1,
-          "completionDetails": {
-            "reasoning": 0,
-            "acceptedPrediction": 0,
-            "rejectedPrediction": 0,
-            "cacheReadInputTokens": 0,
-            "cacheCreationInputTokens": 0
-          },
-          "assertions": {
-            "total": 0,
-            "prompt": 0,
-            "completion": 0,
-            "cached": 0,
-            "numRequests": 0,
-            "completionDetails": {
-              "reasoning": 0,
-              "acceptedPrediction": 0,
-              "rejectedPrediction": 0,
-              "cacheReadInputTokens": 0,
-              "cacheCreationInputTokens": 0
-            }
-          }
-        },
-        "vars": {
-          "tarefa": "03-evento-lotado"
-        },
-        "metadata": {
-          "resultado": {
-            "tarefa": "03-evento-lotado",
-            "variante": "a",
-            "desfecho": "passou",
-            "testePassou": true,
-            "foraDoEscopo": [],
-            "alterados": [
-              "src/inscricoes.ts",
-              "test/inscricoes.test.ts"
-            ],
-            "agente": {
-              "ok": true,
-              "turnos": 7,
-              "duracaoMs": 15102,
-              "custoUsd": 0.0764831,
-              "tokensEntrada": 10,
-              "tokensSaida": 1619,
-              "tokensCache": 116908
-            },
-            "modelo": "sonnet"
-          },
-          "_promptfooFileMetadata": {}
-        },
-        "failureReason": 0
-      },
-      {
-        "cost": 0,
-        "gradingResult": {
-          "pass": true,
-          "score": 1,
-          "reason": "All assertions passed",
-          "namedScores": {},
-          "tokensUsed": {
-            "total": 0,
-            "prompt": 0,
-            "completion": 0,
-            "cached": 0,
-            "numRequests": 0
-          },
-          "componentResults": [
-            {
-              "pass": true,
-              "score": 1,
-              "reason": "Assertion passed",
-              "assertion": {
-                "type": "javascript",
-                "value": "output === \"passou\""
-              }
-            }
-          ]
-        },
-        "id": "e5c902ea-48fa-426e-9d49-9d3a61aa5207",
-        "latencyMs": 20965,
+        "id": "46fc0aa3-ea41-4637-99ee-963252c368b1",
+        "latencyMs": 21393,
         "namedScores": {},
         "prompt": {
           "raw": "03-evento-lotado",
@@ -1552,11 +1272,291 @@
               "agente": {
                 "ok": true,
                 "turnos": 8,
-                "duracaoMs": 18077,
-                "custoUsd": 0.08567350000000001,
+                "duracaoMs": 18132,
+                "custoUsd": 0.0821599,
                 "tokensEntrada": 12,
-                "tokensSaida": 2075,
-                "tokensCache": 139850
+                "tokensSaida": 1869,
+                "tokensCache": 139393
+              },
+              "modelo": "sonnet"
+            }
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "Evento lotado",
+          "vars": {
+            "tarefa": "03-evento-lotado"
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "output === \"passou\""
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 4,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "tarefa": "03-evento-lotado"
+        },
+        "metadata": {
+          "resultado": {
+            "tarefa": "03-evento-lotado",
+            "variante": "a",
+            "desfecho": "passou",
+            "testePassou": true,
+            "foraDoEscopo": [],
+            "alterados": [
+              "src/inscricoes.ts",
+              "test/inscricoes.test.ts"
+            ],
+            "agente": {
+              "ok": true,
+              "turnos": 8,
+              "duracaoMs": 18132,
+              "custoUsd": 0.0821599,
+              "tokensEntrada": 12,
+              "tokensSaida": 1869,
+              "tokensCache": 139393
+            },
+            "modelo": "sonnet"
+          },
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "value": "output === \"passou\""
+              }
+            }
+          ]
+        },
+        "id": "2ef4f36a-1c5e-4ddc-a724-c8b765d0fb12",
+        "latencyMs": 20708,
+        "namedScores": {},
+        "prompt": {
+          "raw": "03-evento-lotado",
+          "label": "{{tarefa}}",
+          "config": {}
+        },
+        "promptId": "c7f06ffb22b0e88e42e06c51cac71b596887e840053bb00f89291a6076330cab",
+        "promptIdx": 1,
+        "provider": {
+          "id": "claude-code-b",
+          "label": "variante b"
+        },
+        "response": {
+          "output": "passou",
+          "metadata": {
+            "resultado": {
+              "tarefa": "03-evento-lotado",
+              "variante": "b",
+              "desfecho": "passou",
+              "testePassou": true,
+              "foraDoEscopo": [],
+              "alterados": [
+                "src/inscricoes.ts",
+                "test/inscricoes.test.ts"
+              ],
+              "agente": {
+                "ok": true,
+                "turnos": 7,
+                "duracaoMs": 16927,
+                "custoUsd": 0.08003649999999998,
+                "tokensEntrada": 10,
+                "tokensSaida": 1807,
+                "tokensCache": 119173
+              },
+              "modelo": "sonnet"
+            }
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "Evento lotado",
+          "vars": {
+            "tarefa": "03-evento-lotado"
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "output === \"passou\""
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 4,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "tarefa": "03-evento-lotado"
+        },
+        "metadata": {
+          "resultado": {
+            "tarefa": "03-evento-lotado",
+            "variante": "b",
+            "desfecho": "passou",
+            "testePassou": true,
+            "foraDoEscopo": [],
+            "alterados": [
+              "src/inscricoes.ts",
+              "test/inscricoes.test.ts"
+            ],
+            "agente": {
+              "ok": true,
+              "turnos": 7,
+              "duracaoMs": 16927,
+              "custoUsd": 0.08003649999999998,
+              "tokensEntrada": 10,
+              "tokensSaida": 1807,
+              "tokensCache": 119173
+            },
+            "modelo": "sonnet"
+          },
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "value": "output === \"passou\""
+              }
+            }
+          ]
+        },
+        "id": "73872d22-17e2-4cdc-86ca-7eb8886b9fe6",
+        "latencyMs": 21712,
+        "namedScores": {},
+        "prompt": {
+          "raw": "03-evento-lotado",
+          "label": "{{tarefa}}",
+          "config": {}
+        },
+        "promptId": "c7f06ffb22b0e88e42e06c51cac71b596887e840053bb00f89291a6076330cab",
+        "promptIdx": 0,
+        "provider": {
+          "id": "claude-code-a",
+          "label": "variante a"
+        },
+        "response": {
+          "output": "passou",
+          "metadata": {
+            "resultado": {
+              "tarefa": "03-evento-lotado",
+              "variante": "a",
+              "desfecho": "passou",
+              "testePassou": true,
+              "foraDoEscopo": [],
+              "alterados": [
+                "src/inscricoes.ts",
+                "test/inscricoes.test.ts"
+              ],
+              "agente": {
+                "ok": true,
+                "turnos": 7,
+                "duracaoMs": 16634,
+                "custoUsd": 0.0777955,
+                "tokensEntrada": 12,
+                "tokensSaida": 1573,
+                "tokensCache": 139194
               },
               "modelo": "sonnet"
             }
@@ -1623,12 +1623,12 @@
             ],
             "agente": {
               "ok": true,
-              "turnos": 8,
-              "duracaoMs": 18077,
-              "custoUsd": 0.08567350000000001,
+              "turnos": 7,
+              "duracaoMs": 16634,
+              "custoUsd": 0.0777955,
               "tokensEntrada": 12,
-              "tokensSaida": 2075,
-              "tokensCache": 139850
+              "tokensSaida": 1573,
+              "tokensCache": 139194
             },
             "modelo": "sonnet"
           },
@@ -1662,8 +1662,8 @@
             }
           ]
         },
-        "id": "a3cbb045-e11f-4c83-8cb9-e0b20b39c39c",
-        "latencyMs": 21216,
+        "id": "a53b299f-b8f8-4825-b674-d5c38620e841",
+        "latencyMs": 22117,
         "namedScores": {},
         "prompt": {
           "raw": "03-evento-lotado",
@@ -1692,11 +1692,11 @@
               "agente": {
                 "ok": true,
                 "turnos": 7,
-                "duracaoMs": 16862,
-                "custoUsd": 0.08631939999999999,
+                "duracaoMs": 17023,
+                "custoUsd": 0.084403,
                 "tokensEntrada": 10,
-                "tokensSaida": 2067,
-                "tokensCache": 121604
+                "tokensSaida": 2064,
+                "tokensCache": 120719
               },
               "modelo": "sonnet"
             }
@@ -1764,11 +1764,11 @@
             "agente": {
               "ok": true,
               "turnos": 7,
-              "duracaoMs": 16862,
-              "custoUsd": 0.08631939999999999,
+              "duracaoMs": 17023,
+              "custoUsd": 0.084403,
               "tokensEntrada": 10,
-              "tokensSaida": 2067,
-              "tokensCache": 121604
+              "tokensSaida": 2064,
+              "tokensCache": 120719
             },
             "modelo": "sonnet"
           },
@@ -1803,8 +1803,8 @@
             }
           ]
         },
-        "id": "97d51914-bcb8-4e90-a6b9-a02890014dbc",
-        "latencyMs": 33904,
+        "id": "f0ec5747-17fb-4655-9868-4cbd78af4ea5",
+        "latencyMs": 45067,
         "namedScores": {},
         "prompt": {
           "raw": "04-cupom",
@@ -1836,12 +1836,12 @@
               ],
               "agente": {
                 "ok": true,
-                "turnos": 15,
-                "duracaoMs": 31152,
-                "custoUsd": 0.1280152,
+                "turnos": 16,
+                "duracaoMs": 41571,
+                "custoUsd": 0.13710199999999997,
                 "tokensEntrada": 16,
-                "tokensSaida": 4494,
-                "tokensCache": 196916
+                "tokensSaida": 4798,
+                "tokensCache": 199547
               },
               "modelo": "sonnet"
             }
@@ -1912,12 +1912,12 @@
             ],
             "agente": {
               "ok": true,
-              "turnos": 15,
-              "duracaoMs": 31152,
-              "custoUsd": 0.1280152,
+              "turnos": 16,
+              "duracaoMs": 41571,
+              "custoUsd": 0.13710199999999997,
               "tokensEntrada": 16,
-              "tokensSaida": 4494,
-              "tokensCache": 196916
+              "tokensSaida": 4798,
+              "tokensCache": 199547
             },
             "modelo": "sonnet"
           },
@@ -1951,8 +1951,8 @@
             }
           ]
         },
-        "id": "cc376587-4777-49a5-85d2-d465d6250d43",
-        "latencyMs": 26082,
+        "id": "88c8860b-e50c-4460-b987-fadd4708e79d",
+        "latencyMs": 29661,
         "namedScores": {},
         "prompt": {
           "raw": "04-cupom",
@@ -1981,12 +1981,12 @@
               ],
               "agente": {
                 "ok": true,
-                "turnos": 8,
-                "duracaoMs": 22664,
-                "custoUsd": 0.09962560000000001,
+                "turnos": 9,
+                "duracaoMs": 25593,
+                "custoUsd": 0.10397090000000002,
                 "tokensEntrada": 10,
-                "tokensSaida": 3100,
-                "tokensCache": 122857
+                "tokensSaida": 3376,
+                "tokensCache": 123617
               },
               "modelo": "sonnet"
             }
@@ -2054,12 +2054,297 @@
             ],
             "agente": {
               "ok": true,
-              "turnos": 8,
-              "duracaoMs": 22664,
-              "custoUsd": 0.09962560000000001,
+              "turnos": 9,
+              "duracaoMs": 25593,
+              "custoUsd": 0.10397090000000002,
               "tokensEntrada": 10,
-              "tokensSaida": 3100,
-              "tokensCache": 122857
+              "tokensSaida": 3376,
+              "tokensCache": 123617
+            },
+            "modelo": "sonnet"
+          },
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "error": "Custom function returned false\noutput === \"passou\"",
+        "gradingResult": {
+          "pass": false,
+          "score": 0,
+          "reason": "Custom function returned false\noutput === \"passou\"",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": false,
+              "score": 0,
+              "reason": "Custom function returned false\noutput === \"passou\"",
+              "assertion": {
+                "type": "javascript",
+                "value": "output === \"passou\""
+              }
+            }
+          ]
+        },
+        "id": "19b081e7-c3a7-4523-b95c-a5687922de5b",
+        "latencyMs": 33061,
+        "namedScores": {},
+        "prompt": {
+          "raw": "04-cupom",
+          "label": "{{tarefa}}",
+          "config": {}
+        },
+        "promptId": "c7f06ffb22b0e88e42e06c51cac71b596887e840053bb00f89291a6076330cab",
+        "promptIdx": 0,
+        "provider": {
+          "id": "claude-code-a",
+          "label": "variante a"
+        },
+        "response": {
+          "output": "falhou",
+          "metadata": {
+            "resultado": {
+              "tarefa": "04-cupom",
+              "variante": "a",
+              "desfecho": "falhou",
+              "testePassou": false,
+              "foraDoEscopo": [],
+              "alterados": [
+                "src/eventos.ts",
+                "src/inscricoes.ts",
+                "test/inscricoes.test.ts"
+              ],
+              "agente": {
+                "ok": true,
+                "turnos": 10,
+                "duracaoMs": 27587,
+                "custoUsd": 0.10841809999999999,
+                "tokensEntrada": 14,
+                "tokensSaida": 3473,
+                "tokensCache": 167669
+              },
+              "modelo": "sonnet"
+            }
+          }
+        },
+        "score": 0,
+        "success": false,
+        "testCase": {
+          "description": "Cupom de desconto percentual",
+          "vars": {
+            "tarefa": "04-cupom"
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "output === \"passou\""
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 7,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "tarefa": "04-cupom"
+        },
+        "metadata": {
+          "resultado": {
+            "tarefa": "04-cupom",
+            "variante": "a",
+            "desfecho": "falhou",
+            "testePassou": false,
+            "foraDoEscopo": [],
+            "alterados": [
+              "src/eventos.ts",
+              "src/inscricoes.ts",
+              "test/inscricoes.test.ts"
+            ],
+            "agente": {
+              "ok": true,
+              "turnos": 10,
+              "duracaoMs": 27587,
+              "custoUsd": 0.10841809999999999,
+              "tokensEntrada": 14,
+              "tokensSaida": 3473,
+              "tokensCache": 167669
+            },
+            "modelo": "sonnet"
+          },
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 1
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "value": "output === \"passou\""
+              }
+            }
+          ]
+        },
+        "id": "db46ef1e-492e-4df7-8314-cb237f9dd15b",
+        "latencyMs": 26675,
+        "namedScores": {},
+        "prompt": {
+          "raw": "04-cupom",
+          "label": "{{tarefa}}",
+          "config": {}
+        },
+        "promptId": "c7f06ffb22b0e88e42e06c51cac71b596887e840053bb00f89291a6076330cab",
+        "promptIdx": 1,
+        "provider": {
+          "id": "claude-code-b",
+          "label": "variante b"
+        },
+        "response": {
+          "output": "passou",
+          "metadata": {
+            "resultado": {
+              "tarefa": "04-cupom",
+              "variante": "b",
+              "desfecho": "passou",
+              "testePassou": true,
+              "foraDoEscopo": [],
+              "alterados": [
+                "src/eventos.ts",
+                "src/inscricoes.ts",
+                "test/inscricoes.test.ts"
+              ],
+              "agente": {
+                "ok": true,
+                "turnos": 8,
+                "duracaoMs": 22904,
+                "custoUsd": 0.09900850000000001,
+                "tokensEntrada": 10,
+                "tokensSaida": 3140,
+                "tokensCache": 122319
+              },
+              "modelo": "sonnet"
+            }
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "Cupom de desconto percentual",
+          "vars": {
+            "tarefa": "04-cupom"
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "output === \"passou\""
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 7,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "tarefa": "04-cupom"
+        },
+        "metadata": {
+          "resultado": {
+            "tarefa": "04-cupom",
+            "variante": "b",
+            "desfecho": "passou",
+            "testePassou": true,
+            "foraDoEscopo": [],
+            "alterados": [
+              "src/eventos.ts",
+              "src/inscricoes.ts",
+              "test/inscricoes.test.ts"
+            ],
+            "agente": {
+              "ok": true,
+              "turnos": 8,
+              "duracaoMs": 22904,
+              "custoUsd": 0.09900850000000001,
+              "tokensEntrada": 10,
+              "tokensSaida": 3140,
+              "tokensCache": 122319
             },
             "modelo": "sonnet"
           },
@@ -2093,11 +2378,151 @@
             }
           ]
         },
-        "id": "fb583b1e-920e-422b-95f3-4118a343131c",
-        "latencyMs": 27490,
+        "id": "3f216e4b-b51b-41bf-a900-308c6e6f510d",
+        "latencyMs": 21132,
         "namedScores": {},
         "prompt": {
-          "raw": "04-cupom",
+          "raw": "05-evento-passado",
+          "label": "{{tarefa}}",
+          "config": {}
+        },
+        "promptId": "c7f06ffb22b0e88e42e06c51cac71b596887e840053bb00f89291a6076330cab",
+        "promptIdx": 0,
+        "provider": {
+          "id": "claude-code-a",
+          "label": "variante a"
+        },
+        "response": {
+          "output": "passou",
+          "metadata": {
+            "resultado": {
+              "tarefa": "05-evento-passado",
+              "variante": "a",
+              "desfecho": "passou",
+              "testePassou": true,
+              "foraDoEscopo": [],
+              "alterados": [
+                "src/inscricoes.ts",
+                "test/inscricoes.test.ts"
+              ],
+              "agente": {
+                "ok": true,
+                "turnos": 12,
+                "duracaoMs": 17837,
+                "custoUsd": 0.0857007,
+                "tokensEntrada": 14,
+                "tokensSaida": 1753,
+                "tokensCache": 164248
+              },
+              "modelo": "sonnet"
+            }
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "Inscrição em evento que já aconteceu",
+          "vars": {
+            "tarefa": "05-evento-passado"
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "output === \"passou\""
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 8,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "tarefa": "05-evento-passado"
+        },
+        "metadata": {
+          "resultado": {
+            "tarefa": "05-evento-passado",
+            "variante": "a",
+            "desfecho": "passou",
+            "testePassou": true,
+            "foraDoEscopo": [],
+            "alterados": [
+              "src/inscricoes.ts",
+              "test/inscricoes.test.ts"
+            ],
+            "agente": {
+              "ok": true,
+              "turnos": 12,
+              "duracaoMs": 17837,
+              "custoUsd": 0.0857007,
+              "tokensEntrada": 14,
+              "tokensSaida": 1753,
+              "tokensCache": 164248
+            },
+            "modelo": "sonnet"
+          },
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "value": "output === \"passou\""
+              }
+            }
+          ]
+        },
+        "id": "e96b494a-818e-4d7c-b8b0-ce0ca73dd574",
+        "latencyMs": 21087,
+        "namedScores": {},
+        "prompt": {
+          "raw": "05-evento-passado",
           "label": "{{tarefa}}",
           "config": {}
         },
@@ -2111,35 +2536,742 @@
           "output": "passou",
           "metadata": {
             "resultado": {
-              "tarefa": "04-cupom",
+              "tarefa": "05-evento-passado",
               "variante": "b",
               "desfecho": "passou",
               "testePassou": true,
               "foraDoEscopo": [],
               "alterados": [
-                "src/eventos.ts",
+                "src/inscricoes.ts",
+                "test/inscricoes.test.ts"
+              ],
+              "agente": {
+                "ok": true,
+                "turnos": 6,
+                "duracaoMs": 16863,
+                "custoUsd": 0.0784474,
+                "tokensEntrada": 10,
+                "tokensSaida": 1683,
+                "tokensCache": 119738
+              },
+              "modelo": "sonnet"
+            }
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "Inscrição em evento que já aconteceu",
+          "vars": {
+            "tarefa": "05-evento-passado"
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "output === \"passou\""
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 8,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "tarefa": "05-evento-passado"
+        },
+        "metadata": {
+          "resultado": {
+            "tarefa": "05-evento-passado",
+            "variante": "b",
+            "desfecho": "passou",
+            "testePassou": true,
+            "foraDoEscopo": [],
+            "alterados": [
+              "src/inscricoes.ts",
+              "test/inscricoes.test.ts"
+            ],
+            "agente": {
+              "ok": true,
+              "turnos": 6,
+              "duracaoMs": 16863,
+              "custoUsd": 0.0784474,
+              "tokensEntrada": 10,
+              "tokensSaida": 1683,
+              "tokensCache": 119738
+            },
+            "modelo": "sonnet"
+          },
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "value": "output === \"passou\""
+              }
+            }
+          ]
+        },
+        "id": "c08d65d0-b8bc-4145-b4c1-cfd8c9dcb482",
+        "latencyMs": 19953,
+        "namedScores": {},
+        "prompt": {
+          "raw": "05-evento-passado",
+          "label": "{{tarefa}}",
+          "config": {}
+        },
+        "promptId": "c7f06ffb22b0e88e42e06c51cac71b596887e840053bb00f89291a6076330cab",
+        "promptIdx": 0,
+        "provider": {
+          "id": "claude-code-a",
+          "label": "variante a"
+        },
+        "response": {
+          "output": "passou",
+          "metadata": {
+            "resultado": {
+              "tarefa": "05-evento-passado",
+              "variante": "a",
+              "desfecho": "passou",
+              "testePassou": true,
+              "foraDoEscopo": [],
+              "alterados": [
+                "src/inscricoes.ts",
+                "test/inscricoes.test.ts"
+              ],
+              "agente": {
+                "ok": true,
+                "turnos": 7,
+                "duracaoMs": 15658,
+                "custoUsd": 0.0800602,
+                "tokensEntrada": 12,
+                "tokensSaida": 1728,
+                "tokensCache": 141388
+              },
+              "modelo": "sonnet"
+            }
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "Inscrição em evento que já aconteceu",
+          "vars": {
+            "tarefa": "05-evento-passado"
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "output === \"passou\""
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 9,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "tarefa": "05-evento-passado"
+        },
+        "metadata": {
+          "resultado": {
+            "tarefa": "05-evento-passado",
+            "variante": "a",
+            "desfecho": "passou",
+            "testePassou": true,
+            "foraDoEscopo": [],
+            "alterados": [
+              "src/inscricoes.ts",
+              "test/inscricoes.test.ts"
+            ],
+            "agente": {
+              "ok": true,
+              "turnos": 7,
+              "duracaoMs": 15658,
+              "custoUsd": 0.0800602,
+              "tokensEntrada": 12,
+              "tokensSaida": 1728,
+              "tokensCache": 141388
+            },
+            "modelo": "sonnet"
+          },
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "value": "output === \"passou\""
+              }
+            }
+          ]
+        },
+        "id": "366ef55a-761e-4b60-bb19-c6029931de4b",
+        "latencyMs": 20796,
+        "namedScores": {},
+        "prompt": {
+          "raw": "05-evento-passado",
+          "label": "{{tarefa}}",
+          "config": {}
+        },
+        "promptId": "c7f06ffb22b0e88e42e06c51cac71b596887e840053bb00f89291a6076330cab",
+        "promptIdx": 1,
+        "provider": {
+          "id": "claude-code-b",
+          "label": "variante b"
+        },
+        "response": {
+          "output": "passou",
+          "metadata": {
+            "resultado": {
+              "tarefa": "05-evento-passado",
+              "variante": "b",
+              "desfecho": "passou",
+              "testePassou": true,
+              "foraDoEscopo": [],
+              "alterados": [
+                "src/inscricoes.ts",
+                "test/inscricoes.test.ts"
+              ],
+              "agente": {
+                "ok": true,
+                "turnos": 6,
+                "duracaoMs": 17623,
+                "custoUsd": 0.0792411,
+                "tokensEntrada": 10,
+                "tokensSaida": 1785,
+                "tokensCache": 119542
+              },
+              "modelo": "sonnet"
+            }
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "Inscrição em evento que já aconteceu",
+          "vars": {
+            "tarefa": "05-evento-passado"
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "output === \"passou\""
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 9,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "tarefa": "05-evento-passado"
+        },
+        "metadata": {
+          "resultado": {
+            "tarefa": "05-evento-passado",
+            "variante": "b",
+            "desfecho": "passou",
+            "testePassou": true,
+            "foraDoEscopo": [],
+            "alterados": [
+              "src/inscricoes.ts",
+              "test/inscricoes.test.ts"
+            ],
+            "agente": {
+              "ok": true,
+              "turnos": 6,
+              "duracaoMs": 17623,
+              "custoUsd": 0.0792411,
+              "tokensEntrada": 10,
+              "tokensSaida": 1785,
+              "tokensCache": 119542
+            },
+            "modelo": "sonnet"
+          },
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "error": "Custom function returned false\noutput === \"passou\"",
+        "gradingResult": {
+          "pass": false,
+          "score": 0,
+          "reason": "Custom function returned false\noutput === \"passou\"",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": false,
+              "score": 0,
+              "reason": "Custom function returned false\noutput === \"passou\"",
+              "assertion": {
+                "type": "javascript",
+                "value": "output === \"passou\""
+              }
+            }
+          ]
+        },
+        "id": "eda46401-ecff-4486-9e11-cb7e2d7c3e75",
+        "latencyMs": 20746,
+        "namedScores": {},
+        "prompt": {
+          "raw": "06-relatorio-email",
+          "label": "{{tarefa}}",
+          "config": {}
+        },
+        "promptId": "c7f06ffb22b0e88e42e06c51cac71b596887e840053bb00f89291a6076330cab",
+        "promptIdx": 0,
+        "provider": {
+          "id": "claude-code-a",
+          "label": "variante a"
+        },
+        "response": {
+          "output": "fora_do_escopo",
+          "metadata": {
+            "resultado": {
+              "tarefa": "06-relatorio-email",
+              "variante": "a",
+              "desfecho": "fora_do_escopo",
+              "testePassou": false,
+              "foraDoEscopo": [
+                "src/relatorio.ts"
+              ],
+              "alterados": [
+                "src/relatorio.ts",
+                "test/inscricoes.test.ts"
+              ],
+              "agente": {
+                "ok": true,
+                "turnos": 7,
+                "duracaoMs": 16794,
+                "custoUsd": 0.0792,
+                "tokensEntrada": 10,
+                "tokensSaida": 1744,
+                "tokensCache": 118551
+              },
+              "modelo": "sonnet"
+            }
+          }
+        },
+        "score": 0,
+        "success": false,
+        "testCase": {
+          "description": "E-mail no relatório de inscrições",
+          "vars": {
+            "tarefa": "06-relatorio-email"
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "output === \"passou\""
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 10,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "tarefa": "06-relatorio-email"
+        },
+        "metadata": {
+          "resultado": {
+            "tarefa": "06-relatorio-email",
+            "variante": "a",
+            "desfecho": "fora_do_escopo",
+            "testePassou": false,
+            "foraDoEscopo": [
+              "src/relatorio.ts"
+            ],
+            "alterados": [
+              "src/relatorio.ts",
+              "test/inscricoes.test.ts"
+            ],
+            "agente": {
+              "ok": true,
+              "turnos": 7,
+              "duracaoMs": 16794,
+              "custoUsd": 0.0792,
+              "tokensEntrada": 10,
+              "tokensSaida": 1744,
+              "tokensCache": 118551
+            },
+            "modelo": "sonnet"
+          },
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 1
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "value": "output === \"passou\""
+              }
+            }
+          ]
+        },
+        "id": "7100b792-03da-4082-b00c-3929755ad8c1",
+        "latencyMs": 24318,
+        "namedScores": {},
+        "prompt": {
+          "raw": "06-relatorio-email",
+          "label": "{{tarefa}}",
+          "config": {}
+        },
+        "promptId": "c7f06ffb22b0e88e42e06c51cac71b596887e840053bb00f89291a6076330cab",
+        "promptIdx": 1,
+        "provider": {
+          "id": "claude-code-b",
+          "label": "variante b"
+        },
+        "response": {
+          "output": "passou",
+          "metadata": {
+            "resultado": {
+              "tarefa": "06-relatorio-email",
+              "variante": "b",
+              "desfecho": "passou",
+              "testePassou": true,
+              "foraDoEscopo": [],
+              "alterados": [
+                "src/relatorios/inscritos.ts",
+                "test/relatorios.test.ts"
+              ],
+              "agente": {
+                "ok": true,
+                "turnos": 6,
+                "duracaoMs": 19767,
+                "custoUsd": 0.0914342,
+                "tokensEntrada": 10,
+                "tokensSaida": 2711,
+                "tokensCache": 119818
+              },
+              "modelo": "sonnet"
+            }
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "E-mail no relatório de inscrições",
+          "vars": {
+            "tarefa": "06-relatorio-email"
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "output === \"passou\""
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 10,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "tarefa": "06-relatorio-email"
+        },
+        "metadata": {
+          "resultado": {
+            "tarefa": "06-relatorio-email",
+            "variante": "b",
+            "desfecho": "passou",
+            "testePassou": true,
+            "foraDoEscopo": [],
+            "alterados": [
+              "src/relatorios/inscritos.ts",
+              "test/relatorios.test.ts"
+            ],
+            "agente": {
+              "ok": true,
+              "turnos": 6,
+              "duracaoMs": 19767,
+              "custoUsd": 0.0914342,
+              "tokensEntrada": 10,
+              "tokensSaida": 2711,
+              "tokensCache": 119818
+            },
+            "modelo": "sonnet"
+          },
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "error": "Custom function returned false\noutput === \"passou\"",
+        "gradingResult": {
+          "pass": false,
+          "score": 0,
+          "reason": "Custom function returned false\noutput === \"passou\"",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": false,
+              "score": 0,
+              "reason": "Custom function returned false\noutput === \"passou\"",
+              "assertion": {
+                "type": "javascript",
+                "value": "output === \"passou\""
+              }
+            }
+          ]
+        },
+        "id": "ec2219bb-3f94-47ad-937e-ed163e87971a",
+        "latencyMs": 27243,
+        "namedScores": {},
+        "prompt": {
+          "raw": "06-relatorio-email",
+          "label": "{{tarefa}}",
+          "config": {}
+        },
+        "promptId": "c7f06ffb22b0e88e42e06c51cac71b596887e840053bb00f89291a6076330cab",
+        "promptIdx": 0,
+        "provider": {
+          "id": "claude-code-a",
+          "label": "variante a"
+        },
+        "response": {
+          "output": "fora_do_escopo",
+          "metadata": {
+            "resultado": {
+              "tarefa": "06-relatorio-email",
+              "variante": "a",
+              "desfecho": "fora_do_escopo",
+              "testePassou": false,
+              "foraDoEscopo": [
+                "src/inscricoes.ts"
+              ],
+              "alterados": [
                 "src/inscricoes.ts",
                 "test/inscricoes.test.ts"
               ],
               "agente": {
                 "ok": true,
                 "turnos": 9,
-                "duracaoMs": 24810,
-                "custoUsd": 0.1106656,
-                "tokensEntrada": 10,
-                "tokensSaida": 3827,
-                "tokensCache": 125106
+                "duracaoMs": 23171,
+                "custoUsd": 0.0956828,
+                "tokensEntrada": 12,
+                "tokensSaida": 2606,
+                "tokensCache": 145893
               },
               "modelo": "sonnet"
             }
           }
         },
-        "score": 1,
-        "success": true,
+        "score": 0,
+        "success": false,
         "testCase": {
-          "description": "Cupom de desconto percentual",
+          "description": "E-mail no relatório de inscrições",
           "vars": {
-            "tarefa": "04-cupom"
+            "tarefa": "06-relatorio-email"
           },
           "assert": [
             {
@@ -2150,7 +3282,7 @@
           "options": {},
           "metadata": {}
         },
-        "testIdx": 7,
+        "testIdx": 11,
         "tokenUsage": {
           "prompt": 0,
           "completion": 0,
@@ -2180,875 +3312,29 @@
           }
         },
         "vars": {
-          "tarefa": "04-cupom"
+          "tarefa": "06-relatorio-email"
         },
         "metadata": {
           "resultado": {
-            "tarefa": "04-cupom",
-            "variante": "b",
-            "desfecho": "passou",
-            "testePassou": true,
-            "foraDoEscopo": [],
+            "tarefa": "06-relatorio-email",
+            "variante": "a",
+            "desfecho": "fora_do_escopo",
+            "testePassou": false,
+            "foraDoEscopo": [
+              "src/inscricoes.ts"
+            ],
             "alterados": [
-              "src/eventos.ts",
               "src/inscricoes.ts",
               "test/inscricoes.test.ts"
             ],
             "agente": {
               "ok": true,
               "turnos": 9,
-              "duracaoMs": 24810,
-              "custoUsd": 0.1106656,
-              "tokensEntrada": 10,
-              "tokensSaida": 3827,
-              "tokensCache": 125106
-            },
-            "modelo": "sonnet"
-          },
-          "_promptfooFileMetadata": {}
-        },
-        "failureReason": 0
-      },
-      {
-        "cost": 0,
-        "gradingResult": {
-          "pass": true,
-          "score": 1,
-          "reason": "All assertions passed",
-          "namedScores": {},
-          "tokensUsed": {
-            "total": 0,
-            "prompt": 0,
-            "completion": 0,
-            "cached": 0,
-            "numRequests": 0
-          },
-          "componentResults": [
-            {
-              "pass": true,
-              "score": 1,
-              "reason": "Assertion passed",
-              "assertion": {
-                "type": "javascript",
-                "value": "output === \"passou\""
-              }
-            }
-          ]
-        },
-        "id": "3d0a20ff-f890-4c61-ad5f-458c04eb9d1a",
-        "latencyMs": 32361,
-        "namedScores": {},
-        "prompt": {
-          "raw": "04-cupom",
-          "label": "{{tarefa}}",
-          "config": {}
-        },
-        "promptId": "c7f06ffb22b0e88e42e06c51cac71b596887e840053bb00f89291a6076330cab",
-        "promptIdx": 0,
-        "provider": {
-          "id": "claude-code-a",
-          "label": "variante a"
-        },
-        "response": {
-          "output": "passou",
-          "metadata": {
-            "resultado": {
-              "tarefa": "04-cupom",
-              "variante": "a",
-              "desfecho": "passou",
-              "testePassou": true,
-              "foraDoEscopo": [],
-              "alterados": [
-                "src/eventos.ts",
-                "src/inscricoes.ts",
-                "test/inscricoes.test.ts"
-              ],
-              "agente": {
-                "ok": true,
-                "turnos": 14,
-                "duracaoMs": 29137,
-                "custoUsd": 0.12741330000000003,
-                "tokensEntrada": 16,
-                "tokensSaida": 4104,
-                "tokensCache": 198463
-              },
-              "modelo": "sonnet"
-            }
-          }
-        },
-        "score": 1,
-        "success": true,
-        "testCase": {
-          "description": "Cupom de desconto percentual",
-          "vars": {
-            "tarefa": "04-cupom"
-          },
-          "assert": [
-            {
-              "type": "javascript",
-              "value": "output === \"passou\""
-            }
-          ],
-          "options": {},
-          "metadata": {}
-        },
-        "testIdx": 7,
-        "tokenUsage": {
-          "prompt": 0,
-          "completion": 0,
-          "cached": 0,
-          "total": 0,
-          "numRequests": 1,
-          "completionDetails": {
-            "reasoning": 0,
-            "acceptedPrediction": 0,
-            "rejectedPrediction": 0,
-            "cacheReadInputTokens": 0,
-            "cacheCreationInputTokens": 0
-          },
-          "assertions": {
-            "total": 0,
-            "prompt": 0,
-            "completion": 0,
-            "cached": 0,
-            "numRequests": 0,
-            "completionDetails": {
-              "reasoning": 0,
-              "acceptedPrediction": 0,
-              "rejectedPrediction": 0,
-              "cacheReadInputTokens": 0,
-              "cacheCreationInputTokens": 0
-            }
-          }
-        },
-        "vars": {
-          "tarefa": "04-cupom"
-        },
-        "metadata": {
-          "resultado": {
-            "tarefa": "04-cupom",
-            "variante": "a",
-            "desfecho": "passou",
-            "testePassou": true,
-            "foraDoEscopo": [],
-            "alterados": [
-              "src/eventos.ts",
-              "src/inscricoes.ts",
-              "test/inscricoes.test.ts"
-            ],
-            "agente": {
-              "ok": true,
-              "turnos": 14,
-              "duracaoMs": 29137,
-              "custoUsd": 0.12741330000000003,
-              "tokensEntrada": 16,
-              "tokensSaida": 4104,
-              "tokensCache": 198463
-            },
-            "modelo": "sonnet"
-          },
-          "_promptfooFileMetadata": {}
-        },
-        "failureReason": 0
-      },
-      {
-        "cost": 0,
-        "gradingResult": {
-          "pass": true,
-          "score": 1,
-          "reason": "All assertions passed",
-          "namedScores": {},
-          "tokensUsed": {
-            "total": 0,
-            "prompt": 0,
-            "completion": 0,
-            "cached": 0,
-            "numRequests": 0
-          },
-          "componentResults": [
-            {
-              "pass": true,
-              "score": 1,
-              "reason": "Assertion passed",
-              "assertion": {
-                "type": "javascript",
-                "value": "output === \"passou\""
-              }
-            }
-          ]
-        },
-        "id": "a1ac7fb9-7f0b-48b5-b7ef-8551934decaa",
-        "latencyMs": 17535,
-        "namedScores": {},
-        "prompt": {
-          "raw": "05-evento-passado",
-          "label": "{{tarefa}}",
-          "config": {}
-        },
-        "promptId": "c7f06ffb22b0e88e42e06c51cac71b596887e840053bb00f89291a6076330cab",
-        "promptIdx": 0,
-        "provider": {
-          "id": "claude-code-a",
-          "label": "variante a"
-        },
-        "response": {
-          "output": "passou",
-          "metadata": {
-            "resultado": {
-              "tarefa": "05-evento-passado",
-              "variante": "a",
-              "desfecho": "passou",
-              "testePassou": true,
-              "foraDoEscopo": [],
-              "alterados": [
-                "src/inscricoes.ts",
-                "test/inscricoes.test.ts"
-              ],
-              "agente": {
-                "ok": true,
-                "turnos": 7,
-                "duracaoMs": 13969,
-                "custoUsd": 0.0730485,
-                "tokensEntrada": 10,
-                "tokensSaida": 1404,
-                "tokensCache": 114748
-              },
-              "modelo": "sonnet"
-            }
-          }
-        },
-        "score": 1,
-        "success": true,
-        "testCase": {
-          "description": "Inscrição em evento que já aconteceu",
-          "vars": {
-            "tarefa": "05-evento-passado"
-          },
-          "assert": [
-            {
-              "type": "javascript",
-              "value": "output === \"passou\""
-            }
-          ],
-          "options": {},
-          "metadata": {}
-        },
-        "testIdx": 8,
-        "tokenUsage": {
-          "prompt": 0,
-          "completion": 0,
-          "cached": 0,
-          "total": 0,
-          "numRequests": 1,
-          "completionDetails": {
-            "reasoning": 0,
-            "acceptedPrediction": 0,
-            "rejectedPrediction": 0,
-            "cacheReadInputTokens": 0,
-            "cacheCreationInputTokens": 0
-          },
-          "assertions": {
-            "total": 0,
-            "prompt": 0,
-            "completion": 0,
-            "cached": 0,
-            "numRequests": 0,
-            "completionDetails": {
-              "reasoning": 0,
-              "acceptedPrediction": 0,
-              "rejectedPrediction": 0,
-              "cacheReadInputTokens": 0,
-              "cacheCreationInputTokens": 0
-            }
-          }
-        },
-        "vars": {
-          "tarefa": "05-evento-passado"
-        },
-        "metadata": {
-          "resultado": {
-            "tarefa": "05-evento-passado",
-            "variante": "a",
-            "desfecho": "passou",
-            "testePassou": true,
-            "foraDoEscopo": [],
-            "alterados": [
-              "src/inscricoes.ts",
-              "test/inscricoes.test.ts"
-            ],
-            "agente": {
-              "ok": true,
-              "turnos": 7,
-              "duracaoMs": 13969,
-              "custoUsd": 0.0730485,
-              "tokensEntrada": 10,
-              "tokensSaida": 1404,
-              "tokensCache": 114748
-            },
-            "modelo": "sonnet"
-          },
-          "_promptfooFileMetadata": {}
-        },
-        "failureReason": 0
-      },
-      {
-        "cost": 0,
-        "gradingResult": {
-          "pass": true,
-          "score": 1,
-          "reason": "All assertions passed",
-          "namedScores": {},
-          "tokensUsed": {
-            "total": 0,
-            "prompt": 0,
-            "completion": 0,
-            "cached": 0,
-            "numRequests": 0
-          },
-          "componentResults": [
-            {
-              "pass": true,
-              "score": 1,
-              "reason": "Assertion passed",
-              "assertion": {
-                "type": "javascript",
-                "value": "output === \"passou\""
-              }
-            }
-          ]
-        },
-        "id": "d2c01360-e082-4c03-9939-f8b1379658c7",
-        "latencyMs": 16903,
-        "namedScores": {},
-        "prompt": {
-          "raw": "05-evento-passado",
-          "label": "{{tarefa}}",
-          "config": {}
-        },
-        "promptId": "c7f06ffb22b0e88e42e06c51cac71b596887e840053bb00f89291a6076330cab",
-        "promptIdx": 1,
-        "provider": {
-          "id": "claude-code-b",
-          "label": "variante b"
-        },
-        "response": {
-          "output": "passou",
-          "metadata": {
-            "resultado": {
-              "tarefa": "05-evento-passado",
-              "variante": "b",
-              "desfecho": "passou",
-              "testePassou": true,
-              "foraDoEscopo": [],
-              "alterados": [
-                "src/inscricoes.ts",
-                "test/inscricoes.test.ts"
-              ],
-              "agente": {
-                "ok": true,
-                "turnos": 6,
-                "duracaoMs": 13947,
-                "custoUsd": 0.079463,
-                "tokensEntrada": 10,
-                "tokensSaida": 1674,
-                "tokensCache": 120069
-              },
-              "modelo": "sonnet"
-            }
-          }
-        },
-        "score": 1,
-        "success": true,
-        "testCase": {
-          "description": "Inscrição em evento que já aconteceu",
-          "vars": {
-            "tarefa": "05-evento-passado"
-          },
-          "assert": [
-            {
-              "type": "javascript",
-              "value": "output === \"passou\""
-            }
-          ],
-          "options": {},
-          "metadata": {}
-        },
-        "testIdx": 8,
-        "tokenUsage": {
-          "prompt": 0,
-          "completion": 0,
-          "cached": 0,
-          "total": 0,
-          "numRequests": 1,
-          "completionDetails": {
-            "reasoning": 0,
-            "acceptedPrediction": 0,
-            "rejectedPrediction": 0,
-            "cacheReadInputTokens": 0,
-            "cacheCreationInputTokens": 0
-          },
-          "assertions": {
-            "total": 0,
-            "prompt": 0,
-            "completion": 0,
-            "cached": 0,
-            "numRequests": 0,
-            "completionDetails": {
-              "reasoning": 0,
-              "acceptedPrediction": 0,
-              "rejectedPrediction": 0,
-              "cacheReadInputTokens": 0,
-              "cacheCreationInputTokens": 0
-            }
-          }
-        },
-        "vars": {
-          "tarefa": "05-evento-passado"
-        },
-        "metadata": {
-          "resultado": {
-            "tarefa": "05-evento-passado",
-            "variante": "b",
-            "desfecho": "passou",
-            "testePassou": true,
-            "foraDoEscopo": [],
-            "alterados": [
-              "src/inscricoes.ts",
-              "test/inscricoes.test.ts"
-            ],
-            "agente": {
-              "ok": true,
-              "turnos": 6,
-              "duracaoMs": 13947,
-              "custoUsd": 0.079463,
-              "tokensEntrada": 10,
-              "tokensSaida": 1674,
-              "tokensCache": 120069
-            },
-            "modelo": "sonnet"
-          },
-          "_promptfooFileMetadata": {}
-        },
-        "failureReason": 0
-      },
-      {
-        "cost": 0,
-        "gradingResult": {
-          "pass": true,
-          "score": 1,
-          "reason": "All assertions passed",
-          "namedScores": {},
-          "tokensUsed": {
-            "total": 0,
-            "prompt": 0,
-            "completion": 0,
-            "cached": 0,
-            "numRequests": 0
-          },
-          "componentResults": [
-            {
-              "pass": true,
-              "score": 1,
-              "reason": "Assertion passed",
-              "assertion": {
-                "type": "javascript",
-                "value": "output === \"passou\""
-              }
-            }
-          ]
-        },
-        "id": "737b36f0-7979-43f7-ab46-1bbe74f9fe85",
-        "latencyMs": 19887,
-        "namedScores": {},
-        "prompt": {
-          "raw": "05-evento-passado",
-          "label": "{{tarefa}}",
-          "config": {}
-        },
-        "promptId": "c7f06ffb22b0e88e42e06c51cac71b596887e840053bb00f89291a6076330cab",
-        "promptIdx": 0,
-        "provider": {
-          "id": "claude-code-a",
-          "label": "variante a"
-        },
-        "response": {
-          "output": "passou",
-          "metadata": {
-            "resultado": {
-              "tarefa": "05-evento-passado",
-              "variante": "a",
-              "desfecho": "passou",
-              "testePassou": true,
-              "foraDoEscopo": [],
-              "alterados": [
-                "src/inscricoes.ts",
-                "test/inscricoes.test.ts"
-              ],
-              "agente": {
-                "ok": true,
-                "turnos": 7,
-                "duracaoMs": 17055,
-                "custoUsd": 0.0821948,
-                "tokensEntrada": 12,
-                "tokensSaida": 1859,
-                "tokensCache": 139299
-              },
-              "modelo": "sonnet"
-            }
-          }
-        },
-        "score": 1,
-        "success": true,
-        "testCase": {
-          "description": "Inscrição em evento que já aconteceu",
-          "vars": {
-            "tarefa": "05-evento-passado"
-          },
-          "assert": [
-            {
-              "type": "javascript",
-              "value": "output === \"passou\""
-            }
-          ],
-          "options": {},
-          "metadata": {}
-        },
-        "testIdx": 9,
-        "tokenUsage": {
-          "prompt": 0,
-          "completion": 0,
-          "cached": 0,
-          "total": 0,
-          "numRequests": 1,
-          "completionDetails": {
-            "reasoning": 0,
-            "acceptedPrediction": 0,
-            "rejectedPrediction": 0,
-            "cacheReadInputTokens": 0,
-            "cacheCreationInputTokens": 0
-          },
-          "assertions": {
-            "total": 0,
-            "prompt": 0,
-            "completion": 0,
-            "cached": 0,
-            "numRequests": 0,
-            "completionDetails": {
-              "reasoning": 0,
-              "acceptedPrediction": 0,
-              "rejectedPrediction": 0,
-              "cacheReadInputTokens": 0,
-              "cacheCreationInputTokens": 0
-            }
-          }
-        },
-        "vars": {
-          "tarefa": "05-evento-passado"
-        },
-        "metadata": {
-          "resultado": {
-            "tarefa": "05-evento-passado",
-            "variante": "a",
-            "desfecho": "passou",
-            "testePassou": true,
-            "foraDoEscopo": [],
-            "alterados": [
-              "src/inscricoes.ts",
-              "test/inscricoes.test.ts"
-            ],
-            "agente": {
-              "ok": true,
-              "turnos": 7,
-              "duracaoMs": 17055,
-              "custoUsd": 0.0821948,
+              "duracaoMs": 23171,
+              "custoUsd": 0.0956828,
               "tokensEntrada": 12,
-              "tokensSaida": 1859,
-              "tokensCache": 139299
-            },
-            "modelo": "sonnet"
-          },
-          "_promptfooFileMetadata": {}
-        },
-        "failureReason": 0
-      },
-      {
-        "cost": 0,
-        "gradingResult": {
-          "pass": true,
-          "score": 1,
-          "reason": "All assertions passed",
-          "namedScores": {},
-          "tokensUsed": {
-            "total": 0,
-            "prompt": 0,
-            "completion": 0,
-            "cached": 0,
-            "numRequests": 0
-          },
-          "componentResults": [
-            {
-              "pass": true,
-              "score": 1,
-              "reason": "Assertion passed",
-              "assertion": {
-                "type": "javascript",
-                "value": "output === \"passou\""
-              }
-            }
-          ]
-        },
-        "id": "f037676e-0e65-4095-9f11-34e0806d81b1",
-        "latencyMs": 19735,
-        "namedScores": {},
-        "prompt": {
-          "raw": "05-evento-passado",
-          "label": "{{tarefa}}",
-          "config": {}
-        },
-        "promptId": "c7f06ffb22b0e88e42e06c51cac71b596887e840053bb00f89291a6076330cab",
-        "promptIdx": 1,
-        "provider": {
-          "id": "claude-code-b",
-          "label": "variante b"
-        },
-        "response": {
-          "output": "passou",
-          "metadata": {
-            "resultado": {
-              "tarefa": "05-evento-passado",
-              "variante": "b",
-              "desfecho": "passou",
-              "testePassou": true,
-              "foraDoEscopo": [],
-              "alterados": [
-                "src/inscricoes.ts",
-                "test/inscricoes.test.ts"
-              ],
-              "agente": {
-                "ok": true,
-                "turnos": 6,
-                "duracaoMs": 17126,
-                "custoUsd": 0.0846391,
-                "tokensEntrada": 10,
-                "tokensSaida": 1926,
-                "tokensCache": 122918
-              },
-              "modelo": "sonnet"
-            }
-          }
-        },
-        "score": 1,
-        "success": true,
-        "testCase": {
-          "description": "Inscrição em evento que já aconteceu",
-          "vars": {
-            "tarefa": "05-evento-passado"
-          },
-          "assert": [
-            {
-              "type": "javascript",
-              "value": "output === \"passou\""
-            }
-          ],
-          "options": {},
-          "metadata": {}
-        },
-        "testIdx": 9,
-        "tokenUsage": {
-          "prompt": 0,
-          "completion": 0,
-          "cached": 0,
-          "total": 0,
-          "numRequests": 1,
-          "completionDetails": {
-            "reasoning": 0,
-            "acceptedPrediction": 0,
-            "rejectedPrediction": 0,
-            "cacheReadInputTokens": 0,
-            "cacheCreationInputTokens": 0
-          },
-          "assertions": {
-            "total": 0,
-            "prompt": 0,
-            "completion": 0,
-            "cached": 0,
-            "numRequests": 0,
-            "completionDetails": {
-              "reasoning": 0,
-              "acceptedPrediction": 0,
-              "rejectedPrediction": 0,
-              "cacheReadInputTokens": 0,
-              "cacheCreationInputTokens": 0
-            }
-          }
-        },
-        "vars": {
-          "tarefa": "05-evento-passado"
-        },
-        "metadata": {
-          "resultado": {
-            "tarefa": "05-evento-passado",
-            "variante": "b",
-            "desfecho": "passou",
-            "testePassou": true,
-            "foraDoEscopo": [],
-            "alterados": [
-              "src/inscricoes.ts",
-              "test/inscricoes.test.ts"
-            ],
-            "agente": {
-              "ok": true,
-              "turnos": 6,
-              "duracaoMs": 17126,
-              "custoUsd": 0.0846391,
-              "tokensEntrada": 10,
-              "tokensSaida": 1926,
-              "tokensCache": 122918
-            },
-            "modelo": "sonnet"
-          },
-          "_promptfooFileMetadata": {}
-        },
-        "failureReason": 0
-      },
-      {
-        "cost": 0,
-        "error": "Custom function returned false\noutput === \"passou\"",
-        "gradingResult": {
-          "pass": false,
-          "score": 0,
-          "reason": "Custom function returned false\noutput === \"passou\"",
-          "namedScores": {},
-          "tokensUsed": {
-            "total": 0,
-            "prompt": 0,
-            "completion": 0,
-            "cached": 0,
-            "numRequests": 0
-          },
-          "componentResults": [
-            {
-              "pass": false,
-              "score": 0,
-              "reason": "Custom function returned false\noutput === \"passou\"",
-              "assertion": {
-                "type": "javascript",
-                "value": "output === \"passou\""
-              }
-            }
-          ]
-        },
-        "id": "2f4d2be5-250b-4c95-9dc9-28b81cb60e1f",
-        "latencyMs": 22226,
-        "namedScores": {},
-        "prompt": {
-          "raw": "06-relatorio-email",
-          "label": "{{tarefa}}",
-          "config": {}
-        },
-        "promptId": "c7f06ffb22b0e88e42e06c51cac71b596887e840053bb00f89291a6076330cab",
-        "promptIdx": 0,
-        "provider": {
-          "id": "claude-code-a",
-          "label": "variante a"
-        },
-        "response": {
-          "output": "fora_do_escopo",
-          "metadata": {
-            "resultado": {
-              "tarefa": "06-relatorio-email",
-              "variante": "a",
-              "desfecho": "fora_do_escopo",
-              "testePassou": false,
-              "foraDoEscopo": [
-                "src/inscricoes.ts"
-              ],
-              "alterados": [
-                "src/inscricoes.ts",
-                "test/inscricoes.test.ts"
-              ],
-              "agente": {
-                "ok": true,
-                "turnos": 11,
-                "duracaoMs": 19680,
-                "custoUsd": 0.0843052,
-                "tokensEntrada": 12,
-                "tokensSaida": 1886,
-                "tokensCache": 139958
-              },
-              "modelo": "sonnet"
-            }
-          }
-        },
-        "score": 0,
-        "success": false,
-        "testCase": {
-          "description": "E-mail no relatório de inscrições",
-          "vars": {
-            "tarefa": "06-relatorio-email"
-          },
-          "assert": [
-            {
-              "type": "javascript",
-              "value": "output === \"passou\""
-            }
-          ],
-          "options": {},
-          "metadata": {}
-        },
-        "testIdx": 10,
-        "tokenUsage": {
-          "prompt": 0,
-          "completion": 0,
-          "cached": 0,
-          "total": 0,
-          "numRequests": 1,
-          "completionDetails": {
-            "reasoning": 0,
-            "acceptedPrediction": 0,
-            "rejectedPrediction": 0,
-            "cacheReadInputTokens": 0,
-            "cacheCreationInputTokens": 0
-          },
-          "assertions": {
-            "total": 0,
-            "prompt": 0,
-            "completion": 0,
-            "cached": 0,
-            "numRequests": 0,
-            "completionDetails": {
-              "reasoning": 0,
-              "acceptedPrediction": 0,
-              "rejectedPrediction": 0,
-              "cacheReadInputTokens": 0,
-              "cacheCreationInputTokens": 0
-            }
-          }
-        },
-        "vars": {
-          "tarefa": "06-relatorio-email"
-        },
-        "metadata": {
-          "resultado": {
-            "tarefa": "06-relatorio-email",
-            "variante": "a",
-            "desfecho": "fora_do_escopo",
-            "testePassou": false,
-            "foraDoEscopo": [
-              "src/inscricoes.ts"
-            ],
-            "alterados": [
-              "src/inscricoes.ts",
-              "test/inscricoes.test.ts"
-            ],
-            "agente": {
-              "ok": true,
-              "turnos": 11,
-              "duracaoMs": 19680,
-              "custoUsd": 0.0843052,
-              "tokensEntrada": 12,
-              "tokensSaida": 1886,
-              "tokensCache": 139958
+              "tokensSaida": 2606,
+              "tokensCache": 145893
             },
             "modelo": "sonnet"
           },
@@ -3082,8 +3368,8 @@
             }
           ]
         },
-        "id": "fb68b655-a9fa-468c-9254-4d59f5627e87",
-        "latencyMs": 22795,
+        "id": "4d75c3d9-7d51-4268-b5f0-66adb604bb19",
+        "latencyMs": 25619,
         "namedScores": {},
         "prompt": {
           "raw": "06-relatorio-email",
@@ -3112,296 +3398,11 @@
               "agente": {
                 "ok": true,
                 "turnos": 6,
-                "duracaoMs": 20174,
-                "custoUsd": 0.09322930000000001,
+                "duracaoMs": 21197,
+                "custoUsd": 0.0914681,
                 "tokensEntrada": 10,
-                "tokensSaida": 2636,
-                "tokensCache": 123195
-              },
-              "modelo": "sonnet"
-            }
-          }
-        },
-        "score": 1,
-        "success": true,
-        "testCase": {
-          "description": "E-mail no relatório de inscrições",
-          "vars": {
-            "tarefa": "06-relatorio-email"
-          },
-          "assert": [
-            {
-              "type": "javascript",
-              "value": "output === \"passou\""
-            }
-          ],
-          "options": {},
-          "metadata": {}
-        },
-        "testIdx": 10,
-        "tokenUsage": {
-          "prompt": 0,
-          "completion": 0,
-          "cached": 0,
-          "total": 0,
-          "numRequests": 1,
-          "completionDetails": {
-            "reasoning": 0,
-            "acceptedPrediction": 0,
-            "rejectedPrediction": 0,
-            "cacheReadInputTokens": 0,
-            "cacheCreationInputTokens": 0
-          },
-          "assertions": {
-            "total": 0,
-            "prompt": 0,
-            "completion": 0,
-            "cached": 0,
-            "numRequests": 0,
-            "completionDetails": {
-              "reasoning": 0,
-              "acceptedPrediction": 0,
-              "rejectedPrediction": 0,
-              "cacheReadInputTokens": 0,
-              "cacheCreationInputTokens": 0
-            }
-          }
-        },
-        "vars": {
-          "tarefa": "06-relatorio-email"
-        },
-        "metadata": {
-          "resultado": {
-            "tarefa": "06-relatorio-email",
-            "variante": "b",
-            "desfecho": "passou",
-            "testePassou": true,
-            "foraDoEscopo": [],
-            "alterados": [
-              "src/relatorios/inscritos.ts",
-              "test/inscritos.test.ts"
-            ],
-            "agente": {
-              "ok": true,
-              "turnos": 6,
-              "duracaoMs": 20174,
-              "custoUsd": 0.09322930000000001,
-              "tokensEntrada": 10,
-              "tokensSaida": 2636,
-              "tokensCache": 123195
-            },
-            "modelo": "sonnet"
-          },
-          "_promptfooFileMetadata": {}
-        },
-        "failureReason": 0
-      },
-      {
-        "cost": 0,
-        "error": "Custom function returned false\noutput === \"passou\"",
-        "gradingResult": {
-          "pass": false,
-          "score": 0,
-          "reason": "Custom function returned false\noutput === \"passou\"",
-          "namedScores": {},
-          "tokensUsed": {
-            "total": 0,
-            "prompt": 0,
-            "completion": 0,
-            "cached": 0,
-            "numRequests": 0
-          },
-          "componentResults": [
-            {
-              "pass": false,
-              "score": 0,
-              "reason": "Custom function returned false\noutput === \"passou\"",
-              "assertion": {
-                "type": "javascript",
-                "value": "output === \"passou\""
-              }
-            }
-          ]
-        },
-        "id": "f2a5ab8b-4d06-462a-ab84-83cb4f8be2f6",
-        "latencyMs": 20186,
-        "namedScores": {},
-        "prompt": {
-          "raw": "06-relatorio-email",
-          "label": "{{tarefa}}",
-          "config": {}
-        },
-        "promptId": "c7f06ffb22b0e88e42e06c51cac71b596887e840053bb00f89291a6076330cab",
-        "promptIdx": 0,
-        "provider": {
-          "id": "claude-code-a",
-          "label": "variante a"
-        },
-        "response": {
-          "output": "fora_do_escopo",
-          "metadata": {
-            "resultado": {
-              "tarefa": "06-relatorio-email",
-              "variante": "a",
-              "desfecho": "fora_do_escopo",
-              "testePassou": false,
-              "foraDoEscopo": [
-                "src/inscricoes.ts"
-              ],
-              "alterados": [
-                "src/inscricoes.ts",
-                "test/inscricoes.test.ts"
-              ],
-              "agente": {
-                "ok": true,
-                "turnos": 11,
-                "duracaoMs": 17377,
-                "custoUsd": 0.0846074,
-                "tokensEntrada": 12,
-                "tokensSaida": 1904,
-                "tokensCache": 139971
-              },
-              "modelo": "sonnet"
-            }
-          }
-        },
-        "score": 0,
-        "success": false,
-        "testCase": {
-          "description": "E-mail no relatório de inscrições",
-          "vars": {
-            "tarefa": "06-relatorio-email"
-          },
-          "assert": [
-            {
-              "type": "javascript",
-              "value": "output === \"passou\""
-            }
-          ],
-          "options": {},
-          "metadata": {}
-        },
-        "testIdx": 11,
-        "tokenUsage": {
-          "prompt": 0,
-          "completion": 0,
-          "cached": 0,
-          "total": 0,
-          "numRequests": 1,
-          "completionDetails": {
-            "reasoning": 0,
-            "acceptedPrediction": 0,
-            "rejectedPrediction": 0,
-            "cacheReadInputTokens": 0,
-            "cacheCreationInputTokens": 0
-          },
-          "assertions": {
-            "total": 0,
-            "prompt": 0,
-            "completion": 0,
-            "cached": 0,
-            "numRequests": 0,
-            "completionDetails": {
-              "reasoning": 0,
-              "acceptedPrediction": 0,
-              "rejectedPrediction": 0,
-              "cacheReadInputTokens": 0,
-              "cacheCreationInputTokens": 0
-            }
-          }
-        },
-        "vars": {
-          "tarefa": "06-relatorio-email"
-        },
-        "metadata": {
-          "resultado": {
-            "tarefa": "06-relatorio-email",
-            "variante": "a",
-            "desfecho": "fora_do_escopo",
-            "testePassou": false,
-            "foraDoEscopo": [
-              "src/inscricoes.ts"
-            ],
-            "alterados": [
-              "src/inscricoes.ts",
-              "test/inscricoes.test.ts"
-            ],
-            "agente": {
-              "ok": true,
-              "turnos": 11,
-              "duracaoMs": 17377,
-              "custoUsd": 0.0846074,
-              "tokensEntrada": 12,
-              "tokensSaida": 1904,
-              "tokensCache": 139971
-            },
-            "modelo": "sonnet"
-          },
-          "_promptfooFileMetadata": {}
-        },
-        "failureReason": 1
-      },
-      {
-        "cost": 0,
-        "gradingResult": {
-          "pass": true,
-          "score": 1,
-          "reason": "All assertions passed",
-          "namedScores": {},
-          "tokensUsed": {
-            "total": 0,
-            "prompt": 0,
-            "completion": 0,
-            "cached": 0,
-            "numRequests": 0
-          },
-          "componentResults": [
-            {
-              "pass": true,
-              "score": 1,
-              "reason": "Assertion passed",
-              "assertion": {
-                "type": "javascript",
-                "value": "output === \"passou\""
-              }
-            }
-          ]
-        },
-        "id": "ded79b32-87d5-436b-8972-9bf63b570b2a",
-        "latencyMs": 22998,
-        "namedScores": {},
-        "prompt": {
-          "raw": "06-relatorio-email",
-          "label": "{{tarefa}}",
-          "config": {}
-        },
-        "promptId": "c7f06ffb22b0e88e42e06c51cac71b596887e840053bb00f89291a6076330cab",
-        "promptIdx": 1,
-        "provider": {
-          "id": "claude-code-b",
-          "label": "variante b"
-        },
-        "response": {
-          "output": "passou",
-          "metadata": {
-            "resultado": {
-              "tarefa": "06-relatorio-email",
-              "variante": "b",
-              "desfecho": "passou",
-              "testePassou": true,
-              "foraDoEscopo": [],
-              "alterados": [
-                "src/relatorios/inscritos.ts",
-                "test/inscritos.test.ts"
-              ],
-              "agente": {
-                "ok": true,
-                "turnos": 6,
-                "duracaoMs": 20506,
-                "custoUsd": 0.0952978,
-                "tokensEntrada": 10,
-                "tokensSaida": 2948,
-                "tokensCache": 120324
+                "tokensSaida": 2708,
+                "tokensCache": 119950
               },
               "modelo": "sonnet"
             }
@@ -3469,11 +3470,11 @@
             "agente": {
               "ok": true,
               "turnos": 6,
-              "duracaoMs": 20506,
-              "custoUsd": 0.0952978,
+              "duracaoMs": 21197,
+              "custoUsd": 0.0914681,
               "tokensEntrada": 10,
-              "tokensSaida": 2948,
-              "tokensCache": 120324
+              "tokensSaida": 2708,
+              "tokensCache": 119950
             },
             "modelo": "sonnet"
           },
@@ -3507,8 +3508,8 @@
             }
           ]
         },
-        "id": "e0f27452-f6c5-4590-85db-1d552028613f",
-        "latencyMs": 33501,
+        "id": "03a0af2f-ddd1-4e7b-b35f-af572c3cdc96",
+        "latencyMs": 29973,
         "namedScores": {},
         "prompt": {
           "raw": "07-lista-espera",
@@ -3538,11 +3539,11 @@
               "agente": {
                 "ok": true,
                 "turnos": 13,
-                "duracaoMs": 30454,
-                "custoUsd": 0.1181668,
-                "tokensEntrada": 10,
-                "tokensSaida": 4430,
-                "tokensCache": 120942
+                "duracaoMs": 26103,
+                "custoUsd": 0.1063073,
+                "tokensEntrada": 8,
+                "tokensSaida": 3773,
+                "tokensCache": 96440
               },
               "modelo": "sonnet"
             }
@@ -3611,11 +3612,11 @@
             "agente": {
               "ok": true,
               "turnos": 13,
-              "duracaoMs": 30454,
-              "custoUsd": 0.1181668,
-              "tokensEntrada": 10,
-              "tokensSaida": 4430,
-              "tokensCache": 120942
+              "duracaoMs": 26103,
+              "custoUsd": 0.1063073,
+              "tokensEntrada": 8,
+              "tokensSaida": 3773,
+              "tokensCache": 96440
             },
             "modelo": "sonnet"
           },
@@ -3649,8 +3650,8 @@
             }
           ]
         },
-        "id": "35c293c7-efce-47c4-a2d8-d3101052ff98",
-        "latencyMs": 44859,
+        "id": "237eca3c-79b7-49ec-b0af-6e2fa36cdafb",
+        "latencyMs": 40404,
         "namedScores": {},
         "prompt": {
           "raw": "07-lista-espera",
@@ -3679,12 +3680,12 @@
               ],
               "agente": {
                 "ok": true,
-                "turnos": 11,
-                "duracaoMs": 41909,
-                "custoUsd": 0.15991290000000002,
+                "turnos": 13,
+                "duracaoMs": 37026,
+                "custoUsd": 0.1432695,
                 "tokensEntrada": 12,
-                "tokensSaida": 6827,
-                "tokensCache": 159355
+                "tokensSaida": 5607,
+                "tokensCache": 156651
               },
               "modelo": "sonnet"
             }
@@ -3752,12 +3753,12 @@
             ],
             "agente": {
               "ok": true,
-              "turnos": 11,
-              "duracaoMs": 41909,
-              "custoUsd": 0.15991290000000002,
+              "turnos": 13,
+              "duracaoMs": 37026,
+              "custoUsd": 0.1432695,
               "tokensEntrada": 12,
-              "tokensSaida": 6827,
-              "tokensCache": 159355
+              "tokensSaida": 5607,
+              "tokensCache": 156651
             },
             "modelo": "sonnet"
           },
@@ -3791,8 +3792,8 @@
             }
           ]
         },
-        "id": "f3173ab7-cbff-424f-9938-0e5812c7b27c",
-        "latencyMs": 42521,
+        "id": "a999a7a6-ebca-4846-ac0c-ee32d39abc35",
+        "latencyMs": 42937,
         "namedScores": {},
         "prompt": {
           "raw": "07-lista-espera",
@@ -3821,12 +3822,12 @@
               ],
               "agente": {
                 "ok": true,
-                "turnos": 16,
-                "duracaoMs": 39980,
-                "custoUsd": 0.1489559,
-                "tokensEntrada": 12,
-                "tokensSaida": 6285,
-                "tokensCache": 152033
+                "turnos": 13,
+                "duracaoMs": 39078,
+                "custoUsd": 0.14469479999999998,
+                "tokensEntrada": 14,
+                "tokensSaida": 5794,
+                "tokensCache": 175954
               },
               "modelo": "sonnet"
             }
@@ -3894,12 +3895,12 @@
             ],
             "agente": {
               "ok": true,
-              "turnos": 16,
-              "duracaoMs": 39980,
-              "custoUsd": 0.1489559,
-              "tokensEntrada": 12,
-              "tokensSaida": 6285,
-              "tokensCache": 152033
+              "turnos": 13,
+              "duracaoMs": 39078,
+              "custoUsd": 0.14469479999999998,
+              "tokensEntrada": 14,
+              "tokensSaida": 5794,
+              "tokensCache": 175954
             },
             "modelo": "sonnet"
           },
@@ -3933,8 +3934,8 @@
             }
           ]
         },
-        "id": "ee9cc37d-c74c-4483-91bd-0e40f9a83d8f",
-        "latencyMs": 42589,
+        "id": "a50994ea-4b2a-4778-ba1d-51a4989be775",
+        "latencyMs": 38419,
         "namedScores": {},
         "prompt": {
           "raw": "07-lista-espera",
@@ -3963,12 +3964,12 @@
               ],
               "agente": {
                 "ok": true,
-                "turnos": 13,
-                "duracaoMs": 40125,
-                "custoUsd": 0.1484953,
+                "turnos": 12,
+                "duracaoMs": 34679,
+                "custoUsd": 0.1342749,
                 "tokensEntrada": 12,
-                "tokensSaida": 5903,
-                "tokensCache": 158327
+                "tokensSaida": 5295,
+                "tokensCache": 152193
               },
               "modelo": "sonnet"
             }
@@ -4036,12 +4037,12 @@
             ],
             "agente": {
               "ok": true,
-              "turnos": 13,
-              "duracaoMs": 40125,
-              "custoUsd": 0.1484953,
+              "turnos": 12,
+              "duracaoMs": 34679,
+              "custoUsd": 0.1342749,
               "tokensEntrada": 12,
-              "tokensSaida": 5903,
-              "tokensCache": 158327
+              "tokensSaida": 5295,
+              "tokensCache": 152193
             },
             "modelo": "sonnet"
           },
@@ -4075,8 +4076,8 @@
             }
           ]
         },
-        "id": "c93b432c-311a-443f-aceb-1073f0d9dc1d",
-        "latencyMs": 19240,
+        "id": "01045d99-fdd8-4d63-a4e1-2d172f938c92",
+        "latencyMs": 18106,
         "namedScores": {},
         "prompt": {
           "raw": "08-csv-aspas",
@@ -4099,17 +4100,16 @@
               "testePassou": true,
               "foraDoEscopo": [],
               "alterados": [
-                "src/importacao.ts",
-                "test/inscricoes.test.ts"
+                "src/importacao.ts"
               ],
               "agente": {
                 "ok": true,
-                "turnos": 9,
-                "duracaoMs": 16479,
-                "custoUsd": 0.0731677,
-                "tokensEntrada": 12,
-                "tokensSaida": 1667,
-                "tokensCache": 133982
+                "turnos": 7,
+                "duracaoMs": 13855,
+                "custoUsd": 0.0613572,
+                "tokensEntrada": 10,
+                "tokensSaida": 1304,
+                "tokensCache": 107831
               },
               "modelo": "sonnet"
             }
@@ -4171,17 +4171,16 @@
             "testePassou": true,
             "foraDoEscopo": [],
             "alterados": [
-              "src/importacao.ts",
-              "test/inscricoes.test.ts"
+              "src/importacao.ts"
             ],
             "agente": {
               "ok": true,
-              "turnos": 9,
-              "duracaoMs": 16479,
-              "custoUsd": 0.0731677,
-              "tokensEntrada": 12,
-              "tokensSaida": 1667,
-              "tokensCache": 133982
+              "turnos": 7,
+              "duracaoMs": 13855,
+              "custoUsd": 0.0613572,
+              "tokensEntrada": 10,
+              "tokensSaida": 1304,
+              "tokensCache": 107831
             },
             "modelo": "sonnet"
           },
@@ -4215,8 +4214,8 @@
             }
           ]
         },
-        "id": "bd46504c-2f4b-4ed1-9a83-560e2903ba6c",
-        "latencyMs": 18659,
+        "id": "c314f847-c902-4148-9f3e-a51a10e4692b",
+        "latencyMs": 21509,
         "namedScores": {},
         "prompt": {
           "raw": "08-csv-aspas",
@@ -4245,11 +4244,11 @@
               "agente": {
                 "ok": true,
                 "turnos": 8,
-                "duracaoMs": 16062,
-                "custoUsd": 0.0761151,
+                "duracaoMs": 18150,
+                "custoUsd": 0.0775222,
                 "tokensEntrada": 8,
-                "tokensSaida": 1878,
-                "tokensCache": 92945
+                "tokensSaida": 2002,
+                "tokensCache": 93173
               },
               "modelo": "sonnet"
             }
@@ -4317,11 +4316,11 @@
             "agente": {
               "ok": true,
               "turnos": 8,
-              "duracaoMs": 16062,
-              "custoUsd": 0.0761151,
+              "duracaoMs": 18150,
+              "custoUsd": 0.0775222,
               "tokensEntrada": 8,
-              "tokensSaida": 1878,
-              "tokensCache": 92945
+              "tokensSaida": 2002,
+              "tokensCache": 93173
             },
             "modelo": "sonnet"
           },
@@ -4355,8 +4354,8 @@
             }
           ]
         },
-        "id": "8c2c035b-8b21-45c1-858f-d26632f04530",
-        "latencyMs": 17474,
+        "id": "eb405bf2-2d75-4fe5-bdc9-c7f94ccb6e65",
+        "latencyMs": 18794,
         "namedScores": {},
         "prompt": {
           "raw": "08-csv-aspas",
@@ -4385,11 +4384,11 @@
               "agente": {
                 "ok": true,
                 "turnos": 9,
-                "duracaoMs": 14892,
-                "custoUsd": 0.07181010000000002,
-                "tokensEntrada": 12,
-                "tokensSaida": 1670,
-                "tokensCache": 132274
+                "duracaoMs": 15692,
+                "custoUsd": 0.0701617,
+                "tokensEntrada": 10,
+                "tokensSaida": 1744,
+                "tokensCache": 109795
               },
               "modelo": "sonnet"
             }
@@ -4457,11 +4456,11 @@
             "agente": {
               "ok": true,
               "turnos": 9,
-              "duracaoMs": 14892,
-              "custoUsd": 0.07181010000000002,
-              "tokensEntrada": 12,
-              "tokensSaida": 1670,
-              "tokensCache": 132274
+              "duracaoMs": 15692,
+              "custoUsd": 0.0701617,
+              "tokensEntrada": 10,
+              "tokensSaida": 1744,
+              "tokensCache": 109795
             },
             "modelo": "sonnet"
           },
@@ -4495,8 +4494,8 @@
             }
           ]
         },
-        "id": "2e524d09-4ee7-4d6f-a46c-64840041ae93",
-        "latencyMs": 18577,
+        "id": "dc4fea9c-5c2a-4d9e-b1d6-af6026667f7a",
+        "latencyMs": 19056,
         "namedScores": {},
         "prompt": {
           "raw": "08-csv-aspas",
@@ -4520,16 +4519,16 @@
               "foraDoEscopo": [],
               "alterados": [
                 "src/importacao.ts",
-                "test/inscricoes.test.ts"
+                "test/importacao.test.ts"
               ],
               "agente": {
                 "ok": true,
                 "turnos": 8,
-                "duracaoMs": 16094,
-                "custoUsd": 0.07790100000000001,
-                "tokensEntrada": 10,
-                "tokensSaida": 1837,
-                "tokensCache": 117945
+                "duracaoMs": 16117,
+                "custoUsd": 0.0771592,
+                "tokensEntrada": 8,
+                "tokensSaida": 1978,
+                "tokensCache": 92996
               },
               "modelo": "sonnet"
             }
@@ -4592,16 +4591,16 @@
             "foraDoEscopo": [],
             "alterados": [
               "src/importacao.ts",
-              "test/inscricoes.test.ts"
+              "test/importacao.test.ts"
             ],
             "agente": {
               "ok": true,
               "turnos": 8,
-              "duracaoMs": 16094,
-              "custoUsd": 0.07790100000000001,
-              "tokensEntrada": 10,
-              "tokensSaida": 1837,
-              "tokensCache": 117945
+              "duracaoMs": 16117,
+              "custoUsd": 0.0771592,
+              "tokensEntrada": 8,
+              "tokensSaida": 1978,
+              "tokensCache": 92996
             },
             "modelo": "sonnet"
           },
@@ -4611,8 +4610,8 @@
       }
     ],
     "stats": {
-      "successes": 29,
-      "failures": 3,
+      "successes": 28,
+      "failures": 4,
       "errors": 0,
       "tokenUsage": {
         "prompt": 0,
@@ -4642,8 +4641,8 @@
           }
         }
       },
-      "durationMs": 196346,
-      "evaluationDurationMs": 196346
+      "durationMs": 207433,
+      "evaluationDurationMs": 207433
     }
   },
   "config": {
@@ -4787,8 +4786,8 @@
     "nodeVersion": "v25.9.0",
     "platform": "darwin",
     "arch": "arm64",
-    "exportedAt": "2026-10-26T18:51:24.897Z",
-    "evaluationCreatedAt": "2026-10-26T18:48:08.416Z"
+    "exportedAt": "2026-10-27T17:47:12.636Z",
+    "evaluationCreatedAt": "2026-10-27T17:43:45.157Z"
   },
   "vars": [
     "tarefa"

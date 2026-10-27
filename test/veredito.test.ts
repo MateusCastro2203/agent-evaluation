@@ -30,7 +30,13 @@ describe("decidir", () => {
     expect(v.execucoesNecessariasPorVariante).toBe(27);
     expect(v.pisoTesteZPorVariante).toBe(24);
   });
-  it("taxas do ensaio (13/16 × 16/16): critério de Wilson pede 38, o teste z dá piso de 34", () => {
+  it("taxas do ensaio (12/16 × 16/16): critério de Wilson pede 27, o teste z dá piso de 24", () => {
+    const v = decidir(resumo(12, 16), resumo(16, 16));
+    expect(v.tipo).toBe("inconclusivo");
+    expect(v.execucoesNecessariasPorVariante).toBe(27);
+    expect(v.pisoTesteZPorVariante).toBe(24);
+  });
+  it("taxas do primeiro ensaio (13/16 × 16/16): critério de Wilson pede 38, o teste z dá piso de 34", () => {
     const v = decidir(resumo(13, 16), resumo(16, 16));
     expect(v.tipo).toBe("inconclusivo");
     expect(v.pisoTesteZPorVariante).toBe(34);
