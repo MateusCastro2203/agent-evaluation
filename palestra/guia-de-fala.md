@@ -340,7 +340,7 @@ Vá linha por linha, devagar. É o slide mais "de levar para casa" do bloco.
 
 1. **O título:** *"Ainda não dá para saber"*, *"Com CLAUDE.md foi melhor"* ou *"Sem CLAUDE.md foi melhor"*. Compare com a aposta da plateia: *"quem apostou no [B / empate / A]..."*. Se a maioria apostou em empate e deu "ainda não dá para saber", diga: *"quase: não é 'são iguais', é 'não sei ainda'."*
 2. **As duas linhas grandes:** *"Sem o arquivo, 12 de 16 deram certo. Com o arquivo, 16 de 16."* (com os números de hoje).
-3. **As faixas coloridas:** *"O tracinho é o resultado de hoje. A faixa é a margem de erro, como na pesquisa eleitoral. Se as faixas se cruzam, ainda não dá para dizer quem é melhor."* A frase do topo diz quantas execuções de cada seriam precisas.
+3. **As faixas coloridas:** *"O tracinho é o resultado de hoje. A faixa é a margem de erro, como na pesquisa eleitoral. Se as faixas se cruzam, ainda não dá para dizer quem é melhor."* O número de execuções necessárias não aparece aqui de propósito: ele é a resposta do slide 22.
 4. **Na tabela, se der tempo:** *"Resolve sempre?"* (quantas tarefas passaram nas duas tentativas) e *"Mexeu onde não devia"*.
 5. **Tarefa por tarefa (rolar o relatório só se der tempo):** *"O ganho, se houver, está nas tarefas de regra da casa (03 a 07) ou nas de controle?"*
 
@@ -396,7 +396,7 @@ O slide não tem números de propósito: é a regra para ler qualquer relatório
 
 ### Slide 22 — Resposta: 27 de cada lado · [27:15–29:00] · sem cliques
 
-**Diga:** *"No ensaio, com A 12 de 16 e B 16 de 16, o relatório diz 27 de cada lado."* Diga **"do ensaio"** em voz alta: é o run gravado, não o de hoje. Se o relatório de hoje mostrou outro número na frase do topo ("seriam umas [N] execuções de cada"), complete: *"no de hoje, deu [N]"*. Se as duas taxas forem iguais, o relatório diz que não dá para calcular.
+**Diga:** *"No ensaio, com A 12 de 16 e B 16 de 16, o relatório diz 27 de cada lado."* Diga **"do ensaio"** em voz alta: é o run gravado, não o de hoje. Se o terminal de hoje mostrou outro número em "execuções necessárias por variante" (também nos "Detalhes técnicos", no fim do relatório), complete: *"no de hoje, deu [N]"*. Se as duas taxas forem iguais, o relatório diz que não dá para calcular.
 
 **O que dizer em cada caso:**
 - **Muita gente no 16:** *"Chegaram perto, mas é o que a gente rodou hoje, e não bastou."*
@@ -458,7 +458,7 @@ Escolha a versão no slide 18, olhando o título do relatório. As três contam 
 
 **Abertura:** *"Ainda não dá para saber. E eu não vou fingir que isso é empate."*
 
-**Leia:** as duas linhas e as duas faixas, e aponte o trecho em que elas se cruzam. Depois, a frase do topo: "seriam umas [N] execuções de cada" (no ensaio, 27).
+**Leia:** as duas linhas e as duas faixas, e aponte o trecho em que elas se cruzam. Depois, o número de execuções necessárias, que fica no terminal e nos "Detalhes técnicos" do relatório (no ensaio, 27).
 
 **Lição:** *"Pode ser que o `CLAUDE.md` ajude, e pode ser que não. Com 16 execuções de cada lado, o dado não deixa dizer. Se eu tivesse rodado uma vez só, como todo mundo faz, eu sairia daqui com uma certeza falsa. O relatório diz que eu precisaria de [N] execuções de cada lado. Esse número é o resultado mais útil de hoje."*
 

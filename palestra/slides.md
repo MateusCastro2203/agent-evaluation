@@ -530,7 +530,7 @@ Avançar para o slide seguinte com a resposta.
 
 <!--
 [27:15–29:00] Slide único, sem cliques. Resposta (do ENSAIO, não do run de hoje): com as taxas do ensaio mantidas (A 12/16 × B 16/16), 27 execuções por variante até os intervalos de Wilson pararem de se sobrepor (critério do veredito); o piso pelo teste z é 24. Dizer "do ensaio" em voz alta.
-Se o relatório de hoje mostrou outro número (na frase do topo, "seriam umas [N] execuções de cada"; nos detalhes técnicos, "execuções necessárias por variante"; campo execucoesNecessariasPorVariante), dizer: "no de hoje, deu [N]".
+Se o relatório de hoje mostrou outro número (no terminal e nos detalhes técnicos do relatório, "execuções necessárias por variante"), dizer: "no de hoje, deu [N]".
 Analogia: jogar uma moeda 4 vezes e dar 3 caras não prova que ela é viciada; jogar 400 vezes e dar 300, prova. Quanto menor a diferença que você quer ver, mais vezes precisa jogar. Se as duas taxas forem iguais, o relatório diz "não calculável".
 Quem chutou 16 chegou perto: "é o que a gente rodou hoje, e não bastou." Quem chutou 40: "um pouco a mais do que precisava."
 Diferença pequena pede muitas execuções: 62,5% contra 75% pediria 212 por variante.

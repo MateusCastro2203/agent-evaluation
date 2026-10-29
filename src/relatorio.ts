@@ -163,10 +163,8 @@ export function fraseSimples(a: Analise): string {
   if (v.tipo === "b_melhor") return "O CLAUDE.md ajudou: mesmo contando a margem de erro, as duas não se cruzam.";
   if (v.tipo === "a_melhor") return "Neste run, o CLAUDE.md atrapalhou: mesmo contando a margem de erro, as duas não se cruzam.";
   const feitas = Math.max(A.n, B.n);
-  const n = v.execucoesNecessariasPorVariante;
   if (A.taxa.p === B.taxa.p) return `Ainda não dá para saber se o CLAUDE.md ajuda: as duas deram certo na mesma proporção, com ${num(feitas)} execuções de cada.`;
-  if (n === null) return `Ainda não dá para saber se o CLAUDE.md ajuda: a margem de erro das duas se cruza, e a diferença é pequena demais para separar nem com ${num(LIMITE_EXECUCOES)} execuções de cada.`;
-  return `Ainda não dá para saber se o CLAUDE.md ajuda: a margem de erro das duas se cruza. Para ter certeza, seriam umas ${num(n)} execuções de cada (hoje foram ${num(feitas)}).`;
+  return "Ainda não dá para saber se o CLAUDE.md ajuda: a margem de erro das duas se cruza.";
 }
 
 const deramCerto = (r: ResumoVariante) => (r.n === 0 ? "nenhuma execução válida" : `${r.passou} de ${r.n} deram certo`);

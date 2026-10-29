@@ -78,7 +78,8 @@ describe("gerarHtml", () => {
   });
   it("frase simples cobre os três vereditos e a falta de dado", () => {
     const a = analisarSaida(fixture);
-    expect(fraseSimples(a)).toContain(`seriam umas ${a.veredito.execucoesNecessariasPorVariante} execuções de cada`);
+    expect(fraseSimples(a)).toBe("Ainda não dá para saber se o CLAUDE.md ajuda: a margem de erro das duas se cruza.");
+    expect(fraseSimples(a)).not.toMatch(/execuções/);
     const b = { ...a, veredito: { ...a.veredito, tipo: "b_melhor" as const } };
     expect(tituloSimples(b)).toBe("Com CLAUDE.md foi melhor");
     expect(fraseSimples(b)).toContain("O CLAUDE.md ajudou");
