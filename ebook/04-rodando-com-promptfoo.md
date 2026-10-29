@@ -19,8 +19,8 @@ Sem assinatura? Dá para ler o resultado de um run gravado, offline, com `pnpm r
 pnpm install            # instala as dependências
 pnpm test               # camada 1: testes do medidor, offline, sem agente
 pnpm eval:rapido        # fumaça: 1 tarefa, 1 repetição, A e B (2 execuções reais)
-pnpm eval               # o run completo: 32 execuções reais
-pnpm relatorio          # lê resultados/ultimo.json e gera resultados/relatorio.html
+pnpm eval               # o run completo: 32 execuções reais e, no fim, o relatório
+pnpm relatorio          # refaz o relatório a partir de resultados/ultimo.json
 pnpm ensaio:gravar      # grava o último run como ensaio (sem caminhos pessoais)
 pnpm relatorio:ensaio   # mesmo relatório sobre o run gravado (offline)
 ```
@@ -30,9 +30,9 @@ Uma ordem que funciona:
 1. `pnpm test` primeiro. Se ele falhar, o problema está no medidor, não no agente (veja "Duas camadas", abaixo).
 2. `pnpm eval:rapido` para confirmar que o login e o Claude Code respondem. São 2 execuções reais.
 3. `pnpm eval` para o run de verdade: 2 variantes × 8 tarefas × 2 repetições = 32 execuções, modelo `sonnet`, 4 em paralelo. No notebook do palestrante, o ensaio levou **3 min 28 s** de relógio (cada execução, de 12 s a 42 s). No seu computador, o tempo depende do modelo, da concorrência e da sua cota.
-4. `pnpm relatorio` e abra `resultados/relatorio.html` no navegador. O capítulo 5 explica como ler.
+4. Abra `resultados/relatorio.html` no navegador: o `pnpm eval` gera o relatório sozinho quando termina (e imprime a tabela no terminal). O `pnpm relatorio` só é preciso para refazer o relatório a partir de `resultados/ultimo.json`. O capítulo 5 explica como ler.
 
-**O `pnpm eval` sai com código 100 quando alguma execução não passou.** É o comportamento do promptfoo, não um erro: o JSON em `resultados/ultimo.json` é gravado do mesmo jeito. Quem decide o veredito é o `pnpm relatorio`.
+**O promptfoo sai com código 100 quando alguma execução não passou.** É o comportamento dele, não um erro: o JSON em `resultados/ultimo.json` é gravado do mesmo jeito, e o `pnpm eval` gera o relatório em seguida. Por isso o código de saída final do `pnpm eval` é o do relatório, que dá o veredito (capítulo 5).
 
 O run gravado no ensaio de 2026-10-27 fica em `resultados/ensaio/` (o JSON, o relatório e as notas em `NOTAS.md`). Ele serve de plano B ao vivo e de modo offline para quem não tem assinatura: `pnpm relatorio:ensaio` não chama nenhum modelo e grava `resultados/ensaio/relatorio.html`, ao lado do JSON, sem tocar no relatório do run ao vivo. Para gravar um ensaio seu, rode `pnpm eval` e logo depois `pnpm ensaio:gravar`: ele copia `resultados/ultimo.json` para `resultados/ensaio/resultado.json` trocando a pasta do projeto por `.`, o seu home por `~` e as pastas temporárias por `<tmp>`, e gera o relatório.
 

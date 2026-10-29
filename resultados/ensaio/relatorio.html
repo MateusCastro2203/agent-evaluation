@@ -6,89 +6,119 @@
 <title>Medindo agentes — relatório</title>
 <style>
 :root{--fundo:#f6f7f9;--painel:#fff;--tinta:#14181f;--suave:#586070;--linha:#d5d9e0;--azul:#2f6fdb;--acento:#d97706;--ok:#0d7a3e;--ruim:#b42318;--meio:#8a5a00;--neutro:#e8ecf3;}
-@media (prefers-color-scheme: dark){:root{--fundo:#0f1218;--painel:#181d27;--tinta:#eef1f6;--suave:#a3adbf;--linha:#2d3544;--azul:#6ea2ff;--acento:#f5a524;--ok:#4ade80;--ruim:#ff7b72;--meio:#f5c451;--neutro:#232a38;}}
 *{box-sizing:border-box}
-body{margin:0;background:var(--fundo);color:var(--tinta);font:22px/1.3 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding:24px 48px 18px}
-h1{font-size:30px;margin:0 0 4px;color:var(--suave);font-weight:600}
-h2{font-size:28px;margin:20px 0 8px}
-.veredito{background:var(--painel);border:2px solid var(--linha);border-left:14px solid var(--suave);border-radius:12px;padding:12px 28px;margin:12px 0}
+body{margin:0;background:var(--fundo);color:var(--tinta);font:22px/1.3 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding:16px 40px 18px}
+h1{font-size:22px;margin:0 0 8px;color:var(--suave);font-weight:600}
+h2{font-size:28px;margin:28px 0 8px}
+h2 small{font-size:20px;font-weight:400;color:var(--suave)}
+.veredito{background:var(--painel);border:2px solid var(--linha);border-left:14px solid var(--suave);border-radius:12px;padding:10px 26px 12px;margin:0 0 12px}
 .veredito.inconclusivo{border-left-color:var(--acento)}
 .veredito.b-melhor{border-left-color:var(--ok)}
 .veredito.a-melhor{border-left-color:var(--ruim)}
-.veredito .titulo{font-size:60px;font-weight:800;line-height:1.1}
-.veredito .frase{font-size:28px;margin-top:8px}
-.veredito .nec{font-size:22px;color:var(--suave);margin-top:10px}
-.veredito .nec.piso{font-size:18px;margin-top:2px}
+.veredito .titulo{font-size:48px;font-weight:800;line-height:1.1}
+.veredito .frase{font-size:26px;margin-top:6px}
+.variante{display:grid;grid-template-columns:1fr 1fr;column-gap:28px;align-items:center;margin:10px 0}
+.var-texto{display:flex;flex-direction:column}
+.var-nome{font-size:30px;font-weight:700}.var-nome small{font-size:20px;font-weight:400;color:var(--suave)}
+.var-taxa{font-size:30px}
+.var-margem{grid-column:2;font-size:18px;color:var(--suave);margin-top:2px}
+.escala{position:relative;height:44px;background:var(--neutro);border-radius:6px;background-image:linear-gradient(to right,var(--linha) 1px,transparent 1px);background-size:25% 100%}
+.iv{position:absolute;top:8px;height:28px;border-radius:4px;opacity:.85}
+.pt{position:absolute;top:2px;width:6px;height:40px;background:var(--tinta);border-radius:2px}
+.eixo{display:grid;grid-template-columns:1fr 1fr;column-gap:28px;color:var(--suave);font-size:18px}
+.eixo div{grid-column:2;display:flex;justify-content:space-between}
+.legenda{font-size:18px;color:var(--suave);margin:4px 0 0}
 table{border-collapse:collapse;width:100%;background:var(--painel);border-radius:8px;overflow:hidden}
 th,td{padding:5px 16px;border-bottom:1px solid var(--linha);text-align:left}
 thead th{font-size:22px;background:var(--neutro)}
 td.num,thead th:not(:first-child){text-align:right;font-variant-numeric:tabular-nums}
 th[scope=row]{font-weight:500}
+th[scope=row] small{color:var(--suave);font-weight:400}
 .ok{color:var(--ok);font-weight:700}.ruim{color:var(--ruim);font-weight:700}.meio{color:var(--meio);font-weight:700}
-.linha-barra{display:grid;grid-template-columns:340px 1fr;align-items:center;gap:20px;margin:6px 0}
-.rot-barra{font-weight:700}.rot-barra small{display:block;font-weight:400;color:var(--suave);font-size:20px}
-.escala{position:relative;height:48px;background:var(--neutro);border-radius:6px;background-image:linear-gradient(to right,var(--linha) 1px,transparent 1px);background-size:25% 100%}
-.iv{position:absolute;top:9px;height:30px;border-radius:4px;opacity:.85}
-.pt{position:absolute;top:2px;width:6px;height:44px;background:var(--tinta);border-radius:2px}
-.eixo{display:grid;grid-template-columns:340px 1fr;gap:20px;color:var(--suave);font-size:20px}
-.eixo div{display:flex;justify-content:space-between}
 .por-tarefa{font-size:20px}.por-tarefa th,.por-tarefa td{padding:2px 16px}
+.tecnico{font-size:18px;color:var(--suave)}
+.tecnico table{font-size:18px}.tecnico td.num{white-space:nowrap}
+.tecnico ul{margin:8px 0;padding-left:1.2em}
 footer{margin-top:16px;color:var(--suave);font-size:17px}
 code{font-family:ui-monospace,Menlo,monospace}
 </style>
 </head>
 <body>
-<h1>Medindo agentes · A (sem CLAUDE.md) × B (com CLAUDE.md)</h1>
+<h1>Medindo agentes · o mesmo pedido, sem e com <code>CLAUDE.md</code></h1>
 <section class="veredito inconclusivo">
-<div class="titulo">Inconclusivo</div>
-<div class="frase">A: 12 de 16 (75%) · B: 16 de 16 (100%). Os intervalos de 95% se sobrepõem: com esse n, não dá para dizer se o CLAUDE.md ajuda.</div>
-<div class="nec">execuções necessárias por variante (critério do veredito): 27 por variante (onde os intervalos de Wilson 95% deixam de se sobrepor, nas taxas observadas), contra 16 feitas</div>
-<div class="nec piso">piso pelo teste z de duas proporções: 24 por variante (95% de confiança, 80% de poder)</div>
+<div class="titulo">Ainda não dá para saber</div>
+<div class="frase">Ainda não dá para saber se o CLAUDE.md ajuda: a margem de erro das duas se cruza. Para ter certeza, seriam umas 27 execuções de cada (hoje foram 16).</div>
 </section>
 
-<h2>A × B</h2>
+<div class="variante">
+<div class="var-texto"><span class="var-nome">Sem CLAUDE.md <small>(A)</small></span><span class="var-taxa">12 de 16 deram certo · <b>75%</b></span></div>
+<div class="escala" role="img" aria-label="Sem CLAUDE.md: 12 de 16 deram certo; margem de erro: 51% a 90%">
+<div class="iv" style="left:50.5%;width:39.3%;background:var(--azul)"></div><div class="pt" style="left:calc(75.0% - 3px)"></div>
+</div>
+<div class="var-margem">margem de erro: 51% a 90%</div>
+</div>
+<div class="variante">
+<div class="var-texto"><span class="var-nome">Com CLAUDE.md <small>(B)</small></span><span class="var-taxa">16 de 16 deram certo · <b>100%</b></span></div>
+<div class="escala" role="img" aria-label="Com CLAUDE.md: 16 de 16 deram certo; margem de erro: 81% a 100%">
+<div class="iv" style="left:80.6%;width:19.4%;background:var(--acento)"></div><div class="pt" style="left:calc(100.0% - 3px)"></div>
+</div>
+<div class="var-margem">margem de erro: 81% a 100%</div>
+</div>
+<div class="eixo"><span></span><div><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div></div>
+<p class="legenda">O tracinho é o resultado de hoje; a faixa colorida é a margem de erro. Se as faixas se cruzam, ainda não dá para dizer quem é melhor.</p>
+
+<h2>Os números lado a lado</h2>
 <table>
-<thead><tr><th></th><th>A (sem CLAUDE.md)</th><th>B (com CLAUDE.md)</th></tr></thead>
+<thead><tr><th></th><th>Sem CLAUDE.md (A)</th><th>Com CLAUDE.md (B)</th></tr></thead>
+<tbody>
+<tr><th scope="row">Deram certo</th><td class="num">12 de 16 (75%)</td><td class="num">16 de 16 (100%)</td></tr>
+<tr><th scope="row">Margem de erro</th><td class="num">51% a 90%</td><td class="num">81% a 100%</td></tr>
+<tr><th scope="row">Resolve sempre? <small>(tarefas que passaram nas 2 tentativas)</small></th><td class="num">6 de 8</td><td class="num">8 de 8</td></tr>
+<tr><th scope="row">Mexeu onde não devia <small>(fora do escopo)</small></th><td class="num">3</td><td class="num">0</td></tr>
+<tr><th scope="row">Erro do agente <small>(rede, login, limite; não entra na conta)</small></th><td class="num">0</td><td class="num">0</td></tr>
+<tr><th scope="row">Voltas com as ferramentas <small>(turnos, mediana)</small></th><td class="num">8,5</td><td class="num">8,0</td></tr>
+<tr><th scope="row">Tempo por execução <small>(mediana)</small></th><td class="num">18,0 s</td><td class="num">17,4 s</td></tr>
+<tr><th scope="row">Custo estimado do run <small>(US$)</small></th><td class="num">US$ 1,42</td><td class="num">US$ 1,45</td></tr>
+</tbody>
+</table>
+
+<h2>Tarefa por tarefa <small>(quantas deram certo)</small></h2>
+<table class="por-tarefa">
+<thead><tr><th>tarefa</th><th>Sem CLAUDE.md (A)</th><th>Com CLAUDE.md (B)</th></tr></thead>
+<tbody>
+<tr><th scope="row">01-proximos-eventos</th><td class="num ok">2 de 2</td><td class="num ok">2 de 2</td></tr>
+<tr><th scope="row">02-contar-inscritos</th><td class="num ok">2 de 2</td><td class="num ok">2 de 2</td></tr>
+<tr><th scope="row">03-evento-lotado</th><td class="num ok">2 de 2</td><td class="num ok">2 de 2</td></tr>
+<tr><th scope="row">04-cupom</th><td class="num ruim">0 de 2</td><td class="num ok">2 de 2</td></tr>
+<tr><th scope="row">05-evento-passado</th><td class="num ok">2 de 2</td><td class="num ok">2 de 2</td></tr>
+<tr><th scope="row">06-relatorio-email</th><td class="num ruim">0 de 2</td><td class="num ok">2 de 2</td></tr>
+<tr><th scope="row">07-lista-espera</th><td class="num ok">2 de 2</td><td class="num ok">2 de 2</td></tr>
+<tr><th scope="row">08-csv-aspas</th><td class="num ok">2 de 2</td><td class="num ok">2 de 2</td></tr>
+</tbody>
+</table>
+<p class="legenda">As tarefas 03 a 07 dependem de uma convenção que só o <code>CLAUDE.md</code> explica; 01, 02 e 08 são de controle.</p>
+
+<section class="tecnico">
+<h2>Detalhes técnicos</h2>
+<ul>
+<li>veredito técnico: <b>Inconclusivo</b> · A: 12 de 16 (75%) · B: 16 de 16 (100%). Os intervalos de 95% se sobrepõem: com esse n, não dá para dizer se o CLAUDE.md ajuda.</li>
+<li>a margem de erro é o intervalo de Wilson, 95% de confiança</li>
+<li>execuções necessárias por variante (critério do veredito): 27 por variante (onde os intervalos de Wilson 95% deixam de se sobrepor, nas taxas observadas), contra 16 feitas</li>
+<li>piso pelo teste z de duas proporções: 24 por variante (95% de confiança, 80% de poder)</li>
+</ul>
+<table>
+<thead><tr><th></th><th>A</th><th>B</th></tr></thead>
 <tbody>
 <tr><th scope="row">n (sem erro do agente)</th><td class="num">16</td><td class="num">16</td></tr>
 <tr><th scope="row">taxa de sucesso (Wilson 95%)</th><td class="num">75% (51% a 90%)</td><td class="num">100% (81% a 100%)</td></tr>
 <tr><th scope="row">pass^k (k=2; tarefas que passaram em todas as repetições; erro do agente conta como não passou)</th><td class="num">6 de 8</td><td class="num">8 de 8</td></tr>
-<tr><th scope="row">fora do escopo</th><td class="num">3</td><td class="num">0</td></tr>
-<tr><th scope="row">erros do agente (fora do n)</th><td class="num">0</td><td class="num">0</td></tr>
 <tr><th scope="row">tokens (entrada + saída), mediana</th><td class="num">1.824</td><td class="num">1.998</td></tr>
 <tr><th scope="row">tokens de cache (leitura + criação), mediana</th><td class="num">140.173</td><td class="num">120.335</td></tr>
-<tr><th scope="row">mediana de turnos</th><td class="num">8,5</td><td class="num">8,0</td></tr>
-<tr><th scope="row">mediana de duração</th><td class="num">18,0 s</td><td class="num">17,4 s</td></tr>
 <tr><th scope="row">custo estimado (US$, lista; inclui execuções com erro)</th><td class="num">US$ 1,42</td><td class="num">US$ 1,45</td></tr>
 </tbody>
 </table>
+</section>
 
-<h2>Intervalo de 95% por variante</h2>
-<div class="linha-barra"><div class="rot-barra">A · sem CLAUDE.md<small>75% (51% a 90%)</small></div>
-<div class="escala" role="img" aria-label="A · sem CLAUDE.md: 75% (51% a 90%)">
-<div class="iv" style="left:50.5%;width:39.3%;background:var(--azul)"></div><div class="pt" style="left:calc(75.0% - 3px)"></div>
-</div></div>
-<div class="linha-barra"><div class="rot-barra">B · com CLAUDE.md<small>100% (81% a 100%)</small></div>
-<div class="escala" role="img" aria-label="B · com CLAUDE.md: 100% (81% a 100%)">
-<div class="iv" style="left:80.6%;width:19.4%;background:var(--acento)"></div><div class="pt" style="left:calc(100.0% - 3px)"></div>
-</div></div>
-<div class="eixo"><span></span><div><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div></div>
-
-<h2>Por tarefa (passou/n)</h2>
-<table class="por-tarefa">
-<thead><tr><th>tarefa</th><th>A</th><th>B</th></tr></thead>
-<tbody>
-<tr><th scope="row">01-proximos-eventos</th><td class="num ok">2/2</td><td class="num ok">2/2</td></tr>
-<tr><th scope="row">02-contar-inscritos</th><td class="num ok">2/2</td><td class="num ok">2/2</td></tr>
-<tr><th scope="row">03-evento-lotado</th><td class="num ok">2/2</td><td class="num ok">2/2</td></tr>
-<tr><th scope="row">04-cupom</th><td class="num ruim">0/2</td><td class="num ok">2/2</td></tr>
-<tr><th scope="row">05-evento-passado</th><td class="num ok">2/2</td><td class="num ok">2/2</td></tr>
-<tr><th scope="row">06-relatorio-email</th><td class="num ruim">0/2</td><td class="num ok">2/2</td></tr>
-<tr><th scope="row">07-lista-espera</th><td class="num ok">2/2</td><td class="num ok">2/2</td></tr>
-<tr><th scope="row">08-csv-aspas</th><td class="num ok">2/2</td><td class="num ok">2/2</td></tr>
-</tbody>
-</table>
-
-<footer>fonte: <code>ensaio/resultado.json</code> · gerado em 2026-10-27T17:47:16.052Z · run de 2026-10-27T17:43:45.157Z · modelo: sonnet · linhas com erro do harness (fora do n): 0</footer>
+<footer>fonte: <code>ensaio/resultado.json</code> · gerado em 2026-10-29T00:39:16.599Z · run de 2026-10-27T17:43:45.157Z · modelo: sonnet · linhas com erro do harness (fora do n): 0</footer>
 </body>
 </html>

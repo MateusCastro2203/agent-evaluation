@@ -2,6 +2,27 @@
 
 Repositório da palestra **"Como medir os seus agentes de IA"**: do "parece que melhorou" para a eval.
 
+## O que é isso, em 1 minuto
+
+- **O problema.** Você muda alguma coisa no seu agente de IA (o prompt, o modelo, um `CLAUDE.md`), pede uma tarefa, dá certo, e conclui "melhorou!". Mas uma tentativa só não diz nada: o agente não faz a mesma coisa duas vezes. "Parece que melhorou" não é medida.
+- **O que é uma eval.** Um conjunto de tarefas em que "deu certo" é conferido por código (um teste automático que o agente não vê), rodado várias vezes. Com isso você compara o antes e o depois de uma mudança, com margem de erro, como numa pesquisa eleitoral.
+- **O que este experimento compara.** O Claude Code fazendo as mesmas 8 tarefas num app pequeno de exemplo, **sem** (A) e **com** (B) um `CLAUDE.md`, o arquivo com as regras da casa. Cada tarefa roda 2 vezes em cada lado: 32 execuções. No fim, um relatório diz "Com CLAUDE.md foi melhor", "Sem CLAUDE.md foi melhor" ou "Ainda não dá para saber" (e quantas execuções seriam precisas para saber).
+- **O que você precisa.** Node.js, pnpm, git, macOS e o Claude Code com login feito (a sua assinatura normal; **não precisa de chave de API**). Detalhes em [Pré-requisitos](#pré-requisitos).
+
+### Rodando em 3 comandos
+
+```bash
+pnpm install    # 1. instala tudo
+pnpm eval       # 2. roda as 32 execuções (uns minutos) e gera o relatório no fim
+open resultados/relatorio.html   # 3. abre o relatório (no Linux: xdg-open; ou arraste para o navegador)
+```
+
+**Sem assinatura do Claude Code?** Dá para ver o relatório do run que gravei no ensaio, sem internet: `pnpm install`, depois `pnpm relatorio:ensaio`, e abra `resultados/ensaio/relatorio.html`.
+
+O resto deste README é a parte técnica: como cada execução roda, o isolamento do agente e como adaptar ao seu projeto.
+
+## Em detalhes
+
 Ele mede, de verdade, se um `CLAUDE.md` com as convenções do projeto deixa o Claude Code melhor num app pequeno de laboratório (uma agenda de meetups, sintética). São duas variantes:
 
 - **A:** o app como está, **sem** `CLAUDE.md`;
@@ -27,19 +48,21 @@ Não tem assinatura do Claude Code? Dá para ler o resultado do run gravado, off
 pnpm install             # dependências
 pnpm test                # camada 1: testes do medidor com agente falso (offline, sem modelo)
 pnpm eval:rapido         # fumaça: 1 tarefa × 1 repetição × A e B = 2 execuções reais
-pnpm eval                # o run completo: 2 variantes × 8 tarefas × 2 repetições = 32 execuções reais
-pnpm relatorio           # lê resultados/ultimo.json → tabela no terminal + resultados/relatorio.html
+pnpm eval                # o run completo: 2 variantes × 8 tarefas × 2 repetições = 32 execuções reais, e o relatório no fim
+pnpm relatorio           # refaz o relatório: lê resultados/ultimo.json → tabela no terminal + resultados/relatorio.html
 pnpm relatorio:ensaio    # o mesmo relatório sobre o run gravado (resultados/ensaio/), offline
 pnpm ensaio:gravar       # grava o último run como ensaio, sem caminhos pessoais
+pnpm relatorio:aguardando  # palco: grava a página "O agente ainda está trabalhando…" em resultados/relatorio.html
+pnpm relatorio:planob    # palco: copia o relatório do ensaio para resultados/relatorio.html (o run ao vivo falhou)
 pnpm material            # gera os slides (PDF + PPTX), o guia de fala e o ebook (PDF)
 ```
 
 Para saber:
 
-- **`pnpm eval` sai com código 100 quando alguma execução não passou.** É assim que o promptfoo funciona, não é um erro: o JSON é gravado do mesmo jeito. Quem dá o veredito é o `pnpm relatorio`.
-- **`pnpm relatorio` sai com código 1 só quando o veredito é "A melhor"**, ou seja, quando há evidência de que a mudança piorou o agente. "Inconclusivo" e "B melhor" saem com 0, então dá para usar o relatório como portão no CI. Se não conseguir ler o arquivo de entrada, sai com 2. Para ler outro arquivo, passe o caminho: `pnpm relatorio caminho/resultado.json`.
-- O relatório HTML é gravado **na mesma pasta do JSON de entrada**. O run ao vivo vai para `resultados/relatorio.html` e não sobrescreve o do ensaio (`resultados/ensaio/relatorio.html`).
-- `pnpm eval:rapido` e `pnpm eval` sobrescrevem `resultados/ultimo.json`. Para guardar um run como ensaio, rode `pnpm ensaio:gravar` logo depois dele.
+- **`pnpm eval` gera o relatório sozinho.** Ele roda o promptfoo e, em seguida, o mesmo script do `pnpm relatorio`. O promptfoo sai com código 100 quando alguma execução não passou (não é erro: o JSON é gravado do mesmo jeito); esse código não é repassado, e o código final do `pnpm eval` é o do relatório.
+- **`pnpm relatorio` (e, portanto, o `pnpm eval`) sai com código 1 só quando o veredito é "A melhor"**, ou seja, quando há evidência de que a mudança piorou o agente. "Inconclusivo" e "B melhor" saem com 0, então dá para usar o relatório como portão no CI. Se não conseguir ler o arquivo de entrada, sai com 2. Para ler outro arquivo, passe o caminho: `pnpm relatorio caminho/resultado.json`.
+- O relatório HTML é gravado **na mesma pasta do JSON de entrada**. No topo, ele traz o veredito em português simples e as duas taxas com a margem de erro; os termos técnicos (intervalo de Wilson, teste z, tokens de cache) ficam na seção "Detalhes técnicos", no fim da página. O run ao vivo vai para `resultados/relatorio.html` e não sobrescreve o do ensaio (`resultados/ensaio/relatorio.html`).
+- `pnpm eval:rapido` e `pnpm eval` sobrescrevem `resultados/ultimo.json` (o `eval:rapido` não gera relatório). Para guardar um run como ensaio, rode `pnpm ensaio:gravar` logo depois dele.
 - `pnpm eval` e `pnpm eval:rapido` rodam com `PROMPTFOO_DISABLE_TELEMETRY=1`: o promptfoo não manda telemetria de uso durante o run.
 - A configuração do run fica em `evals/promptfooconfig.yaml`: modelo `sonnet`, `repeat: 2`, `maxConcurrency: 4`. Cada execução tem limite de 30 turnos e timeout de 10 minutos (`src/executor.ts`).
 

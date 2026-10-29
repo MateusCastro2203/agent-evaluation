@@ -1,12 +1,14 @@
 # Guia de fala — Como medir os seus agentes de IA
 
-Este guia é material do palestrante (também fica no repo, para quem quiser reapresentar a palestra); não entra no ebook. Ele segue os 24 slides (23 mais o apêndice de referências) de `palestra/slides.md`, na mesma ordem e com os mesmos tempos das notas do apresentador. Para cada slide: o que dizer (em 2 a 5 frases), a transição para o próximo e os termos que valem uma frase de explicação para quem é júnior.
+Este guia é material do palestrante (também fica no repo, para quem quiser reapresentar a palestra); não entra no ebook. Ele segue os 24 slides (23 mais o apêndice de referências) de `palestra/slides.md`, na mesma ordem e com os mesmos tempos das notas do apresentador. Para cada slide: o que dizer (em frases curtas), a transição para o próximo e os termos que valem uma frase de explicação.
 
-> **Se só der para lembrar de uma coisa:** a palestra não depende do resultado do run. Qualquer que seja o veredito (B ganha, inconclusivo, A ganha), a lição é a mesma: uma execução é uma amostra, e 16 execuções por variante quase nunca bastam para separar duas configurações. O relatório diz quantas faltam. Isso é medir.
+**Para quem é a palestra.** A maioria da sala é iniciante. Fale como numa conversa: frases curtas, uma ideia por frase, e todo termo técnico explicado na mesma frase em que aparece ("a margem de erro, que no jargão se chama intervalo de confiança"). Os detalhes técnicos estão nas notas e nas respostas às perguntas, para quem pedir.
 
-**Valores do run** (de `evals/promptfooconfig.yaml` e `resultados/ensaio/NOTAS.md`): 2 variantes × 8 tarefas × 2 repetições = 32 execuções, modelo `sonnet`, concorrência 4. No ensaio, o run inteiro levou **~3 min 28 s** de relógio (cada execução, de 12 s a 42 s). Ou seja: o run dispara no minuto 1 e termina muito antes da revelação; o relatório só é aberto no minuto 22, porque é ali que a palestra chega na leitura. Se você mudar repetições, concorrência ou modelo, rode o ensaio de novo e atualize os números deste guia.
+> **Se só der para lembrar de uma coisa:** "parece que melhorou" não é medida. Dá para medir o seu agente com tarefas e um teste automático, repetindo várias vezes, e comparar o antes e o depois de uma mudança. Isso é uma eval. A palestra não depende do resultado do run: qualquer que seja o veredito, a lição é a mesma, e o relatório diz quantas execuções faltam para ter certeza.
 
-**Resultado do ensaio** (use como exemplo, nunca como "o resultado de hoje"): A 12/16 (75%, Wilson 51% a 90%), B 16/16 (100%, 81% a 100%), pass^2 6/8 × 8/8, 3 fora do escopo e 1 teste escondido falhando (todos de A; o teste na tarefa 04), 0 `erro_agente`. Veredito: **inconclusivo**; o relatório estima 27 execuções por variante para as barras pararem de se sobrepor (critério do veredito), com piso de 24 pelo teste z de duas proporções.
+**Valores do run** (de `evals/promptfooconfig.yaml` e `resultados/ensaio/NOTAS.md`): 2 variantes × 8 tarefas × 2 repetições = 32 execuções, modelo `sonnet`, concorrência 4. No ensaio, o run inteiro levou **~3 min 28 s** de relógio (cada execução, de 12 s a 42 s). O run dispara no minuto 1 e termina muito antes da revelação. Quando termina, o próprio `pnpm eval` gera o relatório (`resultados/relatorio.html`), e o slide 18 mostra esse arquivo sozinho. Se você mudar repetições, concorrência ou modelo, rode o ensaio de novo e atualize os números deste guia.
+
+**Resultado do ensaio** (use como exemplo, nunca como "o resultado de hoje"): A 12/16 (75%, margem de erro de 51% a 90%), B 16/16 (100%, de 81% a 100%), "resolve sempre" (pass^2) 6/8 × 8/8, 3 "mexeu onde não devia" (fora do escopo) e 1 teste escondido falhando, todos de A (o teste na tarefa 04), 0 erro do agente. Veredito: **inconclusivo** ("ainda não dá para saber"); o relatório estima 27 execuções de cada lado para as margens pararem de se cruzar (critério do veredito), com piso de 24 pelo teste z de duas proporções.
 
 ---
 
@@ -15,33 +17,35 @@ Este guia é material do palestrante (também fica no repo, para quem quiser rea
 ### Na véspera
 
 1. **Não regravar o ensaio.** Ele é o run completo de 2026-10-27 (A 12/16 × B 16/16, inconclusivo, 27 por variante, 3 min 28 s), e esses números estão nos slides 18 e 22, no README e no ebook. Se regravar, atualize todos esses lugares. **Cuidado:** `pnpm ensaio:gravar` copia `resultados/ultimo.json`, que qualquer `pnpm eval` (inclusive o `pnpm eval:rapido`) sobrescreve.
-2. **O `pnpm eval` sai com código 100 quando alguma execução não passou:** é o comportamento normal do promptfoo, o JSON é gravado do mesmo jeito. Não se assuste se isso acontecer ao vivo.
-3. Rodar `pnpm relatorio:ensaio` e conferir que ele regenera `resultados/ensaio/relatorio.html`. Ele só lê e escreve arquivo (sem rede, sem modelo), então funciona offline. Esse é o plano B.
-4. Ler o relatório do ensaio inteiro e decorar três coisas: o veredito, o `n` por variante e as "execuções necessárias por variante (critério do veredito)" (campo `execucoesNecessariasPorVariante`; no ensaio, 27). Se o run ao vivo falhar, é isso que você vai mostrar.
-5. Conferir que a página de links (o QR dos slides 2 e 23) já aponta para o repositório publicado e para o ebook.
+2. **Como o `pnpm eval` termina.** Ele roda o promptfoo e, em seguida, o relatório. O promptfoo sai com código 100 quando alguma execução não passou; isso é normal e não impede o relatório. O código final do `pnpm eval` é o do relatório: 0 em "ainda não dá para saber" e "B melhor", 1 só em "A melhor" (o portão). Não se assuste se aparecer um erro do pnpm nesse caso.
+3. Rodar `pnpm relatorio:ensaio` e conferir que ele regenera `resultados/ensaio/relatorio.html`. Ele só lê e escreve arquivo (sem rede, sem modelo), então funciona offline. É desse arquivo que o plano B copia.
+4. Rodar `pnpm relatorio:planob`, abrir `palestra/apresentacao.html`, ir ao slide 18 e conferir que o relatório do ensaio aparece dentro do slide. Depois, `pnpm relatorio:aguardando` e conferir que o slide 18 mostra "O agente ainda está trabalhando…".
+5. Ler o relatório do ensaio de cima para baixo e decorar três coisas: o título ("Ainda não dá para saber"), as duas linhas ("12 de 16" × "16 de 16") e o "seriam umas 27 execuções de cada". Se o run ao vivo falhar, é isso que você vai mostrar.
+6. Conferir que a página de links (o QR dos slides 2 e 23) já aponta para o repositório publicado e para o ebook.
 
 ### Checklist pré-palco (30 minutos antes)
 
 - [ ] **`claude` logado:** abrir `claude` no terminal, na pasta do repo, e confirmar que ele entra direto, sem pedir login. O repo usa o login normal do Claude Code; não há chave de API em lugar nenhum.
-- [ ] **`pnpm eval:rapido` OK no local:** roda 1 tarefa, 1 repetição. Se passar, rede, login e cota estão funcionando. Se falhar, você já sabe que vai de plano B.
+- [ ] **`pnpm eval:rapido` OK no local:** roda 1 tarefa, 1 repetição (e não gera relatório). Se passar, rede, login e cota estão funcionando. Se falhar, você já sabe que vai de plano B.
+- [ ] **`pnpm relatorio:aguardando` por último**, depois do `eval:rapido`: grava a página "O agente ainda está trabalhando…" em `resultados/relatorio.html`. Sem isso, o slide 18 pode mostrar um relatório velho.
 - [ ] **Notebook na tomada.** O run usa CPU e rede por alguns minutos (no ensaio, ~3 min), e o notebook fica ligado a palestra inteira.
 - [ ] **Sem modo de suspensão:** desligar a suspensão e o descanso de tela nas configurações; no macOS, deixar `caffeinate -dims` rodando num terminal à parte durante a palestra.
-- [ ] **Terminal com fonte grande** (dá para ler do fundo da sala) e na pasta do repo, com `pnpm eval` já digitado, sem dar Enter.
-- [ ] **`relatorio.html` do ensaio aberto numa aba do navegador:** `resultados/ensaio/relatorio.html`, gerado por `pnpm relatorio:ensaio`. O relatório é gravado na mesma pasta do JSON de entrada, então o run ao vivo (`pnpm relatorio` → `resultados/relatorio.html`) não sobrescreve o do ensaio.
+- [ ] **Terminal com fonte grande** e na pasta do repo, com `pnpm eval` já digitado, sem dar Enter. Um segundo terminal, também na pasta do repo, para o plano B (`pnpm relatorio:planob`).
 - [ ] **`resultados/ensaio/resultado.json` é o run completo do ensaio (2026-10-27),** não o do `pnpm eval:rapido` de agora há pouco (o rápido só sobrescreve `resultados/ultimo.json`).
+- [ ] **Reserva extra (opcional):** uma aba do navegador com `resultados/ensaio/relatorio.html`, caso o slide 18 não carregue o relatório por algum motivo.
 - [ ] **Notificações desligadas** (modo Não Perturbe) e Slack/e-mail fechados.
-- [ ] **Apresentar pelo `palestra/apresentacao.html`** aberto no navegador (Chrome ou Edge), em tela cheia (tecla `f`). Seta para a direita ou espaço avançam **cada clique** (respostas das perguntas, barras, frases de efeito) e depois o slide; seta para a esquerda volta. A tecla `p` abre a visão do apresentador numa janela à parte, com as notas e o próximo slide. O HTML é autocontido: funciona sem internet.
-- [ ] **Passar os slides uma vez no HTML** antes de subir, para conferir que os cliques aparecem na ordem (slides 6, 13, 14, 15, 17; as perguntas não têm cliques).
-- [ ] **PDF como reserva:** `palestra/apresentacao.pdf` aberto noutra janela. Ele mostra cada slide já completo (sem cliques); se o navegador travar, siga pelo PDF e revele as respostas falando.
+- [ ] **Apresentar pelo `palestra/apresentacao.html`** aberto no navegador (Chrome ou Edge), em tela cheia (tecla `f`). Seta para a direita ou espaço avançam **cada clique** (frases de efeito, linhas de lista) e depois o slide; seta para a esquerda volta. A tecla `p` abre a visão do apresentador numa janela à parte, com as notas e o próximo slide. O HTML funciona sem internet.
+- [ ] **Passar os slides uma vez no HTML** antes de subir, para conferir que os cliques aparecem na ordem (slides 6, 13, 14, 15, 17; as perguntas não têm cliques) e que o slide 18 mostra a página de espera.
+- [ ] **PDF como reserva:** `palestra/apresentacao.pdf` aberto noutra janela. Ele mostra cada slide já completo (sem cliques) e, no slide 18, só um aviso no lugar do relatório.
 - [ ] Água por perto. São 40 minutos no total, sem pausa: ~31 min de palestra com o projeto ao vivo e ~9 min de perguntas.
 
 ---
 
 ## Slide a slide
 
-**Como funcionam as perguntas.** Os slides com um selo laranja em cima ("Mão para cima", "Façam a aposta", "Chute antes de eu mostrar") são perguntas para a plateia, respondidas em voz alta ou com a mão. Regra para todas: o slide de pergunta é **um slide só, sem cliques**: tudo o que aparece (opções, frase) já está na tela. Faça a pergunta, espere no máximo 20 segundos e conte as mãos por alto ("uns dois terços", "quase ninguém"). Nos slides "Chute antes de eu mostrar", a resposta fica no **slide seguinte**: só avance depois de ouvir a sala. Não espere unanimidade nem silêncio total: o objetivo é a sala acordar, não fazer pesquisa.
+**Como funcionam as perguntas.** Os slides com um selo laranja em cima ("Mão para cima", "Façam a aposta", "Chute antes de eu mostrar") são perguntas para a plateia, respondidas com a mão ou em voz alta. Regra para todas: o slide de pergunta é **um slide só, sem cliques**: tudo o que aparece já está na tela. Faça a pergunta, espere no máximo 20 segundos e conte as mãos por alto ("uns dois terços", "quase ninguém"). Nos slides "Chute antes de eu mostrar", a resposta fica no **slide seguinte**: só avance depois de ouvir a sala. O objetivo é a sala acordar, não fazer pesquisa.
 
-**Como funcionam os cliques.** No `apresentacao.html`, seta para a direita ou espaço mostram o próximo item do slide (fragmento) e, quando não há mais itens, passam para o próximo slide. Cada slide diz abaixo quantos cliques tem. Slides de pergunta e slides de resposta não têm cliques.
+**Como funcionam os cliques.** No `apresentacao.html`, seta para a direita ou espaço mostram o próximo item do slide e, quando não há mais itens, passam para o próximo slide. Cada slide diz abaixo quantos cliques tem. Slides de pergunta e de resposta não têm cliques.
 
 ---
 
@@ -55,22 +59,22 @@ Este guia é material do palestrante (também fica no repo, para quem quiser rea
 
 **Diga, em 30 s no máximo:** uma frase por bloco do slide. Onde trabalha e com o quê ("AI Engineer na Creditas, com foco em soluções de IA"), por onde já passou (Gol, Smiles, Neon, Dotz) e quem é fora do código.
 
-**Sobre o QR:** *"Esse QR leva para a minha página de links, onde ficam o repositório, o ebook e os slides. Não precisa fotografar agora: ele volta no último slide."*
+**Sobre o QR:** *"Esse QR leva para a minha página de links: repositório, ebook e slides. Não precisa fotografar agora: ele volta no último slide."*
 
-Não se demore aqui: o run dispara no slide 4. Ele leva poucos minutos, mas quanto antes começar, mais folga para um imprevisto (login, rede).
+Não se demore aqui: o run dispara no slide 4.
 
 ---
 
 ### Slide 3 — Pergunta: quem mede? · [00:45–01:15] · sem cliques
 
-**Pergunte (as três opções já estão na tela):** *"Quem aqui mede hoje se o agente de código está melhorando?"*
+**Pergunte:** *"Quem aqui mede hoje se o agente de código está melhorando?"*
 
-**Leia a sala, opção por opção:** *"Quem não mede?"* (mãos) → *"Quem vai no feeling?"* (mãos) → *"Quem tem uma métrica?"* (mãos). Levante a mão junto no "no feeling": você também já fez. Conte as mãos por alto; no total, até 20 s.
+**Leia a sala, opção por opção:** *"Quem não mede?"* (mãos) → *"Quem vai no feeling?"* (mãos) → *"Quem tem uma métrica?"* (mãos). Levante a mão junto no "no feeling": você também já fez. Até 20 s no total.
 
 **O que dizer em cada caso:**
 - **Quase ninguém tem métrica** (o esperado): *"Normal. É para isso que a gente está aqui."*
-- **Muita gente tem métrica:** *"Ótimo. No fim vocês me dizem se a minha é melhor que a de vocês."* Se der, pergunte a uma pessoa qual métrica usa (uma resposta só, sem debate).
-- **Ninguém levanta a mão em nada:** *"Tudo bem, a próxima vale aposta."* E siga.
+- **Muita gente tem métrica:** *"Ótimo. No fim vocês me dizem se a minha é melhor que a de vocês."*
+- **Ninguém levanta a mão:** *"Tudo bem, a próxima vale aposta."*
 
 **Transição:** *"E para não ficar só na teoria, eu vou fazer uma aposta agora."*
 
@@ -78,30 +82,30 @@ Não se demore aqui: o run dispara no slide 4. Ele leva poucos minutos, mas quan
 
 ### Slide 4 — A aposta de hoje · [01:15–02:15]
 
-**Faça:** dar Enter no `pnpm eval` que já está digitado. Confirmar que começou (aparece o progresso do promptfoo) e minimizar o terminal. Não voltar nele até o minuto 22. No ensaio, o run terminou em ~3 min: ele vai estar pronto bem antes; o relatório espera a revelação.
+**Faça:** dar Enter no `pnpm eval` que já está digitado. Confirmar que começou (aparece o progresso do promptfoo) e minimizar o terminal. Não precisa voltar nele: quando o run termina, o `pnpm eval` gera o relatório sozinho, e o slide 18 mostra.
 
-**Diga:** *"Eu escrevi um `CLAUDE.md` para este projeto, com as convenções do código. Acho que ele ajuda. Mas 'acho' não é medida. Então o Claude Code vai trabalhar 32 vezes enquanto eu falo: 8 tarefas, duas vezes cada, sem o arquivo (variante A) e com o arquivo (variante B). No minuto 22 a gente vê."*
+**Diga:** *"Eu escrevi um `CLAUDE.md` para este projeto. É um arquivo de texto com as regras da casa, que o agente lê antes de começar. Acho que ele ajuda. Mas 'acho' não é medida. Então o agente vai fazer 8 tarefas, duas vezes cada, sem o arquivo e com o arquivo. São 32 execuções, rodando agora, enquanto eu falo. No fim, a gente vê."*
 
 **Termos:**
-- **`CLAUDE.md`:** um arquivo de texto na raiz do projeto que o Claude Code lê no começo de toda sessão. É onde você escreve as regras da casa: comando de teste, padrões, pastas que não pode mexer.
-- **Variante:** uma das configurações que você está comparando. Aqui só muda uma coisa entre A e B: a existência do `CLAUDE.md`.
+- **`CLAUDE.md`:** um arquivo de texto na raiz do projeto que o Claude Code lê no começo de toda conversa. É onde você escreve as regras da casa: como rodar o teste, os padrões, as pastas que não pode mexer.
+- **Variante:** cada uma das versões que você compara. Aqui só muda uma coisa entre A e B: ter ou não o `CLAUDE.md`.
 
-**Se o `pnpm eval` não começar** (erro de login ou rede na hora): não tente consertar no palco. Diga *"o agente decidiu participar do plano B hoje; no minuto 22 eu mostro o run gravado no ensaio, com o mesmo comando"* e siga.
+**Se o `pnpm eval` não começar** (erro de login ou rede): não tente consertar no palco. Diga *"o agente decidiu participar do plano B hoje; no fim eu mostro o run que gravei no ensaio, com o mesmo comando"* e siga.
 
 ---
 
 ### Slide 5 — Pergunta: a aposta · [02:15–03:00] · sem cliques
 
-**Pergunte (opções e a frase "a resposta sai no minuto 22" já estão na tela):** *"O `CLAUDE.md` vai fazer diferença?"*
+**Pergunte:** *"O `CLAUDE.md` vai fazer diferença?"*
 
-**Leia a sala, opção por opção:** *"Quem acha que o B, com `CLAUDE.md`, ganha?"* → *"Quem acha que dá empate?"* → *"Quem acha que o A, sem o arquivo, ganha?"*. Conte por alto e **guarde a proporção** (ex.: "uns 70% no B, uns 20% no empate, quase ninguém no A"): você volta nela no slide 18. Até 20 s.
+**Leia a sala, opção por opção:** *"Quem acha que o B, com o arquivo, ganha?"* → *"Quem acha que dá empate?"* → *"Quem acha que o A, sem o arquivo, ganha?"*. Conte por alto e **guarde a proporção** (ex.: "uns 70% no B, uns 20% no empate, quase ninguém no A"): você volta nela no slide 18. Até 20 s.
 
 **O que dizer em cada caso:**
 - **Quase todo mundo no B:** *"Vocês confiam no meu arquivo. Vamos ver se ele merece."*
 - **Muita gente no empate:** *"Tem gente desconfiada. Bom sinal."*
 - **Ninguém no A:** *"Ninguém no A? Guardem isso."*
 
-**Fechamento:** aponte a frase na tela: *"A resposta sai no minuto 22."*
+**Fechamento:** *"A resposta sai no fim da palestra, no relatório ao vivo."*
 
 **Transição:** *"Enquanto ele trabalha, vamos ao problema."*
 
@@ -109,26 +113,25 @@ Não se demore aqui: o run dispara no slide 4. Ele leva poucos minutos, mas quan
 
 ### Slide 6 — "Parece que melhorou" · [03:00–04:45] · 1 clique
 
-**Diga (apontando o fluxo):** *"A receita é sempre a mesma: muda alguma coisa, pede uma tarefa, deu certo, 'melhorou!'. O que ficou de fora: a tarefa era fácil? E se pedisse de novo? Quanto custou? Mexeu onde não devia?"* Clique: *"E a mais esquecida: daria certo antes da mudança também?"*
+**Diga (apontando o fluxo):** *"Todo mundo já fez isso. Mudou alguma coisa. Pediu uma tarefa. Deu certo. 'Melhorou!' Mas a tarefa era fácil? E se pedisse de novo? Quanto custou? Mexeu onde não devia?"* Clique: *"E a mais esquecida: daria certo antes da mudança também?"*
 
 **Pergunta opcional** (só se a sala estiver fria): *"Quem já trocou de modelo porque 'sentiu' que estava melhor?"* Levante a mão junto.
 
-O tom não é de bronca: vibe check é o ponto de partida. O problema é parar nele.
+O tom não é de bronca. Testar no olho é o ponto de partida. O problema é parar nele.
 
-**Diga (transição, era um slide e agora é fala):** *"E tem um motivo técnico para uma tarefa só não dizer nada: o agente não é determinístico. Uma execução é uma amostra, não um resultado."* Mesmo prompt, mesmo repo, mesmo modelo, e o agente faz caminhos diferentes; isso é normal, não é bug.
+**Diga (transição):** *"O agente não dá sempre a mesma resposta. Mesmo pedido, mesmo código, e ele faz caminhos diferentes. Isso é normal. Então uma execução é como jogar uma moeda uma vez: não diz se a moeda é viciada."*
 
 **Termos:**
 - **Vibe check:** avaliar "no olho", pela sensação de uso, sem número.
-- **Determinístico:** mesma entrada, sempre a mesma saída. Agente não é.
-- **Amostra:** um resultado tirado de algo que varia. Como jogar uma moeda uma vez: não diz se ela é viciada.
+- **Não determinístico:** a mesma entrada pode dar saídas diferentes. Agente é assim.
 
-**Transição:** *"Então quanto diz uma execução? Chutem."*
+**Transição:** *"Então quanto vale uma execução? Chutem."*
 
 ---
 
 ### Slide 7 — Chute: "1 de 1 é 100%. Confiam?" · [04:45–05:15] · sem cliques
 
-**Pergunte:** *"Passou 1 de 1. É 100%. Quem confia?"* Mãos; até 15 s. Espere a sala; só então avance.
+**Pergunte:** *"Passou 1 de 1. É 100%. Quem confia?"* Mãos; até 15 s.
 
 **O que dizer em cada caso:**
 - **Muita gente confia:** *"Vamos ver o que a conta diz."*
@@ -140,10 +143,12 @@ O tom não é de bronca: vibe check é o ponto de partida. O problema é parar n
 
 ### Slide 8 — Resposta: 1 de 1 · [05:15–07:00] · sem cliques
 
-**Diga (as duas barras já estão na tela):** *"Com 1 de 1, a taxa real pode estar entre 21% e 100%. E com 16 de 16, ainda é entre 81% e 100%. Isso é conta, não opinião: é o intervalo de Wilson, o mesmo que o relatório vai usar no fim."*
+**Diga:** *"Pensem na pesquisa eleitoral. Ela sempre vem com uma margem de erro. Aqui é igual. Com 1 de 1, a taxa real pode estar em qualquer lugar entre 21% e 100%. Com 16 de 16, a faixa fica bem menor: de 81% a 100%. Mesmo 16 de 16 não prova 100%."*
+
+**Diga:** *"Isso é conta, não opinião. E é a mesma conta que o relatório vai usar no fim."*
 
 **Termo:**
-- **Intervalo de confiança (95%):** a faixa de valores "verdadeiros" compatíveis com o que você viu. Explicação completa no slide 20; aqui basta "é a margem de erro".
+- **Margem de erro** (no jargão, intervalo de confiança de 95%; o cálculo usado é o intervalo de Wilson): a faixa onde a taxa verdadeira provavelmente está, dado o que você viu. Quanto mais execuções, mais estreita.
 
 **Transição:** *"Se uma execução não basta, o que eu meço, e quantas vezes?"*
 
@@ -154,19 +159,18 @@ O tom não é de bronca: vibe check é o ponto de partida. O problema é parar n
 Vá linha por linha, devagar. É o slide mais "de levar para casa" do bloco.
 
 **Diga:**
-1. *"Sucesso: o teste escondido da tarefa passou. É o critério de feito."*
-2. *"Custo e tokens, turnos e tempo: o próprio `claude -p` devolve esses campos no JSON final."*
-3. *"Fora do escopo: mexeu onde não devia. Fica separado de propósito: resolveu mexendo onde não devia não é sucesso."*
-4. *"Consistência é o pass^k: passou em TODAS as k tentativas. No relatório de hoje, k = 2."*
+1. *"Sucesso: deu certo? Aqui, 'deu certo' quer dizer que um teste automático passou."*
+2. *"Custo, voltas e tempo: quanto ele gastou, quantas idas e vindas deu com as ferramentas, quanto demorou. O próprio Claude Code devolve esses números."*
+3. *"Escopo: mexeu onde não devia? Fica separado de propósito. Resolver mexendo onde não devia não é sucesso."*
+4. *"Consistência: resolve sempre? Acertar uma vez pode ser sorte. Hoje cada tarefa roda duas vezes, e a gente conta quantas passaram nas duas."*
 
-**Sobre custo:** *"O valor em dólar é uma estimativa calculada pelo próprio cliente. Com assinatura, leia como 'tamanho do esforço', não como fatura."*
+**Sobre custo:** *"O valor em dólar é uma estimativa do próprio Claude Code. Com assinatura, leia como 'tamanho do esforço', não como conta a pagar."*
 
 **Termos:**
-- **Token:** o pedaço de texto que o modelo lê e escreve (mais ou menos uma sílaba ou palavra curta). Mais tokens = mais trabalho = mais custo.
-- **Turno:** uma ida e volta entre o modelo e uma ferramenta (ler um arquivo, editar, rodar o teste).
+- **Token:** um pedacinho de texto que o modelo lê ou escreve (mais ou menos uma sílaba ou palavra curta). Mais tokens, mais trabalho, mais custo.
+- **Turno (volta):** uma ida e volta entre o modelo e uma ferramenta: ler um arquivo, editar, rodar o teste.
+- **pass^k:** o nome técnico do "resolve sempre?": passou em todas as k tentativas.
 - **Critério de feito:** a regra objetiva que diz se a tarefa foi cumprida. Aqui, um teste automático.
-- **`claude -p`:** o Claude Code rodando sem tela interativa: recebe o pedido por argumento e devolve o resultado.
-- **Código congelado:** pasta que a tarefa não pode alterar (aqui, `src/legado/`; a regra só está no `CLAUDE.md` da variante B).
 
 **Transição:** *"Métrica definida. Agora: como montar a prova."*
 
@@ -174,16 +178,16 @@ Vá linha por linha, devagar. É o slide mais "de levar para casa" do bloco.
 
 ### Slide 10 — O conjunto de hoje: 8 tarefas · [09:00–11:00]
 
-**Diga:** *"O app de laboratório é uma agenda de meetups, sintética. As tarefas estão escritas como issue de verdade: 'não deixe inscrever em evento lotado', e só. Cinco dependem de uma convenção que só o `CLAUDE.md` explica: o tipo de erro do domínio, dinheiro em centavos, o relógio do projeto, a pasta congelada, a auditoria. Três são controle: não dependem de convenção nenhuma."* A lista das 8 tarefas está nas notas do slide, se alguém pedir.
+**Diga:** *"O app de teste é uma agenda de meetups, inventada. As tarefas estão escritas como um pedido de verdade: 'não deixe inscrever em evento lotado', e só. Cinco tarefas dependem de uma regra da casa que só o `CLAUDE.md` explica. Por exemplo: dinheiro sempre em centavos, ou uma pasta antiga que ninguém pode mexer. As outras três são de controle: não dependem de regra nenhuma."*
 
-**Por que ter controle:** *"Se o B ganhar também nas tarefas de controle, desconfie: é ruído ou outra causa. O efeito esperado está nas tarefas 03 a 07."*
+**Por que ter controle:** *"Se o B ganhar também nas de controle, desconfie. O arquivo não deveria mudar nada ali. O efeito esperado está nas tarefas 03 a 07."*
 
-**Por que o prompt não cita a convenção:** se dissesse "use `ErroDominio`", A e B empatariam e a gente não mediria nada.
+**Por que o pedido não cita a regra:** se dissesse "use o erro do projeto", A e B empatariam e a gente não mediria nada.
 
 **Termos:**
-- **Eval** (de *evaluation*): um teste automático para um sistema com IA. Uma lista de casos com o resultado esperado; o sistema roda em todos e você mede quantos acertou. Aqui: tarefa + critério de feito.
-- **Tarefa de controle:** caso em que a mudança não deveria fazer diferença. Serve para checar se a diferença que aparece é mesmo da mudança.
-- **Convenção:** regra do projeto que não está escrita no código; um dev novo no time só descobre lendo a documentação ou levando um comentário no code review.
+- **Eval** (de *evaluation*, avaliação): um teste automático para um sistema com IA. Uma lista de tarefas com um jeito automático de dizer se deu certo; o sistema roda em todas e você conta quantas acertou.
+- **Tarefa de controle:** caso em que a mudança não deveria fazer diferença. Serve de régua.
+- **Convenção (regra da casa):** regra do projeto que não está escrita no código. Um dev novo só descobre lendo a documentação ou levando um comentário no code review.
 
 **Transição:** *"Vamos abrir uma delas."*
 
@@ -191,58 +195,58 @@ Vá linha por linha, devagar. É o slide mais "de levar para casa" do bloco.
 
 ### Slide 11 — Uma tarefa por dentro · [11:00–13:00]
 
-**Diga:** *"Em cima, o pedaço que importa do prompt da tarefa 03. É só isso que o agente vê. Embaixo, as asserções do teste escondido, que ele não vê: não basta lançar um erro, tem que ser o erro do domínio, o `ErroDominio`, com o código no formato da casa, maiúsculas com sublinhado, falando de lotação. É exatamente o que um dev novo erraria sem ler a documentação."*
+**Diga:** *"Em cima, o pedido da tarefa 03. É só isso que o agente vê. Embaixo, o que o teste escondido confere. Não basta dar erro. Tem que ser o erro do projeto, com o código em maiúsculas, falando de lotação. E não pode reaproveitar um código antigo que significa outra coisa. É exatamente o que um dev novo erraria sem ler a documentação."*
 
-**Se perguntarem "por que não exigir um código exato?":** *"Porque o prompt não diz qual código usar. Exigir um nome letra por letra mediria sorte, não convenção. O teste aceita qualquer nome razoável de lotação e só recusa reaproveitar `CAPACIDADE_INVALIDA`, que já existe e significa outra coisa."*
+**Analogia:** *"O teste escondido é a prova que o aluno não viu. Ele estuda pelo enunciado, e a correção usa um gabarito que fica com o professor."*
 
-**Diga:** *"O teste nunca entra na pasta do agente. A correção roda numa pasta nova, com o app intacto e só os arquivos que o agente mudou, e o teste escondido entra por último, por cima de qualquer arquivo com o mesmo nome. Se o agente criar um 'teste oculto' falso para passar, não adianta."*
+**Se perguntarem "por que não exigir um código exato?":** *"Porque o pedido não diz qual código usar. Exigir um nome letra por letra mediria sorte. O teste aceita qualquer nome razoável de lotação e só recusa o código antigo, `CAPACIDADE_INVALIDA`."*
+
+**Se perguntarem "o agente não pode trapacear?":** *"O teste nunca entra na pasta do agente. A correção roda numa pasta nova, com o app intacto e só os arquivos que ele mudou. O teste escondido entra por último, por cima de qualquer arquivo com o mesmo nome."*
 
 **Termos:**
-- **Teste escondido (oculto):** o teste que decide se a tarefa passou, guardado fora do alcance do agente, como o gabarito de uma prova.
-- **Escopo:** a lista de arquivos que a tarefa permite alterar (o campo `permitidos` do `tarefa.json`).
-- **SCREAMING_SNAKE:** nome todo em maiúsculas, com sublinhado entre as palavras (ex.: `INSCRICAO_DUPLICADA`).
+- **Teste escondido (oculto):** o teste que decide se a tarefa passou, guardado fora do alcance do agente.
+- **Escopo:** a lista de arquivos que a tarefa permite alterar.
+- **Código em maiúsculas (SCREAMING_SNAKE):** tudo maiúsculo, com sublinhado entre as palavras (ex.: `EVENTO_LOTADO`).
 
-**Transição:** *"E como uma execução dessas roda de ponta a ponta?"*
+**Transição:** *"E como uma execução dessas roda, do começo ao fim?"*
 
 ---
 
 ### Slide 12 — Como uma execução roda · [13:00–14:30]
 
-**Diga:** *"Três passos. Um: cópia limpa do app numa pasta temporária; a variante B ganha o `CLAUDE.md`. O git que mede o que mudou fica fora da cópia, onde o agente não alcança. Dois: o Claude Code roda em modo headless, com saída JSON, só as ferramentas de uma lista fechada, dentro do sandbox do sistema operacional (sem rede, escrevendo só na cópia), com limite de turnos e timeout. Três: numa pasta nova, o app intacto mais o que o agente mudou mais o teste escondido; o Vitest roda num sandbox também, e o que mudou é comparado com a lista de permitidos."*
+**Diga:** *"Três passos. Um: o agente trabalha numa cópia do app, nunca no código de verdade. Dois: ele faz a tarefa trancado numa caixa, sem internet, só com as ferramentas que eu liberei. Três: um teste que ele não viu confere o trabalho, e eu vejo se ele mexeu só nos arquivos permitidos."*
 
-**Diga:** *"O promptfoo é o orquestrador: chama o provider, repete, roda em paralelo e grava o JSON. A métrica e o veredito ficam num script nosso."*
+**Diga:** *"Quem organiza as 32 execuções é o promptfoo, uma ferramenta gratuita de evals. Ele chama o agente, repete e grava tudo num arquivo. A conta do resultado fica num script do repo."*
 
-**Isolamento (fale se houver sêniores na sala):** *"O runner restringe a configuração ao projeto, com `--setting-sources project`, e desliga os conectores MCP da conta, com `--strict-mcp-config`. Assim o meu `CLAUDE.md` pessoal, os meus hooks e as minhas integrações não vazam para a variante A. Se vazassem, A teria um `CLAUDE.md` escondido e o experimento estaria contaminado. Eu verifiquei: perguntei para a variante A que instruções ela recebeu, e ela respondeu 'nenhuma'."* Se alguém insistir: o que **não** dá para tirar são as configurações gerenciadas pela organização; elas chegam às duas variantes, igualmente.
+**Isolamento (fale só se houver gente mais experiente perguntando):** *"A cópia não recebe as minhas configurações pessoais nem os meus conectores. Se recebesse, a variante A teria um `CLAUDE.md` escondido, e o experimento estaria contaminado. Eu conferi: perguntei para a variante A que instruções ela recebeu, e ela respondeu 'nenhuma'."* O que **não** dá para tirar são as configurações gerenciadas pela organização; elas chegam às duas variantes, igualmente.
 
 **As flags, se perguntarem** (de `src/claude.ts`): `-p <prompt> --output-format json --model sonnet --max-turns 30`; `--permission-mode dontAsk` com `--allowedTools` (ler e editar só dentro da cópia, `pnpm test`, `pnpm vitest` e comandos de leitura: ls, cat, grep, head, wc); `--disallowedTools` (WebFetch, WebSearch, as deps do lab, o projeto e `~/.claude`); sandbox do SO por `--settings`; `--setting-sources project`; `--strict-mcp-config`; `--no-session-persistence`. Timeout de 10 minutos por execução.
 
 **Login:** *"Usa a assinatura normal do Claude Code. Não precisa de chave de API."*
 
 **Termos:**
-- **Headless:** sem tela interativa. O agente recebe o pedido por argumento e devolve o resultado.
-- **Provider:** no promptfoo, o pedaço de código que "responde" a cada caso. Aqui, ele roda o Claude Code numa cópia do repo.
-- **Diff:** a lista do que mudou nos arquivos em relação à cópia original (calculada pelo git).
-- **Vitest:** o executor de testes do projeto (como o Jest).
-- **promptfoo:** ferramenta open source para rodar evals a partir de um arquivo de configuração.
-- **Sandbox do SO:** uma "caixa" do sistema operacional que limita o que o processo pode ler, escrever e acessar na rede (no macOS, o Seatbelt).
-- **MCP:** o protocolo que liga o agente a ferramentas externas (Slack, e-mail, banco). Aqui fica desligado.
+- **Headless (`claude -p`):** o agente rodando sem tela interativa. Recebe o pedido e devolve o resultado num arquivo.
+- **Sandbox:** uma "caixa" do sistema operacional que limita o que o programa pode ler, escrever e acessar na rede.
+- **promptfoo:** ferramenta gratuita (open source) para rodar evals a partir de um arquivo de configuração.
+- **Provider:** no promptfoo, o pedaço de código que executa cada caso. Aqui, roda o Claude Code numa cópia do repo.
+- **Diff:** a lista do que mudou nos arquivos em relação à cópia original.
+- **MCP:** o jeito padrão de ligar o agente a ferramentas externas (Slack, e-mail, banco). Aqui fica desligado.
 
-**Transição:** *"E quando não dá para verificar com teste?"*
+**Transição:** *"E quando não dá para conferir com teste?"*
 
 ---
 
-### Slide 13 — LLM-as-judge · [14:30–16:00] · 1 clique
+### Slide 13 — IA como juiz · [14:30–16:00] · 1 clique
 
-**Diga:** *"LLM-as-judge é usar um modelo para dar nota à saída de outro. Ajuda quando o critério não cabe num teste: clareza, estilo, mensagem de commit. É rápido de escrever. Mas tem vieses conhecidos (posição, tamanho da resposta, preferir o próprio estilo), e um juiz não determinístico avaliando um agente não determinístico soma variância."* Clique: *"Se dá para verificar com código, verifique com código."* Hoje, nenhuma tarefa precisa de juiz: o critério é 100% teste.
+**Diga:** *"Às vezes não dá para escrever um teste. 'A documentação ficou clara?' Aí dá para pedir para outra IA dar nota. É o que o mercado chama de LLM-as-judge. Ajuda no que teste não pega: clareza, estilo. Mas o juiz também varia. É como um corretor de redação que, no mesmo texto, às vezes dá 7 e às vezes dá 9. Juiz que varia avaliando agente que varia: a incerteza soma."* Clique: *"Se dá para conferir com código, confira com código."* Hoje nenhuma tarefa precisa de juiz: tudo é teste.
 
-**Pergunte (opcional, se o tempo deixar):** *"Que tarefa do seu dia a dia não dá para verificar com teste?"* Pegue uma ou duas respostas, até 20 s. Respostas esperadas: "a documentação ficou clara?", "o PR está bem descrito?", "a mensagem de erro é útil?". Resposta: *"Ali o juiz pode valer, desde que você meça o juiz também: compare com nota humana numa amostra."*
+**Pergunte (opcional, se o tempo deixar):** *"Que tarefa do seu dia a dia não dá para conferir com teste?"* Uma ou duas respostas, até 20 s. Respostas esperadas: "a documentação ficou clara?", "o PR está bem descrito?". Resposta: *"Ali o juiz pode valer. Mas meça o juiz também: dê a sua nota numa amostra e veja se ele concorda com você."*
 
-**Do caso real (uma frase):** *"No caso real, o juiz foi rejeitado: juiz variável avaliando agente variável soma variância."*
+**Do caso real (uma frase):** *"No caso real que eu vou contar agora, o juiz foi rejeitado por isso: juiz variável avaliando agente variável."*
 
 **Termos:**
-- **Viés de posição:** ao comparar duas respostas, o juiz tende a preferir a primeira (ou a segunda).
-- **Viés de verbosidade:** tende a preferir a resposta mais longa.
-- **Rubrica:** o critério escrito que o juiz segue (no promptfoo, `llm-rubric`).
+- **LLM-as-judge (IA como juiz):** um modelo dando nota ao trabalho de outro.
+- **Viés:** tendência do juiz, como preferir a resposta mais longa ou a que aparece primeiro.
 
 **Transição:** *"Isso não é teoria de laboratório. Vou mostrar o que a gente aprendeu fazendo isso em produção."*
 
@@ -250,21 +254,20 @@ Vá linha por linha, devagar. É o slide mais "de levar para casa" do bloco.
 
 ### Slide 14 — O que conta como "deu certo" · [16:00–17:30] · 1 clique
 
-**Contexto (o slide de divisória saiu; diga antes):** *"Um time da Creditas construiu agentes que resolvem chamados operacionais de suporte, o chamado 'keep the lights on'. Não vou mostrar números internos nem nomes de sistemas: só o que aprendemos sobre medir."*
+**Contexto (diga antes):** *"Um time da Creditas construiu agentes que resolvem chamados de suporte operacional, o trabalho de 'manter as luzes acesas'. Não vou mostrar números internos nem nomes de sistemas: só o que aprendemos sobre medir."*
 
 **Cuidado durante todo o bloco:** não citar números, nomes de pessoas, nomes de sistemas ou parceiros, chaves de ticket nem achados de segurança, nem de memória, nem "por alto". Se perguntarem, use a resposta da pergunta 7 da seção de perguntas.
 
-**Diga (lição 1):** *"Toda execução termina com um rótulo: resolvido, assistido, escalado ou falta informação. 'Funcionou?' não é pergunta que se responde num painel."*
+**Diga (lição 1):** *"Toda execução termina com um rótulo: resolvido, assistido, escalado ou falta informação. 'Funcionou?' é pergunta vaga demais."*
 
-**Clique (lição 2):** *"Se um caso que nem era do escopo do agente entra na conta como falha, a taxa cai, e ninguém sabe se o agente piorou ou se entrou outro tipo de caso. Defina o desfecho antes de olhar o número."*
+**Clique (lição 2):** *"Agora imaginem: entra um caso que nem era para o agente resolver, e ele conta como falha. A taxa cai. Ninguém sabe se o agente piorou ou se só chegou outro tipo de caso. Por isso: decida o que é 'dar certo' antes de olhar o número."*
 
-**Ligação com o repo:** *"É por isso que o repo de hoje tem quatro rótulos, e erro do agente fica à parte."*
+**Ligação com o repo:** *"No repo de hoje são quatro rótulos: passou, falhou, mexeu onde não devia e erro do agente. Erro do agente, tipo cair a internet, fica à parte."*
 
 **Termos:**
-- **KTLO** (*keep the lights on*, "manter as luzes acesas"): o trabalho de manter o que já existe funcionando (chamados, correções, rotinas), em oposição a construir coisa nova.
+- **KTLO** (*keep the lights on*, "manter as luzes acesas"): manter funcionando o que já existe (chamados, correções, rotinas).
 - **Assistido:** o agente diagnosticou, mas uma pessoa executou. Contar como "resolvido" infla o número; contar como "falha" esconde valor.
-- **Escalado:** o agente passou o caso para uma pessoa porque não era para ele resolver.
-- **Denominador:** o "de quantos" da taxa. Se ele muda de composição, a taxa muda sem o agente mudar.
+- **Escalado:** o agente passou o caso para uma pessoa.
 
 **Transição:** *"E a eval precisa ficar melhor com o tempo."*
 
@@ -272,17 +275,16 @@ Vá linha por linha, devagar. É o slide mais "de levar para casa" do bloco.
 
 ### Slide 15 — Eval que só melhora · [17:30–19:00] · 3 cliques (um por linha)
 
-**Diga (lição 4):** *"Duas camadas: determinística a cada commit e modelo real contra um gabarito curado por humano. E o gabarito nasce vazio: a pessoa escreve a resposta esperada sem olhar o que o agente respondeu. Se você copia a resposta do agente para o gabarito, mede o agente contra ele mesmo."*
+**Diga (linha 1):** *"A resposta certa de cada caso, o gabarito, é escrita por uma pessoa, do zero, sem olhar o que o agente respondeu. Se você copia a resposta do agente para o gabarito, está medindo o agente contra ele mesmo."*
 
-**Diga (lição 5):** *"Matriz-catraca: rota vezes desfecho. A lista de células sem cobertura só pode encolher; um teste quebra se alguém tirar cobertura."*
+**Diga (linha 2):** *"A gente mantém uma lista dos tipos de caso que ainda não têm teste. Essa lista só pode diminuir. Se alguém tirar um teste, o build quebra. É uma catraca: só gira para um lado."*
 
-**Diga (lição 7):** *"Falhou na terça, teste na quarta: o erro do dia a dia vira tarefa nova com teste escondido, e o conjunto só cresce. E um aprendizado só vira regra quando aparece em dois ou mais casos, para não transformar uma exceção em regra para todo mundo."*
+**Diga (linha 3):** *"Falhou na terça, teste na quarta. Todo erro do dia a dia vira uma tarefa nova com teste escondido. E um aprendizado só vira regra quando aparece em dois ou mais casos, para não transformar uma exceção em regra para todo mundo."*
 
 **Termos:**
 - **Gabarito:** o resultado esperado de cada caso, escrito por uma pessoa.
-- **Catraca:** mecanismo que só gira para um lado. Aplicado a eval: a cobertura só cresce.
-- **Rota:** o tipo de caso que o agente recebe (o "caminho" que ele segue). A matriz cruza cada tipo com cada desfecho possível.
-- **Cobertura:** ter pelo menos um caso de eval para aquela combinação.
+- **Cobertura:** ter pelo menos um teste para aquele tipo de caso.
+- **Catraca:** mecanismo que só gira para um lado. Aqui: a cobertura só cresce.
 
 **Transição:** *"Então, como eu uso tudo isso para melhorar o meu agente?"*
 
@@ -290,9 +292,11 @@ Vá linha por linha, devagar. É o slide mais "de levar para casa" do bloco.
 
 ### Slide 16 — Uma mudança por vez · [19:00–20:30]
 
-**Diga:** *"Rode a eval antes, para ter a linha de base. Mude uma coisa: o `CLAUDE.md`, uma skill, um hook, o modelo ou o prompt. Rode de novo, com repetições. Compare com intervalo, não com a média. Se você mudou o modelo e o `CLAUDE.md` juntos, não sabe quem ganhou."*
+**Diga:** *"Quatro passos. Roda a eval antes, para ter o 'antes'. Muda uma coisa só. Roda de novo, várias vezes. Compara olhando a margem de erro, não só a média. É como testar uma receita: se você troca o forno e a farinha no mesmo dia e o bolo melhora, não sabe qual dos dois ajudou."*
 
-**Dica prática:** *"Commite a configuração do agente junto com o resultado da eval. Daqui a um mês você sabe qual versão gerou qual número."*
+**Diga:** *"'Uma coisa' pode ser o `CLAUDE.md`, uma skill, um hook, o modelo ou o pedido. Hoje eu mudei só a existência do `CLAUDE.md`."*
+
+**Dica prática:** *"Guarde a configuração do agente junto com o resultado da eval. Daqui a um mês você sabe qual versão deu qual número."*
 
 **Termos:**
 - **Linha de base (baseline):** a medida de antes da mudança, para comparar.
@@ -304,46 +308,51 @@ Vá linha por linha, devagar. É o slide mais "de levar para casa" do bloco.
 
 ### Slide 17 — Onde cada regra mora · [20:30–22:00] · 1 clique
 
-**Diga:** *"`CLAUDE.md` entra em toda sessão: bom para convenção do repo, comando de teste, pasta proibida. Mas é contexto, não obrigação: a própria documentação do Claude Code diz isso. Skill entra só quando é usada: boa para procedimento longo e material de referência, que custa quase nada até ser necessário; se a descrição for ruim, nunca é chamada. Hook roda antes ou depois de cada ferramenta: é para a regra que precisa valer sempre, e é código, então se testa como código."*
+**Diga, uma linha de cada:**
+- *"`CLAUDE.md`: um texto com as regras do projeto, que o agente lê no começo de toda conversa. Bom para convenção, comando de teste, pasta proibida. Mas é um conselho, não uma trava: a própria documentação diz isso."*
+- *"Skill: um manual que o agente só abre quando a tarefa pede. Bom para um procedimento longo. Enquanto não é usado, quase não custa nada. Se a descrição for ruim, ele nunca abre."*
+- *"Hook: um script seu que roda sozinho antes ou depois de cada ação do agente, e pode bloquear a ação. É para a regra que precisa valer sempre. É código, então se testa como código."*
 
-**Clique:** *"Regra que não pode falhar não mora no prompt. Mora no hook, no teste ou no CI."*
+**Clique:** *"Regra que não pode falhar não mora no texto. Mora no hook, no teste ou no CI."*
 
 **Ligação com o repo:** *"Cada uma dessas é uma variante B possível: troque o `CLAUDE.md` por uma skill ou um hook e rode de novo."*
 
 **Termos:**
-- **Skill:** um pacote de instruções (e às vezes scripts) que o agente carrega quando a tarefa pede. Se a descrição for ruim, ele nunca é chamado.
-- **Contexto:** tudo o que o modelo lê antes de responder. Contexto influencia, mas não obriga.
+- **Contexto:** tudo o que o modelo lê antes de responder. Influencia, mas não obriga.
+- **CI:** a esteira que roda os testes automaticamente a cada mudança no repositório.
 
-**Transição:** *"Já deu tempo. Vamos ver o que o agente fez."* Voltar para o terminal.
+**Transição:** *"Já deu tempo. Vamos ver o que o agente fez."* E avance: o slide 18 mostra o relatório sozinho. Não precisa ir ao terminal nem ao navegador.
 
 ---
 
 ### Slide 18 — Ao vivo: o relatório (com a volta da aposta) · [22:00–25:00]
 
-**Primeiro, a volta da aposta do slide 5 (diga):** *"No começo, [a proporção que você guardou, ex.: uns 70%] apostou no B, [x] no empate e [quase ninguém] no A. Vamos ver."* Não peça mãos de novo; só lembre.
+**Primeiro, a volta da aposta do slide 5:** *"No começo, [a proporção que você guardou, ex.: uns 70%] apostou no B, [x] no empate e [quase ninguém] no A. Vamos ver."* Não peça mãos de novo.
 
-**Faça:** voltar ao terminal e olhar o promptfoo:
-- **Terminou:** rodar `pnpm relatorio` (lê `resultados/ultimo.json`). **Antes de abrir o HTML, confira na tabela do terminal a linha "n (sem erro do agente)": tem que dar 16 para cada variante.** Se der outro número (por exemplo 1, porque o `ultimo.json` é de um `pnpm eval:rapido` antigo, ou bem menos de 16 porque o run caiu no meio), não mostre: vá para o plano B. Com 16 e 16, abra `resultados/relatorio.html` no navegador (`open resultados/relatorio.html` no macOS). Se o `pnpm eval` mostrou código 100 no fim, é normal: quer dizer que alguma execução não passou.
-- **Não terminou, ou caiu:** plano B (seção abaixo). Não espere no palco.
+**Como o slide funciona:** ele recarrega `resultados/relatorio.html` toda vez que aparece. Quando o run termina, o `pnpm eval` grava ali o relatório. Antes disso, está ali a página de espera que você gravou com `pnpm relatorio:aguardando`.
 
-**Diga:** *"Eu vou ler numa ordem, porque a ordem importa."*
+**O que fazer, conforme o que aparece:**
+- **Apareceu o relatório:** confira, nas duas linhas grandes, que diz "de 16". Se aparecer outro número (por exemplo "de 1", de um `eval:rapido` antigo, ou bem menos de 16, porque o run caiu no meio), não leia: vá para o plano B.
+- **Aparece "O agente ainda está trabalhando…":** fale 1 ou 2 minutos (o exemplo do ensaio, ou a regra "faixas que se cruzam = ainda não dá para saber"), volte um slide e avance de novo. Se não sair, plano B.
+- **O run caiu:** plano B (seção abaixo). Não espere no palco.
 
-1. **n por variante:** *"Quantas execuções cada lado teve de verdade, e quantas foram erro do agente, contadas à parte."* Se o `n` de uma variante ficou bem abaixo de 16, diga: *"menos amostra, intervalo mais largo: guardem isso."*
-2. **Taxa com intervalo:** leia a taxa de A e a de B **com** a faixa. Nunca só a taxa.
-3. **Veredito:** leia em voz alta o que o relatório diz. Compare com a aposta da plateia: *"quem apostou no [B / empate / A]..."*. Inconclusivo não é empate; se a maioria apostou em empate, diga: *"quase: é 'não sei ainda', não 'são iguais'."*
-4. **pass^2:** *"Quantas das 8 tarefas passaram nas DUAS repetições: é a consistência."*
-5. **Fora do escopo:** *"Alguém resolveu mexendo onde não devia?"*
-6. **Por tarefa:** *"O ganho, se houver, está nas tarefas de convenção (03 a 07) ou nas de controle?"*
+**Diga:** *"Vou ler de cima para baixo, na ordem da tela."*
 
-**O portão (uma frase):** *"No repo, o portão só quebra o CI se A for melhor que B; inconclusivo passa."*
+1. **O título:** *"Ainda não dá para saber"*, *"Com CLAUDE.md foi melhor"* ou *"Sem CLAUDE.md foi melhor"*. Compare com a aposta da plateia: *"quem apostou no [B / empate / A]..."*. Se a maioria apostou em empate e deu "ainda não dá para saber", diga: *"quase: não é 'são iguais', é 'não sei ainda'."*
+2. **As duas linhas grandes:** *"Sem o arquivo, 12 de 16 deram certo. Com o arquivo, 16 de 16."* (com os números de hoje).
+3. **As faixas coloridas:** *"O tracinho é o resultado de hoje. A faixa é a margem de erro, como na pesquisa eleitoral. Se as faixas se cruzam, ainda não dá para dizer quem é melhor."* A frase do topo diz quantas execuções de cada seriam precisas.
+4. **Na tabela, se der tempo:** *"Resolve sempre?"* (quantas tarefas passaram nas duas tentativas) e *"Mexeu onde não devia"*.
+5. **Tarefa por tarefa (rolar o relatório só se der tempo):** *"O ganho, se houver, está nas tarefas de regra da casa (03 a 07) ou nas de controle?"*
 
-**Não comemore nem lamente ainda:** *"Os próximos slides explicam como ler isso sem se enganar."* A fala da revelação, já adaptada ao resultado, está na seção "A revelação em 3 versões". Escolha a versão aqui, olhando o veredito.
+**O portão (uma frase):** *"No repo, isso também roda como portão: só barra a mudança se o A for melhor que o B. 'Ainda não dá para saber' passa."*
+
+**Não comemore nem lamente ainda:** *"Os próximos slides explicam como ler isso sem se enganar."* A fala da revelação, já adaptada ao resultado, está na seção "A revelação em 3 versões". Escolha a versão aqui, olhando o título.
 
 ---
 
 ### Slide 19 — Chute: "B é o dobro de A. B ganhou?" · [25:00–25:30] · sem cliques
 
-**Pergunte:** *"Exemplo inventado, não é o de hoje: A passou 6 de 16, B passou 12 de 16. B é o dobro. Quem acha que B ganhou?"* Mãos; até 15 s. Espere a sala; só então avance.
+**Pergunte:** *"Exemplo inventado, não é o de hoje: A passou 6 de 16, B passou 12 de 16. B é o dobro. Quem acha que B ganhou?"* Mãos; até 15 s.
 
 **O que dizer em cada caso:**
 - **A maioria disse "ganhou":** *"É a resposta natural. E é exatamente o 'parece que melhorou' do começo."*
@@ -355,18 +364,19 @@ Vá linha por linha, devagar. É o slide mais "de levar para casa" do bloco.
 
 ### Slide 20 — Resposta: 6 de 16 × 12 de 16 · [25:30–26:45] · sem cliques
 
-**Diga (barras e veredito já estão na tela):** *"A: 37,5%, com intervalo de 18% a 61%. B: 75%, de 51% a 90%. As barras se sobrepõem entre 51% e 61%. Então: inconclusivo."*
+**Diga:** *"A deu 37,5%, mas a margem de erro vai de 18% a 61%. B deu 75%, com margem de 51% a 90%. As faixas se cruzam entre 51% e 61%. Então: ainda não dá para saber."*
 
-**Diga a regra do repo:** *"Se o limite inferior de B passa do limite superior de A, 'B melhor'. O contrário, 'A melhor'. Senão, inconclusivo. E inconclusivo não é empate: é 'não tenho dado para dizer'."*
+**Analogia:** *"É a pesquisa eleitoral com 16 entrevistados. Um candidato com 37% e outro com 75% parece longe. Mas, com tão pouca gente ouvida, as margens se cruzam: é empate técnico. Ouvindo mais gente, a margem diminui."*
 
-**Se um sênior perguntar "por que não um teste de hipótese?":** *"Um teste z de duas proporções chamaria 6/16 contra 12/16 de significativo, p perto de 0,03. Barras sem sobreposição é um critério mais exigente, de propósito: o repo prefere não declarar vencedor cedo."*
+**Diga a regra do repo:** *"Se a faixa de B fica toda acima da de A, B é melhor. Se fica toda abaixo, A é melhor. Se elas se cruzam, ainda não dá para saber. E isso não é empate: é 'não tenho dado para dizer'."*
 
-**Por que Wilson e não a conta simples (`p ± 1,96·√(p(1−p)/n)`):** com `n` pequeno ou taxa perto de 0% ou 100%, a conta simples sai de [0, 1] ou dá largura zero (16 de 16 daria "100% ± 0"). Wilson não tem esse problema.
+**Se alguém mais experiente perguntar "por que não um teste de hipótese?":** *"Um teste z de duas proporções chamaria 6/16 contra 12/16 de significativo, p perto de 0,03. Exigir faixas sem cruzar é mais rigoroso, de propósito: o repo prefere não declarar vencedor cedo."*
+
+**Por que Wilson e não a conta simples (`p ± 1,96·√(p(1−p)/n)`), se perguntarem:** com poucas execuções ou taxa perto de 0% ou 100%, a conta simples dá faixas absurdas (16 de 16 daria "100% ± 0"). O intervalo de Wilson não tem esse problema.
 
 **Termos:**
-- **Intervalo de Wilson:** um jeito de calcular a margem de erro de uma taxa (acertos ÷ tentativas) que funciona bem com poucas amostras. Proposto por Wilson em 1927.
-- **Limite inferior / superior:** as pontas da barra.
-- **Sobreposição:** as duas barras dividem um trecho. Se dividem, os dados são compatíveis com A e B iguais.
+- **Intervalo de Wilson:** o jeito de calcular a margem de erro que o repo usa; funciona bem com poucas execuções. Proposto por Wilson em 1927.
+- **Inconclusivo:** o nome técnico de "ainda não dá para saber".
 
 **Transição:** *"Então, quantas execuções eu precisaria?"*
 
@@ -374,30 +384,28 @@ Vá linha por linha, devagar. É o slide mais "de levar para casa" do bloco.
 
 ### Slide 21 — Chute: quantas execuções? · [26:45–27:15] · sem cliques
 
-**Pergunte (opções já na tela):** *"Quantas execuções por variante para separar A de B? Quem diz 5? 16? 40? 200?"* Mãos em cada uma; até 20 s no total. Espere a sala; só então avance.
+**Pergunte:** *"Quantas execuções de cada lado para ter certeza? Quem diz 5? 16? 40? 200?"* Mãos em cada uma; até 20 s no total.
 
 ---
 
-### Slide 22 — Resposta: 27 por variante · [27:15–29:00] · sem cliques
+### Slide 22 — Resposta: 27 de cada lado · [27:15–29:00] · sem cliques
 
-**Diga:** *"No ensaio, com A 12 de 16 e B 16 de 16, o relatório diz 27 por variante."* Diga **"do ensaio"** em voz alta: é o run gravado, não o de hoje. Se o relatório de hoje mostrou outro número em "execuções necessárias por variante (critério do veredito)" (campo `execucoesNecessariasPorVariante`), complete: *"no de hoje, deu [N]"*. Se as duas taxas forem iguais, o relatório diz "não calculável".
+**Diga:** *"No ensaio, com A 12 de 16 e B 16 de 16, o relatório diz 27 de cada lado."* Diga **"do ensaio"** em voz alta: é o run gravado, não o de hoje. Se o relatório de hoje mostrou outro número na frase do topo ("seriam umas [N] execuções de cada"), complete: *"no de hoje, deu [N]"*. Se as duas taxas forem iguais, o relatório diz que não dá para calcular.
 
 **O que dizer em cada caso:**
 - **Muita gente no 16:** *"Chegaram perto, mas é o que a gente rodou hoje, e não bastou."*
 - **Muita gente no 40:** *"Um pouco a mais do que precisava."*
 - **Muita gente no 200:** *"Para essa diferença, menos. Mas o 200 não é absurdo: com uma diferença pequena, chega lá."*
 
-**Diga (era o slide "Por que 16 não bastam"):** *"Diferença pequena pede muitas execuções: 62,5% contra 75% pediria 212 por variante."* O número cresce com o inverso do quadrado da diferença.
+**Analogia:** *"Jogar uma moeda 4 vezes e dar 3 caras não prova que ela é viciada. Jogar 400 vezes e dar 300, prova. Quanto menor a diferença que você quer enxergar, mais vezes precisa jogar: 62,5% contra 75% pediria 212 execuções de cada lado."*
 
-**Explique o parêntese do relatório, se alguém perguntar:** o relatório mostra também um piso pelo teste z de duas proporções, a fórmula clássica de tamanho de amostra. Ele costuma ser menor, porque o teste z é menos exigente que "barras sem sobreposição". Com o piso, o relatório ainda pode sair inconclusivo; quem manda é o primeiro número. No ensaio: 27, com piso de 24.
+**Se perguntarem de onde vem o número:** o relatório testa 1, 2, 3… execuções com as taxas de hoje e para na primeira em que as faixas deixam de se cruzar. Nos detalhes técnicos do relatório também aparece um "piso" pela fórmula clássica (teste z de duas proporções, 95% de confiança, 80% de poder), que costuma ser menor; no ensaio, 27 com piso de 24. A fórmula do piso: `n ≈ (1,96 + 0,84)² · [pA(1−pA) + pB(1−pB)] / (pA − pB)²`.
 
-**Diga (fechamento, vale para qualquer desfecho):** *"Eu não sei ainda se o meu `CLAUDE.md` presta. Mas agora eu sei quanto eu preciso rodar para saber. Isso é medir."* (Na versão "B ganha", adapte: veja a seção da revelação.)
-
-**Se perguntarem a conta:** o número principal não tem fórmula fechada: o relatório testa n = 1, 2, 3… com as taxas de hoje e para no primeiro n em que os intervalos de Wilson não se sobrepõem. O piso vem da fórmula clássica para comparar duas proporções, `n ≈ (1,96 + 0,84)² · [pA(1−pA) + pB(1−pB)] / (pA − pB)²`: o 1,96 vem dos 95% de confiança; o 0,84, dos 80% de poder.
+**Diga (fechamento, vale para qualquer resultado):** *"Eu não sei ainda se o meu `CLAUDE.md` presta. Mas agora eu sei quanto eu preciso rodar para saber. Isso é medir."* (Na versão "B ganha", adapte: veja a seção da revelação.)
 
 **Termos:**
-- **Poder (estatístico):** a chance de o experimento detectar a diferença se ela existir de verdade. Com 80%: se o `CLAUDE.md` ajuda mesmo, em 8 de cada 10 experimentos desse tamanho a gente veria.
-- **Estimativa, não garantia:** a conta usa as taxas observadas, que também têm erro.
+- **Poder (estatístico):** a chance de o experimento enxergar a diferença, se ela existir. Com 80%: se o `CLAUDE.md` ajuda mesmo, em 8 de cada 10 experimentos desse tamanho a gente veria.
+- **Estimativa, não garantia:** a conta usa as taxas de hoje, que também têm margem de erro.
 
 **Transição:** *"Para fechar, o que levar para casa."*
 
@@ -405,9 +413,11 @@ Vá linha por linha, devagar. É o slide mais "de levar para casa" do bloco.
 
 ### Slide 23 — Leve para casa · [29:00–31:00]
 
-**Diga:** *"Cinco hábitos. Três estão no slide: desfecho antes do número; repetir e olhar intervalo, não uma execução; toda falha vira tarefa nova. Os outros dois: tarefas reais com teste escondido e escopo, e uma mudança por vez. O repositório roda o experimento de hoje com o login do Claude Code, e o ebook em PDF está dentro dele."*
+**Diga:** *"Se vocês lembrarem de uma frase só: 'parece que melhorou' não é medida. Dá para medir o seu agente com tarefas e um teste automático, repetindo várias vezes, e comparar o antes e o depois. Três hábitos estão no slide: decida o que é dar certo antes de olhar o número; repita e olhe a margem de erro; toda falha vira tarefa nova. E mais dois: tarefas reais com teste escondido, e uma mudança por vez."*
 
-**Faça:** deixar o slide parado enquanto as pessoas fotografam o QR. Conte até cinco antes de falar de novo. Abra para perguntas **neste slide** (~9 min, de 31:00 a 40:00) (quem chegou atrasado ainda fotografa o QR). As respostas prováveis estão na seção "Perguntas prováveis".
+**Diga:** *"O repositório roda o experimento de hoje com o login do Claude Code. São três comandos. E o ebook em PDF está dentro dele."*
+
+**Faça:** deixar o slide parado enquanto as pessoas fotografam o QR. Conte até cinco antes de falar de novo. Abra para perguntas **neste slide** (~9 min, de 31:00 a 40:00).
 
 **Desafio para quem levar o repo:** *"Troque o `CLAUDE.md` por uma skill ou um hook e rode de novo. Ou aponte as tarefas para o seu próprio projeto."*
 
@@ -415,75 +425,76 @@ Vá linha por linha, devagar. É o slide mais "de levar para casa" do bloco.
 
 ### Slide 24 — Referências (apêndice)
 
-Só mostre se alguém pedir as fontes. **Diga, se mostrar:** *"Todas as referências são públicas e estão no ebook com link. O SWE-bench está aí porque é o mesmo formato, em escala de pesquisa: issues reais de GitHub como tarefa para agente de código."* Depois, volte ao slide 23 (QR).
+Só mostre se alguém pedir as fontes. **Diga, se mostrar:** *"Todas as referências são públicas e estão no ebook com link. O SWE-bench está aí porque é o mesmo formato, em escala de pesquisa: issues reais do GitHub como tarefa para agente de código."* Depois, volte ao slide 23 (QR).
 
 ---
 
 ## A revelação em 3 versões
 
-Escolha a versão no slide 18, olhando o veredito do relatório. As três contam a mesma história: **16 execuções por variante não bastam, e essa é a lição.** Use os números do relatório de hoje (ou do ensaio, no plano B); não arredonde nem "melhore" nenhum.
+Escolha a versão no slide 18, olhando o título do relatório. As três contam a mesma história: **16 execuções de cada lado quase nunca bastam, e essa é a lição.** Use os números do relatório de hoje (ou do ensaio, no plano B); não arredonde nem "melhore" nenhum.
 
 **Regra do veredito (para não errar ao vivo):**
-- **B melhor:** o limite inferior de B é maior que o limite superior de A.
-- **A melhor:** o limite inferior de A é maior que o limite superior de B. É o **único** caso em que o portão sai com código 1.
-- **Inconclusivo:** qualquer outro caso (as barras se sobrepõem).
+- **"Com CLAUDE.md foi melhor" (B melhor):** a faixa de B fica toda acima da de A.
+- **"Sem CLAUDE.md foi melhor" (A melhor):** a faixa de A fica toda acima da de B. É o **único** caso em que o portão barra (código 1).
+- **"Ainda não dá para saber" (inconclusivo):** as faixas se cruzam.
 
 ### Versão 1 — B ganha
 
-**Abertura:** *"O `CLAUDE.md` ganhou, e com barras que não se encostam. Agora vem a pergunta que importa: ganhou onde?"*
+**Abertura:** *"O `CLAUDE.md` ganhou, e com faixas que não se encostam. Agora a pergunta que importa: ganhou onde?"*
 
-**Leia:** o resultado por tarefa. O ganho está nas tarefas de convenção (03 a 07)? Ótimo, é o efeito esperado. Está também nas de controle (01, 02, 08)? Diga: *"isso me deixa desconfiado: o `CLAUDE.md` não deveria mudar nada ali. Pode ser ruído, pode ser que ele ajude de um jeito que eu não previ. Vale rodar de novo."*
+**Leia:** tarefa por tarefa. O ganho está nas tarefas de regra da casa (03 a 07)? É o efeito esperado. Está também nas de controle (01, 02, 08)? Diga: *"isso me deixa desconfiado: o arquivo não deveria mudar nada ali. Pode ser acaso. Vale rodar de novo."*
 
-**Lição:** *"Para aparecer com 16 execuções, a diferença precisou ser grande. Se o meu `CLAUDE.md` tivesse ajudado só um pouco, o relatório estaria dizendo inconclusivo, e o efeito seria igualmente real. Uma diferença pequena precisaria de centenas de execuções (diga o 212 em voz alta: 62,5% contra 75% pediria 212 por variante). E ganhar uma vez não é ganhar sempre: o próximo passo é repetir o experimento outro dia."*
+**Lição:** *"Para aparecer com 16 execuções, a diferença precisou ser grande. Se o meu arquivo tivesse ajudado só um pouco, o relatório estaria dizendo 'ainda não dá para saber', e o efeito seria igualmente real. Uma diferença pequena, 62,5% contra 75%, pediria 212 execuções de cada lado. E ganhar uma vez não é ganhar sempre: o próximo passo é repetir outro dia."*
 
 **Fechamento adaptado do slide 22:** *"Desta vez 16 bastaram, porque a diferença era grande. Na maioria das mudanças que vocês vão fazer, não vai ser. Agora vocês sabem calcular quanto rodar."*
 
-### Versão 2 — Inconclusivo
+### Versão 2 — Ainda não dá para saber (inconclusivo)
 
-**Abertura:** *"Inconclusivo. E eu não vou fingir que isso é empate."*
+**Abertura:** *"Ainda não dá para saber. E eu não vou fingir que isso é empate."*
 
-**Leia:** as duas taxas e as duas barras, e aponte o trecho em que elas se sobrepõem. Depois, as "execuções necessárias por variante (critério do veredito)" de hoje (no ensaio, 27).
+**Leia:** as duas linhas e as duas faixas, e aponte o trecho em que elas se cruzam. Depois, a frase do topo: "seriam umas [N] execuções de cada" (no ensaio, 27).
 
-**Lição:** *"Pode ser que o `CLAUDE.md` ajude, e pode ser que não. Com 16 execuções por variante, o dado não deixa dizer. Se eu tivesse rodado uma vez só, como todo mundo faz, eu teria saído daqui com uma certeza falsa, para um lado ou para o outro. O relatório diz que, se as taxas se mantiverem, eu precisaria de [N] execuções por variante para as barras pararem de se sobrepor. Esse número é o resultado mais útil de hoje."*
+**Lição:** *"Pode ser que o `CLAUDE.md` ajude, e pode ser que não. Com 16 execuções de cada lado, o dado não deixa dizer. Se eu tivesse rodado uma vez só, como todo mundo faz, eu sairia daqui com uma certeza falsa. O relatório diz que eu precisaria de [N] execuções de cada lado. Esse número é o resultado mais útil de hoje."*
 
-**Sobre o portão:** *"E reparem: o portão não ficou vermelho. Inconclusivo não quebra o build, porque falta de dado não é evidência de piora."*
+**Sobre o portão:** *"E o portão não ficou vermelho. 'Não sei ainda' não barra a mudança, porque falta de dado não é prova de piora."*
 
-**Se B está na frente mas inconclusivo**: *"B está na frente, mas 'na frente' com essas barras é exatamente o 'parece que melhorou' do começo da palestra. A diferença entre os dois é que agora eu sei o tamanho da minha dúvida."*
+**Se B está na frente mas é inconclusivo:** *"B está na frente, mas 'na frente' com essas faixas é exatamente o 'parece que melhorou' do começo. A diferença é que agora eu sei o tamanho da minha dúvida."*
 
 ### Versão 3 — A ganha
 
-**Abertura:** *"A ganhou. O meu `CLAUDE.md` atrapalhou, e o portão teria barrado o meu próprio merge."*
+**Abertura:** *"Sem o arquivo foi melhor. O meu `CLAUDE.md` atrapalhou, e o portão teria barrado a minha própria mudança."*
 
-**Faça:** mostrar o terminal. O `pnpm relatorio` saiu com código 1, e o pnpm imprime uma mensagem de erro: *"isso aqui não é bug: é o portão funcionando."*
+**Se quiser mostrar:** no terminal, o `pnpm eval` terminou com código 1, e o pnpm imprime uma mensagem de erro. *"Isso não é bug: é o portão funcionando."*
 
-**Leia:** por tarefa, onde A ganhou. Hipóteses para falar em voz alta (sem afirmar nenhuma antes de abrir as execuções): uma instrução do `CLAUDE.md` que confunde o agente numa tarefa de controle; mais contexto levando a mais turnos e a estourar o limite; uma regra que empurra o agente a mexer fora do escopo.
+**Leia:** tarefa por tarefa, onde A ganhou. Hipóteses para falar em voz alta (sem afirmar nenhuma antes de abrir as execuções): uma instrução do arquivo que confunde o agente numa tarefa de controle; mais texto para ler levando a mais voltas e a estourar o limite; uma regra que empurra o agente a mexer fora do escopo.
 
-**Lição:** *"Eu escrevi esse arquivo achando que ajudava. Se eu tivesse confiado no vibe check, ele estaria no repositório agora, piorando o agente de todo mundo. Medir serviu exatamente para isso. E mesmo assim: são 16 execuções. A evidência é suficiente para não fazer o merge, não para concluir que todo `CLAUDE.md` atrapalha. O próximo passo é abrir as execuções que falharam e transformar o que eu vir numa tarefa nova."*
+**Lição:** *"Eu escrevi esse arquivo achando que ajudava. Se eu tivesse confiado no 'parece', ele estaria no repositório agora, piorando o agente de todo mundo. Medir serviu exatamente para isso. Mas são 16 execuções: dá para não fazer o merge, não para concluir que todo `CLAUDE.md` atrapalha. O próximo passo é abrir as execuções que falharam e transformar o que eu vir numa tarefa nova."*
 
 ### Casos de borda
 
-- **Muitos `erro_agente`** (rede, cota, timeout): diga *"olhem o n: em vez de 16, a variante X teve [n]. Erro do agente fica à parte, e o intervalo ficou mais largo. É mais um motivo para não concluir nada com pouca amostra."* Se a maioria for erro, prefira mostrar o ensaio (plano B) e use o ao vivo só como exemplo de por que `erro_agente` é contado à parte.
-- **Uma variante com n = 0:** o relatório roda mesmo assim e mostra inconclusivo. Vá de plano B.
+- **Muitos erros do agente** (rede, cota, limite de tempo): diga *"olhem: em vez de 16, a variante X teve [n] execuções válidas. Erro do agente fica à parte, e a margem de erro ficou maior. É mais um motivo para não concluir nada com pouca amostra."* Se a maioria for erro, prefira o plano B.
+- **Uma variante sem nenhuma execução válida:** o relatório mostra "Falta dado para comparar". Vá de plano B.
 
 ---
 
 ## Plano B: o run ao vivo falhou
 
-**Quando usar:** no minuto 22, se o `pnpm eval` não terminou, caiu (rede, login, cota) ou terminou com quase tudo `erro_agente`.
+**Quando usar:** no slide 18, se o `pnpm eval` não terminou, caiu (rede, login, cota), terminou com quase tudo erro do agente, ou o relatório mostra um número diferente de 16.
 
 **Passo a passo:**
-1. **Não mate o processo no palco** e não tente consertar. Minimize o terminal.
-2. Vá para a aba do navegador com o relatório do ensaio (`resultados/ensaio/relatorio.html`, aberta no checklist).
-3. **Se a aba sumiu:** num terminal novo, na pasta do repo, rode `pnpm relatorio:ensaio`. Ele lê `resultados/ensaio/resultado.json` (o run do ensaio, gravado com `pnpm ensaio:gravar`), funciona offline e grava `resultados/ensaio/relatorio.html`. Abra com `open resultados/ensaio/relatorio.html` (macOS) ou arrastando o arquivo para o navegador.
-4. Siga o slide 18 e a versão da revelação que corresponde ao veredito **do ensaio** (você decorou na véspera).
+1. **Não mate o processo no palco** e não tente consertar.
+2. No segundo terminal (já aberto na pasta do repo), rode `pnpm relatorio:planob`. Ele copia o relatório do ensaio (`resultados/ensaio/relatorio.html`) para `resultados/relatorio.html`, o arquivo que o slide mostra.
+3. Volte um slide e avance para o 18 de novo: o slide recarrega e mostra o relatório do ensaio.
+4. Siga o roteiro do slide 18 e a versão da revelação do ensaio ("Ainda não dá para saber"; você decorou na véspera).
+5. **Se nem isso funcionar:** use a aba reserva com `resultados/ensaio/relatorio.html`, ou rode `pnpm relatorio:ensaio` e abra esse arquivo no navegador.
 
 **O que dizer:**
 
-> *"O run de hoje não terminou a tempo. Isso acontece com agente de verdade, e é exatamente por isso que existe um ensaio: o run completo gravado no ensaio, com o mesmo comando e as mesmas 32 execuções, gravado na pasta do ensaio. O relatório que eu vou mostrar é esse. E reparem: dá para rodar ele sem internet e sem assinatura. Quem levar o repositório pode fazer o mesmo."*
+> *"O run de hoje não terminou a tempo. Isso acontece com agente de verdade, e é por isso que existe um ensaio: o mesmo comando, as mesmas 32 execuções, gravadas antes da palestra. O relatório que eu vou mostrar é esse. E quem levar o repositório consegue gerar esse mesmo relatório sem internet e sem assinatura."*
 
-Se o run caiu por erro do agente, acrescente: *"E é por isso que erro do agente é um rótulo próprio: se eu contasse isso como falha da tarefa, o meu `CLAUDE.md` teria 'piorado' por causa do Wi-Fi."*
+Se o run caiu por erro do agente, acrescente: *"E é por isso que erro do agente é um rótulo próprio: se eu contasse isso como falha, o meu `CLAUDE.md` teria 'piorado' por causa do Wi-Fi."*
 
-**Se o run terminar durante as perguntas:** pode mostrar o `pnpm relatorio` ao vivo no fim, como bônus: *"o de hoje acabou de sair; vamos ver se concorda com o do ensaio."* Se não concordar, é mais uma prova da lição.
+**Se o run terminar durante as perguntas:** o `pnpm eval` já terá gravado o relatório de hoje em `resultados/relatorio.html` (por cima do plano B). Dá para voltar ao slide 18 como bônus: *"o de hoje acabou de sair; vamos ver se concorda com o do ensaio."* Se não concordar, é mais uma prova da lição. Depois, volte ao slide 23 (QR).
 
 ---
 
@@ -492,37 +503,37 @@ Se o run caiu por erro do agente, acrescente: *"E é por isso que erro do agente
 São ~9 min de perguntas (31:00–40:00), com o slide 23 (QR) na tela.
 
 1. **"E o Codex? E o Gemini CLI?"**
-   *"O método é o mesmo; só muda quem executa a tarefa. No repo, a parte que chama o agente fica isolada atrás de uma interface, a `RodarAgente`. Para medir outro agente, você implementa outra `RodarAgente` que chama a CLI dele em modo não interativo e devolve o mesmo formato de resultado. Tarefas, teste escondido, escopo e relatório continuam iguais. Isso está como desafio extra no repo. E não é um benchmark de qual ferramenta é melhor: é para você medir a configuração que você usa."*
+   *"O método é o mesmo; só muda quem faz a tarefa. No repo, a parte que chama o agente fica isolada num lugar só, a interface `RodarAgente`. Para medir outro agente, você escreve outra versão dela, que chama a ferramenta dele. Tarefas, teste escondido e relatório continuam iguais. Está como desafio extra no repo. E não é para decidir qual ferramenta é melhor: é para você medir a configuração que você usa."*
 
-2. **"LLM-as-judge serve para quê, então?"**
-   *"Para o que não cabe num teste: clareza de documentação, qualidade da descrição do PR, se a mensagem de erro é útil. Ele é bom para triagem, antes do olho humano. A condição é medir o juiz também: pegar uma amostra, dar a nota você mesmo e ver se ele concorda. E nunca usar juiz para o que um teste consegue verificar."*
+2. **"IA como juiz serve para quê, então?"**
+   *"Para o que não cabe num teste: clareza da documentação, descrição do PR, se a mensagem de erro é útil. A condição é medir o juiz também: dar a sua nota numa amostra e ver se ele concorda. E nunca usar juiz para o que um teste consegue conferir."*
 
 3. **"Quantas execuções eu preciso?"**
-   *"Depende do tamanho da diferença que você quer enxergar. Uma diferença grande, tipo 37,5% contra 75%, pede umas 27 por variante até as barras se separarem. Uma diferença realista, 62,5% contra 75%, pede umas 212. O relatório do repo faz essa conta com os seus números e mostra como 'execuções necessárias por variante (critério do veredito)'; logo abaixo vem o piso pelo teste z de duas proporções, que é menor e não basta para o veredito. No ensaio, por exemplo: 27, com piso de 24. Comece pequeno, veja a estimativa e decida se vale rodar mais."*
+   *"Depende do tamanho da diferença que você quer enxergar. Uma diferença grande, 37,5% contra 75%, pede umas 27 de cada lado. Uma diferença mais realista, 62,5% contra 75%, pede umas 212. O relatório do repo faz essa conta com os seus números e mostra no topo. Comece pequeno, veja a estimativa e decida se vale rodar mais."*
 
 4. **"Isso não fica caro?"**
-   *"O repo usa a cota da assinatura do Claude Code, com o login normal. O relatório mostra o custo estimado por execução, que o próprio cliente calcula. Dá para economizar de três jeitos: a camada 1 (o medidor com agente falso) é offline e de graça, então roda a cada commit; a camada 2 roda só quando você muda alguma coisa no agente; e o `pnpm eval:rapido` roda uma tarefa só, para checar que está tudo de pé antes do run completo."* Não dê o custo do run de hoje sem ter o número do relatório na tela.
+   *"O repo usa a cota da assinatura do Claude Code, com o login normal. O relatório mostra o custo estimado. Dá para economizar: os testes do próprio medidor rodam sem modelo e de graça, então rodam a cada commit; a eval com o agente de verdade roda só quando você muda alguma coisa no agente; e o `pnpm eval:rapido` roda uma tarefa só, para ver se está tudo de pé."* Não dê o custo do run de hoje sem ter o número do relatório na tela.
 
 5. **"Preciso de chave de API?"**
-   *"Não. O repo usa o login normal do Claude Code. E quem não tem assinatura consegue rodar o relatório sobre o run gravado (`pnpm relatorio:ensaio`), offline."* Não recomende chave de API nem como alternativa.
+   *"Não. O repo usa o login normal do Claude Code. E quem não tem assinatura consegue gerar o relatório do run gravado com `pnpm relatorio:ensaio`, sem internet."* Não recomende chave de API nem como alternativa.
 
 6. **"E se o meu projeto não tem teste?"**
-   *"Então o primeiro entregável é o teste da tarefa. O critério de feito vem antes do agente: se você não consegue escrever um teste que diga se a tarefa foi cumprida, nem você sabe o que pediu. Comece com uma tarefa só, de um erro que o agente já cometeu."*
+   *"Então o primeiro passo é escrever o teste da tarefa. Se você não consegue escrever um teste que diga se a tarefa foi cumprida, nem você sabe o que pediu. Comece com uma tarefa só, de um erro que o agente já cometeu."*
 
 7. **"Quais foram os números do KTLO?"**
-   *"São números internos que eu não posso compartilhar. O que eu posso passar são as lições e um método que vocês reproduzem no repo: lá está o run gravado do ensaio, com o JSON e o relatório, e vocês podem rodar o de vocês."*
+   *"São números internos que eu não posso compartilhar. O que eu posso passar são as lições e um método que vocês reproduzem no repo: lá está o run gravado do ensaio, e vocês podem rodar o de vocês."*
    Não dê faixa, ordem de grandeza nem "mais ou menos". Se insistirem: *"não posso mesmo; mas o método está todo no repo, e o número que importa para vocês é o do agente de vocês."*
 
 8. **"Por que só duas repetições?"**
-   *"Porque duas repetições já mostram o ponto: elas dão 16 execuções por variante, e o relatório acabou de mostrar que é pouco. Para a palestra, eu quis um run curto e que coubesse folgado (no ensaio, levou uns 3 minutos) e um número que vocês conseguem conferir no repo. No seu projeto, sem plateia esperando, rode mais: é só mudar o `repeat` em `evals/promptfooconfig.yaml`."*
+   *"Porque duas já mostram o ponto: dão 16 execuções de cada lado, e o relatório acabou de mostrar que é pouco. Para a palestra, eu quis um run curto (no ensaio, uns 3 minutos). No seu projeto, rode mais: é só mudar o `repeat` em `evals/promptfooconfig.yaml`."*
 
 9. **"O agente não pode trapacear? Editar o teste?"**
-   *"O teste escondido nunca entra na pasta do agente: a correção roda numa pasta nova, com o app intacto e só os arquivos que ele mudou, e o teste entra por último, por cima de qualquer arquivo com o mesmo nome. Se ele mexer em arquivo fora dos permitidos, criar link simbólico ou criar um `.git`, a execução vira `fora_do_escopo`. As dependências que rodam o teste são somente leitura e conferidas por hash; se mudarem, a execução vira `erro_agente`. E a configuração do agente fica restrita ao projeto, para o meu `~/.claude` pessoal não vazar para a variante A."*
+   *"O teste escondido nunca entra na pasta do agente. A correção roda numa pasta nova, com o app intacto e só os arquivos que ele mudou, e o teste entra por último. Se ele mexer em arquivo fora dos permitidos, a execução conta como 'mexeu onde não devia'. E as minhas configurações pessoais não vazam para a cópia."*
 
-10. **"Por que intervalos sem sobreposição? Isso não é conservador demais?"**
-    *"É, de propósito. Um teste de hipótese clássico declararia vencedor antes. Para um portão de CI, eu prefiro errar para o lado de 'não sei': um portão que grita cedo demais ensina o time a ignorá-lo. Se você quiser outra regra, ela fica num script só, e dá para trocar."*
+10. **"Exigir faixas sem cruzar não é rigoroso demais?"**
+    *"É, de propósito. Um teste estatístico clássico declararia vencedor antes. Para um portão automático, eu prefiro errar para o lado do 'não sei': um portão que grita cedo demais ensina o time a ignorá-lo. Se você quiser outra regra, ela fica num arquivo só, e dá para trocar."*
 
-**Se o tempo apertar:** responda 1, 3 e 7 primeiro; são as que mais aparecem e a 7 é a que exige mais cuidado.
+**Se o tempo apertar:** responda 1, 3 e 7 primeiro; são as que mais aparecem, e a 7 é a que exige mais cuidado.
 
 ---
 
@@ -531,29 +542,31 @@ São ~9 min de perguntas (31:00–40:00), com o slide 23 (QR) na tela.
 | Termo | Em uma frase |
 |---|---|
 | Agente de código | um modelo que lê, edita e roda código sozinho, usando ferramentas, até cumprir uma tarefa |
-| `CLAUDE.md` | arquivo de texto que o Claude Code lê no começo de toda sessão, com as regras do projeto |
-| Variante | uma das configurações comparadas (A sem `CLAUDE.md`, B com) |
-| Eval | teste automático de um sistema com IA: casos com resultado esperado |
+| `CLAUDE.md` | arquivo de texto com as regras do projeto, que o Claude Code lê no começo de toda conversa |
+| Variante | cada versão comparada (A sem `CLAUDE.md`, B com) |
+| Eval | teste automático de um sistema com IA: tarefas com um jeito automático de dizer se deu certo |
 | Critério de feito | a regra objetiva que diz se a tarefa foi cumprida (aqui, um teste) |
-| Teste escondido | o teste que decide a tarefa, que o agente não vê |
-| Escopo | os arquivos que a tarefa permite alterar |
+| Teste escondido | o teste que decide a tarefa, que o agente não vê (a prova que o aluno não viu) |
+| Escopo | os arquivos que a tarefa permite alterar; "fora do escopo" = mexeu onde não devia |
 | Tarefa de controle | caso em que a mudança não deveria fazer diferença |
-| Token | pedaço de texto que o modelo lê ou escreve |
+| Token | pedacinho de texto que o modelo lê ou escreve |
 | Turno | uma ida e volta entre o modelo e uma ferramenta |
 | Headless | rodar o agente sem tela interativa (`claude -p`) |
-| Provider | no promptfoo, o código que responde a cada caso |
-| promptfoo | ferramenta para rodar evals a partir de um arquivo de configuração |
+| Sandbox | "caixa" do sistema operacional que limita o que o programa pode fazer |
+| Provider | no promptfoo, o código que executa cada caso |
+| promptfoo | ferramenta gratuita para rodar evals a partir de um arquivo de configuração |
 | Diff | o que mudou nos arquivos em relação à cópia original |
 | pass@k | passou em pelo menos uma de k tentativas |
-| pass^k | passou em todas as k tentativas |
-| Intervalo de Wilson | margem de erro de uma taxa que funciona bem com poucas amostras |
-| Poder | chance de o experimento detectar uma diferença que existe |
-| Inconclusivo | as barras se sobrepõem: o dado não deixa dizer quem é melhor |
-| LLM-as-judge | um modelo dando nota à saída de outro |
-| Hook | script que roda antes ou depois de cada ferramenta e pode bloquear a ação |
-| Skill | pacote de instruções que o agente carrega só quando precisa |
-| CI | pipeline que roda os testes a cada push ou PR |
+| pass^k | passou em todas as k tentativas ("resolve sempre?") |
+| Margem de erro | a faixa onde a taxa verdadeira provavelmente está (no jargão, intervalo de confiança) |
+| Intervalo de Wilson | o jeito de calcular a margem de erro que o repo usa; funciona bem com poucas execuções |
+| Poder | chance de o experimento enxergar uma diferença que existe |
+| Inconclusivo | as faixas se cruzam: ainda não dá para dizer quem é melhor |
+| LLM-as-judge | IA como juiz: um modelo dando nota ao trabalho de outro |
+| Hook | script que roda antes ou depois de cada ação do agente e pode bloquear a ação |
+| Skill | "manual" que o agente só abre quando a tarefa pede |
+| CI | esteira que roda os testes a cada mudança no repositório |
 | Portão de qualidade | regra automática que aprova ou barra uma mudança |
-| KTLO | *keep the lights on*: o trabalho de manter funcionando o que já existe |
+| KTLO | *keep the lights on*: manter funcionando o que já existe |
 | Gabarito | o resultado esperado de cada caso, escrito por uma pessoa |
 | Catraca | mecanismo que só gira para um lado: a cobertura da eval só cresce |

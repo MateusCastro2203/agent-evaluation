@@ -139,31 +139,63 @@ export function tabelaTerminal(a: Analise): string {
 }
 
 // ---------- HTML ----------
+// O HTML é o que aparece no slide do relatório ao vivo, para uma plateia majoritariamente iniciante:
+// em cima, o veredito em português simples e as duas taxas; os termos técnicos (Wilson, teste z,
+// tokens de cache…) ficam na seção "Detalhes técnicos", mais abaixo. Nenhum cálculo muda aqui.
 
 export interface MetaRelatorio {
   origem: string;
   geradoEm: string;
 }
 
-function barra(rotulo: string, r: ResumoVariante, cor: string): string {
+const faltaDado = (a: Analise) => a.resumoA.n === 0 || a.resumoB.n === 0;
+
+/** Título do veredito em palavras simples. */
+export function tituloSimples(a: Analise): string {
+  if (faltaDado(a)) return "Falta dado para comparar";
+  return { b_melhor: "Com CLAUDE.md foi melhor", a_melhor: "Sem CLAUDE.md foi melhor", inconclusivo: "Ainda não dá para saber" }[a.veredito.tipo];
+}
+
+/** A frase do veredito para iniciantes (o "porquê" em uma linha). */
+export function fraseSimples(a: Analise): string {
+  const { resumoA: A, resumoB: B, veredito: v } = a;
+  if (faltaDado(a)) return "Uma das variantes ficou sem nenhuma execução válida, então não há o que comparar.";
+  if (v.tipo === "b_melhor") return "O CLAUDE.md ajudou: mesmo contando a margem de erro, as duas não se cruzam.";
+  if (v.tipo === "a_melhor") return "Neste run, o CLAUDE.md atrapalhou: mesmo contando a margem de erro, as duas não se cruzam.";
+  const feitas = Math.max(A.n, B.n);
+  const n = v.execucoesNecessariasPorVariante;
+  if (A.taxa.p === B.taxa.p) return `Ainda não dá para saber se o CLAUDE.md ajuda: as duas deram certo na mesma proporção, com ${num(feitas)} execuções de cada.`;
+  if (n === null) return `Ainda não dá para saber se o CLAUDE.md ajuda: a margem de erro das duas se cruza, e a diferença é pequena demais para separar nem com ${num(LIMITE_EXECUCOES)} execuções de cada.`;
+  return `Ainda não dá para saber se o CLAUDE.md ajuda: a margem de erro das duas se cruza. Para ter certeza, seriam umas ${num(n)} execuções de cada (hoje foram ${num(feitas)}).`;
+}
+
+const deramCerto = (r: ResumoVariante) => (r.n === 0 ? "nenhuma execução válida" : `${r.passou} de ${r.n} deram certo`);
+const margemTexto = (r: ResumoVariante) => (r.n === 0 ? "sem dados" : `margem de erro: ${pct(r.taxa.inf)} a ${pct(r.taxa.sup)}`);
+
+function linhaVariante(nome: string, letra: string, r: ResumoVariante, cor: string): string {
   const t: Intervalo = r.taxa;
   const sem = r.n === 0;
-  return `<div class="linha-barra"><div class="rot-barra">${rotulo}<small>${esc(taxaTexto(r))}</small></div>
-<div class="escala" role="img" aria-label="${esc(rotulo)}: ${esc(taxaTexto(r))}">
+  const rotulo = `${nome}: ${deramCerto(r)}`;
+  return `<div class="variante">
+<div class="var-texto"><span class="var-nome">${nome} <small>(${letra})</small></span><span class="var-taxa">${esc(deramCerto(r))}${sem ? "" : ` · <b>${pct(t.p)}</b>`}</span></div>
+<div class="escala" role="img" aria-label="${esc(rotulo)}; ${esc(margemTexto(r))}">
 ${sem ? "" : `<div class="iv" style="left:${(t.inf * 100).toFixed(1)}%;width:${((t.sup - t.inf) * 100).toFixed(1)}%;background:var(${cor})"></div><div class="pt" style="left:calc(${(t.p * 100).toFixed(1)}% - 3px)"></div>`}
-</div></div>`;
+</div>
+<div class="var-margem">${esc(margemTexto(r))}</div>
+</div>`;
 }
 
 export function gerarHtml(a: Analise, meta: MetaRelatorio): string {
   const { resumoA: A, resumoB: B, veredito: v } = a;
-  const classeVeredito = A.n === 0 || B.n === 0 ? "inconclusivo" : v.tipo.replace("_", "-");
+  const classeVeredito = faltaDado(a) ? "inconclusivo" : v.tipo.replace("_", "-");
   const tarefas = [...new Set([...Object.keys(A.porTarefa), ...Object.keys(B.porTarefa)])].sort();
   const cel = (t: { passou: number; n: number } | undefined) => {
     if (!t) return `<td class="num">—</td>`;
     const cls = t.n === 0 ? "" : t.passou === t.n ? "ok" : t.passou === 0 ? "ruim" : "meio";
-    return `<td class="num ${cls}">${t.passou}/${t.n}</td>`;
+    return `<td class="num ${cls}">${t.passou} de ${t.n}</td>`;
   };
   const par = (rotulo: string, fa: string, fb: string) => `<tr><th scope="row">${rotulo}</th><td class="num">${fa}</td><td class="num">${fb}</td></tr>`;
+  const k = kDe(a);
   const rodape = [
     `fonte: <code>${esc(meta.origem)}</code>`,
     `gerado em ${esc(meta.geradoEm)}`,
@@ -180,75 +212,99 @@ export function gerarHtml(a: Analise, meta: MetaRelatorio): string {
 <title>Medindo agentes — relatório</title>
 <style>
 :root{--fundo:#f6f7f9;--painel:#fff;--tinta:#14181f;--suave:#586070;--linha:#d5d9e0;--azul:#2f6fdb;--acento:#d97706;--ok:#0d7a3e;--ruim:#b42318;--meio:#8a5a00;--neutro:#e8ecf3;}
-@media (prefers-color-scheme: dark){:root{--fundo:#0f1218;--painel:#181d27;--tinta:#eef1f6;--suave:#a3adbf;--linha:#2d3544;--azul:#6ea2ff;--acento:#f5a524;--ok:#4ade80;--ruim:#ff7b72;--meio:#f5c451;--neutro:#232a38;}}
 *{box-sizing:border-box}
-body{margin:0;background:var(--fundo);color:var(--tinta);font:22px/1.3 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding:24px 48px 18px}
-h1{font-size:30px;margin:0 0 4px;color:var(--suave);font-weight:600}
-h2{font-size:28px;margin:20px 0 8px}
-.veredito{background:var(--painel);border:2px solid var(--linha);border-left:14px solid var(--suave);border-radius:12px;padding:12px 28px;margin:12px 0}
+body{margin:0;background:var(--fundo);color:var(--tinta);font:22px/1.3 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding:16px 40px 18px}
+h1{font-size:22px;margin:0 0 8px;color:var(--suave);font-weight:600}
+h2{font-size:28px;margin:28px 0 8px}
+h2 small{font-size:20px;font-weight:400;color:var(--suave)}
+.veredito{background:var(--painel);border:2px solid var(--linha);border-left:14px solid var(--suave);border-radius:12px;padding:10px 26px 12px;margin:0 0 12px}
 .veredito.inconclusivo{border-left-color:var(--acento)}
 .veredito.b-melhor{border-left-color:var(--ok)}
 .veredito.a-melhor{border-left-color:var(--ruim)}
-.veredito .titulo{font-size:60px;font-weight:800;line-height:1.1}
-.veredito .frase{font-size:28px;margin-top:8px}
-.veredito .nec{font-size:22px;color:var(--suave);margin-top:10px}
-.veredito .nec.piso{font-size:18px;margin-top:2px}
+.veredito .titulo{font-size:48px;font-weight:800;line-height:1.1}
+.veredito .frase{font-size:26px;margin-top:6px}
+.variante{display:grid;grid-template-columns:1fr 1fr;column-gap:28px;align-items:center;margin:10px 0}
+.var-texto{display:flex;flex-direction:column}
+.var-nome{font-size:30px;font-weight:700}.var-nome small{font-size:20px;font-weight:400;color:var(--suave)}
+.var-taxa{font-size:30px}
+.var-margem{grid-column:2;font-size:18px;color:var(--suave);margin-top:2px}
+.escala{position:relative;height:44px;background:var(--neutro);border-radius:6px;background-image:linear-gradient(to right,var(--linha) 1px,transparent 1px);background-size:25% 100%}
+.iv{position:absolute;top:8px;height:28px;border-radius:4px;opacity:.85}
+.pt{position:absolute;top:2px;width:6px;height:40px;background:var(--tinta);border-radius:2px}
+.eixo{display:grid;grid-template-columns:1fr 1fr;column-gap:28px;color:var(--suave);font-size:18px}
+.eixo div{grid-column:2;display:flex;justify-content:space-between}
+.legenda{font-size:18px;color:var(--suave);margin:4px 0 0}
 table{border-collapse:collapse;width:100%;background:var(--painel);border-radius:8px;overflow:hidden}
 th,td{padding:5px 16px;border-bottom:1px solid var(--linha);text-align:left}
 thead th{font-size:22px;background:var(--neutro)}
 td.num,thead th:not(:first-child){text-align:right;font-variant-numeric:tabular-nums}
 th[scope=row]{font-weight:500}
+th[scope=row] small{color:var(--suave);font-weight:400}
 .ok{color:var(--ok);font-weight:700}.ruim{color:var(--ruim);font-weight:700}.meio{color:var(--meio);font-weight:700}
-.linha-barra{display:grid;grid-template-columns:340px 1fr;align-items:center;gap:20px;margin:6px 0}
-.rot-barra{font-weight:700}.rot-barra small{display:block;font-weight:400;color:var(--suave);font-size:20px}
-.escala{position:relative;height:48px;background:var(--neutro);border-radius:6px;background-image:linear-gradient(to right,var(--linha) 1px,transparent 1px);background-size:25% 100%}
-.iv{position:absolute;top:9px;height:30px;border-radius:4px;opacity:.85}
-.pt{position:absolute;top:2px;width:6px;height:44px;background:var(--tinta);border-radius:2px}
-.eixo{display:grid;grid-template-columns:340px 1fr;gap:20px;color:var(--suave);font-size:20px}
-.eixo div{display:flex;justify-content:space-between}
 .por-tarefa{font-size:20px}.por-tarefa th,.por-tarefa td{padding:2px 16px}
+.tecnico{font-size:18px;color:var(--suave)}
+.tecnico table{font-size:18px}.tecnico td.num{white-space:nowrap}
+.tecnico ul{margin:8px 0;padding-left:1.2em}
 footer{margin-top:16px;color:var(--suave);font-size:17px}
 code{font-family:ui-monospace,Menlo,monospace}
 </style>
 </head>
 <body>
-<h1>Medindo agentes · A (sem CLAUDE.md) × B (com CLAUDE.md)</h1>
+<h1>Medindo agentes · o mesmo pedido, sem e com <code>CLAUDE.md</code></h1>
 <section class="veredito ${classeVeredito}">
-<div class="titulo">${titulo(v, a)}</div>
-<div class="frase">${esc(frase(a, false))}</div>
-<div class="nec">execuções necessárias por variante (critério do veredito): ${esc(execucoesTexto(a))}</div>
-<div class="nec piso">piso pelo teste z de duas proporções: ${esc(pisoTexto(a))}</div>
+<div class="titulo">${esc(tituloSimples(a))}</div>
+<div class="frase">${esc(fraseSimples(a))}</div>
 </section>
 
-<h2>A × B</h2>
+${linhaVariante("Sem CLAUDE.md", "A", A, "--azul")}
+${linhaVariante("Com CLAUDE.md", "B", B, "--acento")}
+<div class="eixo"><span></span><div><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div></div>
+<p class="legenda">O tracinho é o resultado de hoje; a faixa colorida é a margem de erro. Se as faixas se cruzam, ainda não dá para dizer quem é melhor.</p>
+
+<h2>Os números lado a lado</h2>
 <table>
-<thead><tr><th></th><th>A (sem CLAUDE.md)</th><th>B (com CLAUDE.md)</th></tr></thead>
+<thead><tr><th></th><th>Sem CLAUDE.md (A)</th><th>Com CLAUDE.md (B)</th></tr></thead>
 <tbody>
-${par("n (sem erro do agente)", String(A.n), String(B.n))}
-${par("taxa de sucesso (Wilson 95%)", esc(taxaTexto(A)), esc(taxaTexto(B)))}
-${par(`pass^k (k=${kDe(a)}; tarefas que passaram em todas as repetições; erro do agente conta como não passou)`, `${A.passK} de ${A.tarefasTotal}`, `${B.passK} de ${B.tarefasTotal}`)}
-${par("fora do escopo", String(A.foraDoEscopo), String(B.foraDoEscopo))}
-${par("erros do agente (fora do n)", String(A.erros), String(B.erros))}
-${par("tokens (entrada + saída), mediana", ou(A.medianaTokens, (x) => num(x)), ou(B.medianaTokens, (x) => num(x)))}
-${par("tokens de cache (leitura + criação), mediana", ou(A.medianaTokensCache, (x) => num(x)), ou(B.medianaTokensCache, (x) => num(x)))}
-${par("mediana de turnos", ou(A.medianaTurnos, (x) => num(x, 1)), ou(B.medianaTurnos, (x) => num(x, 1)))}
-${par("mediana de duração", ou(A.medianaDuracaoMs, segundos), ou(B.medianaDuracaoMs, segundos))}
-${par("custo estimado (US$, lista; inclui execuções com erro)", usd(A.custoTotalUsd), usd(B.custoTotalUsd))}
+${par("Deram certo", esc(A.n === 0 ? "—" : `${A.passou} de ${A.n} (${pct(A.taxa.p)})`), esc(B.n === 0 ? "—" : `${B.passou} de ${B.n} (${pct(B.taxa.p)})`))}
+${par("Margem de erro", esc(A.n === 0 ? "—" : `${pct(A.taxa.inf)} a ${pct(A.taxa.sup)}`), esc(B.n === 0 ? "—" : `${pct(B.taxa.inf)} a ${pct(B.taxa.sup)}`))}
+${par(`Resolve sempre? <small>(tarefas que passaram nas ${k} tentativas)</small>`, `${A.passK} de ${A.tarefasTotal}`, `${B.passK} de ${B.tarefasTotal}`)}
+${par("Mexeu onde não devia <small>(fora do escopo)</small>", String(A.foraDoEscopo), String(B.foraDoEscopo))}
+${par("Erro do agente <small>(rede, login, limite; não entra na conta)</small>", String(A.erros), String(B.erros))}
+${par("Voltas com as ferramentas <small>(turnos, mediana)</small>", ou(A.medianaTurnos, (x) => num(x, 1)), ou(B.medianaTurnos, (x) => num(x, 1)))}
+${par("Tempo por execução <small>(mediana)</small>", ou(A.medianaDuracaoMs, segundos), ou(B.medianaDuracaoMs, segundos))}
+${par("Custo estimado do run <small>(US$)</small>", usd(A.custoTotalUsd), usd(B.custoTotalUsd))}
 </tbody>
 </table>
 
-<h2>Intervalo de 95% por variante</h2>
-${barra("A · sem CLAUDE.md", A, "--azul")}
-${barra("B · com CLAUDE.md", B, "--acento")}
-<div class="eixo"><span></span><div><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div></div>
-
-<h2>Por tarefa (passou/n)</h2>
+<h2>Tarefa por tarefa <small>(quantas deram certo)</small></h2>
 <table class="por-tarefa">
-<thead><tr><th>tarefa</th><th>A</th><th>B</th></tr></thead>
+<thead><tr><th>tarefa</th><th>Sem CLAUDE.md (A)</th><th>Com CLAUDE.md (B)</th></tr></thead>
 <tbody>
 ${tarefas.map((t) => `<tr><th scope="row">${esc(t)}</th>${cel(A.porTarefa[t])}${cel(B.porTarefa[t])}</tr>`).join("\n") || `<tr><td colspan="3">sem execuções</td></tr>`}
 </tbody>
 </table>
+<p class="legenda">As tarefas 03 a 07 dependem de uma convenção que só o <code>CLAUDE.md</code> explica; 01, 02 e 08 são de controle.</p>
+
+<section class="tecnico">
+<h2>Detalhes técnicos</h2>
+<ul>
+<li>veredito técnico: <b>${titulo(v, a)}</b> · ${esc(frase(a, false))}</li>
+<li>a margem de erro é o intervalo de Wilson, 95% de confiança</li>
+<li>execuções necessárias por variante (critério do veredito): ${esc(execucoesTexto(a))}</li>
+<li>piso pelo teste z de duas proporções: ${esc(pisoTexto(a))}</li>
+</ul>
+<table>
+<thead><tr><th></th><th>A</th><th>B</th></tr></thead>
+<tbody>
+${par("n (sem erro do agente)", String(A.n), String(B.n))}
+${par("taxa de sucesso (Wilson 95%)", esc(taxaTexto(A)), esc(taxaTexto(B)))}
+${par(`pass^k (k=${k}; tarefas que passaram em todas as repetições; erro do agente conta como não passou)`, `${A.passK} de ${A.tarefasTotal}`, `${B.passK} de ${B.tarefasTotal}`)}
+${par("tokens (entrada + saída), mediana", ou(A.medianaTokens, (x) => num(x)), ou(B.medianaTokens, (x) => num(x)))}
+${par("tokens de cache (leitura + criação), mediana", ou(A.medianaTokensCache, (x) => num(x)), ou(B.medianaTokensCache, (x) => num(x)))}
+${par("custo estimado (US$, lista; inclui execuções com erro)", usd(A.custoTotalUsd), usd(B.custoTotalUsd))}
+</tbody>
+</table>
+</section>
 
 <footer>${rodape}</footer>
 </body>

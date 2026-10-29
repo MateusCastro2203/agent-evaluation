@@ -12,12 +12,14 @@ Então, no primeiro minuto, eu rodo:
 pnpm eval
 ```
 
-Esse comando põe o Claude Code para trabalhar **32 vezes**: 2 variantes × 8 tarefas × 2 repetições.
+Esse comando põe o Claude Code para trabalhar **32 vezes**: 2 variantes × 8 tarefas × 2 repetições. No fim, ele mesmo gera o relatório com o resultado.
 
 - **Variante A:** o repositório como está, sem `CLAUDE.md`.
 - **Variante B:** o mesmo repositório, com o `CLAUDE.md`.
 
-Enquanto o agente trabalha, a palestra explica o que está sendo medido e por quê. No minuto 22, o relatório diz se o `CLAUDE.md` presta. Ou diz que ainda não dá para saber, que é uma resposta tão útil quanto as outras (capítulo 5).
+Isso é uma **eval** (de *evaluation*, avaliação): um conjunto de tarefas em que "deu certo" é conferido por código, rodado várias vezes, para comparar o antes e o depois de uma mudança. Neste ebook, "variante" é cada versão comparada.
+
+Enquanto o agente trabalha, a palestra explica o que está sendo medido e por quê. No fim, o relatório diz se o `CLAUDE.md` presta. Ou diz que ainda não dá para saber, que é uma resposta tão útil quanto as outras (capítulo 5).
 
 ## "Parece que melhorou"
 
@@ -28,11 +30,11 @@ Todo mundo que usa agente de código já fez isto:
 3. deu certo;
 4. "melhorou!".
 
-É o *vibe check*. Ele não é inútil: é como você descobre que vale a pena olhar para alguma coisa. O problema é parar nele, porque ficou muita coisa de fora:
+É o *vibe check*: avaliar no olho, pela sensação de uso, sem número. Ele não é inútil: é como você descobre que vale a pena olhar para alguma coisa. O problema é parar nele, porque ficou muita coisa de fora:
 
 - A tarefa era fácil ou difícil? Uma tarefa fácil passa com qualquer configuração.
 - Se você pedisse de novo, daria certo de novo?
-- Quanto custou? Quantos turnos o agente gastou?
+- Quanto custou? Quantos turnos (idas e voltas entre o modelo e as ferramentas) o agente gastou?
 - Ele mexeu em arquivo que não devia?
 - Teria dado certo **antes** da mudança também?
 
@@ -40,9 +42,9 @@ A última pergunta é a mais esquecida. Sem rodar a configuração antiga nas me
 
 ## O agente não é determinístico
 
-Mesmo prompt, mesmo repositório, mesmo modelo: o agente não faz a mesma coisa duas vezes. O modelo sorteia cada token de uma distribuição de probabilidade, e o loop de ferramentas amplifica qualquer diferença pequena do começo. Um agente lê o arquivo A primeiro, o outro lê o B; um roda os testes, o outro não. No fim, um passa e o outro falha. Isso é o comportamento normal da ferramenta, não um defeito.
+Mesmo prompt, mesmo repositório, mesmo modelo: o agente não faz a mesma coisa duas vezes. O modelo sorteia cada token (o pedacinho de texto que ele escreve) de uma distribuição de probabilidade, e o loop de ferramentas amplifica qualquer diferença pequena do começo. Um agente lê o arquivo A primeiro, o outro lê o B; um roda os testes, o outro não. No fim, um passa e o outro falha. Isso é o comportamento normal da ferramenta, não um defeito.
 
-A consequência prática: **uma execução é uma amostra, não um resultado**. A pergunta certa não é "passou?", e sim "com que frequência passa?". Frequência se estima com várias execuções e se reporta com um intervalo de confiança.
+A consequência prática: **uma execução é uma amostra, não um resultado**. A pergunta certa não é "passou?", e sim "com que frequência passa?". Frequência se estima com várias execuções e se reporta com um intervalo de confiança: a margem de erro, como a de uma pesquisa eleitoral. Com poucas pessoas ouvidas, a margem é larga; com mais, ela estreita.
 
 ## Quanto diz uma execução?
 

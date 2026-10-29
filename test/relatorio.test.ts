@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { analisarSaida, codigoDeSaida, frase, gerarHtml, tabelaTerminal } from "../src/relatorio.js";
+import { analisarSaida, codigoDeSaida, frase, fraseSimples, gerarHtml, tabelaTerminal, tituloSimples } from "../src/relatorio.js";
 
 const fixture = JSON.parse(readFileSync(new URL("./fixtures/run-32.json", import.meta.url), "utf8"));
 const real = JSON.parse(readFileSync(new URL("./fixtures/smoke.json", import.meta.url), "utf8"));
@@ -62,10 +62,36 @@ describe("gerarHtml", () => {
   const html = gerarHtml(analisarSaida(fixture), meta);
   it("é autocontido", () => {
     expect(html).not.toMatch(/<link |<script|src=|https?:\/\//);
-    expect(html).toContain("prefers-color-scheme: dark");
   });
-  it("traz veredito, n por variante, custo e rodapé", () => {
+  it("é sempre claro, para combinar com o slide em que aparece", () => {
+    expect(html).not.toContain("prefers-color-scheme");
+  });
+  it("abre com o veredito em português simples e as duas taxas", () => {
+    const a = analisarSaida(fixture);
+    const topo = html.slice(0, html.indexOf("Os números lado a lado"));
+    expect(topo).toContain("Ainda não dá para saber");
+    expect(topo).toContain(`Sem CLAUDE.md`);
+    expect(topo).toContain(`${a.resumoA.passou} de ${a.resumoA.n} deram certo`);
+    expect(topo).toContain(`${a.resumoB.passou} de ${a.resumoB.n} deram certo`);
+    expect(topo).toContain("a margem de erro das duas se cruza");
+    expect(topo).not.toMatch(/Wilson|teste z|pass\^k/);
+  });
+  it("frase simples cobre os três vereditos e a falta de dado", () => {
+    const a = analisarSaida(fixture);
+    expect(fraseSimples(a)).toContain(`seriam umas ${a.veredito.execucoesNecessariasPorVariante} execuções de cada`);
+    const b = { ...a, veredito: { ...a.veredito, tipo: "b_melhor" as const } };
+    expect(tituloSimples(b)).toBe("Com CLAUDE.md foi melhor");
+    expect(fraseSimples(b)).toContain("O CLAUDE.md ajudou");
+    const am = { ...a, veredito: { ...a.veredito, tipo: "a_melhor" as const } };
+    expect(tituloSimples(am)).toBe("Sem CLAUDE.md foi melhor");
+    expect(fraseSimples(am)).toContain("atrapalhou");
+    expect(tituloSimples(analisarSaida({}))).toBe("Falta dado para comparar");
+  });
+  it("traz veredito, n por variante, custo e rodapé (detalhes técnicos)", () => {
+    expect(html).toContain("Detalhes técnicos");
     expect(html).toContain("Inconclusivo");
+    expect(html).toContain("Mexeu onde não devia");
+    expect(html).toContain("Resolve sempre?");
     expect(html).toContain("custo estimado (US$, lista; inclui execuções com erro)");
     expect(html).toContain("pass^k (k=2;");
     expect(html).toContain("tokens de cache");
@@ -82,7 +108,7 @@ describe("gerarHtml", () => {
     expect(gerarHtml(analisarSaida(sujo), meta)).not.toContain("<img onerror");
   });
   it("renderiza dados vazios sem exceção", () => {
-    expect(gerarHtml(analisarSaida({}), meta)).toContain("Inconclusivo");
+    expect(gerarHtml(analisarSaida({}), meta)).toContain("Falta dado para comparar");
   });
   it("tabela de terminal tem as duas variantes", () => {
     const t = tabelaTerminal(analisarSaida(fixture));

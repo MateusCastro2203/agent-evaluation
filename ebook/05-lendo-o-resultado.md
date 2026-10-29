@@ -4,7 +4,7 @@ O run terminou e o relatório está aberto. A tentação é olhar a taxa de suce
 
 ## A ordem de leitura
 
-O relatório (`pnpm relatorio`, que imprime uma tabela no terminal e grava `resultados/relatorio.html`) mostra, por variante, as métricas do capítulo 2, o veredito e uma tabela por tarefa. Leia nesta ordem:
+O relatório é gerado no fim do `pnpm eval` (ou com `pnpm relatorio`): imprime uma tabela no terminal e grava `resultados/relatorio.html`. No topo do HTML vem o veredito em português simples ("Ainda não dá para saber", "Com CLAUDE.md foi melhor" ou "Sem CLAUDE.md foi melhor") e as duas taxas com a margem de erro. Abaixo, as métricas do capítulo 2 com nomes do dia a dia ("Resolve sempre?" é o pass^k; "Mexeu onde não devia" é o fora do escopo), a tabela por tarefa e, no fim, os "Detalhes técnicos" (intervalo de Wilson, teste z, tokens). Leia nesta ordem:
 
 1. **n por variante e quantos `erro_agente`.** O n da taxa conta só as execuções sem `erro_agente`. Se uma variante teve muitos erros de agente, o run não está equilibrado: investigue antes de concluir qualquer coisa.
 2. **Taxa de sucesso com intervalo.** A taxa observada e a faixa de taxas compatíveis com ela.
@@ -91,6 +91,6 @@ Veredito: **inconclusivo**. As barras se sobrepõem entre 81% e 90%, e o relató
 
 ## O portão de qualidade
 
-`pnpm relatorio` termina com código de saída 1 **só** quando o veredito é "A melhor" (`codigoDeSaida`, em `src/relatorio.ts`), ou seja, quando há evidência de que a mudança piorou o agente. "Inconclusivo" e "B melhor" saem com 0. Se o arquivo de entrada não puder ser lido, sai com 2. (Não confunda com o `pnpm eval`, que sai com 100 quando alguma execução não passou: isso é do promptfoo e não é veredito.)
+`pnpm relatorio` (e, portanto, o `pnpm eval`, que o roda no fim) termina com código de saída 1 **só** quando o veredito é "A melhor" (`codigoDeSaida`, em `src/relatorio.ts`), ou seja, quando há evidência de que a mudança piorou o agente. "Inconclusivo" e "B melhor" saem com 0. Se o arquivo de entrada não puder ser lido, sai com 2. (Não confunda com o código 100 que o promptfoo devolve quando alguma execução não passou: isso não é veredito, e o `pnpm eval` não o repassa.)
 
 Isso permite pôr o relatório no CI (integração contínua, o pipeline que roda a cada push ou PR) como portão: se alguém mudar o `CLAUDE.md` e a eval mostrar piora clara, o build quebra. Quebrar o build por "inconclusivo" seria um erro: com poucas execuções, isso aconteceria o tempo todo por falta de dado, e o time aprenderia a ignorar o portão.
