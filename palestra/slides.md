@@ -459,40 +459,49 @@ Exemplo de resultado (o ensaio gravado, não o de hoje): A 12/16 (75%, margem 51
 
 <p class="selo">Chute antes de eu mostrar</p>
 
-## B é o dobro de A. B ganhou?
+## B acertou mais. Então B ganhou?
 
 <!--
-[25:00–25:30] Slide único, sem cliques. EXEMPLO INVENTADO, não é o run de hoje. Perguntar: "A passou 6 de 16, B passou 12 de 16. B é o dobro. Quem acha que B ganhou?" (mãos; até 15 s). Se a maioria disse "ganhou": "É a resposta natural. E é exatamente o 'parece que melhorou'."
+[25:00–25:30] Slide único, sem cliques. A pergunta é sobre o relatório que acabou de aparecer no slide 18. Perguntar: "B acertou mais que A. Quem acha que B ganhou?" (mãos; até 15 s). Se a maioria disse "ganhou": "É a resposta natural. E é exatamente o 'parece que melhorou' do começo."
+Se hoje B NÃO acertou mais (empate ou A na frente): trocar a pergunta por "Então A e B são iguais?" e seguir; a resposta do slide seguinte vale do mesmo jeito.
 Avançar para o slide seguinte com a resposta.
 -->
 
 ---
 
-## 6 de 16 × 12 de 16: o que a conta diz
+## Quando dá para dizer quem ganhou
 
-<div class="barras">
+<div class="dupla">
 <div>
-<p class="rotulo">A: 6 de 16 → 37,5% · margem <b>18% a 61%</b></p>
-<div class="escala"><div class="iv" style="left:18.5%; width:42.9%; background: var(--azul)"></div><div class="pt" style="left:37.2%"></div></div>
+
+### As faixas se cruzam
+
+<div class="escala"><div class="iv" style="left:30%; width:45%; background: var(--azul)"></div></div>
+<div class="escala"><div class="iv" style="left:55%; width:40%; background: var(--acento)"></div></div>
+
+**Ainda não dá para saber**
+
 </div>
 <div>
-<p class="rotulo">B: 12 de 16 → 75% · margem <b>51% a 90%</b></p>
-<div class="escala"><div class="iv" style="left:50.5%; width:39.3%; background: var(--acento)"></div><div class="pt" style="left:74.7%"></div></div>
+
+### As faixas se separam
+
+<div class="escala"><div class="iv" style="left:10%; width:35%; background: var(--azul)"></div></div>
+<div class="escala"><div class="iv" style="left:60%; width:35%; background: var(--acento)"></div></div>
+
+**Agora dá: B é melhor**
+
 </div>
-<div class="eixo"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>
 </div>
 
-<p class="punch">As margens se cruzam: <strong>ainda não dá para saber</strong>.</p>
-
-<p class="fonte">Exemplo ilustrativo, não é o run de hoje · margem = intervalo de Wilson 95% · Wilson (1927); Wikipedia, "Binomial proportion confidence interval"</p>
+<p class="fonte">Cada faixa é a margem de erro de uma variante (intervalo de Wilson 95%) · Wilson (1927); Wikipedia, "Binomial proportion confidence interval"</p>
 
 <!--
-[25:30–26:45] Slide único, sem cliques: barras e veredito já estão na tela. A: 37,5%, intervalo 18% a 61%. B: 75%, intervalo 51% a 90%. As barras se sobrepõem (51% a 61%): inconclusivo, ou seja, "ainda não dá para saber".
-Analogia: dois candidatos com 37% e 75% parecem distantes, mas, se a pesquisa ouviu só 16 pessoas, as margens de erro se cruzam e ainda é "empate técnico". Mais entrevistas, margem menor.
-O intervalo é a faixa de taxas "verdadeiras" compatíveis com o que vimos, com 95% de confiança. O ponto preto é a taxa observada.
-Wilson em vez da conta "p ± 1,96·√(p(1−p)/n)": com n pequeno ou taxa perto de 0% ou 100%, a conta simples dá intervalo que sai de [0, 1] ou tem largura zero (16/16 daria "100% ± 0"). Wilson não tem esse problema.
-Regra do repo: se o limite inferior de B passa do limite superior de A, "B melhor"; o contrário, "A melhor"; senão, "inconclusivo". Inconclusivo não é empate: é "não tenho dado para dizer".
-Não se sobrepor é um critério conservador de propósito (um teste z de duas proporções chamaria 6/16 × 12/16 de significativo, p≈0,03); o repo prefere não declarar vencedor cedo.
+[25:30–26:45] Slide único, sem cliques. Não tem número de propósito: é a regra para ler qualquer relatório, inclusive o de hoje.
+Fala: "Cada variante tem a sua faixa: a margem de erro. Se as faixas se cruzam, ainda não dá para saber quem é melhor. Só quando elas se separam dá para dizer." Depois, apontar para o relatório de hoje (slide 18): "No nosso, as faixas se cruzam. Então: ainda não dá para saber."
+Analogia: pesquisa eleitoral com poucas entrevistas: dois candidatos parecem longe, mas as margens se cruzam e é "empate técnico". Mais entrevistas, margem menor.
+Regra do repo: se a faixa de B fica toda acima da de A, "B melhor"; toda abaixo, "A melhor"; senão, "inconclusivo" (= ainda não dá para saber). Não é empate: é "não tenho dado para dizer".
+Se perguntarem por que não um teste de hipótese: exigir faixas sem cruzar é mais rigoroso de propósito; um teste z de duas proporções declararia vencedor mais cedo. Por que Wilson: com poucas execuções ou taxa perto de 0% ou 100%, a conta simples dá faixas absurdas (16 de 16 daria "100% ± 0").
 -->
 
 ---

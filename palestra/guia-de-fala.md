@@ -350,27 +350,33 @@ Vá linha por linha, devagar. É o slide mais "de levar para casa" do bloco.
 
 ---
 
-### Slide 19 — Chute: "B é o dobro de A. B ganhou?" · [25:00–25:30] · sem cliques
+### Slide 19 — Chute: "B acertou mais. Então B ganhou?" · [25:00–25:30] · sem cliques
 
-**Pergunte:** *"Exemplo inventado, não é o de hoje: A passou 6 de 16, B passou 12 de 16. B é o dobro. Quem acha que B ganhou?"* Mãos; até 15 s.
+A pergunta é sobre o relatório que a plateia acabou de ver no slide 18.
+
+**Pergunte:** *"B acertou mais que A. Quem acha que B ganhou?"* Mãos; até 15 s.
 
 **O que dizer em cada caso:**
 - **A maioria disse "ganhou":** *"É a resposta natural. E é exatamente o 'parece que melhorou' do começo."*
-- **A maioria disse "não":** *"Vocês já pegaram o jeito. Agora a regra exata."*
+- **A maioria disse "não":** *"Vocês já pegaram o jeito. Agora a regra."*
 
-**Transição:** *"Vamos ver o que a conta diz."*
+**Se hoje B não acertou mais** (empate ou A na frente): pergunte *"Então A e B são iguais?"*. A resposta do slide seguinte vale do mesmo jeito.
+
+**Transição:** *"Vamos ver como se lê isso."*
 
 ---
 
-### Slide 20 — Resposta: 6 de 16 × 12 de 16 · [25:30–26:45] · sem cliques
+### Slide 20 — Resposta: quando dá para dizer quem ganhou · [25:30–26:45] · sem cliques
 
-**Diga:** *"A deu 37,5%, mas a margem de erro vai de 18% a 61%. B deu 75%, com margem de 51% a 90%. As faixas se cruzam entre 51% e 61%. Então: ainda não dá para saber."*
+O slide não tem números de propósito: é a regra para ler qualquer relatório, inclusive o de hoje.
 
-**Analogia:** *"É a pesquisa eleitoral com 16 entrevistados. Um candidato com 37% e outro com 75% parece longe. Mas, com tão pouca gente ouvida, as margens se cruzam: é empate técnico. Ouvindo mais gente, a margem diminui."*
+**Diga:** *"Cada variante tem a sua faixa: a margem de erro. Se as faixas se cruzam, como na esquerda, ainda não dá para saber quem é melhor. Só quando elas se separam, como na direita, dá para dizer."* Depois, volte ao relatório de hoje com a fala: *"No nosso, as faixas se cruzam. Então: ainda não dá para saber."* (Se hoje elas se separaram, diga: *"No nosso, elas se separaram: dessa vez dá para dizer."*)
+
+**Analogia:** *"É a pesquisa eleitoral com poucas entrevistas. Dois candidatos parecem longe, mas as margens se cruzam: é empate técnico. Ouvindo mais gente, a margem diminui."*
 
 **Diga a regra do repo:** *"Se a faixa de B fica toda acima da de A, B é melhor. Se fica toda abaixo, A é melhor. Se elas se cruzam, ainda não dá para saber. E isso não é empate: é 'não tenho dado para dizer'."*
 
-**Se alguém mais experiente perguntar "por que não um teste de hipótese?":** *"Um teste z de duas proporções chamaria 6/16 contra 12/16 de significativo, p perto de 0,03. Exigir faixas sem cruzar é mais rigoroso, de propósito: o repo prefere não declarar vencedor cedo."*
+**Se alguém mais experiente perguntar "por que não um teste de hipótese?":** *"Um teste z de duas proporções declararia vencedor mais cedo. Exigir faixas sem cruzar é mais rigoroso, de propósito: o repo prefere não declarar vencedor cedo. O relatório mostra os dois números."*
 
 **Por que Wilson e não a conta simples (`p ± 1,96·√(p(1−p)/n)`), se perguntarem:** com poucas execuções ou taxa perto de 0% ou 100%, a conta simples dá faixas absurdas (16 de 16 daria "100% ± 0"). O intervalo de Wilson não tem esse problema.
 
