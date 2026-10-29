@@ -1,69 +1,82 @@
 # Por que medir
 
-Este ebook é a palestra "Como medir os seus agentes de IA" em texto corrido, mais o que você precisa para rodar e adaptar o repositório `agent-evaluation`. A palestra cabe em 40 minutos, com as perguntas; aqui dá para ir com calma, ver o código e voltar quando for montar a sua própria eval.
+Este ebook acompanha a palestra "Como medir os seus agentes de IA". A palestra tem 40 minutos, com as perguntas. Aqui dá para ir com calma, ver o código e voltar quando for montar a sua própria medição.
 
-## A aposta
-
-A palestra começa com uma aposta. Eu escrevi um `CLAUDE.md` para um projeto pequeno, com as convenções da casa: que tipo de erro lançar, como lidar com dinheiro, de onde vem a hora atual, que pasta não se toca. Acho que ele ajuda o agente. Mas "acho" não é medida.
-
-Então, no primeiro minuto, eu rodo:
-
-```bash
-pnpm eval
-```
-
-Esse comando põe o Claude Code para trabalhar **32 vezes**: 2 variantes × 8 tarefas × 2 repetições. No fim, ele mesmo gera o relatório com o resultado.
-
-- **Variante A:** o repositório como está, sem `CLAUDE.md`.
-- **Variante B:** o mesmo repositório, com o `CLAUDE.md`.
-
-Isso é uma **eval** (de *evaluation*, avaliação): um conjunto de tarefas em que "deu certo" é conferido por código, rodado várias vezes, para comparar o antes e o depois de uma mudança. Neste ebook, "variante" é cada versão comparada.
-
-Enquanto o agente trabalha, a palestra explica o que está sendo medido e por quê. No fim, o relatório diz se o `CLAUDE.md` presta. Ou diz que ainda não dá para saber, que é uma resposta tão útil quanto as outras (capítulo 5).
+Você não precisa saber estatística nem ter rodado uma eval antes. Os capítulos para quem está começando usam palavras do dia a dia. Quando aparece um termo técnico, ele vem entre parênteses na primeira vez: é o termo que você vai digitar no buscador se quiser ir mais fundo. O glossário, no fim, junta todos.
 
 ## "Parece que melhorou"
 
-Todo mundo que usa agente de código já fez isto:
+Um **agente de código** é um programa que usa um modelo de IA para mexer no seu projeto: ele lê arquivos, edita, roda os testes e decide o próximo passo sozinho. O Claude Code, que a palestra usa, é um deles: roda no terminal e trabalha no seu repositório.
 
-1. mudou o prompt, o `CLAUDE.md` ou o modelo;
+Todo mundo que usa um agente assim já fez isto:
+
+1. mudou alguma coisa: o prompt, o modelo ou o `CLAUDE.md` (um arquivo de texto com as regras da casa, que o Claude Code lê antes de começar);
 2. pediu **uma** tarefa;
 3. deu certo;
 4. "melhorou!".
 
-É o *vibe check*: avaliar no olho, pela sensação de uso, sem número. Ele não é inútil: é como você descobre que vale a pena olhar para alguma coisa. O problema é parar nele, porque ficou muita coisa de fora:
+Esse "avaliar no olho" tem nome: *vibe check*. Ele não é inútil. É como você descobre que vale a pena olhar para alguma coisa. O problema é parar nele, porque muita coisa ficou de fora:
 
-- A tarefa era fácil ou difícil? Uma tarefa fácil passa com qualquer configuração.
+- A tarefa era fácil? Uma tarefa fácil dá certo com qualquer configuração.
 - Se você pedisse de novo, daria certo de novo?
-- Quanto custou? Quantos turnos (idas e voltas entre o modelo e as ferramentas) o agente gastou?
-- Ele mexeu em arquivo que não devia?
+- Quanto custou? Quantas idas e vindas o agente deu?
+- Ele mexeu onde não devia?
 - Teria dado certo **antes** da mudança também?
 
 A última pergunta é a mais esquecida. Sem rodar a configuração antiga nas mesmas tarefas, você não tem com o que comparar.
 
-## O agente não é determinístico
+## O que é uma eval
 
-Mesmo prompt, mesmo repositório, mesmo modelo: o agente não faz a mesma coisa duas vezes. O modelo sorteia cada token (o pedacinho de texto que ele escreve) de uma distribuição de probabilidade, e o loop de ferramentas amplifica qualquer diferença pequena do começo. Um agente lê o arquivo A primeiro, o outro lê o B; um roda os testes, o outro não. No fim, um passa e o outro falha. Isso é o comportamento normal da ferramenta, não um defeito.
+**Eval** vem de *evaluation*, avaliação. Em uma frase: um conjunto de tarefas em que "deu certo" é conferido por código, repetidas várias vezes, para comparar o antes e o depois de uma mudança.
 
-A consequência prática: **uma execução é uma amostra, não um resultado**. A pergunta certa não é "passou?", e sim "com que frequência passa?". Frequência se estima com várias execuções e se reporta com um intervalo de confiança: a margem de erro, como a de uma pesquisa eleitoral. Com poucas pessoas ouvidas, a margem é larga; com mais, ela estreita.
+São três ingredientes. Cada um tem uma analogia.
 
-## Quanto diz uma execução?
+**1. "Deu certo" conferido por código.** Pense numa prova com gabarito. O aluno recebe o enunciado, mas não vê o gabarito, que fica com o professor. Aqui, o enunciado é o pedido ao agente, escrito como uma issue (o pedido de trabalho que se abre no GitHub ou no Jira). O gabarito é um teste automático: um pequeno programa que confere se o código faz o que devia. O agente nunca vê esse teste. Por isso a palestra o chama de **teste escondido**.
 
-O repositório usa o **intervalo de Wilson** com 95% de confiança (explicado no capítulo 5). Dois números para calibrar a intuição:
+**2. Repetidas várias vezes.** O agente não faz a mesma coisa duas vezes (próxima seção). Jogue uma moeda 4 vezes e tire 3 caras: isso não prova que a moeda é viciada. Jogue 400 vezes e tire 300: agora prova. Com o agente é igual. Uma execução que deu certo diz pouco. Muitas execuções dizem bastante.
 
-| Observado | Taxa real compatível (Wilson, 95%) |
+**3. Antes × depois de uma mudança.** Você roda as mesmas tarefas com a configuração antiga e com a nova, e compara. Neste ebook, cada versão comparada se chama **variante**: a A é o "antes", a B é o "depois".
+
+## O agente não faz a mesma coisa duas vezes
+
+Mesmo pedido, mesmo repositório, mesmo modelo: o resultado muda de uma execução para outra. O modelo escreve o texto um pedacinho por vez. Cada pedacinho se chama **token** e é sorteado entre as opções mais prováveis. Uma diferença pequena no começo vira uma diferença grande no fim. Um agente lê o arquivo A primeiro, o outro lê o B; um roda os testes, o outro não. No fim, um dá certo e o outro não.
+
+Isso é o comportamento normal da ferramenta, não um defeito. No jargão, o agente **não é determinístico**.
+
+A consequência prática: **uma execução é uma amostra, não um resultado**. A pergunta certa não é "deu certo?". É "com que frequência dá certo?".
+
+## Margem de erro: como numa pesquisa eleitoral
+
+Pesquisa eleitoral não diz só "o candidato tem 40%". Ela diz "40%, com margem de erro de 3 pontos". Com poucas pessoas ouvidas, a margem é larga. Com mais pessoas, ela estreita.
+
+A taxa de acerto de um agente funciona do mesmo jeito. O repositório calcula a margem de erro com uma conta chamada **intervalo de Wilson**, com 95% de confiança (o capítulo 5 explica). Dois números para calibrar a intuição:
+
+| O que você viu | Onde a taxa real pode estar (margem de erro) |
 |---|---|
-| 1 de 1 passou | entre **21% e 100%** |
-| 16 de 16 passaram | entre **81% e 100%** |
+| deu certo 1 de 1 vez | entre **21% e 100%** |
+| deu certo 16 de 16 vezes | entre **81% e 100%** |
 
-Uma execução que passou é compatível com um agente que acerta uma vez a cada cinco. E mesmo 16 acertos em 16 tentativas não provam 100%. Esses números são conta, não opinião: é a mesma fórmula que o relatório do repositório usa.
+Uma execução que deu certo combina até com um agente que acerta uma vez a cada cinco. E mesmo 16 acertos em 16 tentativas não provam 100%. Esses números são conta, não opinião: é a mesma fórmula que o relatório do repositório usa.
+
+## O experimento da palestra
+
+Eu escrevi um `CLAUDE.md` para um app pequeno de exemplo, com as regras da casa: que tipo de erro lançar, como lidar com dinheiro, de onde vem a hora atual, que pasta não se toca. Acho que ele ajuda o agente. Mas "acho" não é medida. Então, no começo da palestra, eu rodo `pnpm eval`, e o Claude Code faz as mesmas 8 tarefas **sem** o `CLAUDE.md` (variante A) e **com** ele (variante B), duas vezes cada: 32 execuções, enquanto eu falo. No fim, o próprio comando gera um relatório que diz "Com CLAUDE.md foi melhor", "Sem CLAUDE.md foi melhor" ou "Ainda não dá para saber". No ensaio, deu "Ainda não dá para saber", e o capítulo 5 mostra por quê.
+
+O repositório `agent-evaluation` roda esse mesmo experimento no seu computador, com o login normal do Claude Code. Não precisa de chave de API.
+
+## Como ler este ebook
+
+- **Está começando?** Leia os capítulos 1, 2, 5 e 8. Eles explicam o que medir, como ler o resultado e onde é fácil se enganar. O glossário, no fim, ajuda com os termos.
+- **Vai rodar e adaptar o repositório?** Leia também os capítulos 3, 4 e 6. Eles mostram como as tarefas são montadas, o que acontece em cada execução e como trocar o app de exemplo pelo seu projeto.
+- **O capítulo 7** traz lições de agentes em produção. Vale para os dois públicos.
+
+Nos capítulos mais técnicos, as partes avançadas ficam em seções marcadas como **"Para quem quer ir fundo"**. Dá para pular sem perder o fio.
 
 ## O que você leva deste ebook
 
 Ao final, você consegue:
 
-- dizer quais métricas definem "efetivo" para um agente de código: sucesso pelo critério de feito, custo e tokens, turnos, tempo, edição fora do escopo e consistência entre execuções (capítulo 2);
+- dizer o que medir num agente de código: se deu certo, quanto custou, quantas voltas deu, quanto demorou, se mexeu onde não devia e se resolve sempre (capítulo 2);
 - montar um conjunto pequeno de tarefas com testes escondidos e rodar o seu agente contra ele (capítulos 3 e 4);
-- comparar duas configurações, por exemplo com e sem `CLAUDE.md`, e ler o resultado com intervalo de confiança, sem se enganar com uma execução só (capítulo 5);
-- transformar uma falha observada em tarefa nova do conjunto (capítulo 6).
-
-O repositório roda o mesmo experimento da palestra com o login normal do Claude Code. Não precisa de chave de API.
+- comparar duas configurações, por exemplo sem e com `CLAUDE.md`, e ler o resultado com a margem de erro, sem se enganar com uma execução só (capítulo 5);
+- transformar uma falha do dia a dia em tarefa nova da eval (capítulo 6).

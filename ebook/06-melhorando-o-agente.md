@@ -1,15 +1,15 @@
 # Melhorando o agente
 
-Medir só vale se vira decisão. Este capítulo é sobre como usar a eval para melhorar o agente que você usa, e como montar a eval no seu próprio projeto.
+Medir só vale se vira decisão. Este capítulo é sobre como usar a eval para melhorar o agente que você usa, e como montar a eval no seu próprio projeto. As duas primeiras seções servem para qualquer pessoa. O roteiro de adaptação e o desafio extra são para quem vai mexer no repositório.
 
 ## Uma mudança por vez
 
-O ciclo é o mesmo de um teste A/B de produto:
+Pense numa receita de bolo. Se você troca o forno **e** a farinha no mesmo dia e o bolo fica melhor, não sabe qual dos dois ajudou. O ciclo é o mesmo de um teste A/B de produto:
 
 1. rode a eval **antes** da mudança (a linha de base);
 2. mude **uma** coisa;
 3. rode a eval **de novo**, com repetições;
-4. compare com intervalo de confiança, não com a média.
+4. compare as margens de erro (o intervalo de confiança), não só a taxa.
 
 "Uma coisa" pode ser:
 
@@ -25,7 +25,13 @@ Uma dica prática: commite a configuração do agente junto com o resultado da e
 
 ## Onde cada regra mora
 
-O Claude Code oferece três lugares para pôr uma regra. Eles se comportam de modo diferente.
+O Claude Code oferece três lugares para pôr uma regra. Em uma linha cada:
+
+- **`CLAUDE.md`:** um texto com as regras do projeto, que o agente lê no começo de toda conversa.
+- **Skill:** um "manual" sobre um assunto, que o agente só abre quando a tarefa pede.
+- **Hook:** um script seu que roda automaticamente antes ou depois de cada ação do agente, e pode bloquear a ação.
+
+Eles se comportam de modo diferente.
 
 | | Quando entra | Bom para | Cuidado |
 |---|---|---|---|
@@ -39,7 +45,7 @@ O Claude Code oferece três lugares para pôr uma regra. Eles se comportam de mo
 
 A regra que resume a tabela: **regra que não pode falhar não mora no prompt. Mora no hook, no teste ou no CI.**
 
-Cada linha dessa tabela é uma variante B possível no repositório. Troque o `CLAUDE.md` por uma skill com as mesmas convenções, ou por um hook que bloqueia edição em `src/legado/`, e rode de novo. A pergunta deixa de ser "qual é melhor?" em abstrato e passa a ser "qual é melhor nestas tarefas, com este intervalo?".
+Cada linha dessa tabela é uma variante B possível no repositório. Troque o `CLAUDE.md` por uma skill com as mesmas convenções, ou por um hook que bloqueia edição em `src/legado/`, e rode de novo. A pergunta deixa de ser "qual é melhor?" em abstrato e passa a ser "qual é melhor nestas tarefas, com esta margem de erro?".
 
 ## Falha vira tarefa nova
 
@@ -58,10 +64,9 @@ O conjunto de tarefas não é fixo. Ele cresce com o uso:
 Catraca é um mecanismo que só gira para um lado. Aplicada à eval:
 
 - o conjunto de tarefas **só cresce**;
-- o portão só quebra com evidência de piora (intervalos sem sobreposição, capítulo 5);
-- o portão roda no CI.
+- o portão só quebra com evidência de piora (faixas que se separam, capítulo 5).
 
-O portão não olha a taxa crua ("não pode cair abaixo da última vez"). Com poucas execuções, a taxa oscila de uma rodada para outra só por ruído, e um portão assim ficaria vermelho sem o agente ter piorado.
+O portão roda no CI (integração contínua: o processo que roda os testes automaticamente a cada push ou PR) e não olha a taxa crua ("não pode cair abaixo da última vez"). Com poucas execuções, a taxa oscila de uma rodada para outra só por ruído, e um portão assim ficaria vermelho sem o agente ter piorado.
 
 ## Adapte ao seu projeto
 
@@ -71,21 +76,21 @@ O laboratório é pequeno de propósito. A eval que importa é a do **seu** repo
 
 **2. Junte 5 pedidos reais.** Procure no histórico do time: issues fechadas, PRs pequenos, pedidos que você fez ao agente na última semana. Prefira tarefas que um dev resolve em minutos, não em horas: cada execução precisa caber em poucos minutos, e você vai rodar várias.
 
-**3. Misture convenção e controle.** Pelo menos 3 tarefas devem depender de algo que só a sua mudança ensina (a convenção do `CLAUDE.md`, o procedimento da skill). Pelo menos 2 devem ser controle, sem relação com a mudança. Se B ganhar também nos controles, desconfie.
+**3. Misture regra da casa e controle.** Pelo menos 3 tarefas devem depender de algo que só a sua mudança ensina (a regra do `CLAUDE.md`, o procedimento da skill). Pelo menos 2 devem ser controle, sem relação com a mudança. Se B ganhar também nos controles, desconfie.
 
-**4. Escreva o prompt como issue.** Diga o que a pessoa quer, não como o projeto faz. Não cite a convenção no prompt: se citar, A e B empatam.
+**4. Escreva o prompt como issue.** Diga o que a pessoa quer, não como o projeto faz. Não cite a regra da casa no prompt: se citar, A e B empatam.
 
-**5. Escreva o teste escondido.** Ele é o critério de feito. Teste o comportamento e a convenção, não um detalhe que o prompt não pediu (lembre do código de erro da tarefa 03, no capítulo 3). Se o seu projeto não tem teste, comece por aqui: escrever o teste da tarefa é o primeiro entregável.
+**5. Escreva o teste escondido.** Ele é o critério de feito. Teste o comportamento e a regra da casa, não um detalhe que o prompt não pediu (lembre do código de erro da tarefa 03, no capítulo 3). Se o seu projeto não tem teste, comece por aqui: escrever o teste da tarefa é o primeiro entregável.
 
 **6. Defina `permitidos`.** Liste os arquivos e pastas que a tarefa pode tocar. Inclua a pasta de testes, se o agente puder escrever testes.
 
 **7. Prove que a tarefa é honesta.** Ela tem que falhar no código intacto e passar com uma solução de referência que você escreve. Guarde a solução em `solucao/`.
 
-**8. Troque o laboratório pelo seu repo.** No `agent-evaluation`, são estas as mudanças:
+**8. Troque o laboratório pelo seu repo.** Este passo é o mais técnico. No `agent-evaluation`, são estas as mudanças:
 
 - **De onde vem a cópia:** a constante `LAB` em `src/copia.ts` aponta para `laboratorio/`. Troque pelo caminho do seu projeto (ou copie o projeto para dentro de `laboratorio/`). A cópia continua sendo feita numa pasta temporária: o agente nunca trabalha no seu checkout.
 - **As tarefas:** ponha as suas em `tarefas/NN-nome/` (`tarefa.json`, `oculto.test.ts`, `solucao/`) e a sua mudança em `variantes/b/`.
-- **Os termos proibidos nos prompts:** o teste em `test/tarefas.test.ts` tem uma regex com as palavras que nenhum prompt pode conter (hoje, `ErroDominio`, `relogio`, `Math.floor`, auditoria, `src/relatorios`, legado, `CLAUDE.md`). Troque pelos nomes das convenções do **seu** projeto, para o teste continuar impedindo que o prompt entregue a resposta.
+- **Os termos proibidos nos prompts:** o teste em `test/tarefas.test.ts` tem uma regex (expressão regular, um padrão de texto) com as palavras que nenhum prompt pode conter (hoje, `ErroDominio`, `relogio`, `Math.floor`, auditoria, `src/relatorios`, legado, `CLAUDE.md`). Troque pelos nomes das regras do **seu** projeto, para o teste continuar impedindo que o prompt entregue a resposta.
 - **As dependências:** a cópia precisa delas para rodar os testes. O repositório instala uma vez, em `.lab-deps`, a lista fixa de `prepararDependencias` em `src/copia.ts` (hoje só `vitest` e `@types/node`, nas versões da raiz), deixa a pasta somente leitura, confere um hash dela antes e depois da correção e monta na cópia um `node_modules` com links para ela. Troque essa lista pelas dependências do seu projeto e mantenha as duas garantias: somente leitura e hash conferido.
 - **Stack que não é Node:** o executor do teste escondido é Vitest, com a configuração fixa em `src/vitest-oculto.config.mjs`. Se o seu projeto é Python, Go, Java etc., troque esse executor pelo equivalente do seu stack (por exemplo, rodar só o arquivo do teste escondido com o runner da linguagem), mantendo as duas garantias: o teste entra por último, numa pasta corrigida nova, depois que o agente termina, e a configuração do runner vem de fora da cópia.
 
@@ -100,9 +105,9 @@ O laboratório é pequeno de propósito. A eval que importa é a do **seu** repo
 
 Cinco tarefas com duas repetições são 10 execuções por variante. Isso raramente separa A de B, mas já mostra onde o agente erra, e cada erro vira uma tarefa nova.
 
-## Desafio extra: medir outro agente
+## Para quem quer ir fundo: medir outro agente
 
-O método não é específico do Claude Code. No repositório, a parte que chama o agente fica isolada atrás de uma interface, a `RodarAgente` (em `src/claude.ts`):
+Este é um desafio extra. O método não é específico do Claude Code. No repositório, a parte que chama o agente fica isolada atrás de uma interface, a `RodarAgente` (em `src/claude.ts`):
 
 ```ts
 export interface SaidaAgente {

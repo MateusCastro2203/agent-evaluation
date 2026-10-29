@@ -1,6 +1,6 @@
 # Caso real: agentes KTLO na Creditas
 
-Na Creditas, um time construiu agentes que resolvem chamados operacionais de suporte, o trabalho de *keep the lights on* (KTLO): o que mantém a operação rodando no dia a dia. Medir esses agentes ensinou mais sobre eval do que qualquer benchmark.
+Na Creditas, um time construiu agentes que resolvem chamados operacionais de suporte, o trabalho de *keep the lights on* (KTLO): o que mantém a operação rodando no dia a dia. Medir esses agentes ensinou mais sobre eval do que qualquer benchmark (um conjunto público de tarefas usado para comparar modelos).
 
 Este capítulo traz só as lições. Ele não traz números internos, nomes de sistemas, de parceiros ou de pessoas, nem dados de clientes. As lições valem para qualquer agente, inclusive o agente de código que você usa.
 
@@ -22,7 +22,7 @@ Se a composição do denominador muda, a taxa muda sem o agente mudar. A lição
 
 Algumas execuções custavam muito mais que a média, por causa do número de turnos. A média escondia isso; por isso olhar mediana e cauda importa mais que olhar a média.
 
-A primeira tentativa de controle foi pôr no prompt algo como "pare depois de N chamadas". **Não segurou**: o modelo não conta os próprios turnos. O teto de orçamento virou um **hook determinístico**, código que roda fora do modelo e bloqueia a execução quando o limite é atingido.
+A primeira tentativa de controle foi pôr no prompt algo como "pare depois de N chamadas". **Não segurou**: o modelo não conta as próprias voltas. O teto de orçamento virou um **hook**: um script que roda fora do modelo, a cada ação, e bloqueia a execução quando o limite é atingido. Ele é determinístico: faz sempre a mesma coisa.
 
 É o mesmo princípio do capítulo 6: regra que não pode falhar não mora no prompt.
 
@@ -30,10 +30,10 @@ A primeira tentativa de controle foi pôr no prompt algo como "pare depois de N 
 
 A eval ficou com duas camadas:
 
-- uma **determinística**, que roda a cada commit e testa a lógica do agente sem chamar o modelo;
+- uma **determinística** (que dá sempre o mesmo resultado), que roda a cada commit e testa a lógica do agente sem chamar o modelo;
 - uma com o **modelo real**, que roda contra um **gabarito curado por humano**.
 
-O gabarito **nasce vazio**. O humano escreve a resposta esperada sem olhar o que o agente respondeu. Se você copia a resposta do agente para o gabarito, você mede o agente contra ele mesmo, e herda o viés dele.
+O gabarito **nasce vazio**. A pessoa escreve a resposta esperada sem olhar o que o agente respondeu. Se você copia a resposta do agente para o gabarito, é como deixar o aluno escrever o gabarito da própria prova: você mede o agente contra ele mesmo, e herda os vícios dele.
 
 O repositório desta palestra repete as duas camadas: `pnpm test` (o medidor, com agente falso) e `pnpm eval` (o Claude Code de verdade), capítulo 4.
 
@@ -43,9 +43,9 @@ A cobertura da eval é uma matriz: **rota × desfecho**. Cada rota (um tipo de c
 
 A lista de células **sem cobertura** só pode **encolher**. Um teste quebra se alguém tirar cobertura. É a catraca do capítulo 6, aplicada à cobertura da eval.
 
-## 6. LLM-as-judge rejeitado ali
+## 6. IA como juiz: rejeitada ali
 
-Usar outro modelo como juiz (*LLM-as-judge*) foi considerado e rejeitado naquele contexto. A razão: um juiz não determinístico avaliando um agente não determinístico **soma variância**. Cada número da eval passa a ter duas fontes de ruído em vez de uma.
+Usar outro modelo para dar nota ao trabalho do agente (IA como juiz, ou *LLM-as-judge*, capítulo 2) foi considerado e rejeitado naquele contexto. A razão: um juiz que varia avaliando um agente que varia **soma incerteza** (variância, no jargão). Cada número da eval passa a ter duas fontes de ruído em vez de uma.
 
 O critério ficou em código e no gabarito humano.
 
@@ -55,6 +55,6 @@ Isso é ponto de discussão, não regra universal. Há tarefas em que o juiz aju
 
 "O caso que surpreendeu na terça é um teste na quarta." Toda falha observada em produção vira um caso novo no conjunto de eval.
 
-E um aprendizado só vira regra (no prompt, na documentação, num hook) depois de aparecer em **dois ou mais** casos. Isso evita transformar uma exceção em regra para todo mundo.
+E um aprendizado só vira regra da casa (no prompt, na documentação, num hook) depois de aparecer em **dois ou mais** casos. Isso evita transformar uma exceção em regra para todo mundo.
 
 No repositório, é o ciclo "falha vira tarefa nova" do capítulo 6.

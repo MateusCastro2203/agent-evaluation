@@ -1,16 +1,17 @@
 {
   "selo": "Ebook",
   "titulo": "Como medir os seus agentes de IA",
-  "subtitulo": "Do \"parece que melhorou\" para a eval: métricas de um agente de código, tarefas com teste escondido, A × B com intervalo de confiança e como adaptar o repositório agent-evaluation ao seu projeto.",
+  "subtitulo": "Do \"parece que melhorou\" para a medida: como saber se uma mudança no seu agente de código ajudou de verdade, com tarefas, um teste que o agente não vê, repetição e margem de erro. E como rodar e adaptar o repositório agent-evaluation ao seu projeto.",
   "fontes": [
     { "arquivo": "ebook/01-por-que-medir.md", "titulo": "Por que medir" },
     { "arquivo": "ebook/02-o-que-e-efetivo.md", "titulo": "O que é \"efetivo\"" },
     { "arquivo": "ebook/03-montando-tarefas.md", "titulo": "Montando as tarefas" },
-    { "arquivo": "ebook/04-rodando-com-promptfoo.md", "titulo": "Rodando com promptfoo" },
+    { "arquivo": "ebook/04-rodando-com-promptfoo.md", "titulo": "Rodando o experimento" },
     { "arquivo": "ebook/05-lendo-o-resultado.md", "titulo": "Lendo o resultado" },
     { "arquivo": "ebook/06-melhorando-o-agente.md", "titulo": "Melhorando o agente" },
     { "arquivo": "ebook/07-caso-real.md", "titulo": "Caso real: agentes KTLO na Creditas" },
     { "arquivo": "ebook/08-armadilhas.md", "titulo": "Armadilhas" },
+    { "arquivo": "ebook/glossario.md", "titulo": "Glossário" },
     { "arquivo": "ebook/09-referencias.md", "titulo": "Referências" }
   ]
 }

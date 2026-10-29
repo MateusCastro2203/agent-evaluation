@@ -188,4 +188,4 @@ palestra/ ebook/    material da palestra
 
 ## Referências
 
-As referências da palestra, com link, estão no último slide e no capítulo 9 do ebook ([`ebook/09-referencias.md`](ebook/09-referencias.md)).
+As referências da palestra, com link, estão no último slide e no capítulo de Referências do ebook ([`ebook/09-referencias.md`](ebook/09-referencias.md)).

@@ -1,12 +1,14 @@
 # Montando as tarefas
 
-Uma eval de agente de código é um conjunto de **tarefas** com **critério de feito**. A tarefa é o pedido, escrito como você escreveria uma issue. O critério de feito é um teste que prova que o pedido foi atendido. O resto (rodar, repetir, calcular) é encanamento.
+Uma eval de agente de código é um conjunto de **tarefas** com **critério de feito**. A tarefa é o pedido, escrito como você escreveria uma issue. O critério de feito é um teste automático que prova que o pedido foi atendido: o gabarito da prova. O resto (rodar, repetir, calcular) é encanamento.
+
+Este capítulo é para quem vai rodar ou adaptar o repositório. Ele mostra código. As partes mais detalhadas ficam no fim, em "Para quem quer ir fundo".
 
 ## O laboratório
 
-O repositório traz um app pequeno, em TypeScript, chamado laboratório (`laboratorio/`): uma agenda de meetups com eventos, inscrições, importação de inscritos por CSV e um relatório. Os dados são sintéticos e ficam em memória. O app tem testes com Vitest.
+O repositório traz um app pequeno, em TypeScript (JavaScript com tipos), chamado laboratório (`laboratorio/`): uma agenda de meetups com eventos, inscrições, importação de inscritos por CSV (planilha em texto, com vírgulas) e um relatório. Os dados são inventados (sintéticos) e ficam em memória. O app tem testes automáticos escritos com o Vitest, a ferramenta de testes mais comum em projetos TypeScript modernos.
 
-Como todo projeto real, ele tem convenções que não dá para adivinhar só lendo o código. A variante B ganha um `CLAUDE.md` que explica essas convenções. Este é o trecho principal, copiado do repositório (`variantes/b/CLAUDE.md`):
+Como todo projeto real, ele tem **regras da casa** (convenções, no jargão): combinados do time que não dá para adivinhar só lendo o código. A variante B ganha um `CLAUDE.md` que explica essas regras. Este é o trecho principal, copiado do repositório (`variantes/b/CLAUDE.md`):
 
 ```markdown
 ## Convenções
@@ -28,9 +30,11 @@ Como todo projeto real, ele tem convenções que não dá para adivinhar só len
 
 (As linhas foram quebradas para caber na página; no arquivo, cada regra é uma linha.)
 
+Em português: erro de regra de negócio usa o tipo de erro do projeto, com um código todo em MAIÚSCULAS_COM_SUBLINHADO (o formato `SCREAMING_SNAKE`); dinheiro é sempre um número inteiro de centavos, arredondado para baixo; a hora atual vem de um relógio do projeto, que os testes conseguem fixar; toda mudança numa inscrição deixa um registro de auditoria; e a pasta `src/legado/`, de código antigo, não se toca.
+
 ## As 8 tarefas
 
-Cinco tarefas dependem de uma convenção do `CLAUDE.md`. Três são **controle**: não dependem de nenhuma convenção, e A e B deveriam empatar nelas.
+Cinco tarefas dependem de uma regra da casa que só o `CLAUDE.md` explica. Três são **controle**: não dependem de regra nenhuma, e A e B deveriam empatar nelas.
 
 | # | Tarefa (como uma issue) | O teste escondido exige |
 |---|---|---|
@@ -45,11 +49,11 @@ Cinco tarefas dependem de uma convenção do `CLAUDE.md`. Três são **controle*
 
 ### Por que ter tarefas de controle
 
-As tarefas de controle protegem você de uma conclusão errada. O efeito esperado do `CLAUDE.md` está nas tarefas 03 a 07. Se B ganhar **também** nas tarefas 01, 02 e 08, desconfie: pode ser ruído, ou outra coisa mudou entre as variantes.
+As tarefas de controle protegem você de uma conclusão errada. É como o grupo que toma placebo num teste de remédio: se ele melhora tanto quanto o outro, o remédio não explica a melhora. O efeito esperado do `CLAUDE.md` está nas tarefas 03 a 07. Se B ganhar **também** nas tarefas 01, 02 e 08, desconfie: pode ser ruído, ou outra coisa mudou entre as variantes.
 
-### Por que o prompt não cita a convenção
+### Por que o pedido não cita a regra da casa
 
-O prompt é escrito como uma issue de verdade: diz o que a pessoa quer, não como o projeto faz. Se o prompt dissesse "use `ErroDominio`", A e B empatariam, e a eval não mediria nada. O repositório tem um teste que falha se algum prompt mencionar `ErroDominio`, `relogio`, `Math.floor`, auditoria, `src/relatorios`, legado ou `CLAUDE.md`.
+O prompt (o texto do pedido ao agente) é escrito como uma issue de verdade: diz o que a pessoa quer, não como o projeto faz. Se o prompt dissesse "use `ErroDominio`", A e B empatariam, e a eval não mediria nada. Seria como entregar o gabarito junto com a prova. O repositório tem um teste que falha se algum prompt mencionar `ErroDominio`, `relogio`, `Math.floor`, auditoria, `src/relatorios`, legado ou `CLAUDE.md`.
 
 Isso não quer dizer que A não tenha chance. Na tarefa 03, o código já lança `ErroDominio` em outras regras, e um agente atento pode copiar o padrão. Na 05, outra função do app já usa `relogio.agora()`. Já nas tarefas 04 (direção do arredondamento) e 06 (pasta do código novo), não há nenhum sinal no código: elas medem o `CLAUDE.md` quase puro. Vale dizer isso quando você apresentar o resultado.
 
@@ -72,9 +76,21 @@ O `tarefa.json` da tarefa 03, copiado do repositório:
 }
 ```
 
-O agente só recebe o `prompt`. O campo `permitidos` define o escopo: qualquer arquivo alterado fora dessa lista vira `fora_do_escopo`. Nos globs, `*` não atravessa `/` e `**` atravessa. O identificador da tarefa é o nome da pasta.
+O agente só recebe o `prompt`. O campo `permitidos` define onde ele pode mexer: qualquer arquivo alterado fora dessa lista vira `fora_do_escopo` ("mexeu onde não devia"). A lista usa globs, padrões de caminho com curinga: `*` vale para qualquer nome dentro de uma pasta, e `**` vale também para as subpastas. O identificador da tarefa é o nome da pasta.
 
-E o coração do `oculto.test.ts` da mesma tarefa (trecho; os helpers `evento`, `erroDe` e as pessoas `ana`, `bia`, `caio` ficam no topo do arquivo):
+## Três regras para uma tarefa honesta
+
+**1. Toda tarefa falha no app intacto.** Se o teste escondido já passa sem o agente fazer nada, a tarefa é inútil: as duas variantes "resolvem". O repositório verifica isso para as 8 tarefas.
+
+**2. Toda tarefa passa com a solução de referência.** Se nem a solução passa, a tarefa é impossível, e a taxa das duas variantes cai junto. O mesmo teste verifica as duas coisas.
+
+**3. O agente não vê o teste, e não consegue trapacear com ele.** O teste escondido nunca entra na pasta do agente. Ele só aparece depois que o agente termina, numa pasta nova (detalhes abaixo).
+
+Essas regras parecem paranoia até a primeira vez que um agente, tentando "fazer os testes passarem", edita o teste em vez do código.
+
+## Para quem quer ir fundo: o teste escondido por dentro
+
+O coração do `oculto.test.ts` da mesma tarefa (trecho; os helpers `evento`, `erroDe` e as pessoas `ana`, `bia`, `caio` ficam no topo do arquivo):
 
 ```ts
 // O prompt não dá o nome do código: aceita qualquer SCREAMING_SNAKE
@@ -100,6 +116,8 @@ it("vaga liberada por cancelamento pode ser ocupada", () => {
 });
 ```
 
+Cada `expect` é uma conferência. `toBeInstanceOf(ErroDominio)` exige o tipo de erro do projeto. As duas linhas com `toMatch` usam regex (expressão regular, um padrão de texto): a primeira exige o formato em MAIÚSCULAS, a segunda exige uma palavra que fale de lotação.
+
 Repare no que o teste **não** exige: um nome exato de código. O prompt não diz qual código usar, então exigir `EVENTO_LOTADO` letra por letra mediria sorte, não convenção. O teste exige o que a convenção diz (o erro do domínio, com código no formato da casa) e aceita qualquer nome razoável de lotação. Ele só recusa reaproveitar `CAPACIDADE_INVALIDA`, que já existe no app e significa outra coisa.
 
 Desenhar o teste é a parte mais difícil. Outro exemplo é a tarefa 04, cujo teste escolhe valores que separam as interpretações erradas. O comentário do próprio teste explica:
@@ -113,12 +131,6 @@ Desenhar o teste é a parte mais difícil. Outro exemplo é a tarefa 04, cujo te
 //   Valor não inteiro (float) reprova nos dois.
 ```
 
-## Três regras para uma tarefa honesta
+### Como o repositório impede a trapaça
 
-**1. Toda tarefa falha no app intacto.** Se o teste escondido já passa sem o agente fazer nada, a tarefa é inútil: as duas variantes "resolvem". O repositório verifica isso para as 8 tarefas.
-
-**2. Toda tarefa passa com a solução de referência.** Se nem a solução passa, a tarefa é impossível, e a taxa das duas variantes cai junto. O mesmo teste verifica as duas coisas.
-
-**3. O agente não vê o teste, e não consegue trapacear com ele.** O teste escondido nunca entra na pasta do agente. Depois que o agente termina, a correção monta uma pasta **nova**, que o agente nunca viu: o app intacto, mais os arquivos que ele mudou, mais o teste escondido, que entra por último e sobrescreve qualquer arquivo com o mesmo nome. Se o agente criar um `test/oculto.test.ts` falso que sempre passa, ele é substituído. Além disso, o teste roda com uma configuração do Vitest fixa, que fica **fora** da cópia (`src/vitest-oculto.config.mjs`). Assim, um `vitest.config.ts` criado pelo agente, com `exclude` ou um `setupFiles` que "conserta" o resultado, é ignorado. O repositório tem um teste que planta exatamente essas trapaças e confere que a tarefa continua falhando.
-
-Essas regras parecem paranoia até a primeira vez que um agente, tentando "fazer os testes passarem", edita o teste em vez do código.
+Depois que o agente termina, a correção monta uma pasta **nova**, que o agente nunca viu: o app intacto, mais os arquivos que ele mudou, mais o teste escondido, que entra por último e sobrescreve qualquer arquivo com o mesmo nome. Se o agente criar um `test/oculto.test.ts` falso que sempre passa, ele é substituído. Além disso, o teste roda com uma configuração do Vitest fixa, que fica **fora** da cópia (`src/vitest-oculto.config.mjs`). Assim, um `vitest.config.ts` criado pelo agente, com `exclude` ou um `setupFiles` que "conserta" o resultado, é ignorado. O repositório tem um teste que planta exatamente essas trapaças e confere que a tarefa continua falhando.
