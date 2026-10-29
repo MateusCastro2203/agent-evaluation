@@ -1,12 +1,12 @@
 # Guia de fala — Como medir os seus agentes de IA
 
-Este guia é material do palestrante (também fica no repo, para quem quiser reapresentar a palestra); não entra no ebook. Ele segue os 40 slides de `palestra/slides.md`, na mesma ordem e com os mesmos tempos das notas do apresentador. Para cada slide: o que dizer (em 2 a 5 frases), a transição para o próximo e os termos que valem uma frase de explicação para quem é júnior.
+Este guia é material do palestrante (também fica no repo, para quem quiser reapresentar a palestra); não entra no ebook. Ele segue os 41 slides (40 mais o apêndice de referências) de `palestra/slides.md`, na mesma ordem e com os mesmos tempos das notas do apresentador. Para cada slide: o que dizer (em 2 a 5 frases), a transição para o próximo e os termos que valem uma frase de explicação para quem é júnior.
 
 > **Se só der para lembrar de uma coisa:** a palestra não depende do resultado do run. Qualquer que seja o veredito (B ganha, inconclusivo, A ganha), a lição é a mesma: uma execução é uma amostra, e 16 execuções por variante quase nunca bastam para separar duas configurações. O relatório diz quantas faltam. Isso é medir.
 
-**Valores do run** (de `evals/promptfooconfig.yaml` e `resultados/ensaio/NOTAS.md`): 2 variantes × 8 tarefas × 2 repetições = 32 execuções, modelo `sonnet`, concorrência 4. No ensaio, o run inteiro levou **~3 min 28 s** de relógio (cada execução, de 12 s a 42 s). Ou seja: o run dispara no minuto 0 e termina muito antes da revelação; o relatório só é aberto no minuto 40, porque é ali que a palestra chega na leitura. Se você mudar repetições, concorrência ou modelo, rode o ensaio de novo e atualize os números deste guia.
+**Valores do run** (de `evals/promptfooconfig.yaml` e `resultados/ensaio/NOTAS.md`): 2 variantes × 8 tarefas × 2 repetições = 32 execuções, modelo `sonnet`, concorrência 4. No ensaio, o run inteiro levou **~3 min 28 s** de relógio (cada execução, de 12 s a 42 s). Ou seja: o run dispara no minuto 1 e termina muito antes da revelação; o relatório só é aberto no minuto 40, porque é ali que a palestra chega na leitura. Se você mudar repetições, concorrência ou modelo, rode o ensaio de novo e atualize os números deste guia.
 
-**Resultado do ensaio** (use como exemplo, nunca como "o resultado de hoje"): A 12/16 (75%, Wilson 51% a 90%), B 16/16 (100%, 81% a 100%), pass^2 6/8 × 8/8, 3 fora do escopo (todos de A), 0 `erro_agente`. Veredito: **inconclusivo**; o relatório estima 27 execuções por variante para as barras pararem de se sobrepor (critério do veredito), com piso de 24 pelo teste z de duas proporções.
+**Resultado do ensaio** (use como exemplo, nunca como "o resultado de hoje"): A 12/16 (75%, Wilson 51% a 90%), B 16/16 (100%, 81% a 100%), pass^2 6/8 × 8/8, 3 fora do escopo e 1 teste escondido falhando (todos de A; o teste na tarefa 04), 0 `erro_agente`. Veredito: **inconclusivo**; o relatório estima 27 execuções por variante para as barras pararem de se sobrepor (critério do veredito), com piso de 24 pelo teste z de duas proporções.
 
 ---
 
@@ -14,10 +14,10 @@ Este guia é material do palestrante (também fica no repo, para quem quiser rea
 
 ### Na véspera
 
-1. Rodar o run completo (`pnpm eval`, grava `resultados/ultimo.json`) e anotar o tempo de relógio real (no ensaio: ~3 min 28 s). **O `pnpm eval` sai com código 100 quando alguma execução não passou:** é o comportamento normal do promptfoo, o JSON é gravado do mesmo jeito.
-2. Logo em seguida, antes de rodar qualquer outra coisa, gravar esse run como ensaio: `pnpm ensaio:gravar`. Ele copia `resultados/ultimo.json` para `resultados/ensaio/resultado.json` tirando caminhos pessoais (a pasta do projeto vira `.`, o home vira `~`, as pastas temporárias viram `<tmp>`) e já gera `resultados/ensaio/relatorio.html`. **Atenção:** `pnpm eval:rapido` (e qualquer `pnpm eval`) sobrescreve `resultados/ultimo.json`; se rodar antes de gravar, o ensaio vira um run de 1 tarefa.
+1. **Não regravar o ensaio.** Ele é o run completo de 2026-10-27 (A 12/16 × B 16/16, inconclusivo, 27 por variante, 3 min 28 s), e esses números estão nos slides 34 e 38, no README e no ebook. Se regravar, atualize todos esses lugares. **Cuidado:** `pnpm ensaio:gravar` copia `resultados/ultimo.json`, que qualquer `pnpm eval` (inclusive o `pnpm eval:rapido`) sobrescreve.
+2. **O `pnpm eval` sai com código 100 quando alguma execução não passou:** é o comportamento normal do promptfoo, o JSON é gravado do mesmo jeito. Não se assuste se isso acontecer ao vivo.
 3. Rodar `pnpm relatorio:ensaio` e conferir que ele regenera `resultados/ensaio/relatorio.html`. Ele só lê e escreve arquivo (sem rede, sem modelo), então funciona offline. Esse é o plano B.
-4. Ler o relatório do ensaio inteiro e decorar três coisas: o veredito, o `n` por variante e as "execuções necessárias por variante (critério do veredito)" (campo `execucoesNecessariasPorVariante`; no ensaio, 38). Se o run ao vivo falhar, é isso que você vai mostrar.
+4. Ler o relatório do ensaio inteiro e decorar três coisas: o veredito, o `n` por variante e as "execuções necessárias por variante (critério do veredito)" (campo `execucoesNecessariasPorVariante`; no ensaio, 27). Se o run ao vivo falhar, é isso que você vai mostrar.
 5. Conferir que a página de links (o QR dos slides 2 e 40) já aponta para o repositório publicado e para o ebook.
 
 ### Checklist pré-palco (30 minutos antes)
@@ -28,7 +28,7 @@ Este guia é material do palestrante (também fica no repo, para quem quiser rea
 - [ ] **Sem modo de suspensão:** desligar a suspensão e o descanso de tela nas configurações; no macOS, deixar `caffeinate -dims` rodando num terminal à parte durante a palestra.
 - [ ] **Terminal com fonte grande** (dá para ler do fundo da sala) e na pasta do repo, com `pnpm eval` já digitado, sem dar Enter.
 - [ ] **`relatorio.html` do ensaio aberto numa aba do navegador:** `resultados/ensaio/relatorio.html`, gerado por `pnpm relatorio:ensaio`. O relatório é gravado na mesma pasta do JSON de entrada, então o run ao vivo (`pnpm relatorio` → `resultados/relatorio.html`) não sobrescreve o do ensaio.
-- [ ] **`resultados/ensaio/resultado.json` é o run completo da véspera,** não o do `pnpm eval:rapido` de agora há pouco (o rápido só sobrescreve `resultados/ultimo.json`).
+- [ ] **`resultados/ensaio/resultado.json` é o run completo do ensaio (2026-10-27),** não o do `pnpm eval:rapido` de agora há pouco (o rápido só sobrescreve `resultados/ultimo.json`).
 - [ ] **Notificações desligadas** (modo Não Perturbe) e Slack/e-mail fechados.
 - [ ] **Apresentar pelo `palestra/apresentacao.html`** aberto no navegador (Chrome ou Edge), em tela cheia (tecla `f`). Seta para a direita ou espaço avançam **cada clique** (respostas das perguntas, barras, frases de efeito) e depois o slide; seta para a esquerda volta. A tecla `p` abre a visão do apresentador numa janela à parte, com as notas e o próximo slide. O HTML é autocontido: funciona sem internet.
 - [ ] **Passar os slides uma vez no HTML** antes de subir, para conferir que os cliques aparecem na ordem (slides 7, 14, 15, 20, 21, 23, 27, 30, 32, 39; as perguntas não têm cliques).
@@ -86,7 +86,7 @@ Não se demore aqui: o run dispara no slide 4. Ele leva poucos minutos, mas quan
 - **`CLAUDE.md`:** um arquivo de texto na raiz do projeto que o Claude Code lê no começo de toda sessão. É onde você escreve as regras da casa: comando de teste, padrões, pastas que não pode mexer.
 - **Variante:** uma das configurações que você está comparando. Aqui só muda uma coisa entre A e B: a existência do `CLAUDE.md`.
 
-**Se o `pnpm eval` não começar** (erro de login ou rede na hora): não tente consertar no palco. Diga *"o agente decidiu participar do plano B hoje; no minuto 40 eu mostro o run de ontem, gravado com o mesmo comando"* e siga.
+**Se o `pnpm eval` não começar** (erro de login ou rede na hora): não tente consertar no palco. Diga *"o agente decidiu participar do plano B hoje; no minuto 40 eu mostro o run gravado no ensaio, com o mesmo comando"* e siga.
 
 ---
 
@@ -192,6 +192,8 @@ Vá linha por linha, devagar. É o slide mais "de levar para casa" do bloco.
 ### Slide 13 — Sucesso sozinho engana · [10:30–12:00]
 
 **Diga:** *"Dois agentes com a mesma taxa podem ter custo muito diferente, ou um deles pode resolver mexendo onde não devia. Fora do escopo é separado de propósito: resolveu, mas editou o código congelado, não é sucesso."*
+
+**Código congelado:** pasta que a tarefa não pode alterar (aqui, `src/legado/`; a regra só está no `CLAUDE.md` da variante B).
 
 **Transição:** *"Antes de contar sucesso, eu preciso dizer o que conta como sucesso."*
 
@@ -439,13 +441,13 @@ Diga: *"Uma mudança por vez."*
 
 ### Slide 31 — Falha vira tarefa nova · [37:00–38:30]
 
-**Diga:** *"O agente erra alguma coisa no dia a dia. Você escreve uma tarefa com o prompt real e um teste escondido que prova o certo. Confere que falha no app intacto e passa com a solução. E ela entra no conjunto e não sai mais. É a lição 7 do KTLO aplicada ao agente de código."*
+**Diga:** *"O agente erra alguma coisa no dia a dia. Você escreve uma tarefa com o prompt real e um teste escondido que prova o certo. Confere que falha no app intacto e passa com a solução. E ela entra no conjunto e não sai mais. É a lição do 'caso de terça vira teste na quarta', aplicada ao agente de código."*
 
 ---
 
 ### Slide 32 — O portão no CI · [38:30–40:00] · 3 cliques
 
-**Diga (um clique por linha):** *"O portão roda no CI. Inconclusivo passa."* Clique: *"Se A ficar melhor que B, com intervalos sem sobreposição, sai com código 1 e quebra o build."* Clique: *"Ele só quebra com evidência de piora."*
+**Diga (três cliques: um por linha e a frase final):** Clique: *"O portão roda no CI. Inconclusivo passa."* Clique: *"Se A ficar melhor que B, com intervalos sem sobreposição, sai com código 1 e quebra o build."* Clique: *"Ele só quebra com evidência de piora."*
 
 **Por que o portão não olha a taxa crua:** com 16 execuções, a taxa oscila de uma rodada para outra só por ruído; um portão "não pode cair" ficaria vermelho sem o agente ter piorado.
 
@@ -500,7 +502,7 @@ Diga: *"Uma mudança por vez."*
 
 ### Slide 36 — Resposta: 6 de 16 × 12 de 16 · [43:45–45:00] · sem cliques
 
-**Diga (barras e veredito já estão na tela):** *"A: 37,5%, com intervalo de 18% a 61%. B: 75%, de 51% a 90%. As barras se encostam entre 51% e 61%. Então: inconclusivo."*
+**Diga (barras e veredito já estão na tela):** *"A: 37,5%, com intervalo de 18% a 61%. B: 75%, de 51% a 90%. As barras se sobrepõem entre 51% e 61%. Então: inconclusivo."*
 
 **Diga a regra do repo:** *"Se o limite inferior de B passa do limite superior de A, 'B melhor'. O contrário, 'A melhor'. Senão, inconclusivo. E inconclusivo não é empate: é 'não tenho dado para dizer'."*
 
@@ -536,7 +538,7 @@ Diga: *"Uma mudança por vez."*
 
 ### Slide 39 — Por que 16 não bastam · [46:00–47:00] · 1 clique
 
-**Diga:** *"Se as taxas continuassem as mesmas, quantas execuções por variante até as barras pararem de se sobrepor? Para 37,5% contra 75%, 27. Para 62,5% contra 75%, uma diferença mais realista, 212."* Clique: *"Diferença pequena, muitas execuções. O número cresce com o inverso do quadrado da diferença."*
+**Diga:** *"Se as taxas continuassem as mesmas, quantas execuções por variante até as barras pararem de se sobrepor? Para 37,5% contra 75%, 27. Para 62,5% contra 75%, uma diferença mais realista, 212."* Se alguém notar o 27 repetido: *"Coincidência: 75% contra 100%, o ensaio, também dá 27."* Clique: *"Diferença pequena, muitas execuções. O número cresce com o inverso do quadrado da diferença."*
 
 **Explique o parêntese, se alguém olhar:** é o piso pelo teste z de duas proporções, a fórmula clássica de tamanho de amostra. Ele costuma ser menor, porque o teste z é menos exigente que "barras sem sobreposição". Com o piso, o relatório ainda pode sair inconclusivo; quem manda é o primeiro número. No ensaio: 27, com piso de 24.
 
@@ -564,7 +566,7 @@ Diga: *"Uma mudança por vez."*
 
 ### Slide 41 — Referências (apêndice)
 
-Só mostre se alguém pedir as fontes. **Diga, se mostrar:** *"Todas as referências são públicas e estão no ebook com link. O SWE-bench está aí porque é o mesmo formato, em escala de pesquisa: issues reais de GitHub como tarefa para agente de código."* Depois, volte ao slide 36.
+Só mostre se alguém pedir as fontes. **Diga, se mostrar:** *"Todas as referências são públicas e estão no ebook com link. O SWE-bench está aí porque é o mesmo formato, em escala de pesquisa: issues reais de GitHub como tarefa para agente de código."* Depois, volte ao slide 40 (QR).
 
 ---
 
@@ -591,7 +593,7 @@ Escolha a versão no slide 34, olhando o veredito do relatório. As três contam
 
 **Abertura:** *"Inconclusivo. E eu não vou fingir que isso é empate."*
 
-**Leia:** as duas taxas e as duas barras, e aponte o trecho em que elas se sobrepõem. Depois, as "execuções necessárias por variante (critério do veredito)" de hoje (no ensaio, 38).
+**Leia:** as duas taxas e as duas barras, e aponte o trecho em que elas se sobrepõem. Depois, as "execuções necessárias por variante (critério do veredito)" de hoje (no ensaio, 27).
 
 **Lição:** *"Pode ser que o `CLAUDE.md` ajude, e pode ser que não. Com 16 execuções por variante, o dado não deixa dizer. Se eu tivesse rodado uma vez só, como todo mundo faz, eu teria saído daqui com uma certeza falsa, para um lado ou para o outro. O relatório diz que, se as taxas se mantiverem, eu precisaria de [N] execuções por variante para as barras pararem de se sobrepor. Esse número é o resultado mais útil de hoje."*
 
@@ -623,16 +625,16 @@ Escolha a versão no slide 34, olhando o veredito do relatório. As três contam
 **Passo a passo:**
 1. **Não mate o processo no palco** e não tente consertar. Minimize o terminal.
 2. Vá para a aba do navegador com o relatório do ensaio (`resultados/ensaio/relatorio.html`, aberta no checklist).
-3. **Se a aba sumiu:** num terminal novo, na pasta do repo, rode `pnpm relatorio:ensaio`. Ele lê `resultados/ensaio/resultado.json` (o run da véspera, gravado com `pnpm ensaio:gravar`), funciona offline e grava `resultados/ensaio/relatorio.html`. Abra com `open resultados/ensaio/relatorio.html` (macOS) ou arrastando o arquivo para o navegador.
+3. **Se a aba sumiu:** num terminal novo, na pasta do repo, rode `pnpm relatorio:ensaio`. Ele lê `resultados/ensaio/resultado.json` (o run do ensaio, gravado com `pnpm ensaio:gravar`), funciona offline e grava `resultados/ensaio/relatorio.html`. Abra com `open resultados/ensaio/relatorio.html` (macOS) ou arrastando o arquivo para o navegador.
 4. Siga o slide 34 e a versão da revelação que corresponde ao veredito **do ensaio** (você decorou na véspera).
 
 **O que dizer:**
 
-> *"O run de hoje não terminou a tempo. Isso acontece com agente de verdade, e é exatamente por isso que existe um ensaio: o run completo de ontem, com o mesmo comando e as mesmas 32 execuções, gravado na pasta do ensaio. O relatório que eu vou mostrar é esse. E reparem: dá para rodar ele sem internet e sem assinatura. Quem levar o repositório pode fazer o mesmo."*
+> *"O run de hoje não terminou a tempo. Isso acontece com agente de verdade, e é exatamente por isso que existe um ensaio: o run completo gravado no ensaio, com o mesmo comando e as mesmas 32 execuções, gravado na pasta do ensaio. O relatório que eu vou mostrar é esse. E reparem: dá para rodar ele sem internet e sem assinatura. Quem levar o repositório pode fazer o mesmo."*
 
 Se o run caiu por erro do agente, acrescente: *"E é por isso que erro do agente é um rótulo próprio: se eu contasse isso como falha da tarefa, o meu `CLAUDE.md` teria 'piorado' por causa do Wi-Fi."*
 
-**Se o run terminar durante as perguntas:** pode mostrar o `pnpm relatorio` ao vivo no fim, como bônus: *"o de hoje acabou de sair; vamos ver se concorda com o de ontem."* Se não concordar, é mais uma prova da lição.
+**Se o run terminar durante as perguntas:** pode mostrar o `pnpm relatorio` ao vivo no fim, como bônus: *"o de hoje acabou de sair; vamos ver se concorda com o do ensaio."* Se não concordar, é mais uma prova da lição.
 
 ---
 
@@ -645,7 +647,7 @@ Se o run caiu por erro do agente, acrescente: *"E é por isso que erro do agente
    *"Para o que não cabe num teste: clareza de documentação, qualidade da descrição do PR, se a mensagem de erro é útil. Ele é bom para triagem, antes do olho humano. A condição é medir o juiz também: pegar uma amostra, dar a nota você mesmo e ver se ele concorda. E nunca usar juiz para o que um teste consegue verificar."*
 
 3. **"Quantas execuções eu preciso?"**
-   *"Depende do tamanho da diferença que você quer enxergar. Uma diferença grande, tipo 37,5% contra 75%, pede umas 27 por variante até as barras se separarem. Uma diferença realista, 62,5% contra 75%, pede umas 212. O relatório do repo faz essa conta com os seus números e mostra como 'execuções necessárias por variante (critério do veredito)'; logo abaixo vem o piso pelo teste z de duas proporções, que é menor e não basta para o veredito. No ensaio, por exemplo: 38, com piso de 34. Comece pequeno, veja a estimativa e decida se vale rodar mais."*
+   *"Depende do tamanho da diferença que você quer enxergar. Uma diferença grande, tipo 37,5% contra 75%, pede umas 27 por variante até as barras se separarem. Uma diferença realista, 62,5% contra 75%, pede umas 212. O relatório do repo faz essa conta com os seus números e mostra como 'execuções necessárias por variante (critério do veredito)'; logo abaixo vem o piso pelo teste z de duas proporções, que é menor e não basta para o veredito. No ensaio, por exemplo: 27, com piso de 24. Comece pequeno, veja a estimativa e decida se vale rodar mais."*
 
 4. **"Isso não fica caro?"**
    *"O repo usa a cota da assinatura do Claude Code, com o login normal. O relatório mostra o custo estimado por execução, que o próprio cliente calcula. Dá para economizar de três jeitos: a camada 1 (o medidor com agente falso) é offline e de graça, então roda a cada commit; a camada 2 roda só quando você muda alguma coisa no agente; e o `pnpm eval:rapido` roda uma tarefa só, para checar que está tudo de pé antes do run completo."* Não dê o custo do run de hoje sem ter o número do relatório na tela.

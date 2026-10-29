@@ -34,7 +34,7 @@ Uma ordem que funciona:
 
 **O `pnpm eval` sai com código 100 quando alguma execução não passou.** É o comportamento do promptfoo, não um erro: o JSON em `resultados/ultimo.json` é gravado do mesmo jeito. Quem decide o veredito é o `pnpm relatorio`.
 
-O run gravado na véspera da palestra fica em `resultados/ensaio/` (o JSON, o relatório e as notas em `NOTAS.md`). Ele serve de plano B ao vivo e de modo offline para quem não tem assinatura: `pnpm relatorio:ensaio` não chama nenhum modelo e grava `resultados/ensaio/relatorio.html`, ao lado do JSON, sem tocar no relatório do run ao vivo. Para gravar um ensaio seu, rode `pnpm eval` e logo depois `pnpm ensaio:gravar`: ele copia `resultados/ultimo.json` para `resultados/ensaio/resultado.json` trocando a pasta do projeto por `.`, o seu home por `~` e as pastas temporárias por `<tmp>`, e gera o relatório.
+O run gravado no ensaio de 2026-10-27 fica em `resultados/ensaio/` (o JSON, o relatório e as notas em `NOTAS.md`). Ele serve de plano B ao vivo e de modo offline para quem não tem assinatura: `pnpm relatorio:ensaio` não chama nenhum modelo e grava `resultados/ensaio/relatorio.html`, ao lado do JSON, sem tocar no relatório do run ao vivo. Para gravar um ensaio seu, rode `pnpm eval` e logo depois `pnpm ensaio:gravar`: ele copia `resultados/ultimo.json` para `resultados/ensaio/resultado.json` trocando a pasta do projeto por `.`, o seu home por `~` e as pastas temporárias por `<tmp>`, e gera o relatório.
 
 ## O que acontece em uma execução
 

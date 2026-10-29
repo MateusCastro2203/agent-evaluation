@@ -105,7 +105,7 @@ pnpm eval
 [01:15–02:15] Rodar `pnpm eval` AGORA, ao vivo. Deixar o terminal num monitor ou minimizado; não voltar nele até o minuto 40. No ensaio (sonnet, concorrência 4), as 32 execuções levaram ~3 min 28 s: o run termina muito antes da revelação, e o resultado fica esperando.
 De onde vem o 32: 2 variantes × 8 tarefas × 2 repetições = 32 execuções do Claude Code, rodando enquanto eu falo. Vou mudar UMA coisa no repositório: um `CLAUDE.md` com as convenções do projeto.
 Fala: "Eu escrevi um CLAUDE.md para este projeto. Acho que ele ajuda. Mas 'acho' não é medida. Então o agente vai trabalhar 32 vezes enquanto eu falo, e no minuto 40 a gente vê."
-Plano B se o run falhar (rede, login, cota): no minuto 40 usar `pnpm relatorio:ensaio`, que lê o run gravado na véspera. Dizer isso em voz alta só se precisar.
+Plano B se o run falhar (rede, login, cota): no minuto 40 usar `pnpm relatorio:ensaio`, que lê o run gravado no ensaio. Dizer isso em voz alta só se precisar.
 -->
 
 ---
@@ -123,7 +123,7 @@ Plano B se o run falhar (rede, login, cota): no minuto 40 usar `pnpm relatorio:e
 <p class="resposta">A resposta sai no <b>minuto 40</b>.</p>
 
 <!--
-[02:15–03:00] Slide único, sem cliques: opções e a frase "a resposta sai no minuto 40" já estão na tela. Perguntar e pedir mãos em cada opção: "Quem acha que o B, com CLAUDE.md, ganha?" / "Quem acha que dá empate?" / "Quem acha que o A ganha?". Contar por alto e GUARDAR a proporção (ex.: "uns 70% no B, uns 20% no empate"): ela volta no slide 32. No máximo 20 s.
+[02:15–03:00] Slide único, sem cliques: opções e a frase "a resposta sai no minuto 40" já estão na tela. Perguntar e pedir mãos em cada opção: "Quem acha que o B, com CLAUDE.md, ganha?" / "Quem acha que dá empate?" / "Quem acha que o A ganha?". Contar por alto e GUARDAR a proporção (ex.: "uns 70% no B, uns 20% no empate"): ela volta no slide 33. No máximo 20 s.
 Se ninguém aposta no A: "Ninguém no A? Guardem isso." Se muita gente aposta no empate: "Tem gente desconfiada. Bom sinal."
 Fechar apontando a frase na tela: "a resposta sai no minuto 40".
 -->
@@ -611,7 +611,7 @@ Cada uma dessas mudanças é uma variante B possível no repo: troque o CLAUDE.m
 
 <!--
 [37:00–38:30] Passo a passo: (1) o agente erra algo no dia a dia; (2) você escreve uma TAREFA com o prompt real e um TESTE ESCONDIDO que prova o certo; confere: falha no app intacto, passa com a solução; (3) entra no conjunto e não sai mais.
-É a lição 7 do KTLO aplicada ao agente de código: o erro de terça vira tarefa na quarta. Catraca: o conjunto de tarefas só cresce.
+É a lição do KTLO aplicada ao agente de código: o erro de terça vira tarefa na quarta. Catraca: o conjunto de tarefas só cresce.
 -->
 
 ---
@@ -626,7 +626,7 @@ Cada uma dessas mudanças é uma variante B possível no repo: troque o CLAUDE.m
 <p class="punch" data-marpit-fragment>Só quebra com <strong>evidência de piora</strong>.</p>
 
 <!--
-[38:30–40:00] Um clique por linha. O portão roda no CI: se B ficar PIOR que A (intervalos sem sobreposição), sai com código 1. No repo: "inconclusivo" não quebra o build. Só "A melhor" quebra.
+[38:30–40:00] Três cliques: um por linha e a frase final. O portão roda no CI: se B ficar PIOR que A (intervalos sem sobreposição), sai com código 1. No repo: "inconclusivo" não quebra o build. Só "A melhor" quebra.
 Termos: CI = integração contínua, o pipeline que roda testes a cada push/PR (ex.: GitHub Actions); "quebrar o build" = o pipeline fica vermelho e o merge é bloqueado.
 Por que o portão não olha a taxa crua: com 16 execuções, a taxa oscila de uma rodada para outra só por ruído; um portão "não pode cair" ficaria vermelho sem o agente ter piorado.
 Por que "inconclusivo" não quebra: quebrar o build por falta de dado ensina o time a ignorar o portão. Quebrar só quando há evidência de piora mantém o portão confiável.
@@ -660,7 +660,7 @@ trocar para o navegador
 <p class="mini" style="margin-top:24px">Plano B: <code>pnpm relatorio:ensaio</code></p>
 
 <!--
-[40:30–43:00] Se o run ainda não terminou: mostrar o progresso do promptfoo e usar o ensaio. Se terminou: `pnpm relatorio` e abrir o HTML. Plano B: `pnpm relatorio:ensaio` (run gravado na véspera).
+[40:30–43:00] Se o run ainda não terminou: mostrar o progresso do promptfoo e usar o ensaio. Se terminou: `pnpm relatorio` e abrir o HTML. Plano B: `pnpm relatorio:ensaio` (run gravado no ensaio).
 Roteiro de leitura (nesta ordem; a ordem importa):
 1. n real por variante e quantos erro_agente (contados à parte).
 2. Taxa de sucesso de A e de B, com a barra do intervalo.
@@ -670,7 +670,7 @@ Roteiro de leitura (nesta ordem; a ordem importa):
 6. Por tarefa: o ganho (se houver) está nas tarefas de convenção (03–07) ou nas de controle?
 Comparar com a aposta da plateia (slide 5) depois de ler o veredito.
 Não comemorar nem lamentar ainda: os próximos slides explicam como ler.
-Exemplo de resultado (o ensaio gravado, não o de hoje): A 12/16 (75%, 51% a 90%), B 16/16 (100%, 81% a 100%), pass^2 6/8 × 8/8, 3 fora do escopo e 1 teste escondido falhando, todos de A (mexeram em `src/legado/` ou fora dos permitidos), 0 erro_agente → inconclusivo.
+Exemplo de resultado (o ensaio gravado, não o de hoje): A 12/16 (75%, 51% a 90%), B 16/16 (100%, 81% a 100%), pass^2 6/8 × 8/8, 3 fora do escopo (mexeram em `src/legado/` ou fora dos permitidos) e 1 teste escondido falhando, todos de A, 0 erro_agente → inconclusivo.
 -->
 
 ---
@@ -682,7 +682,7 @@ Exemplo de resultado (o ensaio gravado, não o de hoje): A 12/16 (75%, 51% a 90%
 ## B é o dobro de A. B ganhou?
 
 <!--
-[43:00–43:45] Slide único, sem cliques. Perguntar: "A passou 6 de 16, B passou 12 de 16. B é o dobro. Quem acha que B ganhou?" (mãos; até 15 s). Se a maioria disse "ganhou": "É a resposta natural. E é exatamente o 'parece que melhorou'."
+[43:00–43:45] Slide único, sem cliques. EXEMPLO INVENTADO, não é o run de hoje. Perguntar: "A passou 6 de 16, B passou 12 de 16. B é o dobro. Quem acha que B ganhou?" (mãos; até 15 s). Se a maioria disse "ganhou": "É a resposta natural. E é exatamente o 'parece que melhorou'."
 Avançar para o slide seguinte com a resposta.
 -->
 
@@ -756,6 +756,8 @@ Quem chutou 16 chegou perto: "é o que a gente rodou hoje, e não bastou." Quem 
 
 <p class="punch" data-marpit-fragment>Diferença pequena, <strong>muitas</strong> execuções.</p>
 
+<p class="fonte">Taxas de exemplo. O ensaio (75% × 100%) também dá 27 (24).</p>
+
 <!--
 [46:00–47:00] Quantas execuções por variante até as barras pararem de se sobrepor, mantidas as taxas observadas. Entre parênteses, o piso pelo teste z (95% de confiança, 80% de poder). No relatório: "execuções necessárias por variante (critério do veredito)". É estimativa, não garantia.
 Esta é a lição da palestra: 16 execuções por variante quase nunca bastam para uma diferença moderada. O n cresce com 1/(diferença)²: diferença pequena = muitas execuções.
@@ -780,7 +782,7 @@ Fala de fechamento, qualquer desfecho: "Eu não sei ainda se o meu CLAUDE.md pre
 2. **Repita**: intervalo, não execução
 3. Falha vira **tarefa nova**
 
-<p class="mini">Repo + ebook em PDF, com o login do Claude Code.</p>
+<p class="mini">Repo + ebook (PDF). Roda com o login do Claude Code.</p>
 
 </div>
 <div style="text-align:center">

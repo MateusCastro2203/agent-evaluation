@@ -70,7 +70,7 @@ Esta é a lição da palestra: **16 execuções por variante quase nunca bastam 
 
 ## Um exemplo real: o ensaio
 
-O run gravado na véspera da palestra (`resultados/ensaio/`, modelo `sonnet`, 2 repetições) é um exemplo de resultado, não uma previsão do próximo run:
+O run gravado no ensaio de 2026-10-27 (`resultados/ensaio/`, modelo `sonnet`, 2 repetições) é um exemplo de resultado, não uma previsão do próximo run:
 
 | | A (sem `CLAUDE.md`) | B (com `CLAUDE.md`) |
 |---|---|---|
