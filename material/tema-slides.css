@@ -197,3 +197,10 @@ iframe.relatorio-ao-vivo { width: 100%; height: 520px; border: 2px solid var(--p
   iframe.relatorio-ao-vivo { display: none; }
   .relatorio-impresso { display: block; text-align: center; padding: 64px 24px; font-size: 28px; }
 }
+
+/* LinkedIn do palestrante: marca discreta no canto, só no PDF (impressão); no HTML apresentado fica escondida */
+section footer { display: none; }
+@media print {
+  section footer { display: block; position: absolute; top: 16px; right: 28px; left: auto; bottom: auto; font-size: 16px; opacity: 0.75; }
+  section footer a { color: var(--suave); text-decoration: none; }
+}

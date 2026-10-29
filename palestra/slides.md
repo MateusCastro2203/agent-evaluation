@@ -4,6 +4,7 @@ theme: mentoria
 paginate: true
 lang: pt-BR
 title: Como medir os seus agentes de IA
+footer: '[in/mateus-castro · LinkedIn](https://www.linkedin.com/in/mateus-castro-b49559169/)'
 ---
 
 <!-- _class: capa -->
