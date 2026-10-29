@@ -8,3 +8,4 @@ laboratorio/node_modules/
 .corretor-deps/
 .corretor-deps.tmp-*/
 .vitest/
+.DS_Store

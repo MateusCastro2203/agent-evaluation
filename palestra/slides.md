@@ -120,12 +120,11 @@ Plano B se o run falhar (rede, login, cota): no minuto 22 usar `pnpm relatorio:e
 - Empate
 - A ganha
 
-<p class="resposta">A resposta sai no <b>minuto 22</b>.</p>
 
 <!--
-[02:15–03:00] Slide único, sem cliques: opções e a frase "a resposta sai no minuto 22" já estão na tela. Perguntar e pedir mãos em cada opção: "Quem acha que o B, com CLAUDE.md, ganha?" / "Quem acha que dá empate?" / "Quem acha que o A ganha?". Contar por alto e GUARDAR a proporção (ex.: "uns 70% no B, uns 20% no empate"): ela volta no slide 18. No máximo 20 s.
+[02:15–03:00] Slide único, sem cliques: as opções já estão na tela. Perguntar e pedir mãos em cada opção: "Quem acha que o B, com CLAUDE.md, ganha?" / "Quem acha que dá empate?" / "Quem acha que o A ganha?". Contar por alto e GUARDAR a proporção (ex.: "uns 70% no B, uns 20% no empate"): ela volta no slide 18. No máximo 20 s.
 Se ninguém aposta no A: "Ninguém no A? Guardem isso." Se muita gente aposta no empate: "Tem gente desconfiada. Bom sinal."
-Fechar apontando a frase na tela: "a resposta sai no minuto 22".
+Fechar dizendo: "a resposta sai no fim da palestra, no relatório ao vivo".
 -->
 
 ---
@@ -406,17 +405,24 @@ Transição: "Já deu tempo. Vamos ver o que o agente fez." Voltar para o termin
 
 ---
 
-## Ao vivo: o relatório <span class="demo">pnpm relatorio</span>
+## Ao vivo: o relatório
 
-<div class="card" style="text-align:center; padding:64px 24px; border: 3px dashed #5b6272;">
+<iframe class="relatorio-ao-vivo" src="../resultados/relatorio.html" title="Relatório do run de hoje"></iframe>
+<div class="relatorio-impresso card">O relatório do run de hoje (<code>resultados/relatorio.html</code>) aparece aqui na apresentação em HTML.</div>
 
-### `resultados/relatorio.html`
-
-trocar para o navegador
-
-</div>
-
-<p class="mini" style="margin-top:24px">Plano B: <code>pnpm relatorio:ensaio</code></p>
+<script>
+// Recarrega o relatório toda vez que este slide aparece: o run termina no meio da palestra.
+document.querySelectorAll("iframe.relatorio-ao-vivo").forEach((quadro) => {
+  const slide = quadro.closest("svg") || quadro.closest("section");
+  if (!slide) return;
+  let ativo = false;
+  new MutationObserver(() => {
+    const agora = slide.classList.contains("bespoke-marp-active");
+    if (agora && !ativo) quadro.src = "../resultados/relatorio.html?t=" + Date.now();
+    ativo = agora;
+  }).observe(slide, { attributes: true, attributeFilter: ["class"] });
+});
+</script>
 
 <!--
 [22:00–25:00] Primeiro, a volta da aposta (slide 5): "No começo, [a proporção que você guardou, ex.: uns 70%] apostou no B. Vamos ver." Não pedir mãos de novo; só lembrar.
