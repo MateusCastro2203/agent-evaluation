@@ -1,6 +1,6 @@
 # Por que medir
 
-Este ebook é a palestra "Como medir os seus agentes de IA" em texto corrido, mais o que você precisa para rodar e adaptar o repositório `agent-evaluation`. A palestra cabe em 50 minutos; aqui dá para ir com calma, ver o código e voltar quando for montar a sua própria eval.
+Este ebook é a palestra "Como medir os seus agentes de IA" em texto corrido, mais o que você precisa para rodar e adaptar o repositório `agent-evaluation`. A palestra cabe em 40 minutos, com as perguntas; aqui dá para ir com calma, ver o código e voltar quando for montar a sua própria eval.
 
 ## A aposta
 
@@ -17,7 +17,7 @@ Esse comando põe o Claude Code para trabalhar **32 vezes**: 2 variantes × 8 ta
 - **Variante A:** o repositório como está, sem `CLAUDE.md`.
 - **Variante B:** o mesmo repositório, com o `CLAUDE.md`.
 
-Enquanto o agente trabalha, a palestra explica o que está sendo medido e por quê. No minuto 40, o relatório diz se o `CLAUDE.md` presta. Ou diz que ainda não dá para saber, que é uma resposta tão útil quanto as outras (capítulo 5).
+Enquanto o agente trabalha, a palestra explica o que está sendo medido e por quê. No minuto 22, o relatório diz se o `CLAUDE.md` presta. Ou diz que ainda não dá para saber, que é uma resposta tão útil quanto as outras (capítulo 5).
 
 ## "Parece que melhorou"
 

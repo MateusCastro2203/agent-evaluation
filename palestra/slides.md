@@ -102,10 +102,10 @@ pnpm eval
 </div>
 
 <!--
-[01:15–02:15] Rodar `pnpm eval` AGORA, ao vivo. Deixar o terminal num monitor ou minimizado; não voltar nele até o minuto 40. No ensaio (sonnet, concorrência 4), as 32 execuções levaram ~3 min 28 s: o run termina muito antes da revelação, e o resultado fica esperando.
+[01:15–02:15] Rodar `pnpm eval` AGORA, ao vivo. Deixar o terminal num monitor ou minimizado; não voltar nele até o minuto 22. No ensaio (sonnet, concorrência 4), as 32 execuções levaram ~3 min 28 s: o run termina muito antes da revelação, e o resultado fica esperando.
 De onde vem o 32: 2 variantes × 8 tarefas × 2 repetições = 32 execuções do Claude Code, rodando enquanto eu falo. Vou mudar UMA coisa no repositório: um `CLAUDE.md` com as convenções do projeto.
-Fala: "Eu escrevi um CLAUDE.md para este projeto. Acho que ele ajuda. Mas 'acho' não é medida. Então o agente vai trabalhar 32 vezes enquanto eu falo, e no minuto 40 a gente vê."
-Plano B se o run falhar (rede, login, cota): no minuto 40 usar `pnpm relatorio:ensaio`, que lê o run gravado no ensaio. Dizer isso em voz alta só se precisar.
+Fala: "Eu escrevi um CLAUDE.md para este projeto. Acho que ele ajuda. Mas 'acho' não é medida. Então o agente vai trabalhar 32 vezes enquanto eu falo, e no minuto 22 a gente vê."
+Plano B se o run falhar (rede, login, cota): no minuto 22 usar `pnpm relatorio:ensaio`, que lê o run gravado no ensaio. Dizer isso em voz alta só se precisar.
 -->
 
 ---
@@ -120,24 +120,12 @@ Plano B se o run falhar (rede, login, cota): no minuto 40 usar `pnpm relatorio:e
 - Empate
 - A ganha
 
-<p class="resposta">A resposta sai no <b>minuto 40</b>.</p>
+<p class="resposta">A resposta sai no <b>minuto 22</b>.</p>
 
 <!--
-[02:15–03:00] Slide único, sem cliques: opções e a frase "a resposta sai no minuto 40" já estão na tela. Perguntar e pedir mãos em cada opção: "Quem acha que o B, com CLAUDE.md, ganha?" / "Quem acha que dá empate?" / "Quem acha que o A ganha?". Contar por alto e GUARDAR a proporção (ex.: "uns 70% no B, uns 20% no empate"): ela volta no slide 33. No máximo 20 s.
+[02:15–03:00] Slide único, sem cliques: opções e a frase "a resposta sai no minuto 22" já estão na tela. Perguntar e pedir mãos em cada opção: "Quem acha que o B, com CLAUDE.md, ganha?" / "Quem acha que dá empate?" / "Quem acha que o A ganha?". Contar por alto e GUARDAR a proporção (ex.: "uns 70% no B, uns 20% no empate"): ela volta no slide 18. No máximo 20 s.
 Se ninguém aposta no A: "Ninguém no A? Guardem isso." Se muita gente aposta no empate: "Tem gente desconfiada. Bom sinal."
-Fechar apontando a frase na tela: "a resposta sai no minuto 40".
--->
-
----
-
-<!-- _class: secao -->
-
-# 1 · O problema
-
-Vibe check não é medida
-
-<!--
-[03:00]
+Fechar apontando a frase na tela: "a resposta sai no minuto 22".
 -->
 
 ---
@@ -157,24 +145,11 @@ Vibe check não é medida
 <p class="punch" data-marpit-fragment>Daria certo <strong>antes</strong> da mudança também?</p>
 
 <!--
-[03:00–05:00] Todo mundo já fez: mudou o prompt, o CLAUDE.md ou o modelo; pediu UMA tarefa; deu certo; "melhorou!".
+[03:00–04:45] Todo mundo já fez: mudou o prompt, o CLAUDE.md ou o modelo; pediu UMA tarefa; deu certo; "melhorou!".
 O que ficou de fora (falar, não está no slide): a tarefa era fácil ou difícil? E se você pedisse de novo? Quanto custou, quantos turnos? Ele mexeu onde não devia? E, a mais esquecida (clique): daria certo ANTES da mudança também?
 Pergunta opcional, se a sala estiver fria: "Quem aqui já trocou de modelo ou de configuração do agente porque 'sentiu' que estava melhor?" (quase todo mundo levanta a mão; o palestrante também).
 Ponto: vibe check não é inútil, é o ponto de partida. O problema é parar nele.
--->
-
----
-
-<!-- _class: frase -->
-
-## O agente não é determinístico
-
-Uma execução é **uma amostra**, não um resultado.
-
-<!--
-[05:00–06:00] Mesmo prompt, mesmo repo, mesmo modelo: caminhos diferentes, turnos diferentes; às vezes passa, às vezes não; o custo varia de uma execução para outra.
-O agente amostra tokens; o loop de ferramentas amplifica qualquer diferença pequena no começo. Isso é normal, não é bug.
-Transição: "Então quanto diz uma execução? Chutem."
+Transição: "O agente não é determinístico: uma execução é uma amostra, não um resultado. Então quanto diz uma execução? Chutem."
 -->
 
 ---
@@ -186,7 +161,7 @@ Transição: "Então quanto diz uma execução? Chutem."
 ## 1 de 1 é 100%. Confiam?
 
 <!--
-[06:00–06:45] Slide único, sem cliques. Perguntar: "Passou 1 de 1. É 100%. Quem confia?" Esperar as mãos (até 15 s). Se muita gente confia: "Vamos ver o que a conta diz." Se ninguém confia: "Desconfiança saudável. Quanto, então?"
+[04:45–05:15] Slide único, sem cliques. Perguntar: "Passou 1 de 1. É 100%. Quem confia?" Esperar as mãos (até 15 s). Se muita gente confia: "Vamos ver o que a conta diz." Se ninguém confia: "Desconfiança saudável. Quanto, então?"
 Avançar para o slide seguinte com a resposta.
 -->
 
@@ -209,21 +184,9 @@ Avançar para o slide seguinte com a resposta.
 <p class="fonte">Intervalo de Wilson, 95% · Wilson (1927)</p>
 
 <!--
-[06:45–08:00] Slide único, sem cliques: as duas barras já estão na tela. A barra de 1 de 1 vai de 21% a 100%: "Com uma execução, a taxa real pode ser 21%." A de 16 de 16 vai de 81% a 100%: "Mesmo o '100%' de 16 execuções não prova 100%."
-Os números são conta, não opinião: intervalo de Wilson 95% para 1/1 e 16/16 (o mesmo cálculo que o relatório usa; dá para conferir em `src/metricas.ts`). A gente volta nele no minuto 43.
+[05:15–07:00] Slide único, sem cliques: as duas barras já estão na tela. A barra de 1 de 1 vai de 21% a 100%: "Com uma execução, a taxa real pode ser 21%." A de 16 de 16 vai de 81% a 100%: "Mesmo o '100%' de 16 execuções não prova 100%."
+Os números são conta, não opinião: intervalo de Wilson 95% para 1/1 e 16/16 (o mesmo cálculo que o relatório usa; dá para conferir em `src/metricas.ts`). A gente volta nele no minuto 25 (slide 20).
 Transição: "Se uma execução não basta, o que eu meço, e quantas vezes?"
--->
-
----
-
-<!-- _class: secao -->
-
-# 2 · O que é "efetivo"
-
-Seis números, não um
-
-<!--
-[08:00]
 -->
 
 ---
@@ -242,77 +205,12 @@ Seis números, não um
 | **Consistência** | resolve **sempre**? |
 
 <!--
-[08:00–10:30] Ir linha por linha, devagar. Para quem é júnior: "turno" = uma ida e volta entre o modelo e uma ferramenta (ler arquivo, editar, rodar teste).
+[07:00–09:00] Ir linha por linha, devagar. Para quem é júnior: "turno" = uma ida e volta entre o modelo e uma ferramenta (ler arquivo, editar, rodar teste).
 Como o repo mede cada uma: sucesso = teste escondido passou (critério de feito); custo/tokens = `usage` e `total_cost_usd` do `claude -p`; turnos = `num_turns`; tempo = `duration_ms`; fora do escopo = diff fora dos arquivos permitidos; consistência = pass^k (passou em todas as repetições).
+Fora do escopo é separado de propósito: resolveu mexendo onde não devia não é sucesso.
+Consistência = pass^k: passou em TODAS as k tentativas; no relatório, k = 2.
 O `claude -p --output-format json` devolve esses campos no JSON final (doc "Run Claude Code programmatically"). A doc diz que o custo é estimativa do lado do cliente: com assinatura, leia o custo em US$ como "tamanho do esforço", não como fatura.
 Tokens: o relatório mostra a mediana de entrada + saída separada da mediana de cache (leitura + criação), porque o cache domina a contagem e esconderia a diferença.
--->
-
----
-
-<!-- _class: frase -->
-
-## Sucesso sozinho engana
-
-Resolveu mexendo onde não devia **não é sucesso**.
-
-<!--
-[10:30–12:00] Dois agentes com a mesma taxa podem ter custo muito diferente, ou um deles pode resolver mexendo em arquivo que não devia.
-Fora do escopo é métrica separada de propósito: "resolveu, mas editou o código congelado" não é sucesso.
-Transição: "Antes de contar sucesso, eu preciso dizer o que conta como sucesso."
--->
-
----
-
-## Um rótulo por execução
-
-<div class="chips">
-<span>passou</span>
-<span>falhou</span>
-<span class="alerta">fora_do_escopo</span>
-<span>erro_agente</span>
-</div>
-
-<p class="punch" data-marpit-fragment><code>erro_agente</code> conta <strong>à parte</strong>: não é falha da tarefa.</p>
-
-<!--
-[12:00–13:30] Desfecho, não "funcionou?": cada execução termina em UM rótulo. erro_agente = timeout, login, limite de turnos.
-Erro do agente é contado à parte: não é falha da tarefa (clique).
-Desfecho explícito vem direto do caso real (bloco 4): sem rótulo, "funcionou?" vira discussão.
--->
-
----
-
-<!-- _class: tabela -->
-
-## pass@k × pass^k
-
-| | Passou em… | Quando k cresce |
-|---|---|---|
-| **pass@k** | pelo menos **uma** de k | <span data-marpit-fragment>sobe ↑</span> |
-| **pass^k** | **todas** as k | <span data-marpit-fragment>desce ↓</span> |
-
-<p class="punch" data-marpit-fragment>Agente sozinho: vale o <strong>pass^k</strong>.</p>
-
-<p class="fonte">pass^k: Yao et al. (2024), τ-bench · Anthropic (2026), "Demystifying evals for AI agents"</p>
-
-<!--
-[13:30–15:00] Ler as duas linhas e PERGUNTAR antes de clicar: "Quando k cresce, pass@k sobe ou desce?" (deixar a plateia gritar; até 10 s). Clique: sobe (mais chances de acertar uma). "E o pass^k?" Clique: desce (mais chances de errar uma).
-Se alguém responder errado: "Pensa em k = 100: acertar pelo menos uma de 100 é fácil; acertar as 100 é difícil."
-Clique final: para um agente que roda sozinho, pass^k é o que importa: você não vai ficar pedindo de novo até dar certo. É a métrica honesta para automação.
-pass^k com k=2 é o que o run de hoje mede: das 8 tarefas, quantas passaram nas duas repetições. Conservador: uma repetição com erro_agente conta como "não passou".
--->
-
----
-
-<!-- _class: secao -->
-
-# 3 · Evals
-
-Tarefa + critério de feito
-
-<!--
-[15:00]
 -->
 
 ---
@@ -325,7 +223,7 @@ Tarefa + critério de feito
 </div>
 
 <!--
-[15:00–17:00] App de laboratório: agenda de meetups, sintético. O prompt é escrito como issue de verdade e não cita a convenção. Se o prompt dissesse "use ErroDominio", A e B empatariam e a gente não mediria nada.
+[09:00–11:00] App de laboratório: agenda de meetups, sintético. O prompt é escrito como issue de verdade e não cita a convenção. Se o prompt dissesse "use ErroDominio", A e B empatariam e a gente não mediria nada.
 As 8 tarefas (como uma issue → o que o teste escondido exige):
 01 "A listagem de próximos eventos está devolvendo um a menos." → controle.
 02 "Preciso de uma função que conte inscritos de um evento." → controle.
@@ -354,7 +252,7 @@ expect(codigo).not.toBe("CAPACIDADE_INVALIDA");
 ```
 
 <!--
-[17:00–19:00] Arquivos reais de `tarefas/03-evento-lotado/`. Em cima, o trecho do `prompt` do `tarefa.json`; prompt inteiro: "Hoje dá para inscrever mais gente do que a capacidade do evento. Não deixe inscrever em evento lotado: quando o evento já tiver `capacidade` inscritos, `inscrever` deve recusar a nova inscrição." O agente só vê o prompt. O campo `permitidos` (`src/inscricoes.ts`, `test/**`) define o escopo.
+[11:00–13:00] Arquivos reais de `tarefas/03-evento-lotado/`. Em cima, o trecho do `prompt` do `tarefa.json`; prompt inteiro: "Hoje dá para inscrever mais gente do que a capacidade do evento. Não deixe inscrever em evento lotado: quando o evento já tiver `capacidade` inscritos, `inscrever` deve recusar a nova inscrição." O agente só vê o prompt. O campo `permitidos` (`src/inscricoes.ts`, `test/**`) define o escopo.
 Embaixo, as asserções do `oculto.test.ts` (o agente não vê; a última, no arquivo, tem a mensagem "CAPACIDADE_INVALIDA já existe e significa outra coisa"). O teste tem mais um caso: a vaga liberada por cancelamento pode ser ocupada.
 Ler o critério de feito: não basta "lançar um erro". Tem que ser o erro do domínio (`ErroDominio`), com o código no formato da casa (SCREAMING_SNAKE). O prompt não diz qual código usar, então o teste não exige um nome exato: aceita qualquer nome razoável de lotação e só recusa reaproveitar `CAPACIDADE_INVALIDA`, que já existe e significa outra coisa. É exatamente o tipo de coisa que um dev novo no time erraria sem ler a documentação, e que o agente sem CLAUDE.md também tende a errar.
 O teste nunca entra na pasta do agente: a correção roda numa pasta nova, com o app intacto + os arquivos que o agente mudou, e o teste escondido entra por último, por cima de qualquer arquivo com o mesmo nome. Se o agente "criar" um teste oculto falso para passar, não adianta.
@@ -375,7 +273,7 @@ O teste nunca entra na pasta do agente: a correção roda numa pasta nova, com o
 <p class="fonte">promptfoo, "Javascript Provider" · Claude Code docs, "Run Claude Code programmatically"</p>
 
 <!--
-[19:00–21:00] 1 · Cópia limpa: pasta temporária com o app. Variante B ganha o CLAUDE.md. O git que mede o diff fica FORA da cópia.
+[13:00–14:30] 1 · Cópia limpa: pasta temporária com o app. Variante B ganha o CLAUDE.md. O git que mede o diff fica FORA da cópia.
 2 · Agente: `claude -p` headless, saída JSON, ferramentas numa lista fechada, sandbox do SO (sem rede, escrita só na cópia), limite de turnos e timeout.
 3 · Correção: pasta NOVA: app intacto + o que o agente mudou + teste escondido. Vitest em sandbox; diff contra `permitidos`.
 O promptfoo orquestra: um provider JS por variante, `repeat: 2`, concorrência 4, saída em JSON. Um script lê o JSON e calcula as métricas.
@@ -385,36 +283,6 @@ Isolamento importa: `--setting-sources project` deixa de fora o meu ~/.claude (C
 Correção: o agente nunca vê a pasta corrigida; o Vitest dela roda no sandbox-runtime (`srt`), sem rede, e as deps do lab são somente leitura e conferidas por hash antes e depois.
 Login: usa a assinatura normal do Claude Code. Não precisa de chave de API.
 promptfoo aqui é o "orquestrador de casos": ele chama o provider, repete, paraleliza e grava o JSON. A métrica e o veredito ficam num script nosso, que calcula intervalo de confiança para A × B.
--->
-
----
-
-## Duas camadas de eval
-
-<div class="dupla">
-<div>
-
-### 1 · Determinística
-agente falso, offline,
-**a cada commit**
-
-</div>
-<div>
-
-### 2 · Modelo real
-`pnpm eval`, consome cota,
-**quando algo muda**
-
-</div>
-</div>
-
-<p class="punch" data-marpit-fragment>Sem a camada 1, bug no medidor parece "o agente piorou".</p>
-
-<!--
-[21:00–23:00] Camada 1: testes do MEDIDOR com agente falso: cópia limpa, teste escondido, escopo, erro do agente. Offline, segundos, a cada commit. Prova que a régua mede certo.
-Camada 2: `pnpm eval`, o Claude Code de verdade nas 8 tarefas. Minutos, consome cota, quando algo muda (prompt, CLAUDE.md, modelo). Mede o agente.
-Exemplos de teste da camada 1 no repo: agente falso que não faz nada → "falhou"; que aplica a solução de referência → "passou"; que edita o código congelado → "fora_do_escopo"; que devolve timeout → "erro_agente", sem derrubar o run.
-Também: toda tarefa tem que FALHAR no app intacto e PASSAR com a solução de referência. Tarefa que já passa sem fazer nada é tarefa inútil; tarefa que nem a solução passa é tarefa impossível.
 -->
 
 ---
@@ -441,23 +309,12 @@ juiz variável **soma variância**
 <p class="fonte">Zheng et al. (2023), "Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena" · promptfoo, "LLM Rubric"</p>
 
 <!--
-[23:00–25:00] Ajuda: critérios que teste não pega (clareza, estilo, mensagem de commit); rápido de escrever (`llm-rubric` no promptfoo); bom para triagem, antes do olho humano.
+[14:30–16:00] Ajuda: critérios que teste não pega (clareza, estilo, mensagem de commit); rápido de escrever (`llm-rubric` no promptfoo); bom para triagem, antes do olho humano.
 Atrapalha: vieses conhecidos (posição, verbosidade, preferir a si mesmo); juiz não determinístico avaliando agente não determinístico SOMA variância; precisa ser avaliado contra rótulo humano.
 Hoje o critério de feito é 100% teste: nenhuma tarefa precisa de juiz.
 Não é regra universal. Pergunta para a plateia (falar, não está no slide): "Que tarefa do seu dia a dia não dá para verificar com teste?" (ex.: "a documentação ficou clara?", "o PR está bem descrito?"). Ali o juiz pode valer, desde que você meça o juiz também.
+No caso real, o juiz foi rejeitado: juiz variável avaliando agente variável soma variância.
 Transição: "Isso aqui não é teoria de laboratório. Vou mostrar o que aprendemos fazendo isso em produção."
--->
-
----
-
-<!-- _class: secao -->
-
-# 4 · Caso real: agentes KTLO na Creditas
-
-Lições, sem dados internos
-
-<!--
-[25:00] Contexto em uma frase: um time da Creditas construiu agentes que resolvem chamados operacionais de suporte (o "keep the lights on", KTLO). Não vou mostrar números internos nem nomes de sistemas: só o que aprendemos sobre medir.
 -->
 
 ---
@@ -474,50 +331,11 @@ Lições, sem dados internos
 <p class="punch" data-marpit-fragment>Fora do escopo contado como falha <strong>derruba a taxa</strong>.</p>
 
 <!--
-[25:00–28:00] Lição 1 · Desfecho explícito por execução: toda execução termina com um rótulo: resolvido, assistido, escalado ou falta informação. "Funcionou?" não é pergunta que se responde no painel.
+[16:00–17:30] Contexto em uma frase: um time da Creditas construiu agentes que resolvem chamados operacionais de suporte (o "keep the lights on", KTLO). Não vou mostrar números internos nem nomes de sistemas: só o que aprendemos sobre medir.
+Lição 1 · Desfecho explícito por execução: toda execução termina com um rótulo: resolvido, assistido, escalado ou falta informação. "Funcionou?" não é pergunta que se responde no painel.
 "Assistido" = o agente diagnosticou, mas um humano executou. Contar isso como "resolvido" infla o número; contar como "falha" esconde valor. Por isso é um rótulo próprio.
 Lição 2 (clique) · Desfecho mal definido distorce a métrica: caso fora do escopo do agente contado como falha derruba a taxa, e ninguém sabe se o agente piorou ou se entrou outro tipo de caso. Se o denominador muda de composição, a taxa muda sem o agente mudar. Defina o desfecho antes de olhar o número.
 No repo de hoje: `passou`, `falhou`, `fora_do_escopo`, `erro_agente`.
--->
-
----
-
-<!-- _class: pergunta -->
-
-<p class="selo">Chute antes de eu mostrar</p>
-
-## "Pare depois de N chamadas" no prompt. Funciona?
-
-<!--
-[28:00–28:45] Lição 3 · Custo varia muito entre execuções: algumas execuções custam MUITO mais que a média, por causa dos turnos.
-Slide único, sem cliques. Perguntar: "Quem acha que funciona?" (mãos; até 15 s). Se muita gente acha que sim: "Eu também achava." Se ninguém: "Vocês já apanharam disso, né?"
-Avançar para o slide seguinte com a resposta.
--->
-
----
-
-## Teto de turnos: prompt ou hook?
-
-<p class="punch"><strong>Não:</strong> o modelo não conta os próprios turnos.</p>
-
-<p class="punch">O teto de orçamento virou <strong>hook</strong>.</p>
-
-<!--
-[28:45–29:30] Slide único, sem cliques: as duas frases já estão na tela. Primeiro: "pare depois de N chamadas" no prompt não segura: o modelo não conta os próprios turnos. Depois: o teto de orçamento virou hook determinístico.
-Hook = script que o Claude Code roda antes de cada chamada de ferramenta; se ele sair com código 2, a chamada é bloqueada, não importa o que o modelo queira (doc "Hooks reference").
-Não dar número. Se perguntarem "quanto variava?", responder: "a variação era grande o bastante para uma média esconder tudo; por isso olhamos mediana e cauda, e travamos o teto em código".
--->
----
-
-<!-- _class: frase -->
-
-## Lá, o juiz foi rejeitado
-
-Juiz variável avaliando agente variável **soma variância**.
-
-<!--
-[29:30–30:30] Lição 6 · LLM-as-judge rejeitado ali: juiz não determinístico avaliando agente não determinístico soma variância. Lá, o critério ficou em código e gabarito humano.
-Volta no slide de LLM-as-judge (slide 21). No nosso contexto, o custo de variância não compensou. Ponto de discussão, não regra universal.
 -->
 
 ---
@@ -531,23 +349,11 @@ Volta no slide de LLM-as-judge (slide 21). No nosso contexto, o custo de variân
 * Falhou na terça, **teste na quarta**
 
 <!--
-[30:30–33:00] Um clique por linha.
+[17:30–19:00] Um clique por linha (três cliques).
 Lição 4 · Duas camadas: determinística a cada commit; modelo real contra gabarito curado por humano. O gabarito NASCE VAZIO, para não herdar o viés da resposta do agente: o humano escreve a resposta esperada sem olhar o que o agente respondeu. Se você copia a resposta do agente para o gabarito, você mede o agente contra ele mesmo.
 Lição 5 · Matriz-catraca: rota × desfecho. A lista de células SEM cobertura só pode encolher; um teste quebra se alguém tirar cobertura. Catraca é um mecanismo que só gira para um lado. Aplicado a eval: o conjunto de casos cobertos só cresce.
-Lição 7 · Falha vira caso: "o caso que surpreendeu na terça é um teste na quarta." Aprendizado visto em 2 ou mais casos vira regra; o "2 ou mais casos" evita transformar uma exceção em regra para todo mundo.
+Lição 7 · Falha vira caso: "Falhou na terça, teste na quarta: o erro do dia a dia vira tarefa nova com teste escondido, e o conjunto só cresce." Aprendizado visto em 2 ou mais casos vira regra; o "2 ou mais casos" evita transformar uma exceção em regra para todo mundo.
 Transição: "Então, como eu uso isso para melhorar o MEU agente?"
--->
-
----
-
-<!-- _class: secao -->
-
-# 5 · Como melhorar
-
-Uma mudança por vez
-
-<!--
-[33:00]
 -->
 
 ---
@@ -565,7 +371,7 @@ Uma mudança por vez
 </div>
 
 <!--
-[33:00–35:00] Rode a eval ANTES (linha de base); mude UMA coisa; rode a eval de novo, com repetições; compare com intervalo, não com a média.
+[19:00–20:30] Rode a eval ANTES (linha de base); mude UMA coisa; rode a eval de novo, com repetições; compare com intervalo, não com a média.
 O que conta como "uma coisa": o CLAUDE.md, uma skill nova, um hook, o modelo, o prompt da tarefa. Mudou o modelo E o CLAUDE.md juntos? Você não sabe quem ganhou.
 É o mesmo princípio de teste A/B de produto. O experimento de hoje muda só uma coisa: a existência do CLAUDE.md.
 Dica prática: commite a configuração do agente junto com o resultado da eval. Assim, daqui a um mês você sabe qual versão gerou qual número.
@@ -588,61 +394,14 @@ Dica prática: commite a configuração do agente junto com o resultado da eval.
 <p class="fonte">Claude Code docs: "How Claude remembers your project" · "Extend Claude with skills" · "Hooks reference"</p>
 
 <!--
-[35:00–37:00] CLAUDE.md: entra em TODA sessão; bom para convenções do repo, comando de teste, pastas proibidas; cuidado: é contexto, NÃO obrigação.
+[20:30–22:00] CLAUDE.md: entra em TODA sessão; bom para convenções do repo, comando de teste, pastas proibidas; cuidado: é contexto, NÃO obrigação.
 Skill: entra só quando é usada; boa para procedimento longo, material de referência; cuidado: descrição ruim = nunca é chamada.
 Hook: roda antes/depois de cada ferramenta; para regra que PRECISA valer sempre; cuidado: é código, teste como código.
 A própria doc do Claude Code diz que CLAUDE.md é tratado como contexto, não como configuração obrigatória; para bloquear uma ação, use um hook PreToolUse.
 Skill: a doc diz que o corpo da skill só entra no contexto quando ela é usada, então referência longa custa quase nada até ser necessária.
 Clique: regra que não pode falhar não mora no prompt. Mora no hook, no teste ou no CI.
 Cada uma dessas mudanças é uma variante B possível no repo: troque o CLAUDE.md por uma skill ou um hook e rode de novo.
--->
-
----
-
-## Falha vira tarefa nova
-
-<div class="fluxo">
-<div><b>1</b>o agente erra<br>no dia a dia</div>
-<div class="seta">→</div>
-<div><b>2</b>tarefa +<br>teste escondido</div>
-<div class="seta">→</div>
-<div class="destaque"><b>3</b>entra no conjunto<br>e não sai</div>
-</div>
-
-<!--
-[37:00–38:30] Passo a passo: (1) o agente erra algo no dia a dia; (2) você escreve uma TAREFA com o prompt real e um TESTE ESCONDIDO que prova o certo; confere: falha no app intacto, passa com a solução; (3) entra no conjunto e não sai mais.
-É a lição do KTLO aplicada ao agente de código: o erro de terça vira tarefa na quarta. Catraca: o conjunto de tarefas só cresce.
--->
-
----
-
-<!-- _class: lista -->
-
-## O portão no CI
-
-* Inconclusivo → **passa**
-* A melhor que B → **código 1**
-
-<p class="punch" data-marpit-fragment>Só quebra com <strong>evidência de piora</strong>.</p>
-
-<!--
-[38:30–40:00] Três cliques: um por linha e a frase final. O portão roda no CI: se B ficar PIOR que A (intervalos sem sobreposição), sai com código 1. No repo: "inconclusivo" não quebra o build. Só "A melhor" quebra.
-Termos: CI = integração contínua, o pipeline que roda testes a cada push/PR (ex.: GitHub Actions); "quebrar o build" = o pipeline fica vermelho e o merge é bloqueado.
-Por que o portão não olha a taxa crua: com 16 execuções, a taxa oscila de uma rodada para outra só por ruído; um portão "não pode cair" ficaria vermelho sem o agente ter piorado.
-Por que "inconclusivo" não quebra: quebrar o build por falta de dado ensina o time a ignorar o portão. Quebrar só quando há evidência de piora mantém o portão confiável.
 Transição: "Já deu tempo. Vamos ver o que o agente fez." Voltar para o terminal.
--->
-
----
-
-<!-- _class: secao -->
-
-# 6 · Revelação
-
-Vocês apostaram: B ganha · empate · A ganha
-
-<!--
-[40:00–40:30] Callback da aposta (slide 5): "No começo, [a proporção que você guardou, ex.: uns 70%] apostou no B. Vamos ver." Não pedir mãos de novo; só lembrar.
 -->
 
 ---
@@ -660,7 +419,8 @@ trocar para o navegador
 <p class="mini" style="margin-top:24px">Plano B: <code>pnpm relatorio:ensaio</code></p>
 
 <!--
-[40:30–43:00] Se o run ainda não terminou: mostrar o progresso do promptfoo e usar o ensaio. Se terminou: `pnpm relatorio` e abrir o HTML. Plano B: `pnpm relatorio:ensaio` (run gravado no ensaio).
+[22:00–25:00] Primeiro, a volta da aposta (slide 5): "No começo, [a proporção que você guardou, ex.: uns 70%] apostou no B. Vamos ver." Não pedir mãos de novo; só lembrar.
+Se o run ainda não terminou: mostrar o progresso do promptfoo e usar o ensaio. Se terminou: `pnpm relatorio` e abrir o HTML. Plano B: `pnpm relatorio:ensaio` (run gravado no ensaio).
 Roteiro de leitura (nesta ordem; a ordem importa):
 1. n real por variante e quantos erro_agente (contados à parte).
 2. Taxa de sucesso de A e de B, com a barra do intervalo.
@@ -668,7 +428,9 @@ Roteiro de leitura (nesta ordem; a ordem importa):
 4. pass^k: quantas tarefas passaram nas duas repetições.
 5. Fora do escopo.
 6. Por tarefa: o ganho (se houver) está nas tarefas de convenção (03–07) ou nas de controle?
+pass^2 em uma frase: "quantas das 8 tarefas passaram nas DUAS repetições; é a consistência."
 Comparar com a aposta da plateia (slide 5) depois de ler o veredito.
+O portão: "No repo, o portão só quebra o CI se A for melhor que B; inconclusivo passa."
 Não comemorar nem lamentar ainda: os próximos slides explicam como ler.
 Exemplo de resultado (o ensaio gravado, não o de hoje): A 12/16 (75%, 51% a 90%), B 16/16 (100%, 81% a 100%), pass^2 6/8 × 8/8, 3 fora do escopo (mexeram em `src/legado/` ou fora dos permitidos) e 1 teste escondido falhando, todos de A, 0 erro_agente → inconclusivo.
 -->
@@ -682,7 +444,7 @@ Exemplo de resultado (o ensaio gravado, não o de hoje): A 12/16 (75%, 51% a 90%
 ## B é o dobro de A. B ganhou?
 
 <!--
-[43:00–43:45] Slide único, sem cliques. EXEMPLO INVENTADO, não é o run de hoje. Perguntar: "A passou 6 de 16, B passou 12 de 16. B é o dobro. Quem acha que B ganhou?" (mãos; até 15 s). Se a maioria disse "ganhou": "É a resposta natural. E é exatamente o 'parece que melhorou'."
+[25:00–25:30] Slide único, sem cliques. EXEMPLO INVENTADO, não é o run de hoje. Perguntar: "A passou 6 de 16, B passou 12 de 16. B é o dobro. Quem acha que B ganhou?" (mãos; até 15 s). Se a maioria disse "ganhou": "É a resposta natural. E é exatamente o 'parece que melhorou'."
 Avançar para o slide seguinte com a resposta.
 -->
 
@@ -707,7 +469,7 @@ Avançar para o slide seguinte com a resposta.
 <p class="fonte">Exemplo ilustrativo, não é o run de hoje · Wilson (1927); Wikipedia, "Binomial proportion confidence interval"</p>
 
 <!--
-[43:45–45:00] Slide único, sem cliques: barras e veredito já estão na tela. A: 37,5%, intervalo 18% a 61%. B: 75%, intervalo 51% a 90%. As barras se sobrepõem (51% a 61%): inconclusivo.
+[25:30–26:45] Slide único, sem cliques: barras e veredito já estão na tela. A: 37,5%, intervalo 18% a 61%. B: 75%, intervalo 51% a 90%. As barras se sobrepõem (51% a 61%): inconclusivo.
 O intervalo é a faixa de taxas "verdadeiras" compatíveis com o que vimos, com 95% de confiança. O ponto preto é a taxa observada.
 Wilson em vez da conta "p ± 1,96·√(p(1−p)/n)": com n pequeno ou taxa perto de 0% ou 100%, a conta simples dá intervalo que sai de [0, 1] ou tem largura zero (16/16 daria "100% ± 0"). Wilson não tem esse problema.
 Regra do repo: se o limite inferior de B passa do limite superior de A, "B melhor"; o contrário, "A melhor"; senão, "inconclusivo". Inconclusivo não é empate: é "não tenho dado para dizer".
@@ -728,7 +490,7 @@ Não se sobrepor é um critério conservador de propósito (um teste z de duas p
 - 200?
 
 <!--
-[45:00–45:30] Slide único, sem cliques: as quatro opções já estão na tela. Perguntar e pedir mãos em cada uma ("quem diz 5? 16? 40? 200?"); até 20 s no total.
+[26:45–27:15] Slide único, sem cliques: as quatro opções já estão na tela. Perguntar e pedir mãos em cada uma ("quem diz 5? 16? 40? 200?"); até 20 s no total.
 Avançar para o slide seguinte com a resposta.
 -->
 
@@ -739,33 +501,10 @@ Avançar para o slide seguinte com a resposta.
 <div style="text-align:center; margin-top:40px"><span class="grande">27</span><div class="grande-legenda">execuções por variante, no ensaio: A 12/16 × B 16/16</div></div>
 
 <!--
-[45:30–46:00] Slide único, sem cliques. Resposta (do ENSAIO, não do run de hoje): com as taxas do ensaio mantidas (A 12/16 × B 16/16), 27 execuções por variante até os intervalos de Wilson pararem de se sobrepor (critério do veredito); o piso pelo teste z é 24. Dizer "do ensaio" em voz alta.
+[27:15–29:00] Slide único, sem cliques. Resposta (do ENSAIO, não do run de hoje): com as taxas do ensaio mantidas (A 12/16 × B 16/16), 27 execuções por variante até os intervalos de Wilson pararem de se sobrepor (critério do veredito); o piso pelo teste z é 24. Dizer "do ensaio" em voz alta.
 Se o relatório de hoje mostrou outro número em "execuções necessárias por variante (critério do veredito)" (campo execucoesNecessariasPorVariante), dizer: "no de hoje, deu [N]". Se as duas taxas forem iguais, o relatório diz "não calculável".
 Quem chutou 16 chegou perto: "é o que a gente rodou hoje, e não bastou." Quem chutou 40: "um pouco a mais do que precisava."
--->
----
-
-<!-- _class: tabela -->
-
-## Por que 16 não bastam
-
-| A | B | por variante |
-|---|---|---|
-| 37,5% | 75% | **27** (24) |
-| 62,5% | 75% | **212** (212) |
-
-<p class="punch" data-marpit-fragment>Diferença pequena, <strong>muitas</strong> execuções.</p>
-
-<p class="fonte">Taxas de exemplo. O ensaio (75% × 100%) também dá 27 (24).</p>
-
-<!--
-[46:00–47:00] Quantas execuções por variante até as barras pararem de se sobrepor, mantidas as taxas observadas. Entre parênteses, o piso pelo teste z (95% de confiança, 80% de poder). No relatório: "execuções necessárias por variante (critério do veredito)". É estimativa, não garantia.
-Esta é a lição da palestra: 16 execuções por variante quase nunca bastam para uma diferença moderada. O n cresce com 1/(diferença)²: diferença pequena = muitas execuções.
-O número grande é o critério do veredito: com as taxas mantidas, a partir de quantas execuções por variante os intervalos de Wilson deixam de se sobrepor. O relatório testa n = 1, 2, 3… até achar. O número entre parênteses é o piso pelo teste z de duas proporções; com ele o relatório ainda pode sair inconclusivo.
-Fórmula do piso (se perguntarem): n ≈ (1,96 + 0,84)² · [pA(1−pA) + pB(1−pB)] / (pA − pB)². 1,96 vem dos 95% de confiança; 0,84 vem dos 80% de poder.
-Poder = a chance de o experimento detectar a diferença se ela existir de verdade. 80% de poder: se o CLAUDE.md ajuda mesmo, em 8 de cada 10 experimentos desse tamanho a gente veria.
-Essa é a fórmula clássica de tamanho de amostra para comparar duas proporções. O critério do veredito (intervalos sem sobreposição) é mais exigente que ela, por isso o relatório mostra as duas e manda pela de Wilson.
-Qualquer que seja o resultado: B ganhou → o efeito está nas tarefas de convenção? Se estiver também nas de controle, desconfie. Inconclusivo → não é empate; o relatório diz quantas execuções faltam. A ganhou → o CLAUDE.md atrapalhou; abra as execuções e veja onde; o portão sai com código 1.
+Diferença pequena pede muitas execuções: 62,5% contra 75% pediria 212 por variante.
 Fala de fechamento, qualquer desfecho: "Eu não sei ainda se o meu CLAUDE.md presta. Mas agora eu sei quanto eu preciso rodar para saber. Isso é medir."
 -->
 
@@ -795,9 +534,9 @@ Fala de fechamento, qualquer desfecho: "Eu não sei ainda se o meu CLAUDE.md pre
 </div>
 
 <!--
-[47:00–50:00] Os cinco hábitos (três no slide, dois na fala): 1. defina o DESFECHO antes do número; 2. tarefas reais com TESTE ESCONDIDO e escopo; 3. REPITA: pass^k e intervalo, não uma execução; 4. UMA MUDANÇA por vez; 5. toda falha vira TAREFA NOVA.
+[29:00–31:00] Os cinco hábitos (três no slide, dois na fala): 1. defina o DESFECHO antes do número; 2. tarefas reais com TESTE ESCONDIDO e escopo; 3. REPITA: pass^k e intervalo, não uma execução; 4. UMA MUDANÇA por vez; 5. toda falha vira TAREFA NOVA.
 O repo roda o experimento de hoje com o login do Claude Code. O ebook em PDF está dentro dele.
-Deixar este slide parado enquanto as pessoas fotografam o QR, e voltar a ele durante as perguntas.
+Deixar este slide parado enquanto as pessoas fotografam o QR, e voltar a ele durante as perguntas (31:00–40:00, ~9 min).
 O QR é o mesmo do slide 2: a página de links do Mateus. PENDENTE antes da palestra: colocar o repositório publicado e o ebook nessa página.
 Desafio para quem levar o repo: trocar o CLAUDE.md por uma skill ou um hook e rodar de novo; ou apontar as tarefas para o próprio projeto.
 Perguntas prováveis (respostas no guia de fala): "funciona com Codex/Gemini CLI?" (sim, troca o runner; fica como desafio extra), "quanto custa rodar?" (usa a cota da assinatura; o relatório mostra o custo estimado), "e se meu projeto não tem teste?" (comece escrevendo o teste da tarefa: o critério de feito é o primeiro entregável).
