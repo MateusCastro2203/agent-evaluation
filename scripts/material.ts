@@ -17,6 +17,7 @@ import { dirname, join, relative, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import { marpCli } from "@marp-team/marp-cli";
 import { Marked } from "marked";
+import puppeteer from "puppeteer-core";
 
 const RAIZ = resolve(import.meta.dirname, "..");
 const TEMA_SLIDES = join(RAIZ, "material/tema-slides.css");
@@ -42,6 +43,8 @@ interface ConfigApostila {
   titulo: string;
   subtitulo: string;
   fontes: Fonte[];
+  /** Link discreto repetido no topo de todas as páginas do PDF (ex.: o LinkedIn do autor). */
+  marca?: { texto: string; url: string };
 }
 
 const PALESTRA = join(RAIZ, "palestra");
@@ -58,7 +61,7 @@ if (existsSync(PALESTRA)) {
 }
 manifestos.push([EBOOK, "ebook"]);
 for (const [pasta, nome] of manifestos) {
-  if (existsSync(join(pasta, `${nome}.json`))) gerarDocumento(pasta, nome);
+  if (existsSync(join(pasta, `${nome}.json`))) await gerarDocumento(pasta, nome);
   else console.log(`  - ${relative(RAIZ, join(pasta, `${nome}.json`))} não existe; pulado`);
 }
 
@@ -85,7 +88,7 @@ async function gerarSlides(pasta: string) {
   }
 }
 
-function gerarDocumento(pasta: string, nome: string) {
+async function gerarDocumento(pasta: string, nome: string) {
   const config: ConfigApostila = JSON.parse(readFileSync(join(pasta, `${nome}.json`), "utf8"));
 
   const capitulos = config.fontes.map((fonte, i) => {
@@ -117,7 +120,8 @@ ${capitulos.map((c) => `<section class="capitulo" id="${c.id}"><h1>${esc(c.titul
   const html = join(mkdtempSync(join(tmpdir(), "material-")), `${nome}.html`);
   writeFileSync(html, documento);
   const saida = join(pasta, `${nome}.pdf`);
-  imprimirPdf(html, saida);
+  if (config.marca) await imprimirPdfComMarca(html, saida, config.marca);
+  else imprimirPdf(html, saida);
   console.log(`  ✔ ${relative(RAIZ, saida)}`);
 }
 
@@ -160,6 +164,26 @@ function extrairSecao(markdown: string, titulo: string, arquivo: string): string
   }
   // A seção vira subtítulo (##) dentro do capítulo, qualquer que fosse o nível original.
   return ["## " + titulo, ...linhas.slice(inicio + 1, fim)].join("\n");
+}
+
+/** Imprime com o rodapé nativo do Chrome: o link fica na margem de baixo de todas as páginas e continua clicável. */
+async function imprimirPdfComMarca(html: string, saida: string, marca: { texto: string; url: string }) {
+  const navegador = await puppeteer.launch({ executablePath: encontrarNavegador() });
+  try {
+    const pagina = await navegador.newPage();
+    await pagina.goto(pathToFileURL(html).href, { waitUntil: "load" });
+    await pagina.pdf({
+      path: saida,
+      preferCSSPageSize: true,
+      printBackground: true,
+      displayHeaderFooter: true,
+      headerTemplate: "<span></span>",
+      footerTemplate: `<div style="width:100%;font-size:8px;text-align:right;padding:0 20mm 6mm 0;font-family:-apple-system,Helvetica,Arial,sans-serif"><a href="${esc(marca.url)}" style="color:#5b6272;text-decoration:none">${esc(marca.texto)}</a></div>`,
+    });
+  } finally {
+    await navegador.close();
+  }
+  if (!existsSync(saida)) throw new Error(`Falha ao imprimir o PDF: ${saida}`);
 }
 
 function imprimirPdf(html: string, saida: string) {

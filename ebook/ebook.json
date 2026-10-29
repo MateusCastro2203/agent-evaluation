@@ -2,6 +2,7 @@
   "selo": "Ebook",
   "titulo": "Como medir os seus agentes de IA",
   "subtitulo": "Do \"parece que melhorou\" para a medida: como saber se uma mudança no seu agente de código ajudou de verdade, com tarefas, um teste que o agente não vê, repetição e margem de erro. E como rodar e adaptar o repositório agent-evaluation ao seu projeto.",
+  "marca": { "texto": "in/mateus-castro · LinkedIn", "url": "https://www.linkedin.com/in/mateus-castro-b49559169/" },
   "fontes": [
     { "arquivo": "ebook/01-por-que-medir.md", "titulo": "Por que medir" },
     { "arquivo": "ebook/02-o-que-e-efetivo.md", "titulo": "O que é \"efetivo\"" },
